@@ -1,0 +1,26 @@
+# TODO: Add title of data package.
+title: ""
+# TODO: Add abstract of data package.
+abstract: ""
+authors:
+  - family-names: Beicher
+    given-names: Kristiane
+  # TODO: Add ORCID and affiliation for the author.
+    orcid: ""
+    affiliation: ""
+  # TODO: Add more authors as needed.
+  # - family-names: ""
+  #   given-names: ""
+  #   orcid: ""
+  #   affiliation: ""
+cff-version: 1.2.0
+# doi:
+keywords:
+  # TODO: Add keywords relevant to the project.
+  - ""
+# TODO: Add a data license for the data package.
+license: ""
+message: "If you use this data package, please cite it using these metadata."
+repository-code: "https://github.com/onlimit-study/feasibility-data"
+# TODO: Add a URL for any website for the data package.
+# url: ""

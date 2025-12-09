@@ -1,0 +1,12 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 0.16.5
+_src_path: gh:seedcase-project/template-data-package
+author_email: kris.beicher@clin.au.dk
+author_family_name: Beicher
+author_given_name: Kristiane
+cc0_license: false
+copyright_year: '2025'
+github_board_number: ''
+github_repo: feasibility-data
+github_user: onlimit-study
+review_team: '@onlimit-study/developers'

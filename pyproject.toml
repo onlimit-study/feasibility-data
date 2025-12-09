@@ -1,0 +1,35 @@
+[project]
+name = "feasibility-data"
+version = "0.1.0"
+# TODO: Add a description of the package.
+description = ""
+authors = [
+  {name = "Kristiane Beicher", email = "kris.beicher@clin.au.dk" },
+  # TODO: Add more authors as needed.
+]
+maintainers = [
+  {name = "Kristiane Beicher", email = "kris.beicher@clin.au.dk" },
+  # TODO: Add more maintainers as needed.
+]
+readme = "README.md"
+
+license = "MIT"
+license-files = ["LICENSE-MIT.md"]
+
+requires-python = ">=3.12"
+dependencies = [
+    "polars>=1.36.0",
+    "seedcase-sprout>=0.49.0",
+]
+
+[project.urls]
+issues = "https://github.com/onlimit-study/feasibility-data/issues"
+repository = "https://github.com/onlimit-study/feasibility-data"
+
+[dependency-groups]
+dev = [
+    "commitizen>=4.10.0",
+    "pre-commit>=4.5.0",
+    "ruff>=0.14.8",
+    "typos>=1.40.0",
+]

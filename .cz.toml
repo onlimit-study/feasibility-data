@@ -1,0 +1,11 @@
+[tool.commitizen]
+bump_message = "build(version): :bookmark: update version from $current_version to $new_version"
+update_changelog_on_bump = true
+version_provider = "uv"
+version_files = [
+  "pyproject.toml:version",
+  "scripts/package_properties.py:version",
+  "datapackage.json:version"
+]
+# Don't regenerate the changelog on every update
+changelog_incremental = true
