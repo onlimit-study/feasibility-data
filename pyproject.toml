@@ -1,15 +1,14 @@
 [project]
 name = "feasibility-data"
 version = "0.1.0"
-# TODO: Add a description of the package.
-description = ""
+description = "Data package set up to handle the data from the ON LiMiT pilot study. This will be coming in from a REDCap API and a variety of csv files."
 authors = [
   {name = "Kristiane Beicher", email = "kris.beicher@clin.au.dk" },
-  # TODO: Add more authors as needed.
+  # Add more authors as needed.
 ]
 maintainers = [
   {name = "Kristiane Beicher", email = "kris.beicher@clin.au.dk" },
-  # TODO: Add more maintainers as needed.
+  # Add more maintainers as needed.
 ]
 readme = "README.md"
 

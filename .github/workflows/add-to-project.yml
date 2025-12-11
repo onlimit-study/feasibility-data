@@ -20,7 +20,7 @@ jobs:
     permissions:
       pull-requests: write
     with:
-      board-number:
+      board-number: 5
       app-id: ${{ vars.ADD_TO_BOARD_APP_ID }}
     secrets:
       add-to-board-token: ${{ secrets.ADD_TO_BOARD }}

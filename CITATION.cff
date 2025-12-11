@@ -1,14 +1,11 @@
-# TODO: Add title of data package.
-title: ""
-# TODO: Add abstract of data package.
-abstract: ""
+title: "ON LiMiT Pilot Study"
+abstract: "Data package set up to handle the data from the ON LiMiT pilot study. This will be coming in from a REDCap API and a variety of csv files."
 authors:
   - family-names: Beicher
     given-names: Kristiane
-  # TODO: Add ORCID and affiliation for the author.
-    orcid: ""
-    affiliation: ""
-  # TODO: Add more authors as needed.
+    orcid: "0000-0001-7556-9566"
+    affiliation: "Steno Diabetes Centre Aarhus"
+  # Add more authors as needed.
   # - family-names: ""
   #   given-names: ""
   #   orcid: ""
@@ -16,8 +13,11 @@ authors:
 cff-version: 1.2.0
 # doi:
 keywords:
-  # TODO: Add keywords relevant to the project.
-  - ""
+  - "research"
+  - "T2D"
+  - "dietary intervention"
+  - "exercise intervention"
+  - "remission"
 # TODO: Add a data license for the data package.
 license: ""
 message: "If you use this data package, please cite it using these metadata."
