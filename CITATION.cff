@@ -1,5 +1,5 @@
 title: "ON LiMiT Feasibility Study Data Package"
-abstract: "A Data Package for the ON LiMiT feasibility study. The data itself is connected to this Data Package via storage on GenomeDK at Aarhus University, Denmark but is not publicly accessible. The publicly accessible content of this Data Package is the documenatation and metadata associated with the data."
+abstract: "A Data Package for the ON LiMiT feasibility study. The data itself is connected to this Data Package via storage on GenomeDK at Aarhus University, Denmark but is not publicly accessible. The publicly accessible content of this Data Package is the documentation and metadata associated with the data."
 authors:
   - family-names: Beicher
     given-names: Kristiane
