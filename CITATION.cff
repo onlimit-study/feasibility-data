@@ -1,18 +1,35 @@
-title: "ON LiMiT Pilot Study"
-abstract: "Data package set up to handle the data from the ON LiMiT pilot study. This will be coming in from a REDCap API and a variety of csv files."
+title: "ON LiMiT Feasibility Study Data Package"
+abstract: "A Data Package for the ON LiMiT feasibility study. The data itself is connected to this Data Package via storage on GenomeDK at Aarhus University, Denmark but is not publicly accessible. The publicly accessible content of this Data Package is the documenatation and metadata associated with the data."
 authors:
   - family-names: Beicher
     given-names: Kristiane
     orcid: "0000-0001-7556-9566"
     affiliation: "Steno Diabetes Centre Aarhus"
   # Add more authors as needed.
-  # - family-names: ""
-  #   given-names: ""
-  #   orcid: ""
-  #   affiliation: ""
+  - family-names: Ibsen
+    given-names: Daniel
+    affiliation: "Steno Diabetes Center Aarhus"
+    orcid: "https://orcid.org/0000-0002-7038-4770"
+  - family-names: Johnston
+    given-names: Luke William
+    orcid: "https://orcid.org/0000-0003-4169-2616"
+    affiliation: "Steno Diabetes Center Aarhus"
+  - family-names: Brødbæk
+    given-names: Signe Kirk
+    affiliation: "Steno Diabetes Center Aarhus"
+    orcid: "https://orcid.org/0009-0000-2208-7088"
+  - family-names: Vago
+    given-names: Marton
+    affiliation: "Steno Diabetes Center Aarhus"
+    orcid: "https://orcid.org/0009-0007-4628-655X"
 cff-version: 1.2.0
 # doi:
 keywords:
+  - "data package"
+  - "frictionless data"
+  - "metadata"
+  - "data documentation"
+  - "data dictionary"
   - "research"
   - "T2D"
   - "dietary intervention"

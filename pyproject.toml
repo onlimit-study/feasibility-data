@@ -1,14 +1,20 @@
 [project]
 name = "feasibility-data"
 version = "0.1.0"
-description = "Data package set up to handle the data from the ON LiMiT pilot study. This will be coming in from a REDCap API and a variety of csv files."
+description = "A Data Package for the ON LiMiT feasibility study. The data itself is connected to this Data Package via storage on GenomeDK at Aarhus University, Denmark but is not publicly accessible. The publicly accessible content of this Data Package is the documenatation and metadata associated with the data."
 authors = [
   {name = "Kristiane Beicher", email = "kris.beicher@clin.au.dk" },
-  # Add more authors as needed.
+  {name = "Daniel Ibsen", email = "dbi@ph.au.dk" },
+  {name = "Luke W. Johnston, email = "lwjohnst@gmail.com" },
+  {name = "Signe Kirk Brødbæk", email = "signekb@clin.au.dk" },
+  {name = "Marton Vago", email = "marton.vago95@gmail.com" },
 ]
 maintainers = [
   {name = "Kristiane Beicher", email = "kris.beicher@clin.au.dk" },
-  # Add more maintainers as needed.
+  {name = "Daniel Ibsen", email = "dbi@ph.au.dk" },
+  {name = "Luke W. Johnston", email = "lwjohnst@gmail.com" },
+  {name = "Signe Kirk Brødbæk", email = "signekb@clin.au.dk" },
+  {name = "Marton Vago", email = "marton.vago95@gmail.com" },
 ]
 readme = "README.md"
 
