@@ -23,7 +23,7 @@ package_properties = sp.PackageProperties(
     # contributors=[
     #    sp.ContributorProperties(
     #        ## Required:
-    #        title="",
+    #        title="Kristiane Beicher",
     #        ## Optional:
     #        path="",
     #        email="kris.beicher@clin.au.dk",
