@@ -5,21 +5,21 @@ import seedcase_sprout as sp
 package_properties = sp.PackageProperties(
     ## Required:
     name="feasibility-data",
-    title="ON LiMiT Feasibility study",
+    title="ON LiMiT Feasibility Study Data",
     description="Full data set on 24 participants in the feasibility arm of the "
     "ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using "
     "diet and exercise.",
     licenses=[
         sp.LicenseProperties(
             ## Required:
-            name="CC-By",
+            name="CC0-1.0",
             ## Optional:
-            # path="",
-            # title="",
+            path="https://creativecommons.org/publicdomain/zero/1.0/",
+            title="CC0 1.0 Universal",
         ),
     ],
     ## Optional:
-    # homepage="https://onlimit.org",
+    homepage="https://onlimit.org",
     # contributors=[
     #    sp.ContributorProperties(
     #        ## Required:
@@ -30,7 +30,7 @@ package_properties = sp.PackageProperties(
     #        given_name="Kristiane",
     #        family_name="Beicher",
     #        organization="Steno Diabetes Centre Aarhus",
-    #        roles=["Data Architect"],
+    #        roles=["Creator", "DataManager", "DataCurator", "ContactPerson"],
     #    ),
     # ],
     # keywords=[""],
