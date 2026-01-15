@@ -6,7 +6,9 @@ package_properties = sp.PackageProperties(
     ## Required:
     name="feasibility-data",
     title="ON LiMiT Feasibility study",
-    description="Full data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.",  # noqa: E501
+    description="Full data set on 24 participants in the feasibility arm of the "
+    "ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using "
+    "diet and exercise.",
     licenses=[
         sp.LicenseProperties(
             ## Required:
