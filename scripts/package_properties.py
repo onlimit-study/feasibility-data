@@ -17,18 +17,18 @@ package_properties = sp.PackageProperties(
         ),
     ],
     ## Optional:
-    # homepage="",
+    # homepage="https://onlimit.org",
     # contributors=[
     #    sp.ContributorProperties(
     #        ## Required:
     #        title="",
     #        ## Optional:
     #        path="",
-    #        email="",
-    #        given_name="",
-    #        family_name="",
-    #        organization="",
-    #        roles=[""],
+    #        email="kris.beicher@clin.au.dk",
+    #        given_name="Kristiane",
+    #        family_name="Beicher",
+    #        organization="Steno Diabetes Centre Aarhus",
+    #        roles=["Data Architect"],
     #    ),
     # ],
     # keywords=[""],
