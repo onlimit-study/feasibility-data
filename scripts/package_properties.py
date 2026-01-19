@@ -20,49 +20,52 @@ package_properties = sp.PackageProperties(
     ],
     ## Optional:
     homepage="https://onlimit.org",
-    # contributors=[
-    #    sp.ContributorProperties(
-    #        ## Required:
-    #        title="Kristiane Beicher",
-    #        ## Optional:
-    #        path="",
-    #        email="kris.beicher@clin.au.dk",
-    #        given_name="Kristiane",
-    #        family_name="Beicher",
-    #        organization="Steno Diabetes Centre Aarhus",
-    #        roles=["DataManager", "DataCurator", "ContactPerson"],
-    #    sp.ContributorProperties(
-    #        ## Required:
-    #        title="Daniel Borch Ibsen",
-    #        ## Optional:
-    #        path="",
-    #        email="dbi@ph.au.dk",
-    #        given_name="Daniel",
-    #        family_name="Ibsen",
-    #        organization="Steno Diabetes Centre Aarhus",
-    #        roles=["ContactPerson"],
-    #    sp.ContributorProperties(
-    #        ## Required:
-    #        title="Luke W Johnston",
-    #        ## Optional:
-    #        path="",
-    #        email="lwjohnst@clin.au.dk",
-    #        given_name="Luke",
-    #        family_name="Johnston",
-    #        organization="Steno Diabetes Centre Aarhus",
-    #        roles=["DataManager", "DataCurator"],
-    #    sp.ContributorProperties(
-    #        ## Required:
-    #        title="Marton Vago",
-    #        ## Optional:
-    #        path="",
-    #        email="mvago@clin.au.dk",
-    #        given_name="Marton",
-    #        family_name="Vago",
-    #        organization="Steno Diabetes Centre Aarhus",
-    #        roles=["DataManager", "DataCurator"],
-    #    ),
-    # ],
+    contributors=[
+        sp.ContributorProperties(
+            ## Required:
+            title="Kristiane Beicher",
+            ## Optional:
+            path="",
+            email="kris.beicher@clin.au.dk",
+            given_name="Kristiane",
+            family_name="Beicher",
+            organization="Steno Diabetes Centre Aarhus",
+            roles=["DataManager", "DataCurator", "ContactPerson"],
+        ),
+        sp.ContributorProperties(
+            ## Required:
+            title="Daniel Borch Ibsen",
+            ## Optional:
+            path="",
+            email="dbi@ph.au.dk",
+            given_name="Daniel",
+            family_name="Ibsen",
+            organization="Steno Diabetes Centre Aarhus",
+            roles=["ContactPerson"],
+        ),
+        sp.ContributorProperties(
+            ## Required:
+            title="Luke W Johnston",
+            ## Optional:
+            path="",
+            email="lwjohnst@clin.au.dk",
+            given_name="Luke",
+            family_name="Johnston",
+            organization="Steno Diabetes Centre Aarhus",
+            roles=["DataManager", "DataCurator"],
+        ),
+        sp.ContributorProperties(
+            ## Required:
+            title="Marton Vago",
+            ## Optional:
+            path="",
+            email="mvago@clin.au.dk",
+            given_name="Marton",
+            family_name="Vago",
+            organization="Steno Diabetes Centre Aarhus",
+            roles=["DataManager", "DataCurator"],
+        ),
+    ],
     # keywords=[""],
     # image="",
     # sources=[
