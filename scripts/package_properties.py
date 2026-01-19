@@ -5,32 +5,67 @@ import seedcase_sprout as sp
 package_properties = sp.PackageProperties(
     ## Required:
     name="feasibility-data",
-    title="",
-    description="",
+    title="ON LiMiT Feasibility Study Data",
+    description="Full data set on 24 participants in the feasibility arm of the "
+    "ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using "
+    "diet and exercise.",
     licenses=[
         sp.LicenseProperties(
             ## Required:
-            name="",
+            name="CC0-1.0",
             ## Optional:
-            # path="",
-            # title="",
+            path="https://creativecommons.org/publicdomain/zero/1.0/",
+            title="CC0 1.0 Universal",
         ),
     ],
     ## Optional:
-    # homepage="",
-    # contributors=[
-    #    sp.ContributorProperties(
-    #        ## Required:
-    #        title="",
-    #        ## Optional:
-    #        path="",
-    #        email="",
-    #        given_name="",
-    #        family_name="",
-    #        organization="",
-    #        roles=[""],
-    #    ),
-    # ],
+    homepage="https://onlimit.org",
+    contributors=[
+        sp.ContributorProperties(
+            ## Required:
+            title="Kristiane Beicher",
+            ## Optional:
+            path="",
+            email="kris.beicher@clin.au.dk",
+            given_name="Kristiane",
+            family_name="Beicher",
+            organization="Steno Diabetes Centre Aarhus",
+            roles=["DataManager", "DataCurator", "ContactPerson"],
+        ),
+        sp.ContributorProperties(
+            ## Required:
+            title="Daniel Borch Ibsen",
+            ## Optional:
+            path="",
+            email="dbi@ph.au.dk",
+            given_name="Daniel",
+            family_name="Ibsen",
+            organization="Steno Diabetes Centre Aarhus",
+            roles=["ContactPerson"],
+        ),
+        sp.ContributorProperties(
+            ## Required:
+            title="Luke W Johnston",
+            ## Optional:
+            path="",
+            email="lwjohnst@clin.au.dk",
+            given_name="Luke",
+            family_name="Johnston",
+            organization="Steno Diabetes Centre Aarhus",
+            roles=["DataManager", "DataCurator"],
+        ),
+        sp.ContributorProperties(
+            ## Required:
+            title="Marton Vago",
+            ## Optional:
+            path="",
+            email="mvago@clin.au.dk",
+            given_name="Marton",
+            family_name="Vago",
+            organization="Steno Diabetes Centre Aarhus",
+            roles=["DataManager", "DataCurator"],
+        ),
+    ],
     # keywords=[""],
     # image="",
     # sources=[
