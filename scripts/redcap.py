@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def get_data_dict_from_redcap() -> dict[str, str]:
+def get_data_dict_from_redcap() -> list[dict[str, str]]:
     """Gets the data dictionary from REDCap."""
     token = os.environ.get("REDCAP_TOKEN")
     if not token:
