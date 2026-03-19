@@ -30,7 +30,6 @@ __pycache__/
 *.parquet
 *.csv
 /data-raw/
-/raw/
 /data/
 
 # MacOS
