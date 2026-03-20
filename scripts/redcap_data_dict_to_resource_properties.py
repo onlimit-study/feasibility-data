@@ -152,12 +152,12 @@ def _get_description(redcap_field: dict[str, str]) -> str:
 
     if redcap_field["field_type"] == "slider":
         description += (
-            f"Question: {redcap_field['field_label']}. Slider scale labels: "
+            f" Question: {redcap_field['field_label']}. Slider scale labels: "
             # Given as: left label | middle label | right label
             + redcap_field["select_choices_or_calculations"]
         )
 
-    return description
+    return description.strip()
 
 
 def _get_categories(redcap_field: dict[str, str]) -> list[str] | None:
