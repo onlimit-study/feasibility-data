@@ -167,7 +167,7 @@ def _get_categories(redcap_field: dict[str, str]) -> Optional[list[str]]:
     return _map(_get_choices(redcap_field), itemgetter(1))
 
 
-def _get_type(redcap_field: dict[str, str]) -> sp.properties.FieldType:
+def _get_type(redcap_field: dict[str, str]) -> sp.FieldType:
     match redcap_field["field_type"]:
         case "text" | "calc" | "radio" | "notes" | "file":
             return "string"
