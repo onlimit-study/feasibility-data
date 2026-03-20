@@ -3,7 +3,7 @@ import re
 from itertools import chain, groupby
 from operator import itemgetter
 from pathlib import Path
-from typing import Callable, Iterable, TypeVar, cast
+from typing import Callable, Iterable, Optional, TypeVar, cast
 
 import seedcase_sprout as sp
 
@@ -160,7 +160,7 @@ def _get_description(redcap_field: dict[str, str]) -> str:
     return description.strip()
 
 
-def _get_categories(redcap_field: dict[str, str]) -> list[str] | None:
+def _get_categories(redcap_field: dict[str, str]) -> Optional[list[str]]:
     if redcap_field["field_type"] != "radio":
         return None
 
