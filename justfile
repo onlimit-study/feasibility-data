@@ -75,3 +75,7 @@ build-website: build-quartodoc
 # Preview the documentation website with automatic reload on changes
 preview-website: build-quartodoc
   uv run quarto preview --execute
+
+# Download data dictionary from REDCap
+download-data-dict:
+  uv run python scripts/redcap.py

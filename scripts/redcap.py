@@ -32,3 +32,7 @@ def save_data_dict():
     file_path.parent.mkdir(parents=True, exist_ok=True)
     with open(file_path, "w") as f:
         json.dump(data_dict, f, indent=2, ensure_ascii=False)
+
+
+if __name__ == "__main__":
+    save_data_dict()
