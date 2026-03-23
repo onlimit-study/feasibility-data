@@ -10,9 +10,9 @@ load_dotenv()
 
 def get_data_dict_from_redcap() -> list[dict[str, str]]:
     """Gets the data dictionary from REDCap."""
-    token = os.environ.get("REDCAP_TOKEN")
+    token = os.environ.get("REDC_CPH_API_KEY")
     if not token:
-        raise RuntimeError("REDCAP_TOKEN environment variable is not set.")
+        raise RuntimeError("REDC_CPH_API_KEY environment variable is not set.")
 
     data = {
         "token": token,
