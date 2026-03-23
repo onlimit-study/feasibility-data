@@ -65,6 +65,7 @@ def _redcap_form_to_resource(
             name=field["field_name"],
             title=field["field_name"],
             type=_get_type(field),
+            format=_get_format(field),
             description=_get_description(field),
             categories=_get_categories(field),
             constraints=sp.ConstraintsProperties(
@@ -167,11 +168,54 @@ def _get_categories(redcap_field: dict[str, str]) -> Optional[list[str]]:
     return _map(_get_choices(redcap_field), itemgetter(1))
 
 
+def _get_format(redcap_field: dict[str, str]) -> Optional[str]:
+    match redcap_field["text_validation_type_or_show_slider_number"]:
+        case "email":
+            return "email"
+        case "time":
+            return "%H:%M"
+        case "date_ymd":
+            return "%Y/%m/%d"
+        case "date_dmy":
+            return "%d/%m/%Y"
+        case "datetime_dmy":
+            return "%d/%m/%Y %H:%M"
+        case _:
+            return None
+
+
 def _get_type(redcap_field: dict[str, str]) -> sp.FieldType:
     match redcap_field["field_type"]:
-        case "text" | "calc" | "radio" | "notes" | "file":
+        case "text":
+            return _get_type_from_mask(redcap_field)
+        case "calc" | "radio" | "notes" | "file":
             return "string"
         case "slider":
             return "number"
         case _:
             raise NotImplementedError(_get_error_message(redcap_field, "field_type"))
+
+
+def _get_type_from_mask(redcap_field: dict[str, str]) -> sp.FieldType:
+    match redcap_field["text_validation_type_or_show_slider_number"]:
+        case "" | "email" | "alpha_only" | "cpr_med_bindestreg":
+            return "string"
+        case (
+            "number"
+            | "number_comma_decimal"
+            | "number_1dp_comma_decimal"
+            | "number_2dp_comma_decimal"
+        ):
+            return "number"
+        case "date_ymd" | "date_dmy":
+            return "date"
+        case "datetime_dmy":
+            return "datetime"
+        case "time":
+            return "time"
+        case _:
+            raise NotImplementedError(
+                _get_error_message(
+                    redcap_field, "text_validation_type_or_show_slider_number"
+                )
+            )
