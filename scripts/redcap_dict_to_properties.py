@@ -24,13 +24,13 @@ def _flat_map(items: Iterable[In], fn: Callable[[In], Iterable[Out]]) -> list[Ou
     return list(chain.from_iterable(map(fn, items)))
 
 
-def load_data_dict_from_file() -> list[dict[str, str]]:
+def read_dictionary() -> list[dict[str, str]]:
     """Loads REDCap data dictionary from `scripts/data_dictionary.json`."""
     with open(Path("scripts") / "data_dictionary.json") as f:
         return json.load(f)
 
 
-def redcap_data_dict_to_resource_properties(
+def dictionary_to_properties(
     redcap_fields: list[dict[str, str]],
 ) -> list[sp.ResourceProperties]:
     """Converts REDCap data dictionary to Data Package resources."""
@@ -38,20 +38,19 @@ def redcap_data_dict_to_resource_properties(
     grouped_by_form = groupby(sorted_by_form, key=lambda field: field["form_name"])
     return _map(
         grouped_by_form,
-        lambda group: _redcap_form_to_resource(group[0], list(group[1])),
+        lambda group: _form_to_resource(group[0], list(group[1])),
     )
 
 
-def _redcap_form_to_resource(
+def _form_to_resource(
     form_name: str, fields: list[dict[str, str]]
 ) -> sp.ResourceProperties:
     visit_field = sp.FieldProperties(
-        name="visit",
-        title="The unique name of the visit.",
+        name="event",
+        title="The unique name of the event.",
         type="string",
         description=(
-            "The unique name identifying the visit. A visit "
-            "corresponds to a REDCap event when the the form was filled in."
+            "The unique name identifying the event when the form was filled in."
         ),
     )
 
