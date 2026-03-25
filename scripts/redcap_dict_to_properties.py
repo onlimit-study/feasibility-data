@@ -3,7 +3,7 @@ import re
 from itertools import chain, groupby
 from operator import itemgetter
 from pathlib import Path
-from typing import Callable, Iterable, Optional, TypeVar, cast
+from typing import Callable, Iterable, Literal, Optional, TypeVar, Union, cast
 
 import seedcase_sprout as sp
 
@@ -70,6 +70,10 @@ def _form_to_resource(
             constraints=sp.ConstraintsProperties(
                 required=_get_required(field),
                 enum=_get_categories(field),
+                minimum=_get_validation_bound(field, "text_validation_min"),
+                maximum=_get_validation_bound(field, "text_validation_max"),
+                min_length=_get_text_length_bound(field, "text_validation_min"),
+                max_length=_get_text_length_bound(field, "text_validation_max"),
             ),
         ),
     )
@@ -183,6 +187,45 @@ def _get_format(redcap_field: dict[str, str]) -> Optional[str]:
             return None
 
 
+def _get_validation_bound(
+    redcap_field: dict[str, str],
+    field_name: Literal["text_validation_min", "text_validation_max"],
+) -> Optional[Union[float, str]]:
+    mask = redcap_field["text_validation_type_or_show_slider_number"]
+    value = redcap_field[field_name]
+    if value == "":
+        return None
+
+    match mask:
+        case "number":
+            return float(value)
+        case (
+            "number_comma_decimal"
+            | "number_1dp_comma_decimal"
+            | "number_2dp_comma_decimal"
+        ):
+            return float(value.replace(",", "."))
+        case "date_ymd" | "date_dmy" | "datetime_dmy" | "time":
+            return value
+        case _:
+            return None
+
+
+def _get_text_length_bound(
+    redcap_field: dict[str, str],
+    field_name: Literal["text_validation_min", "text_validation_max"],
+) -> Optional[int]:
+    mask = redcap_field["text_validation_type_or_show_slider_number"]
+    value = redcap_field[field_name]
+    if value == "":
+        return None
+
+    if mask in {"", "email", "alpha_only", "dk_cpr_dash"}:
+        return int(value)
+
+    return None
+
+
 def _get_type(redcap_field: dict[str, str]) -> sp.FieldType:
     match redcap_field["field_type"]:
         case "text":
@@ -197,7 +240,7 @@ def _get_type(redcap_field: dict[str, str]) -> sp.FieldType:
 
 def _get_type_from_mask(redcap_field: dict[str, str]) -> sp.FieldType:
     match redcap_field["text_validation_type_or_show_slider_number"]:
-        case "" | "email" | "alpha_only" | "cpr_med_bindestreg":
+        case "" | "email" | "alpha_only" | "dk_cpr_dash":
             return "string"
         case (
             "number"
