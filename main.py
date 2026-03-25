@@ -1,9 +1,7 @@
 # import polars as pl
 import seedcase_sprout as sp
 
-# from scripts.package_properties import package_properties
-
-# from scripts.resource_properties import resource_properties
+from scripts.package_properties import package_properties
 
 
 def main():
@@ -13,20 +11,10 @@ def main():
     ## Create the properties script in default location if it doesn't already exist.
     sp.create_properties_script()
 
-    ## Load your raw, but tidy, data into a Polars DataFrame.
     # package_path = sp.PackagePath()
-    # raw_data = pl.read_csv(package_path.root() / "raw" / "data.csv")
-    ## Extract field properties from the data.
-    # field_properties = sp.extract_field_properties(data=raw_data)
-
-    ## Create the resource properties script if it doesn't already exist.
-    # sp.create_resource_properties_script(
-    #     resource_name="",
-    #     fields=field_properties,
-    # )
 
     ## Save the properties to `datapackage.json`.
-    # sp.write_properties(properties=package_properties)
+    sp.write_properties(properties=package_properties)
 
     ## README
 
