@@ -20,7 +20,7 @@ def get_data_dict_from_redcap() -> list[dict[str, str]]:
         "format": "json",
         "returnFormat": "json",
     }
-    response = requests.post("https://redcap.au.dk/api/", data=data, timeout=30)
+    response = requests.post("https://redcap.regionh.dk/api/", data=data, timeout=30)
     response.raise_for_status()
     return response.json()
 
