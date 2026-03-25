@@ -47,10 +47,22 @@ def _form_to_resource(
 ) -> sp.ResourceProperties:
     event_field = sp.FieldProperties(
         name="event",
-        title="The unique name of the event.",
+        title="The unique name of the event",
         type="string",
         description=(
             "The unique name identifying the event when the form was filled in."
+        ),
+        constraints=sp.ConstraintsProperties(required=True),
+    )
+    center_field = sp.FieldProperties(
+        name="center",
+        title="Research center",
+        type="string",
+        description="The research center where the data item was recorded.",
+        categories=["Copenhagen", "Aarhus", "Odense"],
+        constraints=sp.ConstraintsProperties(
+            required=True,
+            enum=["Copenhagen", "Aarhus", "Odense"],
         ),
     )
 
@@ -90,7 +102,7 @@ def _form_to_resource(
         description=form_name,
         schema=sp.TableSchemaProperties(
             primary_key=["event"],
-            fields=[event_field] + form_fields + checkbox_fields,
+            fields=[event_field, center_field] + form_fields + checkbox_fields,
         ),
     )
 
