@@ -220,7 +220,7 @@ def _get_text_length_bound(
     if value == "":
         return None
 
-    if mask in {"", "email", "alpha_only", "dk_cpr_dash"}:
+    if mask in {"", "email", "alpha_only", "dk_cpr_dash", "cpr_med_bindestreg"}:
         return int(value)
 
     return None
@@ -240,7 +240,7 @@ def _get_type(redcap_field: dict[str, str]) -> sp.FieldType:
 
 def _get_type_from_mask(redcap_field: dict[str, str]) -> sp.FieldType:
     match redcap_field["text_validation_type_or_show_slider_number"]:
-        case "" | "email" | "alpha_only" | "dk_cpr_dash":
+        case "" | "email" | "alpha_only" | "dk_cpr_dash" | "cpr_med_bindestreg":
             return "string"
         case (
             "number"
