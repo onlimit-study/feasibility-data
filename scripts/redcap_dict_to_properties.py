@@ -45,7 +45,7 @@ def dictionary_to_properties(
 def _form_to_resource(
     form_name: str, fields: list[dict[str, str]]
 ) -> sp.ResourceProperties:
-    visit_field = sp.FieldProperties(
+    event_field = sp.FieldProperties(
         name="event",
         title="The unique name of the event.",
         type="string",
@@ -89,8 +89,8 @@ def _form_to_resource(
         title=form_name,
         description=form_name,
         schema=sp.TableSchemaProperties(
-            primary_key=["visit"],
-            fields=[visit_field] + form_fields + checkbox_fields,
+            primary_key=["event"],
+            fields=[event_field] + form_fields + checkbox_fields,
         ),
     )
 
