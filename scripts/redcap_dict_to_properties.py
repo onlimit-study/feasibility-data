@@ -160,6 +160,10 @@ def _get_required(redcap_field: dict[str, str]) -> bool:
 
 def _get_description(redcap_field: dict[str, str]) -> str:
     description = redcap_field["field_annotation"]
+
+    # Remove action tags of the form @tag or @tag(...)
+    description = re.sub(r"@[\w-]+(\(.*\))?", "", description, flags=re.DOTALL).strip()
+
     if redcap_field["field_type"] == "calc":
         description += (
             " Derived using the formula: "
