@@ -1,3 +1,9 @@
+## 0.4.0 (2026-04-07)
+
+### Feat
+
+- ✨ download REDCap data dictionary script (#33)
+
 ## 0.3.0 (2026-01-19)
 
 ### Feat
