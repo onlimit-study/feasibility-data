@@ -1,3 +1,9 @@
+## 0.5.0 (2026-04-07)
+
+### Feat
+
+- ✨ convert REDCap dictionary to resource properties (#35)
+
 ## 0.4.0 (2026-04-07)
 
 ### Feat
