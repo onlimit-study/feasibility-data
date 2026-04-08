@@ -4,7 +4,7 @@
   "title": "ON LiMiT Feasibility Study Data",
   "description": "Full data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.",
   "homepage": "https://onlimit.org",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "created": "2025-12-09T15:00:26+01:00",
   "contributors": [
     {

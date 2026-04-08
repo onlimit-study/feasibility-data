@@ -1,3 +1,9 @@
+## 0.6.0 (2026-04-08)
+
+### Feat
+
+- ✨ remove action tags from description (#43)
+
 ## 0.5.0 (2026-04-07)
 
 ### Feat
