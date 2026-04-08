@@ -4,7 +4,7 @@
   "title": "ON LiMiT Feasibility Study Data",
   "description": "Full data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.",
   "homepage": "https://onlimit.org",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "created": "2025-12-09T15:00:26+01:00",
   "contributors": [
     {
@@ -3312,7 +3312,7 @@
             "title": "date_v10",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 10. @today",
+            "description": "Date of visit. Visit 10.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -5882,7 +5882,7 @@
             "title": "date_v5",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 5. @today",
+            "description": "Date of visit. Visit 5.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -6119,7 +6119,7 @@
             "title": "date_v6",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 6. @today",
+            "description": "Date of visit. Visit 6.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -8585,7 +8585,7 @@
             "title": "date_v7",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 7. @today",
+            "description": "Date of visit. Visit 7.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -8839,7 +8839,7 @@
             "title": "date_v8",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 8. @today",
+            "description": "Date of visit. Visit 8.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -11215,7 +11215,7 @@
             "title": "date_v2",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 2. @today",
+            "description": "Date of visit. Visit 2.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -12619,7 +12619,7 @@
             "title": "date_v3",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 3. @today",
+            "description": "Date of visit. Visit 3.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -13548,7 +13548,7 @@
             "title": "date_v4",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 4. @today",
+            "description": "Date of visit. Visit 4.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -15711,7 +15711,7 @@
             "title": "date_v9",
             "type": "date",
             "format": "%d/%m/%Y",
-            "description": "Date of visit. Visit 9. @today",
+            "description": "Date of visit. Visit 9.",
             "constraints": {
               "required": true,
               "minimum": "2023-02-01",
@@ -23067,7 +23067,7 @@
             "name": "t2d_duration_v0",
             "title": "t2d_duration_v0",
             "type": "number",
-            "description": "@HIDDEN \nNumber of years since participant was diagnosed with type 2 diabetes. Self-reported by participant. Visit 0. Not filled out from i1050.",
+            "description": "Number of years since participant was diagnosed with type 2 diabetes. Self-reported by participant. Visit 0. Not filled out from i1050.",
             "constraints": {
               "required": true
             }
@@ -23731,7 +23731,7 @@
             "title": "rand_datetime",
             "type": "date",
             "format": "%Y/%m/%d",
-            "description": "@CALCDATE([rand-time], 0, 'd') @READ-ONLY",
+            "description": "",
             "constraints": {
               "required": false
             }
@@ -23740,7 +23740,7 @@
             "name": "rand_datetime77",
             "title": "rand_datetime77",
             "type": "string",
-            "description": "@CALCDATE([rand-time], 77, 'd') @HIDDEN",
+            "description": "",
             "constraints": {
               "required": false
             }
@@ -23749,7 +23749,7 @@
             "name": "randomisation",
             "title": "randomisation",
             "type": "string",
-            "description": "@IF([rand_datetime77] = '', @HIDDEN, \r\n@IF(datediff([rand_datetime77],'today','d', true) < 0, @HIDDEN, ''))",
+            "description": "",
             "constraints": {
               "required": false,
               "enum": [
@@ -26166,7 +26166,7 @@
             "name": "t2_debut_stamdata",
             "title": "t2_debut_stamdata",
             "type": "string",
-            "description": "@HIDDEN\nDebut year of T2D. Master data. Not filled in from i1050.",
+            "description": "Debut year of T2D. Master data. Not filled in from i1050.",
             "constraints": {
               "required": true
             }
@@ -26175,7 +26175,7 @@
             "name": "current_year_stamdata",
             "title": "current_year_stamdata",
             "type": "string",
-            "description": "@HIDDEN\nThis year, value used for calculation. Master data. Not filled in from i1050.",
+            "description": "This year, value used for calculation. Master data. Not filled in from i1050.",
             "constraints": {
               "required": true
             }
@@ -26184,7 +26184,7 @@
             "name": "t2_duration_stamdata",
             "title": "t2_duration_stamdata",
             "type": "string",
-            "description": "@HIDDEN\nNumber of years the participant has had T2D. Master data. Not filled in from i1050. Derived using the formula: ([current_year_stamdata]-[t2_debut_stamdata])",
+            "description": "Number of years the participant has had T2D. Master data. Not filled in from i1050. Derived using the formula: ([current_year_stamdata]-[t2_debut_stamdata])",
             "constraints": {
               "required": true
             }
