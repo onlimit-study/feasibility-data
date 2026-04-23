@@ -1,41 +1,35 @@
 project:
   type: website
 
-book:
+
+website:
   title: "ON LiMiT Feasibility Study Data"
   # TODO: Set the URL of the website
   site-url: ""
   repo-url: "https://github.com/onlimit-study/feasibility-data"
-  author:
-    - name: "Kristiane Beicher"
-      affiliation: "TODO: Fill in your affiliation"
-      orcid: "TODO: Fill in your ORCID"
   # TODO: Set favicon if relevant.
   # favicon: ""
-  repo-branch: main
-  repo-actions: [issue, edit, source]
-  search:
-    location: navbar
-    type: textbox
-  chapters:
-    - index.qmd
-  #  - part: "Sections"
-  #    chapters:
-  #    - path/to/file.qmd
-  # appendices:
-  #  - path/to/file.qmd
-  tools:
-    - icon: github
-      href: "https://github.com/onlimit-study/feasibility-data"
-      aria-label: "GitHub icon: Source repository"
-  page-footer:
-    center:
-      - text: "Code under MIT License"
-        href: "LICENSE-MIT.md"
-
+  navbar:
+    # TODO: Add logo and logo-alt
+    logo: ""
+    logo-alt: ""
+    pinned: true
+    left:
+      - text: "Welcome"
+        href: index.qmd
+    tools:
+      - icon: github
+        href: "https://github.com/onlimit-study/feasibility-data"
+        aria-label: "GitHub icon: Source repository"
+  sidebar:
+    contents:
+      - index.qmd
 
 format:
   html:
     theme:
       - litera
       - custom-styles.scss
+    # TODO: Uncomment if using the goatcounter website visitor counter
+    # include-before-body:
+      # - "includes/site-counter.html"
