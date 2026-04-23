@@ -1,18 +1,14 @@
 project:
-  type: website
-
+  type: onlimit-theme
 
 website:
   title: "ON LiMiT Feasibility Study Data"
   # TODO: Set the URL of the website
   site-url: ""
   repo-url: "https://github.com/onlimit-study/feasibility-data"
-  # TODO: Set favicon if relevant.
-  # favicon: ""
   navbar:
-    # TODO: Add logo and logo-alt
-    logo: ""
-    logo-alt: ""
+    logo: "_extensions/onlimit-study/onlimit-theme/images/onlimit-apple.png"
+    logo-alt: "ON LiMiT Feasibility Study Data"
     pinned: true
     left:
       - text: "Welcome"
@@ -26,10 +22,9 @@ website:
       - index.qmd
 
 format:
-  html:
+  onlimit-theme-html:
     theme:
-      - litera
-      - custom-styles.scss
+      - brand
     # TODO: Uncomment if using the goatcounter website visitor counter
     # include-before-body:
       # - "includes/site-counter.html"
