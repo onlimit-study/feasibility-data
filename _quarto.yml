@@ -1,0 +1,30 @@
+project:
+  type: onlimit-theme
+
+website:
+  title: "ON LiMiT Feasibility Study Data"
+  # TODO: Set the URL of the website
+  site-url: ""
+  repo-url: "https://github.com/onlimit-study/feasibility-data"
+  navbar:
+    logo: "_extensions/onlimit-study/onlimit-theme/images/onlimit-apple.png"
+    logo-alt: "ON LiMiT Feasibility Study Data"
+    pinned: true
+    left:
+      - text: "Welcome"
+        href: index.qmd
+    tools:
+      - icon: github
+        href: "https://github.com/onlimit-study/feasibility-data"
+        aria-label: "GitHub icon: Source repository"
+  sidebar:
+    contents:
+      - index.qmd
+
+format:
+  onlimit-theme-html:
+    theme:
+      - brand
+    # TODO: Uncomment if using the goatcounter website visitor counter
+    # include-before-body:
+      # - "includes/site-counter.html"
