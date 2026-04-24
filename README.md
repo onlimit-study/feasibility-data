@@ -11,7 +11,8 @@ You can browse the metadata on the
 
 ## Licensing
 
-Code in this project is licensed under the [MIT License](LICENSE-MIT.md).
+Code in this project is licensed under the
+[MIT License](LICENSE-MIT.md).
 
 ## Changelog
 
