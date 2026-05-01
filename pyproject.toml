@@ -37,7 +37,7 @@ repository = "https://github.com/onlimit-study/feasibility-data"
 dev = [
     "commitizen>=4.10.0",
     "pre-commit>=4.5.0",
-    "ruff>=0.14.8",
+    "ruff>=0.15.12",
     "types-requests>=2.32.4.20260107",
     "typos>=1.40.0",
 ]
