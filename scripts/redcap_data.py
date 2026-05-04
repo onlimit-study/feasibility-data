@@ -57,10 +57,10 @@ def get_instrument_data_from_redcap(instrument: str) -> str:
 
 
 def save_instrument_data(instrument: str):
-    """Saves instrument data to `raw/redcap/<instrument>/<timestamp>.csv.gz`."""
+    """Saves instrument data to `raw-data/redcap/<instrument>/<timestamp>.csv.gz`."""
     data = get_instrument_data_from_redcap(instrument)
     timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
-    file_path = Path("raw") / "redcap" / instrument / f"{timestamp}.csv.gz"
+    file_path = Path("raw-data") / "redcap" / instrument / f"{timestamp}.csv.gz"
     file_path.parent.mkdir(parents=True, exist_ok=True)
 
     df = pl.read_csv(StringIO(data), infer_schema=False)
