@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-from io import StringIO
 from operator import itemgetter
 from pathlib import Path
 
@@ -30,7 +29,7 @@ def get_instruments() -> list[str]:
     return so.fmap(instruments, itemgetter("instrument_name"))
 
 
-def get_instrument_data_from_redcap(instrument: str) -> str:
+def get_instrument_data_from_redcap(instrument: str) -> list[dict[str, str]]:
     """Gets the data for a specific instrument from REDCap as CSV."""
     token = os.environ.get("REDC_CPH_API_KEY")
     if not token:
@@ -40,7 +39,7 @@ def get_instrument_data_from_redcap(instrument: str) -> str:
         "token": token,
         "content": "record",
         "action": "export",
-        "format": "csv",
+        "format": "json",
         "type": "flat",
         "csvDelimiter": "",
         "forms[0]": instrument,
@@ -53,7 +52,7 @@ def get_instrument_data_from_redcap(instrument: str) -> str:
     }
     response = requests.post("https://redcap.regionh.dk/api/", data=data, timeout=60)
     response.raise_for_status()
-    return response.text
+    return response.json()
 
 
 def save_instrument_data(instrument: str):
@@ -62,9 +61,7 @@ def save_instrument_data(instrument: str):
     timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
     file_path = Path("raw-data") / "redcap" / instrument / f"{timestamp}.csv.gz"
     file_path.parent.mkdir(parents=True, exist_ok=True)
-
-    df = pl.read_csv(StringIO(data), infer_schema=False)
-    df.write_csv(file_path, compression="gzip")
+    pl.DataFrame(data).write_csv(file_path, compression="gzip")
 
 
 if __name__ == "__main__":
