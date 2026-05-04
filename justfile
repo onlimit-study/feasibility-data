@@ -78,4 +78,8 @@ preview-website: build-quartodoc
 
 # Download data dictionary from REDCap
 download-data-dict:
-  uv run python scripts/redcap.py
+  uv run python scripts/redcap_metadata.py
+
+# Download data from REDCap split by instrument
+download-data:
+  uv run python scripts/redcap_data.py
