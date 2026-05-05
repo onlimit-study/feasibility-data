@@ -1,9 +1,10 @@
+import gzip
+import json
 import os
 from datetime import datetime
 from operator import itemgetter
 from pathlib import Path
 
-import polars as pl
 import requests
 import seedcase_soil as so
 from dotenv import load_dotenv
@@ -30,7 +31,7 @@ def get_instruments() -> list[str]:
 
 
 def get_instrument_data_from_redcap(instrument: str) -> list[dict[str, str]]:
-    """Gets the data for a specific instrument from REDCap as CSV."""
+    """Gets the data for a specific instrument from REDCap as JSON."""
     token = os.environ.get("REDC_CPH_API_KEY")
     if not token:
         raise RuntimeError("REDC_CPH_API_KEY environment variable is not set.")
@@ -56,12 +57,13 @@ def get_instrument_data_from_redcap(instrument: str) -> list[dict[str, str]]:
 
 
 def save_instrument_data(instrument: str):
-    """Saves instrument data to `raw/redcap/<instrument>/<timestamp>.csv.gz`."""
+    """Saves instrument data to `raw/redcap/<instrument>/<timestamp>.json.gz`."""
     data = get_instrument_data_from_redcap(instrument)
     timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
-    file_path = Path("raw") / "redcap" / instrument / f"{timestamp}.csv.gz"
+    file_path = Path("raw") / "redcap" / instrument / f"{timestamp}.json.gz"
     file_path.parent.mkdir(parents=True, exist_ok=True)
-    pl.DataFrame(data).write_csv(file_path, compression="gzip")
+    with gzip.open(file_path, "wt", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":
