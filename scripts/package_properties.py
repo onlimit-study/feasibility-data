@@ -5,7 +5,7 @@ from scripts.redcap_dict_to_properties import (
     read_dictionary,
 )
 
-package_properties = sp.PackageProperties(
+package_properties = sp.SproutProperties(
     ## Required:
     name="feasibility-data",
     title="ON LiMiT Feasibility Study Data",
