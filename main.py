@@ -16,13 +16,6 @@ def main():
     ## Save the properties to `datapackage.json`.
     sp.write_properties(properties=package_properties)
 
-    ## README
-
-    ## Create the README text for the data package.
-    # readme_text = sp.as_readme_text(package_properties)
-    ## Write the README text to a `README.md` file.
-    # sp.write_file(readme_text, package_path.readme())
-
     ## BATCH DATA
 
     ## Save the batch data.
