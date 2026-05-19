@@ -28,7 +28,6 @@ __pycache__/
 
 # Raw data files and folders
 *.parquet
-*.csv
 /data-raw/
 /raw/
 /data/
