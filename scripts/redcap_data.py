@@ -12,7 +12,7 @@ load_dotenv()
 
 
 def get_data() -> str:
-    """Gets the data from REDCap as JSON."""
+    """Gets the data from REDCap as CSV."""
     token = os.environ.get("REDC_CPH_API_KEY")
     if not token:
         raise RuntimeError("REDC_CPH_API_KEY environment variable is not set.")
