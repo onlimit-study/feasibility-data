@@ -37,7 +37,7 @@ def get_data() -> str:
 
 
 def save_data():
-    """Saves data to `raw/redcap/<timestamp>.csv.gz`."""
+    """Saves the data to `raw/redcap/<timestamp>.csv.gz`."""
     data = get_data()
     df = pl.read_csv(StringIO(data), separator=";", infer_schema=False)
     timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
