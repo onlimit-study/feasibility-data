@@ -23,7 +23,7 @@ def get_data() -> str:
         "action": "export",
         "format": "csv",
         "type": "flat",
-        "csvDelimiter": "",
+        "csvDelimiter": ";",
         "rawOrLabel": "raw",
         "rawOrLabelHeaders": "raw",
         "exportCheckboxLabel": "false",
@@ -39,7 +39,7 @@ def get_data() -> str:
 def save_data():
     """Saves data to `raw/redcap/<timestamp>.csv.gz`."""
     data = get_data()
-    df = pl.read_csv(StringIO(data))
+    df = pl.read_csv(StringIO(data), separator=";", infer_schema=False)
     timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
     file_path = Path("raw") / "redcap" / f"{timestamp}.csv.gz"
     file_path.parent.mkdir(parents=True, exist_ok=True)
