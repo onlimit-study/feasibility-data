@@ -27,9 +27,7 @@ __pycache__/
 *.py[cod]
 
 # Raw data files and folders
-*.parquet
 /data-raw/
-/raw/
 /data/
 
 # MacOS
