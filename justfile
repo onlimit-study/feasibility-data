@@ -63,21 +63,16 @@ update-from-template:
 reset-from-template:
   uvx copier recopy --trust --defaults
 
-# Build the Python docstrings as a section in the website using quartodoc
-build-quartodoc:
-  # To let Quarto know where python is.
-  export QUARTO_PYTHON=.venv/bin/python3
-  # Delete any previously built files from quartodoc.
-  # -f is to not give an error if the files don't exist yet.
-  rm -rf docs/reference
-  uv run quartodoc build
+# Build the documentation for the Data Package
+build-docs:
+  uv run seedcase-flower build
 
 # Build the documentation website using Quarto
-build-website: build-quartodoc
+build-website: build-docs
   uv run quarto render --execute
 
 # Preview the documentation website with automatic reload on changes
-preview-website: build-quartodoc
+preview-website: build-docs
   uv run quarto preview --execute
 
 # Re-build the README file from the Quarto version
