@@ -2,7 +2,7 @@
     just --list --unsorted
 
 # Run all build-related recipes in the justfile
-run-all: install-deps format-python check-python check-spelling check-commits build build-website
+run-all: install-deps format-md format-python check-python check-spelling check-commits build build-website build-readme
 
 # List all TODO items in the repository
 list-todos:
@@ -29,6 +29,10 @@ check-python:
 format-python:
   uv run ruff check --fix .
   uv run ruff format .
+
+# Format Markdown files
+format-md:
+  uvx rumdl fmt --silent
 
 # Check the commit messages on the current branch that are not on the main branch
 check-commits:
@@ -70,6 +74,10 @@ build-website: build-docs
 # Preview the documentation website with automatic reload on changes
 preview-website: build-docs
   uv run quarto preview --execute
+
+# Re-build the README file from the Quarto version
+build-readme:
+  uvx --from quarto quarto render README.qmd --to gfm
 
 # Download data dictionary from REDCap
 download-data-dict:
