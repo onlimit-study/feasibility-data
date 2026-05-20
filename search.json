@@ -11,81 +11,88 @@
     "href": "CHANGELOG.html",
     "title": "ON LiMiT Feasibility Study Data",
     "section": "",
-    "text": "🔧 add Joel as author (#76)"
+    "text": "✨ add raw data to Git LFS (#80)"
   },
   {
     "objectID": "CHANGELOG.html#section",
     "href": "CHANGELOG.html#section",
     "title": "ON LiMiT Feasibility Study Data",
     "section": "",
-    "text": "🔧 add Joel as author (#76)"
+    "text": "✨ add raw data to Git LFS (#80)"
   },
   {
     "objectID": "CHANGELOG.html#section-1",
     "href": "CHANGELOG.html#section-1",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.9.0 (2026-05-20)",
-    "text": "0.9.0 (2026-05-20)\n\nFeat\n\n✨ download raw data (#66)"
+    "section": "0.9.1 (2026-05-20)",
+    "text": "0.9.1 (2026-05-20)\n\nRefactor\n\n🔧 add Joel as author (#76)"
   },
   {
     "objectID": "CHANGELOG.html#section-2",
     "href": "CHANGELOG.html#section-2",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.8.0 (2026-05-20)",
-    "text": "0.8.0 (2026-05-20)\n\nFeat\n\n✨ add website (#70)"
+    "section": "0.9.0 (2026-05-20)",
+    "text": "0.9.0 (2026-05-20)\n\nFeat\n\n✨ download raw data (#66)"
   },
   {
     "objectID": "CHANGELOG.html#section-3",
     "href": "CHANGELOG.html#section-3",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.7.0 (2026-05-09)",
-    "text": "0.7.0 (2026-05-09)\n\nFeat\n\n✨ add git lfs config (#68)"
+    "section": "0.8.0 (2026-05-20)",
+    "text": "0.8.0 (2026-05-20)\n\nFeat\n\n✨ add website (#70)"
   },
   {
     "objectID": "CHANGELOG.html#section-4",
     "href": "CHANGELOG.html#section-4",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.6.2 (2026-05-08)",
-    "text": "0.6.2 (2026-05-08)\n\nFix\n\n🐛 fix Sprout properties name (#69)"
+    "section": "0.7.0 (2026-05-09)",
+    "text": "0.7.0 (2026-05-09)\n\nFeat\n\n✨ add git lfs config (#68)"
   },
   {
     "objectID": "CHANGELOG.html#section-5",
     "href": "CHANGELOG.html#section-5",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.6.1 (2026-05-04)",
-    "text": "0.6.1 (2026-05-04)"
+    "section": "0.6.2 (2026-05-08)",
+    "text": "0.6.2 (2026-05-08)\n\nFix\n\n🐛 fix Sprout properties name (#69)"
   },
   {
     "objectID": "CHANGELOG.html#section-6",
     "href": "CHANGELOG.html#section-6",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.6.0 (2026-04-08)",
-    "text": "0.6.0 (2026-04-08)\n\nFeat\n\n✨ remove action tags from description (#43)"
+    "section": "0.6.1 (2026-05-04)",
+    "text": "0.6.1 (2026-05-04)"
   },
   {
     "objectID": "CHANGELOG.html#section-7",
     "href": "CHANGELOG.html#section-7",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.5.0 (2026-04-07)",
-    "text": "0.5.0 (2026-04-07)\n\nFeat\n\n✨ convert REDCap dictionary to resource properties (#35)"
+    "section": "0.6.0 (2026-04-08)",
+    "text": "0.6.0 (2026-04-08)\n\nFeat\n\n✨ remove action tags from description (#43)"
   },
   {
     "objectID": "CHANGELOG.html#section-8",
     "href": "CHANGELOG.html#section-8",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.4.0 (2026-04-07)",
-    "text": "0.4.0 (2026-04-07)\n\nFeat\n\n✨ download REDCap data dictionary script (#33)"
+    "section": "0.5.0 (2026-04-07)",
+    "text": "0.5.0 (2026-04-07)\n\nFeat\n\n✨ convert REDCap dictionary to resource properties (#35)"
   },
   {
     "objectID": "CHANGELOG.html#section-9",
     "href": "CHANGELOG.html#section-9",
     "title": "ON LiMiT Feasibility Study Data",
-    "section": "0.3.0 (2026-01-19)",
-    "text": "0.3.0 (2026-01-19)\n\nFeat\n\n✨ update package properties (#13)"
+    "section": "0.4.0 (2026-04-07)",
+    "text": "0.4.0 (2026-04-07)\n\nFeat\n\n✨ download REDCap data dictionary script (#33)"
   },
   {
     "objectID": "CHANGELOG.html#section-10",
     "href": "CHANGELOG.html#section-10",
+    "title": "ON LiMiT Feasibility Study Data",
+    "section": "0.3.0 (2026-01-19)",
+    "text": "0.3.0 (2026-01-19)\n\nFeat\n\n✨ update package properties (#13)"
+  },
+  {
+    "objectID": "CHANGELOG.html#section-11",
+    "href": "CHANGELOG.html#section-11",
     "title": "ON LiMiT Feasibility Study Data",
     "section": "0.2.0 (2025-12-15)",
     "text": "0.2.0 (2025-12-15)\n\nFeat\n\n✨ action TODOs (#4)\n✨ initial commit"
@@ -947,7 +954,7 @@
     "href": "docs/index.html",
     "title": "feasibility-data: ON LiMiT Feasibility Study Data",
     "section": "",
-    "text": "Licenses:\n\nCC0 1.0 Universal\n\nVersion: 0.9.1\nFull data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.\n\n\n\nKristiane Beicher (kris.beicher@clin.au.dk): DataManager, DataCurator, ContactPerson\nDaniel Borch Ibsen (dbi@ph.au.dk): ContactPerson\nLuke W Johnston (lwjohnst@clin.au.dk): DataManager, DataCurator\nMarton Vago (mvago@clin.au.dk): DataManager, DataCurator\nJoel Ostblom (joel@joelostblom.com): DataCurator",
+    "text": "Licenses:\n\nCC0 1.0 Universal\n\nVersion: 0.10.0\nFull data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.\n\n\n\nKristiane Beicher (kris.beicher@clin.au.dk): DataManager, DataCurator, ContactPerson\nDaniel Borch Ibsen (dbi@ph.au.dk): ContactPerson\nLuke W Johnston (lwjohnst@clin.au.dk): DataManager, DataCurator\nMarton Vago (mvago@clin.au.dk): DataManager, DataCurator\nJoel Ostblom (joel@joelostblom.com): DataCurator",
     "crumbs": [
       "Data Package",
       "Package"
