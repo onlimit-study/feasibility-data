@@ -27,6 +27,7 @@ website:
 
 format:
   onlimit-theme-html:
+    toc: false
     theme:
       - brand
     # TODO: Uncomment if using the goatcounter website visitor counter
