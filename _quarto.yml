@@ -3,8 +3,7 @@ project:
 
 website:
   title: "ON LiMiT Feasibility Study Data"
-  # TODO: Set the URL of the website
-  site-url: ""
+  site-url: "https://onlimit-study.github.io/feasibility-data"
   repo-url: "https://github.com/onlimit-study/feasibility-data"
   navbar:
     logo: "_extensions/onlimit-study/onlimit-theme/images/onlimit-apple.png"
@@ -20,9 +19,11 @@ website:
         href: "https://github.com/onlimit-study/feasibility-data"
         aria-label: "GitHub icon: Source repository"
   sidebar:
-    contents:
-      - index.qmd
-      - docs/index.qmd
+    - id: package
+      contents:
+        - text: "Package"
+          href: docs/index.qmd
+        - auto: docs/resources/
 
 format:
   onlimit-theme-html:
