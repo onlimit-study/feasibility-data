@@ -68,6 +68,16 @@ package_properties = sp.SproutProperties(
             organization="Steno Diabetes Centre Aarhus",
             roles=["DataManager", "DataCurator"],
         ),
+        sp.ContributorProperties(
+            ## Required:
+            title="Joel Ostblom",
+            ## Optional:
+            # path="",
+            email="joel@joelostblom.com",
+            given_name="Joel",
+            family_name="Ostblom",
+            roles=["DataCurator"],
+        ),
     ],
     # keywords=[""],
     # image="",

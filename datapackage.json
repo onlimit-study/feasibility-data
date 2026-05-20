@@ -50,6 +50,15 @@
         "DataManager",
         "DataCurator"
       ]
+    },
+    {
+      "title": "Joel Ostblom",
+      "email": "joel@joelostblom.com",
+      "givenName": "Joel",
+      "familyName": "Ostblom",
+      "roles": [
+        "DataCurator"
+      ]
     }
   ],
   "licenses": [
