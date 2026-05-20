@@ -21,6 +21,9 @@ authors:
     given-names: Marton
     affiliation: "Steno Diabetes Center Aarhus"
     orcid: "https://orcid.org/0009-0007-4628-655X"
+  - family-names: Ostblom
+    given-names: Joel
+    orcid: "https://orcid.org/0000-0003-0051-3239"
 cff-version: 1.2.0
 # doi:
 keywords:

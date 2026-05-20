@@ -171,7 +171,7 @@ wheels = [
 
 [[package]]
 name = "cyclopts"
-version = "4.13.0"
+version = "4.14.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "attrs" },
@@ -179,9 +179,9 @@ dependencies = [
     { name = "rich" },
     { name = "rich-rst" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/13/fb/d953a011e5768b808cec4ab845b6443de3acbea47061d89eb54220a6d559/cyclopts-4.13.0.tar.gz", hash = "sha256:9539dc298d2e7c229f22402e67e47210e4aa7bbbf7c60024b617d7e0340f68b7", size = 177280, upload-time = "2026-05-16T23:51:04.247Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/de/75/c7988cb0b90ab9d6728d4c444f09256cfdc97606c1638d8a8090eeb57f7e/cyclopts-4.14.1.tar.gz", hash = "sha256:5d01fc3a940a0e4e872a81ed533a10c1892b5baaa4121fe69528a2b8c17fc9d0", size = 177281, upload-time = "2026-05-19T19:49:22.312Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/56/63/932d51674d5d96e818e41e4c2dfb68addccd4588e4b8e3d7fe46132e7e6c/cyclopts-4.13.0-py3-none-any.whl", hash = "sha256:b2e55e6bb51c33c78f5df23f8c8e0caa3df7e68639d2fb0cf8aa451a7d58b3e4", size = 214930, upload-time = "2026-05-16T23:51:05.86Z" },
+    { url = "https://files.pythonhosted.org/packages/22/1d/f6c80f82a42c69ff5a86c2580e789133de387d067210c7c46677618a2ca7/cyclopts-4.14.1-py3-none-any.whl", hash = "sha256:b705fdaa3277554a5da03e9bb5ff96a44d204a1afe3099f1b56e1586488bbfd4", size = 214925, upload-time = "2026-05-19T19:49:23.559Z" },
 ]
 
 [[package]]
@@ -242,15 +242,6 @@ wheels = [
 ]
 
 [[package]]
-name = "docutils"
-version = "0.22.4"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/ae/b6/03bb70946330e88ffec97aefd3ea75ba575cb2e762061e0e62a213befee8/docutils-0.22.4.tar.gz", hash = "sha256:4db53b1fde9abecbb74d91230d32ab626d94f6badfc575d6db9194a49df29968", size = 2291750, upload-time = "2025-12-18T19:00:26.443Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/02/10/5da547df7a391dcde17f59520a231527b8571e6f46fc8efb02ccb370ab12/docutils-0.22.4-py3-none-any.whl", hash = "sha256:d0013f540772d1420576855455d050a2180186c91c15779301ac2ccb3eeb68de", size = 633196, upload-time = "2025-12-18T19:00:18.077Z" },
-]
-
-[[package]]
 name = "emoji"
 version = "2.15.0"
 source = { registry = "https://pypi.org/simple" }
@@ -267,6 +258,7 @@ dependencies = [
     { name = "polars" },
     { name = "python-dotenv" },
     { name = "requests" },
+    { name = "seedcase-flower" },
     { name = "seedcase-sprout" },
 ]
 
@@ -284,6 +276,7 @@ requires-dist = [
     { name = "polars", specifier = ">=1.40.1" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "requests", specifier = ">=2.32.5" },
+    { name = "seedcase-flower", specifier = ">=0.28.1" },
     { name = "seedcase-sprout", specifier = ">=0.49.7" },
 ]
 
@@ -770,15 +763,15 @@ wheels = [
 
 [[package]]
 name = "rich-rst"
-version = "1.3.2"
+version = "2.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "docutils" },
+    { name = "pygments" },
     { name = "rich" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bc/6d/a506aaa4a9eaa945ed8ab2b7347859f53593864289853c5d6d62b77246e0/rich_rst-1.3.2.tar.gz", hash = "sha256:a1196fdddf1e364b02ec68a05e8ff8f6914fee10fbca2e6b6735f166bb0da8d4", size = 14936, upload-time = "2025-10-14T16:49:45.332Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/57/56/3191bae66b08ccc637ea8120426068bcb361cc323c96404c310886937067/rich_rst-2.0.1.tar.gz", hash = "sha256:cbe236ed0901d1ec8427cc6a50bf0a34353ba28ad014dc24def68bfe7f3b9e68", size = 300570, upload-time = "2026-05-16T00:47:57.362Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/13/2f/b4530fbf948867702d0a3f27de4a6aab1d156f406d72852ab902c4d04de9/rich_rst-1.3.2-py3-none-any.whl", hash = "sha256:a99b4907cbe118cf9d18b0b44de272efa61f15117c61e39ebdc431baf5df722a", size = 12567, upload-time = "2025-10-14T16:49:42.953Z" },
+    { url = "https://files.pythonhosted.org/packages/a0/3d/55c17d3ebdf3cd81356002afe5bef9bb8af631db2819785b6eac845b925b/rich_rst-2.0.1-py3-none-any.whl", hash = "sha256:7ee15f345ce25fa02b582c272a6cdbaf0c21243e38061cea273cff659bf3ef61", size = 272922, upload-time = "2026-05-16T00:47:55.508Z" },
 ]
 
 [[package]]
@@ -888,6 +881,24 @@ wheels = [
 ]
 
 [[package]]
+name = "seedcase-flower"
+version = "0.28.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "check-datapackage" },
+    { name = "cyclopts" },
+    { name = "jinja2" },
+    { name = "pydantic" },
+    { name = "python-jsonpath" },
+    { name = "rich" },
+    { name = "seedcase-soil" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/16/9e/8013ebd019b23f4d0dcd4e1a54bb358841b1dfe3ee3da9361475afbe3849/seedcase_flower-0.28.1.tar.gz", hash = "sha256:7413f1296b4a59362763cbf4828878f22c2c463605bd7a8c9bb8900f52fa18fb", size = 1801622, upload-time = "2026-05-05T13:53:39.467Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cc/27/8b6db0914eb12aacf42a81dff50a0dbb620488a62f0d064de02f3b3dcf23/seedcase_flower-0.28.1-py3-none-any.whl", hash = "sha256:6c1ec8efe2cfe6ae62cc495f10722a8a9d3894dfd1845751e8882a52218afdd6", size = 20003, upload-time = "2026-05-05T13:53:37.953Z" },
+]
+
+[[package]]
 name = "seedcase-soil"
 version = "0.14.0"
 source = { registry = "https://pypi.org/simple" }
@@ -904,7 +915,7 @@ wheels = [
 
 [[package]]
 name = "seedcase-sprout"
-version = "0.50.0"
+version = "0.50.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "check-datapackage" },
@@ -915,9 +926,9 @@ dependencies = [
     { name = "polars" },
     { name = "seedcase-soil" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/fe/3d/19171a7ea80766e225f952a68384307edff9802993bad186acb27fa234ba/seedcase_sprout-0.50.0.tar.gz", hash = "sha256:316be7d9442c70c7a514dc437e60973844604299683fe6794a225a6fe122c215", size = 1118160, upload-time = "2026-05-04T08:29:06.757Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/12/42/a3ed3f74f2f1ce54c3f6b8c055d0ddacae51bc815a77c469ebea10953ff4/seedcase_sprout-0.50.1.tar.gz", hash = "sha256:7ffd652e367fbbe2da19ed05e33edb7466b568b776aebffa2a7a9e9d8c094f41", size = 1119577, upload-time = "2026-05-19T12:55:07.031Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fa/cb/1e1998a9da1ab9ec41cb7a46a1cacdb1a421a6f343e74450e9a2a76c6707/seedcase_sprout-0.50.0-py3-none-any.whl", hash = "sha256:fdc0c0426c7c2a5d92ce43491045992b2ad114cd3d2126785af56c7728035cb0", size = 39026, upload-time = "2026-05-04T08:29:05.766Z" },
+    { url = "https://files.pythonhosted.org/packages/67/a5/9dfc21d72f9cad44d51e74444ad62a69d885de8dbdf829f9a51e4281e24c/seedcase_sprout-0.50.1-py3-none-any.whl", hash = "sha256:121ce68de7f3c005b2854d29674488c09a3697b3bb4a6ba29f0bc644bde82699", size = 39026, upload-time = "2026-05-19T12:55:05.756Z" },
 ]
 
 [[package]]
