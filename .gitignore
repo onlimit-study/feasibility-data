@@ -27,7 +27,6 @@ __pycache__/
 *.py[cod]
 
 # Raw data files and folders
-*.csv
 /data-raw/
 /data/
 
