@@ -13,20 +13,23 @@ body.floating.fullcontent .page-columns {
     [screen-start] 1.5em [screen-start-inset] 0fr [page-start] 0px [page-start-inset] max-content [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, 1fr) [body-content-end] 1.5em [body-end body-end-outset page-end-inset page-end] 0fr [screen-end-inset] 1.5em [screen-end];
 }
 
-/* Make tables full width and wrap text as needed, excluding listing tables (i.e., the resource table) */
-main table:not(.quarto-listing-table) {
+main table {
   width: 100%;
   table-layout: fixed;
-
-  /* Overwrite column widths so "table-layout: fixed" distributes column space evenly */
-  & col {
-    width: auto !important;
-  }
 
   /* Wrap text within cells */
   & td,
   & th {
     overflow-wrap: break-word;
+  }
+}
+
+/* Make tables full width and wrap text as needed, excluding listing tables (i.e., the resource table) */
+main table:not(.quarto-listing-table) {
+
+  /* Overwrite column widths so "table-layout: fixed" distributes column space evenly */
+  & col {
+    width: auto !important;
   }
 
   /* The "Type" (3rd) column only needs room for "boolean" (the longest value) */
