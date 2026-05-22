@@ -1,0 +1,36 @@
+body.floating.fullcontent .page-columns {
+  grid-template-columns:
+    /*
+    Quarto does not have options to remove outer margins, so we have to redefine the entire grid.
+    Default: [screen-start] 1.5em [screen-start-inset] 5fr [page-start] 50px [page-start-inset] minmax(50px, 150px) [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, calc(800px - 3em)) [body-content-end] 1.5em [body-end body-end-outset page-end-inset page-end] 5fr [screen-end-inset] 1.5em [screen-end]
+    Changes:
+    - screen-start-inset: 5fr -> 0fr (removes left outer margin)
+    - page-start: 50px -> 0px (removes gap between left margin and sidebar)
+    - page-start-inset: minmax(50px, 150px) -> max-content (auto-sizes based on content)
+    - body-content: calc(800px - 3em) -> 1fr (body fills available space)
+    - body-end: 5fr -> 0fr (removes right outer margin)
+    */
+    [screen-start] 1.5em [screen-start-inset] 0fr [page-start] 0px [page-start-inset] max-content [body-start-outset] 50px [body-start] 1.5em [body-content-start] minmax(500px, 1fr) [body-content-end] 1.5em [body-end body-end-outset page-end-inset page-end] 0fr [screen-end-inset] 1.5em [screen-end];
+}
+
+/* Make tables full width and wrap text as needed, excluding listing tables (i.e., the resource table) */
+main table:not(.quarto-listing-table) {
+  width: 100%;
+  table-layout: fixed;
+
+  /* Overwrite column widths so "table-layout: fixed" distributes column space evenly */
+  & col {
+    width: auto !important;
+  }
+
+  /* Wrap text within cells */
+  & td,
+  & th {
+    overflow-wrap: break-word;
+  }
+
+  /* The "Type" (3rd) column only needs room for "boolean" (the longest value) */
+  & th:nth-child(3) {
+    width: 6em;
+  }
+}
