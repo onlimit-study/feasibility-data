@@ -1,3 +1,6 @@
 format:
   onlimit-theme-html:
-    css: custom.css
+    toc: false
+    grid:
+      sidebar-width: 550px
+      body-width: 1000px
