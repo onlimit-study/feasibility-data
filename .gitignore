@@ -27,10 +27,7 @@ __pycache__/
 *.py[cod]
 
 # Raw data files and folders
-*.parquet
-*.csv
 /data-raw/
-/raw/
 /data/
 
 # MacOS
@@ -40,7 +37,7 @@ __pycache__/
 /.quarto/
 docs/.quarto/
 *.ipynb
-*.quarto_ipynb
+**/*.quarto_ipynb
 *_files/
 
 # Website generation
@@ -48,6 +45,8 @@ _site
 _book
 public
 site
+docs/resources
+docs/index.qmd
 
 # Misc files
 *.log

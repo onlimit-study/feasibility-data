@@ -2,7 +2,7 @@
     just --list --unsorted
 
 # Run all build-related recipes in the justfile
-run-all: install-deps format-python check-python check-spelling check-commits build
+run-all: install-deps format-md format-python check-python check-spelling check-commits build build-website build-readme
 
 # List all TODO items in the repository
 list-todos:
@@ -29,6 +29,10 @@ check-python:
 format-python:
   uv run ruff check --fix .
   uv run ruff format .
+
+# Format Markdown files
+format-md:
+  uvx rumdl fmt --silent
 
 # Check the commit messages on the current branch that are not on the main branch
 check-commits:
@@ -59,23 +63,26 @@ update-from-template:
 reset-from-template:
   uvx copier recopy --trust --defaults
 
-# Build the Python docstrings as a section in the website using quartodoc
-build-quartodoc:
-  # To let Quarto know where python is.
-  export QUARTO_PYTHON=.venv/bin/python3
-  # Delete any previously built files from quartodoc.
-  # -f is to not give an error if the files don't exist yet.
-  rm -rf docs/reference
-  uv run quartodoc build
+# Build the documentation for the Data Package
+build-docs:
+  uv run seedcase-flower build
 
 # Build the documentation website using Quarto
-build-website: build-quartodoc
+build-website: build-docs
   uv run quarto render --execute
 
 # Preview the documentation website with automatic reload on changes
-preview-website: build-quartodoc
+preview-website: build-docs
   uv run quarto preview --execute
+
+# Re-build the README file from the Quarto version
+build-readme:
+  uvx --from quarto quarto render README.qmd --to gfm
 
 # Download data dictionary from REDCap
 download-data-dict:
-  uv run python scripts/redcap.py
+  uv run python scripts/redcap_metadata.py
+
+# Download data from REDCap
+download-data:
+  uv run python scripts/redcap_data.py

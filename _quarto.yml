@@ -1,0 +1,34 @@
+project:
+  type: onlimit-theme
+
+website:
+  title: "ON LiMiT Feasibility Study Data"
+  site-url: "https://onlimit-study.github.io/feasibility-data"
+  repo-url: "https://github.com/onlimit-study/feasibility-data"
+  navbar:
+    logo: "_extensions/onlimit-study/onlimit-theme/images/onlimit-apple.png"
+    logo-alt: "ON LiMiT Feasibility Study Data"
+    pinned: true
+    left:
+      - text: "Data Package"
+        href: docs/index.qmd
+    tools:
+      - icon: github
+        href: "https://github.com/onlimit-study/feasibility-data"
+        aria-label: "GitHub icon: Source repository"
+  sidebar:
+    - id: package
+      style: "docked"
+      contents:
+        - text: "Package"
+          href: docs/index.qmd
+        - auto: docs/resources/
+
+format:
+  onlimit-theme-html:
+    toc: false
+    theme:
+      - brand
+    # TODO: Uncomment if using the goatcounter website visitor counter
+    # include-before-body:
+      # - "includes/site-counter.html"

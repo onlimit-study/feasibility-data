@@ -1,3 +1,33 @@
+## 0.10.0 (2026-05-20)
+
+### Feat
+
+- ✨ add raw data to Git LFS (#80)
+
+## 0.9.1 (2026-05-20)
+
+### Refactor
+
+- 🔧 add Joel as author (#76)
+
+## 0.9.0 (2026-05-20)
+
+### Feat
+
+- ✨ download raw data (#66)
+
+## 0.8.0 (2026-05-20)
+
+### Feat
+
+- ✨ add website (#70)
+
+## 0.7.0 (2026-05-09)
+
+### Feat
+
+- ✨ add git lfs config (#68)
+
 ## 0.6.2 (2026-05-08)
 
 ### Fix
