@@ -20,6 +20,13 @@ SEFNC_FORM_WEEKS = {
     "selfefficacy_for_nutrition_change_sefnc_week_52": 52,
 }
 SEFNC_WEEK_FIELD_PATTERN = re.compile(r"_v(6|10)$")
+FOER_BESOEGSDAG_VISITS = [2, 3, 4]
+FOER_BESOEGSDAG_FORM_VISITS = {
+    "foer_besoegsdag_2": 2,
+    "foer_besoegsdag_3": 3,
+    "foer_besoegsdag_4": 4,
+}
+FOER_BESOEGSDAG_VISIT_FIELD_PATTERN = re.compile(r"_wfv(2|3|4)$")
 
 
 def _map(x: Iterable[In], fn: Callable[[In], Out]) -> list[Out]:
@@ -45,7 +52,9 @@ def dictionary_to_properties(
     redcap_fields: list[dict[str, str]],
 ) -> list[sp.ResourceProperties]:
     """Converts REDCap data dictionary to Data Package resources."""
-    redcap_fields = _join_sefnc_week_resources(_join_vas_time_resources(redcap_fields))
+    redcap_fields = _join_foer_besoegsdag_visit_resources(
+        _join_sefnc_week_resources(_join_vas_time_resources(redcap_fields))
+    )
     sorted_by_form = sorted(redcap_fields, key=lambda field: field["form_name"])
     grouped_by_form = groupby(sorted_by_form, key=lambda field: field["form_name"])
     return _map(
@@ -189,6 +198,107 @@ def _remove_sefnc_week_from_annotation(annotation: str) -> str:
     ).strip()
 
 
+def _join_foer_besoegsdag_visit_resources(
+    redcap_fields: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    """Combines before-visit-day workflow forms into one resource schema."""
+    common_fields = _get_common_foer_besoegsdag_field_names(redcap_fields)
+    return _deduplicate_foer_besoegsdag_fields(
+        _map(
+            redcap_fields,
+            lambda field: _normalise_foer_besoegsdag_visit_resource_field(
+                field, common_fields
+            ),
+        )
+    )
+
+
+def _get_common_foer_besoegsdag_field_names(
+    redcap_fields: list[dict[str, str]],
+) -> set[str]:
+    visit_fields = _map(
+        _filter(redcap_fields, _is_foer_besoegsdag_visit_resource_field),
+        lambda field: (
+            _normalise_foer_besoegsdag_field_name(field["field_name"]),
+            FOER_BESOEGSDAG_FORM_VISITS[field["form_name"]],
+        ),
+    )
+    field_visits = {
+        field_name: set(
+            _map(
+                _filter(visit_fields, lambda item: item[0] == field_name),
+                itemgetter(1),
+            )
+        )
+        for field_name, _ in visit_fields
+    }
+
+    return {
+        field_name
+        for field_name, visits in field_visits.items()
+        if visits == set(FOER_BESOEGSDAG_VISITS)
+    }
+
+
+def _normalise_foer_besoegsdag_visit_resource_field(
+    field: dict[str, str], common_fields: set[str]
+) -> dict[str, str]:
+    if not _is_foer_besoegsdag_visit_resource_field(field):
+        return field
+
+    field_name = _normalise_foer_besoegsdag_field_name(field["field_name"])
+    return {
+        **field,
+        "field_name": field_name,
+        "form_name": "foer_besoegsdag",
+        "required_field": field["required_field"]
+        if field_name in common_fields
+        else "",
+        "field_annotation": _remove_foer_besoegsdag_visit_from_annotation(
+            field["field_annotation"]
+        ),
+    }
+
+
+def _normalise_foer_besoegsdag_field_name(field_name: str) -> str:
+    return FOER_BESOEGSDAG_VISIT_FIELD_PATTERN.sub("", field_name)
+
+
+def _is_foer_besoegsdag_visit_resource_field(field: dict[str, str]) -> bool:
+    return field["form_name"] in FOER_BESOEGSDAG_FORM_VISITS
+
+
+def _deduplicate_foer_besoegsdag_fields(
+    fields: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    deduplicated_fields, _ = reduce(
+        _append_if_new_foer_besoegsdag_field,
+        fields,
+        ([], set()),
+    )
+    return deduplicated_fields
+
+
+def _append_if_new_foer_besoegsdag_field(
+    result: tuple[list[dict[str, str]], set[str]], field: dict[str, str]
+) -> tuple[list[dict[str, str]], set[str]]:
+    fields, seen_foer_besoegsdag_fields = result
+    field_name = field["field_name"]
+
+    if field["form_name"] != "foer_besoegsdag":
+        return fields + [field], seen_foer_besoegsdag_fields
+
+    if field_name in seen_foer_besoegsdag_fields:
+        return result
+
+    return (fields + [field], seen_foer_besoegsdag_fields.union({field_name}))
+
+
+def _remove_foer_besoegsdag_visit_from_annotation(annotation: str) -> str:
+    annotation = re.sub(r"\s+Visit\s+\d+\.", ".", annotation, flags=re.IGNORECASE)
+    return re.sub(r"\s+Wfv\d+\.", ".", annotation, flags=re.IGNORECASE).strip()
+
+
 def _form_to_resource(
     form_name: str, fields: list[dict[str, str]]
 ) -> sp.ResourceProperties:
@@ -248,6 +358,24 @@ def _form_to_resource(
         default_fields.append(week_field)
         primary_key.append("week")
 
+    if form_name == "foer_besoegsdag":
+        visit_field = sp.FieldProperties(
+            name="visit",
+            title="Visit",
+            type="integer",
+            description=(
+                "The study visit that the before-visit-day workflow item was "
+                "recorded for."
+            ),
+            categories=FOER_BESOEGSDAG_VISITS,
+            constraints=sp.ConstraintsProperties(
+                required=True,
+                enum=FOER_BESOEGSDAG_VISITS,
+            ),
+        )
+        default_fields.append(visit_field)
+        primary_key.append("visit")
+
     # Discard fields displayed for information only
     form_redcap_fields = _filter(
         fields, lambda field: field["field_type"] not in ["descriptive", "checkbox"]
@@ -297,6 +425,9 @@ def _get_resource_title(form_name: str) -> str:
     if form_name == "sefnc":
         return "Self-efficacy for nutrition change"
 
+    if form_name == "foer_besoegsdag":
+        return "Before visit day workflow"
+
     return form_name
 
 
@@ -312,6 +443,9 @@ def _get_resource_description(form_name: str) -> str:
             "Self-efficacy for nutrition change measurements recorded across "
             "study weeks."
         )
+
+    if form_name == "foer_besoegsdag":
+        return "Workflow items completed before study visit days."
 
     return form_name
 
