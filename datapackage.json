@@ -27131,8 +27131,8 @@
             ]
           },
           {
-            "name": "vas_hunger",
-            "title": "vas_hunger",
+            "name": "hunger",
+            "title": "hunger",
             "type": "number",
             "description": "Visual analogue scale. How hungry do you feel Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten |  | Jeg har aldrig været mere sulten",
             "constraints": {
@@ -27140,8 +27140,8 @@
             }
           },
           {
-            "name": "vas_satisfaction",
-            "title": "vas_satisfaction",
+            "name": "satisfaction",
+            "title": "satisfaction",
             "type": "number",
             "description": "Visual analogue scale. How satiated do you feel Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven |  | Jeg kan ikke få en bid mere ned",
             "constraints": {
@@ -27149,8 +27149,8 @@
             }
           },
           {
-            "name": "vas_full",
-            "title": "vas_full",
+            "name": "full",
+            "title": "full",
             "type": "number",
             "description": "Visual analogue scale. How full do you feel Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op |  | Fyldt totalt op",
             "constraints": {
@@ -27158,8 +27158,8 @@
             }
           },
           {
-            "name": "vas_how_much",
-            "title": "vas_how_much",
+            "name": "how_much",
+            "title": "how_much",
             "type": "number",
             "description": "Visual analogue scale. How much do you think you can eat Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting |  | Virkelig meget",
             "constraints": {
@@ -27167,8 +27167,8 @@
             }
           },
           {
-            "name": "vas_comfort",
-            "title": "vas_comfort",
+            "name": "comfort",
+            "title": "comfort",
             "type": "number",
             "description": "Visual analogue scale. Level of comfort Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt |  | Virkelig godt",
             "constraints": {
@@ -27176,8 +27176,8 @@
             }
           },
           {
-            "name": "vas_nausea",
-            "title": "vas_nausea",
+            "name": "nausea",
+            "title": "nausea",
             "type": "number",
             "description": "Visual analogue scale. Any nausea Question: Har du kvalme?. Slider scale labels: Ja, meget |  | Nej, slet ikke",
             "constraints": {
@@ -27185,8 +27185,8 @@
             }
           },
           {
-            "name": "vas_thirst",
-            "title": "vas_thirst",
+            "name": "thirst",
+            "title": "thirst",
             "type": "number",
             "description": "Visual analogue scale. How thirsty do you feel Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke |  | Virkelig meget",
             "constraints": {
@@ -27194,8 +27194,8 @@
             }
           },
           {
-            "name": "vas_sweet",
-            "title": "vas_sweet",
+            "name": "sweet",
+            "title": "sweet",
             "type": "number",
             "description": "Visual analogue scale. Would you like something sweet Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
@@ -27203,8 +27203,8 @@
             }
           },
           {
-            "name": "vas_salt",
-            "title": "vas_salt",
+            "name": "salt",
+            "title": "salt",
             "type": "number",
             "description": "Visual analogue scale. Would you like something savoury Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
@@ -27212,8 +27212,8 @@
             }
           },
           {
-            "name": "vas_fat",
-            "title": "vas_fat",
+            "name": "fat",
+            "title": "fat",
             "type": "number",
             "description": "Visual analogue scale. Would you like something fatty Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {

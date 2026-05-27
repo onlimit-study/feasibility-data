@@ -62,10 +62,14 @@ def _normalise_vas_time_resource_field(field: dict[str, str]) -> dict[str, str]:
 
     return {
         **field,
-        "field_name": VAS_TIME_FIELD_PATTERN.sub("", field["field_name"]),
+        "field_name": _normalise_vas_field_name(field["field_name"]),
         "form_name": "vas",
         "field_annotation": _remove_vas_time_from_annotation(field["field_annotation"]),
     }
+
+
+def _normalise_vas_field_name(field_name: str) -> str:
+    return re.sub(r"^vas_", "", VAS_TIME_FIELD_PATTERN.sub("", field_name))
 
 
 def _is_vas_time_resource_field(field: dict[str, str]) -> bool:
