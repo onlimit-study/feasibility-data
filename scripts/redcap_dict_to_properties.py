@@ -223,20 +223,26 @@ def _get_common_foer_besoegsdag_field_names(
             FOER_BESOEGSDAG_FORM_VISITS[field["form_name"]],
         ),
     )
-    field_visits = {
-        field_name: set(
-            _map(
-                _filter(visit_fields, lambda item: item[0] == field_name),
-                itemgetter(1),
-            )
-        )
-        for field_name, _ in visit_fields
-    }
+    field_visits = reduce(_add_foer_besoegsdag_field_visit, visit_fields, {})
 
+    return set(
+        _map(
+            _filter(
+                field_visits.items(),
+                lambda item: item[1] == set(FOER_BESOEGSDAG_VISITS),
+            ),
+            itemgetter(0),
+        )
+    )
+
+
+def _add_foer_besoegsdag_field_visit(
+    field_visits: dict[str, set[int]], visit_field: tuple[str, int]
+) -> dict[str, set[int]]:
+    field_name, visit = visit_field
     return {
-        field_name
-        for field_name, visits in field_visits.items()
-        if visits == set(FOER_BESOEGSDAG_VISITS)
+        **field_visits,
+        field_name: field_visits.get(field_name, set()).union({visit}),
     }
 
 
