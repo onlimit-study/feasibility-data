@@ -27104,13 +27104,14 @@
             ]
           },
           {
-            "name": "time",
-            "title": "Time",
+            "name": "minutes_from_meal",
+            "title": "Minutes from meal",
             "type": "integer",
-            "description": "The time in minutes after the meal when the VAS was recorded.",
+            "description": "The time in minutes from the meal when the specific VAS measurement was recorded. Negative values are before the meal.",
             "constraints": {
               "required": true,
               "enum": [
+                -10,
                 30,
                 60,
                 90,
@@ -27120,6 +27121,7 @@
               ]
             },
             "categories": [
+              -10,
               30,
               60,
               90,
@@ -27132,7 +27134,7 @@
             "name": "vas_hunger",
             "title": "vas_hunger",
             "type": "number",
-            "description": "Visual analogue scale. Hunger Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten | Jeg har aldrig været mere sulten",
+            "description": "Visual analogue scale. How hungry do you feel Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten |  | Jeg har aldrig været mere sulten",
             "constraints": {
               "required": true
             }
@@ -27141,7 +27143,7 @@
             "name": "vas_satisfaction",
             "title": "vas_satisfaction",
             "type": "number",
-            "description": "Visual analogue scale. Satisfaction Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven | Jeg kan ikke få en bid mere ned",
+            "description": "Visual analogue scale. How satiated do you feel Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven |  | Jeg kan ikke få en bid mere ned",
             "constraints": {
               "required": true
             }
@@ -27150,7 +27152,7 @@
             "name": "vas_full",
             "title": "vas_full",
             "type": "number",
-            "description": "Visual analogue scale. Fullness Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op | Fyldt totalt op",
+            "description": "Visual analogue scale. How full do you feel Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op |  | Fyldt totalt op",
             "constraints": {
               "required": true
             }
@@ -27159,7 +27161,7 @@
             "name": "vas_how_much",
             "title": "vas_how_much",
             "type": "number",
-            "description": "Visual analogue scale. How much to eat Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting | Virkelig meget",
+            "description": "Visual analogue scale. How much do you think you can eat Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting |  | Virkelig meget",
             "constraints": {
               "required": true
             }
@@ -27168,7 +27170,7 @@
             "name": "vas_comfort",
             "title": "vas_comfort",
             "type": "number",
-            "description": "Visual analogue scale. Comfort Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt | Virkelig godt",
+            "description": "Visual analogue scale. Level of comfort Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt |  | Virkelig godt",
             "constraints": {
               "required": true
             }
@@ -27177,7 +27179,7 @@
             "name": "vas_nausea",
             "title": "vas_nausea",
             "type": "number",
-            "description": "Visual analogue scale. Nausea Question: Har du kvalme?. Slider scale labels: Ja, meget | Nej, slet ikke",
+            "description": "Visual analogue scale. Any nausea Question: Har du kvalme?. Slider scale labels: Ja, meget |  | Nej, slet ikke",
             "constraints": {
               "required": true
             }
@@ -27186,7 +27188,7 @@
             "name": "vas_thirst",
             "title": "vas_thirst",
             "type": "number",
-            "description": "Visual analogue scale. Thirst Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke | Virkelig meget",
+            "description": "Visual analogue scale. How thirsty do you feel Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke |  | Virkelig meget",
             "constraints": {
               "required": true
             }
@@ -27195,7 +27197,7 @@
             "name": "vas_sweet",
             "title": "vas_sweet",
             "type": "number",
-            "description": "Visual analogue scale. Sweet Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke | Ja, meget",
+            "description": "Visual analogue scale. Would you like something sweet Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }
@@ -27204,7 +27206,7 @@
             "name": "vas_salt",
             "title": "vas_salt",
             "type": "number",
-            "description": "Visual analogue scale. Salt Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke | Ja, meget",
+            "description": "Visual analogue scale. Would you like something savoury Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }
@@ -27213,7 +27215,7 @@
             "name": "vas_fat",
             "title": "vas_fat",
             "type": "number",
-            "description": "Visual analogue scale. Fat Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke | Ja, meget",
+            "description": "Visual analogue scale. Would you like something fatty Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }
@@ -27221,138 +27223,7 @@
         ],
         "primaryKey": [
           "event",
-          "time"
-        ]
-      }
-    },
-    {
-      "name": "vas_minus10",
-      "path": "resources/vas_minus10/data.parquet",
-      "title": "vas_minus10",
-      "description": "vas_minus10",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "vas_hunger_fasted_minus10min",
-            "title": "vas_hunger_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How hungry do you feel, at time minus 10 min Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten |  | Jeg har aldrig været mere sulten",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_satisfaction_fasted_minus10min",
-            "title": "vas_satisfaction_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How satiated do you feel, at time minus 10 min Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven |  | Jeg kan ikke få en bid mere ned",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_full_fasted_minus10min",
-            "title": "vas_full_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How full do you feel, at time minus 10 min Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op |  | Fyldt totalt op",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_how_much_fasted_minus10min",
-            "title": "vas_how_much_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How much do you think you can eat, at time minus 10 min Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting |  | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_comfort_fasted_minus10min",
-            "title": "vas_comfort_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Level of comfort, at time minus 10 min Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt |  | Virkelig godt",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_nausea_fasted_minus10min",
-            "title": "vas_nausea_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Any nausea, at time minus 10 min Question: Har du kvalme?. Slider scale labels: Ja, meget |  | Nej, slet ikke",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_thirst_fasted_minus10min",
-            "title": "vas_thirst_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How thirsty do you feel, at time minus 10 min Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke |  | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_sweet_fasted_minus10min",
-            "title": "vas_sweet_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Would you like something sweet, at time minus 10 min Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_salt_fasted_minus10min",
-            "title": "vas_salt_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Would you like something savoury, at time minus 10 min Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_fat_fasted_minus10min",
-            "title": "vas_fat_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Would you like something fatty, at time minus 10 min Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          }
-        ],
-        "primaryKey": [
-          "event"
+          "minutes_from_meal"
         ]
       }
     },

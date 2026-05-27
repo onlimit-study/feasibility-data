@@ -10,9 +10,9 @@ import seedcase_sprout as sp
 
 In = TypeVar("In")
 Out = TypeVar("Out")
-VAS_TIMEPOINTS = [30, 60, 90, 120, 180, 240]
-VAS_TIME_FORM_PATTERN = re.compile(r"^vas_(30|60|90|120|180|240)_?min$")
-VAS_TIME_FIELD_PATTERN = re.compile(r"_(30|60|90|120|180|240)min$")
+VAS_TIMEPOINTS = [-10, 30, 60, 90, 120, 180, 240]
+VAS_TIME_FORM_PATTERN = re.compile(r"^vas_(minus10|(30|60|90|120|180|240)_?min)$")
+VAS_TIME_FIELD_PATTERN = re.compile(r"(_fasted)?_(minus10|30|60|90|120|180|240)min$")
 
 
 def _map(x: Iterable[In], fn: Callable[[In], Out]) -> list[Out]:
@@ -98,7 +98,7 @@ def _append_if_new_vas_field(
 
 def _remove_vas_time_from_annotation(annotation: str) -> str:
     return re.sub(
-        r"\s+at time\s+\d+\s*min",
+        r",?\s+at time\s+(minus\s+10|\d+)\s*min",
         "",
         annotation,
         flags=re.IGNORECASE,
@@ -133,10 +133,13 @@ def _form_to_resource(
 
     if form_name == "vas":
         time_field = sp.FieldProperties(
-            name="time",
-            title="Time",
+            name="minutes_from_meal",
+            title="Minutes from meal",
             type="integer",
-            description="The time in minutes after the meal when the VAS was recorded.",
+            description=(
+                "The time in minutes from the meal when the specific VAS "
+                "measurement was recorded. Negative values are before the meal."
+            ),
             categories=VAS_TIMEPOINTS,
             constraints=sp.ConstraintsProperties(
                 required=True,
@@ -144,7 +147,7 @@ def _form_to_resource(
             ),
         )
         default_fields.append(time_field)
-        primary_key.append("time")
+        primary_key.append("minutes_from_meal")
 
     # Discard fields displayed for information only
     form_redcap_fields = _filter(
