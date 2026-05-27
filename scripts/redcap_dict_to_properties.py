@@ -58,20 +58,52 @@ def _join_vas_time_resources(
     redcap_fields: list[dict[str, str]],
 ) -> list[dict[str, str]]:
     """Combines REDCap VAS timepoint forms into one resource schema."""
-    return _deduplicate_vas_fields(
-        _map(redcap_fields, _normalise_vas_time_resource_field)
+    return _join_repeated_resource_fields(
+        redcap_fields=redcap_fields,
+        is_repeated_resource_field=_is_vas_time_resource_field,
+        normalise_field_name=_normalise_vas_field_name,
+        normalise_annotation=_remove_vas_time_from_annotation,
+        resource_name="vas",
     )
 
 
-def _normalise_vas_time_resource_field(field: dict[str, str]) -> dict[str, str]:
-    if not _is_vas_time_resource_field(field):
+def _join_repeated_resource_fields(
+    redcap_fields: list[dict[str, str]],
+    is_repeated_resource_field: Callable[[dict[str, str]], bool],
+    normalise_field_name: Callable[[str], str],
+    normalise_annotation: Callable[[str], str],
+    resource_name: str,
+) -> list[dict[str, str]]:
+    return _deduplicate_resource_fields(
+        _map(
+            redcap_fields,
+            lambda field: _normalise_repeated_resource_field(
+                field,
+                is_repeated_resource_field,
+                normalise_field_name,
+                normalise_annotation,
+                resource_name,
+            ),
+        ),
+        resource_name,
+    )
+
+
+def _normalise_repeated_resource_field(
+    field: dict[str, str],
+    is_repeated_resource_field: Callable[[dict[str, str]], bool],
+    normalise_field_name: Callable[[str], str],
+    normalise_annotation: Callable[[str], str],
+    resource_name: str,
+) -> dict[str, str]:
+    if not is_repeated_resource_field(field):
         return field
 
     return {
         **field,
-        "field_name": _normalise_vas_field_name(field["field_name"]),
-        "form_name": "vas",
-        "field_annotation": _remove_vas_time_from_annotation(field["field_annotation"]),
+        "field_name": normalise_field_name(field["field_name"]),
+        "form_name": resource_name,
+        "field_annotation": normalise_annotation(field["field_annotation"]),
     }
 
 
@@ -83,28 +115,34 @@ def _is_vas_time_resource_field(field: dict[str, str]) -> bool:
     return bool(VAS_TIME_FORM_PATTERN.match(field["form_name"]))
 
 
-def _deduplicate_vas_fields(fields: list[dict[str, str]]) -> list[dict[str, str]]:
+def _deduplicate_resource_fields(
+    fields: list[dict[str, str]], resource_name: str
+) -> list[dict[str, str]]:
     deduplicated_fields, _ = reduce(
-        _append_if_new_vas_field,
+        lambda result, field: _append_if_new_resource_field(
+            result, field, resource_name
+        ),
         fields,
         ([], set()),
     )
     return deduplicated_fields
 
 
-def _append_if_new_vas_field(
-    result: tuple[list[dict[str, str]], set[str]], field: dict[str, str]
+def _append_if_new_resource_field(
+    result: tuple[list[dict[str, str]], set[str]],
+    field: dict[str, str],
+    resource_name: str,
 ) -> tuple[list[dict[str, str]], set[str]]:
-    fields, seen_vas_fields = result
+    fields, seen_fields = result
     field_name = field["field_name"]
 
-    if field["form_name"] != "vas":
-        return fields + [field], seen_vas_fields
+    if field["form_name"] != resource_name:
+        return fields + [field], seen_fields
 
-    if field_name in seen_vas_fields:
+    if field_name in seen_fields:
         return result
 
-    return (fields + [field], seen_vas_fields.union({field_name}))
+    return (fields + [field], seen_fields.union({field_name}))
 
 
 def _remove_vas_time_from_annotation(annotation: str) -> str:
@@ -120,23 +158,13 @@ def _join_sefnc_week_resources(
     redcap_fields: list[dict[str, str]],
 ) -> list[dict[str, str]]:
     """Combines SEFNC week-specific forms into one resource schema."""
-    return _deduplicate_sefnc_fields(
-        _map(redcap_fields, _normalise_sefnc_week_resource_field)
+    return _join_repeated_resource_fields(
+        redcap_fields=redcap_fields,
+        is_repeated_resource_field=_is_sefnc_week_resource_field,
+        normalise_field_name=_normalise_sefnc_field_name,
+        normalise_annotation=_remove_sefnc_week_from_annotation,
+        resource_name="sefnc",
     )
-
-
-def _normalise_sefnc_week_resource_field(field: dict[str, str]) -> dict[str, str]:
-    if not _is_sefnc_week_resource_field(field):
-        return field
-
-    return {
-        **field,
-        "field_name": _normalise_sefnc_field_name(field["field_name"]),
-        "form_name": "sefnc",
-        "field_annotation": _remove_sefnc_week_from_annotation(
-            field["field_annotation"]
-        ),
-    }
 
 
 def _normalise_sefnc_field_name(field_name: str) -> str:
@@ -147,30 +175,6 @@ def _normalise_sefnc_field_name(field_name: str) -> str:
 
 def _is_sefnc_week_resource_field(field: dict[str, str]) -> bool:
     return field["form_name"] in SEFNC_FORM_WEEKS
-
-
-def _deduplicate_sefnc_fields(fields: list[dict[str, str]]) -> list[dict[str, str]]:
-    deduplicated_fields, _ = reduce(
-        _append_if_new_sefnc_field,
-        fields,
-        ([], set()),
-    )
-    return deduplicated_fields
-
-
-def _append_if_new_sefnc_field(
-    result: tuple[list[dict[str, str]], set[str]], field: dict[str, str]
-) -> tuple[list[dict[str, str]], set[str]]:
-    fields, seen_sefnc_fields = result
-    field_name = field["field_name"]
-
-    if field["form_name"] != "sefnc":
-        return fields + [field], seen_sefnc_fields
-
-    if field_name in seen_sefnc_fields:
-        return result
-
-    return (fields + [field], seen_sefnc_fields.union({field_name}))
 
 
 def _remove_sefnc_week_from_annotation(annotation: str) -> str:
