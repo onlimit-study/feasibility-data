@@ -295,8 +295,8 @@ def _append_if_new_foer_besoegsdag_field(
 
 
 def _remove_foer_besoegsdag_visit_from_annotation(annotation: str) -> str:
-    annotation = re.sub(r"\s+Visit\s+\d+\.", ".", annotation, flags=re.IGNORECASE)
-    return re.sub(r"\s+Wfv\d+\.", ".", annotation, flags=re.IGNORECASE).strip()
+    annotation = re.sub(r"\s+Visit\s+[234]\.$", "", annotation, flags=re.IGNORECASE)
+    return re.sub(r"\s+Wfv[234]\.$", "", annotation, flags=re.IGNORECASE).strip()
 
 
 def _form_to_resource(
