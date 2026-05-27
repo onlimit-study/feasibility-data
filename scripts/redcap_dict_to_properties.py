@@ -13,6 +13,13 @@ Out = TypeVar("Out")
 VAS_TIMEPOINTS = [-10, 30, 60, 90, 120, 180, 240]
 VAS_TIME_FORM_PATTERN = re.compile(r"^vas_(minus10|(30|60|90|120|180|240)_?min)$")
 VAS_TIME_FIELD_PATTERN = re.compile(r"(_fasted)?_(minus10|30|60|90|120|180|240)min$")
+SEFNC_WEEKS = [0, 12, 52]
+SEFNC_FORM_WEEKS = {
+    "sefnc_baseline_v4": 0,
+    "sefnc_week12_v6": 12,
+    "selfefficacy_for_nutrition_change_sefnc_week_52": 52,
+}
+SEFNC_WEEK_FIELD_PATTERN = re.compile(r"_v(6|10)$")
 
 
 def _map(x: Iterable[In], fn: Callable[[In], Out]) -> list[Out]:
@@ -38,7 +45,7 @@ def dictionary_to_properties(
     redcap_fields: list[dict[str, str]],
 ) -> list[sp.ResourceProperties]:
     """Converts REDCap data dictionary to Data Package resources."""
-    redcap_fields = _join_vas_time_resources(redcap_fields)
+    redcap_fields = _join_sefnc_week_resources(_join_vas_time_resources(redcap_fields))
     sorted_by_form = sorted(redcap_fields, key=lambda field: field["form_name"])
     grouped_by_form = groupby(sorted_by_form, key=lambda field: field["form_name"])
     return _map(
@@ -116,6 +123,79 @@ def _remove_vas_time_from_annotation(annotation: str) -> str:
     ).strip()
 
 
+def _join_sefnc_week_resources(
+    redcap_fields: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    """Combines SEFNC week-specific forms into one resource schema."""
+    return _deduplicate_sefnc_fields(
+        _map(redcap_fields, _normalise_sefnc_week_resource_field)
+    )
+
+
+def _normalise_sefnc_week_resource_field(field: dict[str, str]) -> dict[str, str]:
+    if not _is_sefnc_week_resource_field(field):
+        return field
+
+    return {
+        **field,
+        "field_name": _normalise_sefnc_field_name(field["field_name"]),
+        "form_name": "sefnc",
+        "field_annotation": _remove_sefnc_week_from_annotation(
+            field["field_annotation"]
+        ),
+    }
+
+
+def _normalise_sefnc_field_name(field_name: str) -> str:
+    return SEFNC_WEEK_FIELD_PATTERN.sub("", field_name).replace(
+        "sefnc_ubusy_schedule", "sefnc_busy_schedule"
+    )
+
+
+def _is_sefnc_week_resource_field(field: dict[str, str]) -> bool:
+    return field["form_name"] in SEFNC_FORM_WEEKS
+
+
+def _deduplicate_sefnc_fields(fields: list[dict[str, str]]) -> list[dict[str, str]]:
+    deduplicated_fields, _ = reduce(
+        _append_if_new_sefnc_field,
+        fields,
+        ([], set()),
+    )
+    return deduplicated_fields
+
+
+def _append_if_new_sefnc_field(
+    result: tuple[list[dict[str, str]], set[str]], field: dict[str, str]
+) -> tuple[list[dict[str, str]], set[str]]:
+    fields, seen_sefnc_fields = result
+    field_name = field["field_name"]
+
+    if field["form_name"] != "sefnc":
+        return fields + [field], seen_sefnc_fields
+
+    if field_name in seen_sefnc_fields:
+        return result
+
+    return (fields + [field], seen_sefnc_fields.union({field_name}))
+
+
+def _remove_sefnc_week_from_annotation(annotation: str) -> str:
+    annotation = re.sub(
+        r"\s+Repeated at baseline \(V4\), week 12 \(V6\) and week 52 \(V10\)\.?",
+        "",
+        annotation,
+        flags=re.IGNORECASE,
+    )
+
+    return re.sub(
+        r"\s+(Baseline|Week 12|Week 52)\s*\((V4|V6|V?10)\)\.?",
+        "",
+        annotation,
+        flags=re.IGNORECASE,
+    ).strip()
+
+
 def _form_to_resource(
     form_name: str, fields: list[dict[str, str]]
 ) -> sp.ResourceProperties:
@@ -159,6 +239,21 @@ def _form_to_resource(
         )
         default_fields.append(time_field)
         primary_key.append("minutes_from_meal")
+
+    if form_name == "sefnc":
+        week_field = sp.FieldProperties(
+            name="week",
+            title="Week",
+            type="integer",
+            description="The study week when the SEFNC measurement was recorded.",
+            categories=SEFNC_WEEKS,
+            constraints=sp.ConstraintsProperties(
+                required=True,
+                enum=SEFNC_WEEKS,
+            ),
+        )
+        default_fields.append(week_field)
+        primary_key.append("week")
 
     # Discard fields displayed for information only
     form_redcap_fields = _filter(
@@ -206,6 +301,9 @@ def _get_resource_title(form_name: str) -> str:
     if form_name == "vas":
         return "Visual analogue scale measurements"
 
+    if form_name == "sefnc":
+        return "Self-efficacy for nutrition change"
+
     return form_name
 
 
@@ -214,6 +312,12 @@ def _get_resource_description(form_name: str) -> str:
         return (
             "Visual analogue scale measurements recorded at multiple timepoints "
             "relative to the meal."
+        )
+
+    if form_name == "sefnc":
+        return (
+            "Self-efficacy for nutrition change measurements recorded across "
+            "study weeks."
         )
 
     return form_name
