@@ -27071,8 +27071,8 @@
     {
       "name": "vas",
       "path": "resources/vas/data.parquet",
-      "title": "vas",
-      "description": "vas",
+      "title": "Visual analogue scale measurements",
+      "description": "Visual analogue scale measurements recorded at multiple timepoints relative to the meal.",
       "schema": {
         "fields": [
           {

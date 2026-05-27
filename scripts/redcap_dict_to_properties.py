@@ -97,7 +97,7 @@ def _append_if_new_vas_field(
     if field_name in seen_vas_fields:
         return result
 
-    return fields + [field], seen_vas_fields | {field_name}
+    return (fields + [field], seen_vas_fields.union({field_name}))
 
 
 def _remove_vas_time_from_annotation(annotation: str) -> str:
@@ -181,17 +181,35 @@ def _form_to_resource(
         fields, lambda field: field["field_type"] == "checkbox"
     )
     checkbox_fields = _flat_map(checkbox_redcap_fields, _expand_checkbox_field)
+    resource_title = _get_resource_title(form_name)
+    resource_description = _get_resource_description(form_name)
 
     return sp.ResourceProperties(
         name=form_name,
-        # TODO: fill in title and description
-        title=form_name,
-        description=form_name,
+        title=resource_title,
+        description=resource_description,
         schema=sp.TableSchemaProperties(
             primary_key=primary_key,
             fields=default_fields + form_fields + checkbox_fields,
         ),
     )
+
+
+def _get_resource_title(form_name: str) -> str:
+    if form_name == "vas":
+        return "Visual analogue scale measurements"
+
+    return form_name
+
+
+def _get_resource_description(form_name: str) -> str:
+    if form_name == "vas":
+        return (
+            "Visual analogue scale measurements recorded at multiple timepoints "
+            "relative to the meal."
+        )
+
+    return form_name
 
 
 def _get_error_message(field: dict[str, str], key: str) -> str:
