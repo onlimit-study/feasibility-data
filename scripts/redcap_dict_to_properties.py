@@ -101,6 +101,13 @@ def _append_if_new_vas_field(
 
 
 def _remove_vas_time_from_annotation(annotation: str) -> str:
+    annotation = re.sub(
+        r"^Visual analogue scale\.\s*",
+        "",
+        annotation,
+        flags=re.IGNORECASE,
+    )
+
     return re.sub(
         r",?\s+at time\s+(minus\s+10|\d+)\s*min",
         "",
@@ -283,6 +290,8 @@ def _get_description(redcap_field: dict[str, str]) -> str:
             # Given as: left label | middle label | right label
             + redcap_field["select_choices_or_calculations"]
         )
+
+    description = re.sub(r"(?<![.?!])\s+Question:", ". Question:", description)
 
     return description.strip()
 
