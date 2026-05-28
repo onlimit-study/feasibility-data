@@ -23781,7 +23781,7 @@
       "name": "sefnc",
       "path": "resources/sefnc/data.parquet",
       "title": "Self-efficacy for nutrition change",
-      "description": "Self-efficacy for nutrition change measurements recorded across study weeks.",
+      "description": "Self-efficacy for nutrition change measurements self-reported by participants across study weeks.",
       "schema": {
         "fields": [
           {
@@ -23835,7 +23835,7 @@
             "name": "when_tired",
             "title": "when_tired",
             "type": "string",
-            "description": "Participant's confidence in following their diet when feeling tired. Self-reported by participant.",
+            "description": "Participant's confidence in following their diet when feeling tired.",
             "constraints": {
               "required": true,
               "enum": [
@@ -23905,7 +23905,7 @@
             "name": "when_depressed",
             "title": "when_depressed",
             "type": "string",
-            "description": "Participant's confidence in following their diet when feeling depressed. Self-reported by participant.",
+            "description": "Participant's confidence in following their diet when feeling depressed.",
             "constraints": {
               "required": true,
               "enum": [
@@ -23940,7 +23940,7 @@
             "name": "when_anxious",
             "title": "when_anxious",
             "type": "string",
-            "description": "Participant's confidence in following their diet when feeling anxious. Self-reported by participant.",
+            "description": "Participant's confidence in following their diet when feeling anxious.",
             "constraints": {
               "required": true,
               "enum": [
@@ -23975,7 +23975,7 @@
             "name": "on_vacation",
             "title": "on_vacation",
             "type": "string",
-            "description": "Participant's confidence in following their diet while on vacation. Self-reported by participant.",
+            "description": "Participant's confidence in following their diet while on vacation.",
             "constraints": {
               "required": true,
               "enum": [
@@ -24010,7 +24010,7 @@
             "name": "when_busy",
             "title": "when_busy",
             "type": "string",
-            "description": "Participant's confidence in following their diet when they have a heavy workload. Self-reported by participant.",
+            "description": "Participant's confidence in following their diet when they have a heavy workload.",
             "constraints": {
               "required": true,
               "enum": [
@@ -24045,7 +24045,7 @@
             "name": "when_missed_goals",
             "title": "when_missed_goals",
             "type": "string",
-            "description": "Participant's confidence in following their diet when they have not met their dietary goals. Self-reported by participant.",
+            "description": "Participant's confidence in following their diet when they have not met their dietary goals.",
             "constraints": {
               "required": true,
               "enum": [
@@ -24115,7 +24115,7 @@
             "name": "busy_schedule",
             "title": "busy_schedule",
             "type": "string",
-            "description": "Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding. Self-reported by participant.",
+            "description": "Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding.",
             "constraints": {
               "required": true,
               "enum": [

@@ -190,8 +190,15 @@ def _remove_sefnc_week_from_annotation(annotation: str) -> str:
         flags=re.IGNORECASE,
     )
 
-    return re.sub(
+    annotation = re.sub(
         r"\s+(Baseline|Week 12|Week 52)\s*\((V4|V6|V?10)\)\.?",
+        "",
+        annotation,
+        flags=re.IGNORECASE,
+    )
+
+    return re.sub(
+        r"\s*Self-reported by participant\.?",
         "",
         annotation,
         flags=re.IGNORECASE,
@@ -318,8 +325,8 @@ def _get_resource_description(form_name: str) -> str:
 
     if form_name == "sefnc":
         return (
-            "Self-efficacy for nutrition change measurements recorded across "
-            "study weeks."
+            "Self-efficacy for nutrition change measurements self-reported by "
+            "participants across study weeks."
         )
 
     return form_name
