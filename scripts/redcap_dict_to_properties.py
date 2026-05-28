@@ -148,9 +148,10 @@ def _normalise_sefnc_week_resource_field(field: dict[str, str]) -> dict[str, str
 
 
 def _normalise_sefnc_field_name(field_name: str) -> str:
-    return SEFNC_WEEK_FIELD_PATTERN.sub("", field_name).replace(
+    field_name = SEFNC_WEEK_FIELD_PATTERN.sub("", field_name).replace(
         "sefnc_ubusy_schedule", "sefnc_busy_schedule"
     )
+    return re.sub(r"^sefnc_", "", field_name)
 
 
 def _is_sefnc_week_resource_field(field: dict[str, str]) -> bool:

@@ -23832,8 +23832,8 @@
             ]
           },
           {
-            "name": "sefnc_when_tired",
-            "title": "sefnc_when_tired",
+            "name": "when_tired",
+            "title": "when_tired",
             "type": "string",
             "description": "Participant's confidence in following their diet when feeling tired. Self-reported by participant.",
             "constraints": {
@@ -23867,8 +23867,8 @@
             ]
           },
           {
-            "name": "sefnc_during_crisis",
-            "title": "sefnc_during_crisis",
+            "name": "during_crisis",
+            "title": "during_crisis",
             "type": "string",
             "description": "Participant's confidence in following their diet during or after a personal crisis.",
             "constraints": {
@@ -23902,8 +23902,8 @@
             ]
           },
           {
-            "name": "sefnc_when_depressed",
-            "title": "sefnc_when_depressed",
+            "name": "when_depressed",
+            "title": "when_depressed",
             "type": "string",
             "description": "Participant's confidence in following their diet when feeling depressed. Self-reported by participant.",
             "constraints": {
@@ -23937,8 +23937,8 @@
             ]
           },
           {
-            "name": "sefnc_when_anxious",
-            "title": "sefnc_when_anxious",
+            "name": "when_anxious",
+            "title": "when_anxious",
             "type": "string",
             "description": "Participant's confidence in following their diet when feeling anxious. Self-reported by participant.",
             "constraints": {
@@ -23972,8 +23972,8 @@
             ]
           },
           {
-            "name": "sefnc_on_vacation",
-            "title": "sefnc_on_vacation",
+            "name": "on_vacation",
+            "title": "on_vacation",
             "type": "string",
             "description": "Participant's confidence in following their diet while on vacation. Self-reported by participant.",
             "constraints": {
@@ -24007,8 +24007,8 @@
             ]
           },
           {
-            "name": "sefnc_when_busy",
-            "title": "sefnc_when_busy",
+            "name": "when_busy",
+            "title": "when_busy",
             "type": "string",
             "description": "Participant's confidence in following their diet when they have a heavy workload. Self-reported by participant.",
             "constraints": {
@@ -24042,8 +24042,8 @@
             ]
           },
           {
-            "name": "sefnc_when_missed_goals",
-            "title": "sefnc_when_missed_goals",
+            "name": "when_missed_goals",
+            "title": "when_missed_goals",
             "type": "string",
             "description": "Participant's confidence in following their diet when they have not met their dietary goals. Self-reported by participant.",
             "constraints": {
@@ -24077,8 +24077,8 @@
             ]
           },
           {
-            "name": "sefnc_no_support",
-            "title": "sefnc_no_support",
+            "name": "no_support",
+            "title": "no_support",
             "type": "string",
             "description": "Participant's confidence in following their diet when lacking support from family or friends.",
             "constraints": {
@@ -24112,8 +24112,8 @@
             ]
           },
           {
-            "name": "sefnc_busy_schedule",
-            "title": "sefnc_busy_schedule",
+            "name": "busy_schedule",
+            "title": "busy_schedule",
             "type": "string",
             "description": "Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding. Self-reported by participant.",
             "constraints": {
