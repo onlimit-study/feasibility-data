@@ -27,7 +27,7 @@ def load_raw_data() -> pl.DataFrame:
     return pl.read_csv(latest_file)
 
 
-def get_fields_by_resource() -> dict[str, list[str]]:
+def _get_fields_by_resource() -> dict[str, list[str]]:
     """Gets a mapping from resource names to a list of field names in that resource."""
     properties = so.read_properties(so.parse_source("datapackage.json"))
     return dict(
@@ -41,7 +41,7 @@ def get_fields_by_resource() -> dict[str, list[str]]:
     )
 
 
-def select_with_base_cols(
+def _select_with_base_cols(
     raw_df: pl.DataFrame, resource_name: str, cols: list[str]
 ) -> pl.DataFrame:
     """Selects columns and adds base columns common to all dataframes."""
@@ -57,19 +57,19 @@ def select_with_base_cols(
 
 def raw_to_staged(raw_df: pl.DataFrame) -> list[pl.DataFrame]:
     """Transforms the raw data into staged dataframes."""
-    resources = get_fields_by_resource()
+    resources = _get_fields_by_resource()
 
     # Resources with special handling
     resources.pop("vas", None)
-    dfs = [create_vas_df(raw_df)]
+    dfs = [_create_vas_df(raw_df)]
 
     # Resources without special handling
     return dfs + so.pairwise_fmap(
-        list(resources.items()), [raw_df], create_df_for_resource
+        list(resources.items()), [raw_df], _create_df_for_resource
     )
 
 
-def create_df_for_resource(
+def _create_df_for_resource(
     resource_entry: tuple[str, list[str]], raw_df: pl.DataFrame
 ) -> pl.DataFrame:
     """Creates a dataframe for a resource."""
@@ -79,10 +79,10 @@ def create_df_for_resource(
     field_names.remove("event")
     field_names.remove("center")
 
-    return select_with_base_cols(raw_df, resource_name, field_names)
+    return _select_with_base_cols(raw_df, resource_name, field_names)
 
 
-def create_vas_df(raw_df: pl.DataFrame) -> pl.DataFrame:
+def _create_vas_df(raw_df: pl.DataFrame) -> pl.DataFrame:
     """Creates a dataframe for the VAS resource."""
     vas_cols = so.keep(
         raw_df.columns,
@@ -100,12 +100,12 @@ def create_vas_df(raw_df: pl.DataFrame) -> pl.DataFrame:
         cols_grouped_by_time.setdefault(int(time), []).append(col)
 
     vas_dfs = so.pairwise_fmap(
-        list(cols_grouped_by_time.items()), [raw_df], create_df_for_time_group
+        list(cols_grouped_by_time.items()), [raw_df], _create_df_for_time_group
     )
     return pl.concat(vas_dfs, how="vertical")
 
 
-def create_df_for_time_group(
+def _create_df_for_time_group(
     time_group: tuple[int, list[str]], raw_df: pl.DataFrame
 ) -> pl.DataFrame:
     """Creates a dataframe for a group of VAS columns with the same time."""
@@ -117,7 +117,7 @@ def create_df_for_time_group(
     }
 
     return (
-        select_with_base_cols(raw_df, "vas", cols)
+        _select_with_base_cols(raw_df, "vas", cols)
         .rename(renamed_cols)
         .with_columns(pl.lit(time).alias("minutes_from_meal"))
     )
