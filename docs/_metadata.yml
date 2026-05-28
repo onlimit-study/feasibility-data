@@ -1,0 +1,6 @@
+format:
+  onlimit-theme-html:
+    toc: false
+    grid:
+      sidebar-width: 550px
+      body-width: 1000px

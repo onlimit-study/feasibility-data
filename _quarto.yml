@@ -10,8 +10,6 @@ website:
     logo-alt: "ON LiMiT Feasibility Study Data"
     pinned: true
     left:
-      - text: "Overview"
-        href: index.qmd
       - text: "Data Package"
         href: docs/index.qmd
     tools:
@@ -20,6 +18,7 @@ website:
         aria-label: "GitHub icon: Source repository"
   sidebar:
     - id: package
+      style: "docked"
       contents:
         - text: "Package"
           href: docs/index.qmd
