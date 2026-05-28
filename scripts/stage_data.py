@@ -15,7 +15,14 @@ VAS_TIME_FIELD_PATTERN = re.compile(
 def load_raw_data() -> pl.DataFrame:
     """Loads the latest raw data from `raw/redcap/<timestamp>.csv.gz`."""
     file_path = Path("raw") / "redcap"
-    latest_file = max(file_path.glob("*.csv.gz"), key=lambda file: file.name)
+    files = list(file_path.glob("*.csv.gz"))
+    if not files:
+        raise FileNotFoundError(
+            f"No raw data files found in '{file_path}'. "
+            "Have you run `just download-data`?"
+        )
+
+    latest_file = max(files, key=lambda file: file.name)
     so.pretty_print(f"Loading data from '{latest_file}'.")
     return pl.read_csv(latest_file)
 
