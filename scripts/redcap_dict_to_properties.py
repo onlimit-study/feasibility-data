@@ -52,8 +52,8 @@ def dictionary_to_properties(
     redcap_fields: list[dict[str, str]],
 ) -> list[sp.ResourceProperties]:
     """Converts REDCap data dictionary to Data Package resources."""
-    redcap_fields = _join_vas_time_resources(redcap_fields)
     redcap_fields = _join_sefnc_week_resources(redcap_fields)
+    redcap_fields = _join_vas_time_resources(redcap_fields)
     redcap_fields = _join_foer_besoegsdag_visit_resources(redcap_fields)
     sorted_by_form = sorted(redcap_fields, key=lambda field: field["form_name"])
     grouped_by_form = groupby(sorted_by_form, key=lambda field: field["form_name"])
@@ -149,9 +149,10 @@ def _normalise_sefnc_week_resource_field(field: dict[str, str]) -> dict[str, str
 
 
 def _normalise_sefnc_field_name(field_name: str) -> str:
-    return SEFNC_WEEK_FIELD_PATTERN.sub("", field_name).replace(
+    field_name = SEFNC_WEEK_FIELD_PATTERN.sub("", field_name).replace(
         "sefnc_ubusy_schedule", "sefnc_busy_schedule"
     )
+    return re.sub(r"^sefnc_", "", field_name)
 
 
 def _is_sefnc_week_resource_field(field: dict[str, str]) -> bool:
@@ -190,8 +191,15 @@ def _remove_sefnc_week_from_annotation(annotation: str) -> str:
         flags=re.IGNORECASE,
     )
 
-    return re.sub(
+    annotation = re.sub(
         r"\s+(Baseline|Week 12|Week 52)\s*\((V4|V6|V?10)\)\.?",
+        "",
+        annotation,
+        flags=re.IGNORECASE,
+    )
+
+    return re.sub(
+        r"\s*Self-reported by participant\.?",
         "",
         annotation,
         flags=re.IGNORECASE,
@@ -446,8 +454,8 @@ def _get_resource_description(form_name: str) -> str:
 
     if form_name == "sefnc":
         return (
-            "Self-efficacy for nutrition change measurements recorded across "
-            "study weeks."
+            "Self-efficacy for nutrition change measurements self-reported by "
+            "participants across study weeks."
         )
 
     if form_name == "foer_besoegsdag":
