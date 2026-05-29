@@ -52,9 +52,9 @@ def dictionary_to_properties(
     redcap_fields: list[dict[str, str]],
 ) -> list[sp.ResourceProperties]:
     """Converts REDCap data dictionary to Data Package resources."""
-    redcap_fields = _join_foer_besoegsdag_visit_resources(
-        _join_sefnc_week_resources(_join_vas_time_resources(redcap_fields))
-    )
+    redcap_fields = _join_vas_time_resources(redcap_fields)
+    redcap_fields = _join_sefnc_week_resources(redcap_fields)
+    redcap_fields = _join_foer_besoegsdag_visit_resources(redcap_fields)
     sorted_by_form = sorted(redcap_fields, key=lambda field: field["form_name"])
     grouped_by_form = groupby(sorted_by_form, key=lambda field: field["form_name"])
     return _map(
