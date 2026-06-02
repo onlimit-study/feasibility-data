@@ -4,7 +4,7 @@
   "title": "ON LiMiT Feasibility Study Data",
   "description": "Full data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.",
   "homepage": "https://onlimit.org",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "created": "2025-12-09T15:00:26+01:00",
   "contributors": [
     {
@@ -26346,7 +26346,7 @@
             "name": "hunger",
             "title": "hunger",
             "type": "number",
-            "description": "Visual analogue scale. How hungry do you feel Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten |  | Jeg har aldrig været mere sulten",
+            "description": "How hungry do you feel. Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten |  | Jeg har aldrig været mere sulten",
             "constraints": {
               "required": true
             }
@@ -26355,7 +26355,7 @@
             "name": "satisfaction",
             "title": "satisfaction",
             "type": "number",
-            "description": "Visual analogue scale. How satiated do you feel Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven |  | Jeg kan ikke få en bid mere ned",
+            "description": "How satiated do you feel. Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven |  | Jeg kan ikke få en bid mere ned",
             "constraints": {
               "required": true
             }
@@ -26364,7 +26364,7 @@
             "name": "full",
             "title": "full",
             "type": "number",
-            "description": "Visual analogue scale. How full do you feel Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op |  | Fyldt totalt op",
+            "description": "How full do you feel. Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op |  | Fyldt totalt op",
             "constraints": {
               "required": true
             }
@@ -26373,7 +26373,7 @@
             "name": "how_much",
             "title": "how_much",
             "type": "number",
-            "description": "Visual analogue scale. How much do you think you can eat Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting |  | Virkelig meget",
+            "description": "How much do you think you can eat. Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting |  | Virkelig meget",
             "constraints": {
               "required": true
             }
@@ -26382,7 +26382,7 @@
             "name": "comfort",
             "title": "comfort",
             "type": "number",
-            "description": "Visual analogue scale. Level of comfort Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt |  | Virkelig godt",
+            "description": "Level of comfort. Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt |  | Virkelig godt",
             "constraints": {
               "required": true
             }
@@ -26391,7 +26391,7 @@
             "name": "nausea",
             "title": "nausea",
             "type": "number",
-            "description": "Visual analogue scale. Any nausea Question: Har du kvalme?. Slider scale labels: Ja, meget |  | Nej, slet ikke",
+            "description": "Any nausea. Question: Har du kvalme?. Slider scale labels: Ja, meget |  | Nej, slet ikke",
             "constraints": {
               "required": true
             }
@@ -26400,7 +26400,7 @@
             "name": "thirst",
             "title": "thirst",
             "type": "number",
-            "description": "Visual analogue scale. How thirsty do you feel Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke |  | Virkelig meget",
+            "description": "How thirsty do you feel. Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke |  | Virkelig meget",
             "constraints": {
               "required": true
             }
@@ -26409,7 +26409,7 @@
             "name": "sweet",
             "title": "sweet",
             "type": "number",
-            "description": "Visual analogue scale. Would you like something sweet Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
+            "description": "Would you like something sweet. Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }
@@ -26418,7 +26418,7 @@
             "name": "salt",
             "title": "salt",
             "type": "number",
-            "description": "Visual analogue scale. Would you like something savoury Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
+            "description": "Would you like something savoury. Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }
@@ -26427,7 +26427,7 @@
             "name": "fat",
             "title": "fat",
             "type": "number",
-            "description": "Visual analogue scale. Would you like something fatty Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
+            "description": "Would you like something fatty. Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }

@@ -1,3 +1,9 @@
+## 0.10.1 (2026-06-02)
+
+### Refactor
+
+- :recycle:  convert column time suffixes to its own variable in VAS (#89)
+
 ## 0.10.0 (2026-05-20)
 
 ### Feat

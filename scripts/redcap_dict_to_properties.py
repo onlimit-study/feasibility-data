@@ -52,8 +52,8 @@ def dictionary_to_properties(
     redcap_fields: list[dict[str, str]],
 ) -> list[sp.ResourceProperties]:
     """Converts REDCap data dictionary to Data Package resources."""
-    redcap_fields = _join_sefnc_week_resources(redcap_fields)
     redcap_fields = _join_vas_time_resources(redcap_fields)
+    redcap_fields = _join_sefnc_week_resources(redcap_fields)
     redcap_fields = _join_foer_besoegsdag_visit_resources(redcap_fields)
     sorted_by_form = sorted(redcap_fields, key=lambda field: field["form_name"])
     grouped_by_form = groupby(sorted_by_form, key=lambda field: field["form_name"])
@@ -117,6 +117,13 @@ def _append_if_new_vas_field(
 
 
 def _remove_vas_time_from_annotation(annotation: str) -> str:
+    annotation = re.sub(
+        r"^Visual analogue scale\.\s*",
+        "",
+        annotation,
+        flags=re.IGNORECASE,
+    )
+
     return re.sub(
         r",?\s+at time\s+(minus\s+10|\d+)\s*min",
         "",
@@ -535,6 +542,8 @@ def _get_description(redcap_field: dict[str, str]) -> str:
             # Given as: left label | middle label | right label
             + redcap_field["select_choices_or_calculations"]
         )
+
+    description = re.sub(r"(?<![.?!])\s+Question:", ". Question:", description)
 
     return description.strip()
 
