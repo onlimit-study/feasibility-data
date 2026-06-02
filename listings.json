@@ -2,6 +2,7 @@
   {
     "listing": "/docs/index.html",
     "items": [
+      "/docs/resources/vas.html",
       "/docs/resources/adverse_events.html",
       "/docs/resources/bedq.html",
       "/docs/resources/besg_1_screening.html",
@@ -65,13 +66,6 @@
       "/docs/resources/the_three_item_loneliness_scale_tils.html",
       "/docs/resources/tobacco_and_nicotine_use.html",
       "/docs/resources/trningsafvigelser.html",
-      "/docs/resources/vas_120_min.html",
-      "/docs/resources/vas_180_min.html",
-      "/docs/resources/vas_240_min.html",
-      "/docs/resources/vas_30min.html",
-      "/docs/resources/vas_60min.html",
-      "/docs/resources/vas_90_min.html",
-      "/docs/resources/vas_minus10.html",
       "/docs/resources/yale_food_addiction_scale_yfas.html"
     ]
   }
