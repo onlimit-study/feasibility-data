@@ -27069,10 +27069,10 @@
       }
     },
     {
-      "name": "vas_120_min",
-      "path": "resources/vas_120_min/data.parquet",
-      "title": "vas_120_min",
-      "description": "vas_120_min",
+      "name": "vas",
+      "path": "resources/vas/data.parquet",
+      "title": "Visual analogue scale measurements",
+      "description": "Visual analogue scale measurements recorded at multiple timepoints relative to the meal.",
       "schema": {
         "fields": [
           {
@@ -27104,884 +27104,126 @@
             ]
           },
           {
-            "name": "vas_hunger_120min",
-            "title": "vas_hunger_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Hunger at time 120 min Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten | Jeg har aldrig været mere sulten",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_satisfaction_120min",
-            "title": "vas_satisfaction_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Satisfaction at time 120 min Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven | Jeg kan ikke få en bid mere ned",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_full_120min",
-            "title": "vas_full_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Fullness at time 120 min Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op | Fyldt totalt op",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_how_much_120min",
-            "title": "vas_how_much_120min",
-            "type": "number",
-            "description": "Visual analogue scale. How much to eat at time  120 min Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_comfort_120min",
-            "title": "vas_comfort_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Comfort at time  120 min Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt | Virkelig godt",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_nausea_120min",
-            "title": "vas_nausea_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Nausea at time  120min Question: Har du kvalme?. Slider scale labels: Ja, meget | Nej, slet ikke",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_thirst_120min",
-            "title": "vas_thirst_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Thirst at time  120 min Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_sweet_120min",
-            "title": "vas_sweet_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Sweet at time  120 min Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_salt_120min",
-            "title": "vas_salt_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Salt at time  120 min Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_fat_120min",
-            "title": "vas_fat_120min",
-            "type": "number",
-            "description": "Visual analogue scale. Fat at time  120 min Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          }
-        ],
-        "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "vas_180_min",
-      "path": "resources/vas_180_min/data.parquet",
-      "title": "vas_180_min",
-      "description": "vas_180_min",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
+            "name": "minutes_from_meal",
+            "title": "Minutes from meal",
+            "type": "integer",
+            "description": "The time in minutes from the meal when the specific VAS measurement was recorded. Negative values are before the meal.",
             "constraints": {
               "required": true,
               "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
+                -10,
+                30,
+                60,
+                90,
+                120,
+                180,
+                240
               ]
             },
             "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
+              -10,
+              30,
+              60,
+              90,
+              120,
+              180,
+              240
             ]
           },
           {
-            "name": "vas_hunger_180min",
-            "title": "vas_hunger_180min",
+            "name": "hunger",
+            "title": "hunger",
             "type": "number",
-            "description": "Visual analogue scale. Hunger at time 180 min Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten | Jeg har aldrig været mere sulten",
+            "description": "How hungry do you feel. Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten |  | Jeg har aldrig været mere sulten",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_satisfaction_180min",
-            "title": "vas_satisfaction_180min",
+            "name": "satisfaction",
+            "title": "satisfaction",
             "type": "number",
-            "description": "Visual analogue scale. Satisfaction at time 180 min Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven | Jeg kan ikke få en bid mere ned",
+            "description": "How satiated do you feel. Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven |  | Jeg kan ikke få en bid mere ned",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_full_180min",
-            "title": "vas_full_180min",
+            "name": "full",
+            "title": "full",
             "type": "number",
-            "description": "Visual analogue scale. Fullness at time 180 min Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op | Fyldt totalt op",
+            "description": "How full do you feel. Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op |  | Fyldt totalt op",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_how_much_180min",
-            "title": "vas_how_much_180min",
+            "name": "how_much",
+            "title": "how_much",
             "type": "number",
-            "description": "Visual analogue scale. How much to eat at time  180 min Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting | Virkelig meget",
+            "description": "How much do you think you can eat. Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting |  | Virkelig meget",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_comfort_180min",
-            "title": "vas_comfort_180min",
+            "name": "comfort",
+            "title": "comfort",
             "type": "number",
-            "description": "Visual analogue scale. Comfort at time  180 min Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt | Virkelig godt",
+            "description": "Level of comfort. Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt |  | Virkelig godt",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_nausea_180min",
-            "title": "vas_nausea_180min",
+            "name": "nausea",
+            "title": "nausea",
             "type": "number",
-            "description": "Visual analogue scale. Nausea at time  180min Question: Har du kvalme?. Slider scale labels: Ja, meget | Nej, slet ikke",
+            "description": "Any nausea. Question: Har du kvalme?. Slider scale labels: Ja, meget |  | Nej, slet ikke",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_thirst_180min",
-            "title": "vas_thirst_180min",
+            "name": "thirst",
+            "title": "thirst",
             "type": "number",
-            "description": "Visual analogue scale. Thirst at time  180 min Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke | Virkelig meget",
+            "description": "How thirsty do you feel. Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke |  | Virkelig meget",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_sweet_180min",
-            "title": "vas_sweet_180min",
+            "name": "sweet",
+            "title": "sweet",
             "type": "number",
-            "description": "Visual analogue scale. Sweet at time  180 min Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke | Ja, meget",
+            "description": "Would you like something sweet. Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_salt_180min",
-            "title": "vas_salt_180min",
+            "name": "salt",
+            "title": "salt",
             "type": "number",
-            "description": "Visual analogue scale. Salt at time  180 min Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke | Ja, meget",
+            "description": "Would you like something savoury. Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }
           },
           {
-            "name": "vas_fat_180min",
-            "title": "vas_fat_180min",
+            "name": "fat",
+            "title": "fat",
             "type": "number",
-            "description": "Visual analogue scale. Fat at time  180 min Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke | Ja, meget",
+            "description": "Would you like something fatty. Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
             "constraints": {
               "required": true
             }
           }
         ],
         "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "vas_240_min",
-      "path": "resources/vas_240_min/data.parquet",
-      "title": "vas_240_min",
-      "description": "vas_240_min",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "vas_hunger_240min",
-            "title": "vas_hunger_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Hunger at time 240 min Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten | Jeg har aldrig været mere sulten",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_satisfaction_240min",
-            "title": "vas_satisfaction_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Satisfaction at time 240 min Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven | Jeg kan ikke få en bid mere ned",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_full_240min",
-            "title": "vas_full_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Fullness at time 240 min Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op | Fyldt totalt op",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_how_much_240min",
-            "title": "vas_how_much_240min",
-            "type": "number",
-            "description": "Visual analogue scale. How much to eat at time 240 min Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_comfort_240min",
-            "title": "vas_comfort_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Comfort at time  240 min Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt | Virkelig godt",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_nausea_240min",
-            "title": "vas_nausea_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Nausea at time  240min Question: Har du kvalme?. Slider scale labels: Ja, meget | Nej, slet ikke",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_thirst_240min",
-            "title": "vas_thirst_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Thirst at time  240 min Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_sweet_240min",
-            "title": "vas_sweet_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Sweet at time  240 min Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_salt_240min",
-            "title": "vas_salt_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Salt at time  240 min Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_fat_240min",
-            "title": "vas_fat_240min",
-            "type": "number",
-            "description": "Visual analogue scale. Fat at time  240 min Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          }
-        ],
-        "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "vas_30min",
-      "path": "resources/vas_30min/data.parquet",
-      "title": "vas_30min",
-      "description": "vas_30min",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "vas_hunger_30min",
-            "title": "vas_hunger_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Hunger at time 30 min Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten | Jeg har aldrig været mere sulten",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_satisfaction_30min",
-            "title": "vas_satisfaction_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Satisfaction at time 30 min Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven | Jeg kan ikke få en bid mere ned",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_full_30min",
-            "title": "vas_full_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Fullness at time 30 min Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op | Fyldt totalt op",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_how_much_30min",
-            "title": "vas_how_much_30min",
-            "type": "number",
-            "description": "Visual analogue scale. How much to eat at time  30 min Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_comfort_30min",
-            "title": "vas_comfort_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Comfort at time  30 min Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt | Virkelig godt",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_nausea_30min",
-            "title": "vas_nausea_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Nausea at time  30 min Question: Har du kvalme?. Slider scale labels: Ja, meget | Nej, slet ikke",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_thirst_30min",
-            "title": "vas_thirst_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Thirst at time  30 min Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_sweet_30min",
-            "title": "vas_sweet_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Sweet at time  30 min Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_salt_30min",
-            "title": "vas_salt_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Salt at time  30 min Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_fat_30min",
-            "title": "vas_fat_30min",
-            "type": "number",
-            "description": "Visual analogue scale. Fat at time  30 min Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          }
-        ],
-        "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "vas_60min",
-      "path": "resources/vas_60min/data.parquet",
-      "title": "vas_60min",
-      "description": "vas_60min",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "vas_hunger_60min",
-            "title": "vas_hunger_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Hunger at time 60 min Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten | Jeg har aldrig været mere sulten",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_satisfaction_60min",
-            "title": "vas_satisfaction_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Satisfaction at time 60 min Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven | Jeg kan ikke få en bid mere ned",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_full_60min",
-            "title": "vas_full_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Fullness at time 60 min Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op | Fyldt totalt op",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_how_much_60min",
-            "title": "vas_how_much_60min",
-            "type": "number",
-            "description": "Visual analogue scale. How much to eat at time  60 min Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_comfort_60min",
-            "title": "vas_comfort_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Comfort at time  60 min Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt | Virkelig godt",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_nausea_60min",
-            "title": "vas_nausea_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Nausea at time  60 min Question: Har du kvalme?. Slider scale labels: Ja, meget | Nej, slet ikke",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_thirst_60min",
-            "title": "vas_thirst_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Thirst at time  60 min Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_sweet_60min",
-            "title": "vas_sweet_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Sweet at time  60 min Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_salt_60min",
-            "title": "vas_salt_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Salt at time  60 min Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_fat_60min",
-            "title": "vas_fat_60min",
-            "type": "number",
-            "description": "Visual analogue scale. Fat at time  60 min Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          }
-        ],
-        "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "vas_90_min",
-      "path": "resources/vas_90_min/data.parquet",
-      "title": "vas_90_min",
-      "description": "vas_90_min",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "vas_hunger_90min",
-            "title": "vas_hunger_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Hunger at time 90 min Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten | Jeg har aldrig været mere sulten",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_satisfaction_90min",
-            "title": "vas_satisfaction_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Satisfaction at time 90 min Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven | Jeg kan ikke få en bid mere ned",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_full_90min",
-            "title": "vas_full_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Fullness at time 90 min Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op | Fyldt totalt op",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_how_much_90min",
-            "title": "vas_how_much_90min",
-            "type": "number",
-            "description": "Visual analogue scale. How much to eat at time  90 min Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_comfort_90min",
-            "title": "vas_comfort_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Comfort at time  90 min Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt | Virkelig godt",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_nausea_90min",
-            "title": "vas_nausea_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Nausea at time  90 min Question: Har du kvalme?. Slider scale labels: Ja, meget | Nej, slet ikke",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_thirst_90min",
-            "title": "vas_thirst_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Thirst at time  90 min Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_sweet_90min",
-            "title": "vas_sweet_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Sweet at time  90 min Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_salt_90min",
-            "title": "vas_salt_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Salt at time  90 min Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_fat_90min",
-            "title": "vas_fat_90min",
-            "type": "number",
-            "description": "Visual analogue scale. Fat at time  90 min Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          }
-        ],
-        "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "vas_minus10",
-      "path": "resources/vas_minus10/data.parquet",
-      "title": "vas_minus10",
-      "description": "vas_minus10",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "vas_hunger_fasted_minus10min",
-            "title": "vas_hunger_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How hungry do you feel, at time minus 10 min Question: Hvor sulten er du?. Slider scale labels: Jeg er slet ikke sulten |  | Jeg har aldrig været mere sulten",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_satisfaction_fasted_minus10min",
-            "title": "vas_satisfaction_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How satiated do you feel, at time minus 10 min Question: Hvor mæt er du?. Slider scale labels: Jeg har et stort hul i maven |  | Jeg kan ikke få en bid mere ned",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_full_fasted_minus10min",
-            "title": "vas_full_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How full do you feel, at time minus 10 min Question: Hvor fyldt op føler du dig?. Slider scale labels: Slet ikke fyldt op |  | Fyldt totalt op",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_how_much_fasted_minus10min",
-            "title": "vas_how_much_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How much do you think you can eat, at time minus 10 min Question: Hvor meget tror du, at du kan spise?. Slider scale labels: Slet ingenting |  | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_comfort_fasted_minus10min",
-            "title": "vas_comfort_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Level of comfort, at time minus 10 min Question: Hvordan føler du dig tilpas?. Slider scale labels: Virkelig dårligt |  | Virkelig godt",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_nausea_fasted_minus10min",
-            "title": "vas_nausea_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Any nausea, at time minus 10 min Question: Har du kvalme?. Slider scale labels: Ja, meget |  | Nej, slet ikke",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_thirst_fasted_minus10min",
-            "title": "vas_thirst_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. How thirsty do you feel, at time minus 10 min Question: Hvor tørstig føler du dig?. Slider scale labels: Overhovedet ikke |  | Virkelig meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_sweet_fasted_minus10min",
-            "title": "vas_sweet_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Would you like something sweet, at time minus 10 min Question: Har du lyst til at spise noget sødt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_salt_fasted_minus10min",
-            "title": "vas_salt_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Would you like something savoury, at time minus 10 min Question: Har du lyst til at spise noget salt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "vas_fat_fasted_minus10min",
-            "title": "vas_fat_fasted_minus10min",
-            "type": "number",
-            "description": "Visual analogue scale. Would you like something fatty, at time minus 10 min Question: Har du lyst til at spise noget fedtrigt?. Slider scale labels: Nej, slet ikke |  | Ja, meget",
-            "constraints": {
-              "required": true
-            }
-          }
-        ],
-        "primaryKey": [
-          "event"
+          "event",
+          "minutes_from_meal"
         ]
       }
     },

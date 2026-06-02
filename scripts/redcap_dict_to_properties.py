@@ -1,5 +1,6 @@
 import json
 import re
+from functools import reduce
 from itertools import chain, groupby
 from operator import itemgetter
 from pathlib import Path
@@ -9,6 +10,9 @@ import seedcase_sprout as sp
 
 In = TypeVar("In")
 Out = TypeVar("Out")
+VAS_TIMEPOINTS = [-10, 30, 60, 90, 120, 180, 240]
+VAS_TIME_FORM_PATTERN = re.compile(r"^vas_(minus10|(30|60|90|120|180|240)_?min)$")
+VAS_TIME_FIELD_PATTERN = re.compile(r"(_fasted)?_(minus10|30|60|90|120|180|240)min$")
 
 
 def _map(x: Iterable[In], fn: Callable[[In], Out]) -> list[Out]:
@@ -34,12 +38,82 @@ def dictionary_to_properties(
     redcap_fields: list[dict[str, str]],
 ) -> list[sp.ResourceProperties]:
     """Converts REDCap data dictionary to Data Package resources."""
+    redcap_fields = _join_vas_time_resources(redcap_fields)
     sorted_by_form = sorted(redcap_fields, key=lambda field: field["form_name"])
     grouped_by_form = groupby(sorted_by_form, key=lambda field: field["form_name"])
     return _map(
         grouped_by_form,
         lambda group: _form_to_resource(group[0], list(group[1])),
     )
+
+
+def _join_vas_time_resources(
+    redcap_fields: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    """Combines REDCap VAS timepoint forms into one resource schema."""
+    return _deduplicate_vas_fields(
+        _map(redcap_fields, _normalise_vas_time_resource_field)
+    )
+
+
+def _normalise_vas_time_resource_field(field: dict[str, str]) -> dict[str, str]:
+    if not _is_vas_time_resource_field(field):
+        return field
+
+    return {
+        **field,
+        "field_name": _normalise_vas_field_name(field["field_name"]),
+        "form_name": "vas",
+        "field_annotation": _remove_vas_time_from_annotation(field["field_annotation"]),
+    }
+
+
+def _normalise_vas_field_name(field_name: str) -> str:
+    return re.sub(r"^vas_", "", VAS_TIME_FIELD_PATTERN.sub("", field_name))
+
+
+def _is_vas_time_resource_field(field: dict[str, str]) -> bool:
+    return bool(VAS_TIME_FORM_PATTERN.match(field["form_name"]))
+
+
+def _deduplicate_vas_fields(fields: list[dict[str, str]]) -> list[dict[str, str]]:
+    deduplicated_fields, _ = reduce(
+        _append_if_new_vas_field,
+        fields,
+        ([], set()),
+    )
+    return deduplicated_fields
+
+
+def _append_if_new_vas_field(
+    result: tuple[list[dict[str, str]], set[str]], field: dict[str, str]
+) -> tuple[list[dict[str, str]], set[str]]:
+    fields, seen_vas_fields = result
+    field_name = field["field_name"]
+
+    if field["form_name"] != "vas":
+        return fields + [field], seen_vas_fields
+
+    if field_name in seen_vas_fields:
+        return result
+
+    return (fields + [field], seen_vas_fields.union({field_name}))
+
+
+def _remove_vas_time_from_annotation(annotation: str) -> str:
+    annotation = re.sub(
+        r"^Visual analogue scale\.\s*",
+        "",
+        annotation,
+        flags=re.IGNORECASE,
+    )
+
+    return re.sub(
+        r",?\s+at time\s+(minus\s+10|\d+)\s*min",
+        "",
+        annotation,
+        flags=re.IGNORECASE,
+    ).strip()
 
 
 def _form_to_resource(
@@ -65,6 +139,26 @@ def _form_to_resource(
             enum=["Copenhagen", "Aarhus", "Odense"],
         ),
     )
+    default_fields = [event_field, center_field]
+    primary_key = ["event"]
+
+    if form_name == "vas":
+        time_field = sp.FieldProperties(
+            name="minutes_from_meal",
+            title="Minutes from meal",
+            type="integer",
+            description=(
+                "The time in minutes from the meal when the specific VAS "
+                "measurement was recorded. Negative values are before the meal."
+            ),
+            categories=VAS_TIMEPOINTS,
+            constraints=sp.ConstraintsProperties(
+                required=True,
+                enum=VAS_TIMEPOINTS,
+            ),
+        )
+        default_fields.append(time_field)
+        primary_key.append("minutes_from_meal")
 
     # Discard fields displayed for information only
     form_redcap_fields = _filter(
@@ -94,17 +188,35 @@ def _form_to_resource(
         fields, lambda field: field["field_type"] == "checkbox"
     )
     checkbox_fields = _flat_map(checkbox_redcap_fields, _expand_checkbox_field)
+    resource_title = _get_resource_title(form_name)
+    resource_description = _get_resource_description(form_name)
 
     return sp.ResourceProperties(
         name=form_name,
-        # TODO: fill in title and description
-        title=form_name,
-        description=form_name,
+        title=resource_title,
+        description=resource_description,
         schema=sp.TableSchemaProperties(
-            primary_key=["event"],
-            fields=[event_field, center_field] + form_fields + checkbox_fields,
+            primary_key=primary_key,
+            fields=default_fields + form_fields + checkbox_fields,
         ),
     )
+
+
+def _get_resource_title(form_name: str) -> str:
+    if form_name == "vas":
+        return "Visual analogue scale measurements"
+
+    return form_name
+
+
+def _get_resource_description(form_name: str) -> str:
+    if form_name == "vas":
+        return (
+            "Visual analogue scale measurements recorded at multiple timepoints "
+            "relative to the meal."
+        )
+
+    return form_name
 
 
 def _get_error_message(field: dict[str, str], key: str) -> str:
@@ -178,6 +290,8 @@ def _get_description(redcap_field: dict[str, str]) -> str:
             # Given as: left label | middle label | right label
             + redcap_field["select_choices_or_calculations"]
         )
+
+    description = re.sub(r"(?<![.?!])\s+Question:", ". Question:", description)
 
     return description.strip()
 
