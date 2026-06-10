@@ -13,9 +13,9 @@ Out = TypeVar("Out")
 VAS_TIMEPOINTS = [-10, 30, 60, 90, 120, 180, 240]
 VAS_TIME_FORM_PATTERN = re.compile(r"^vas_(minus10|(30|60|90|120|180|240)_?min)$")
 VAS_TIME_FIELD_PATTERN = re.compile(r"(_fasted)?_(minus10|30|60|90|120|180|240)min$")
-SEFNC_WEEKS = [0, 12, 52]
+SEFNC_WEEKS = [1, 12, 52]
 SEFNC_FORM_WEEKS = {
-    "sefnc_baseline_v4": 0,
+    "sefnc_baseline_v4": 1,
     "sefnc_week12_v6": 12,
     "selfefficacy_for_nutrition_change_sefnc_week_52": 52,
 }
@@ -271,10 +271,10 @@ def _form_to_resource(
             ),
         )
         week_field = sp.FieldProperties(
-            name="calendar_week",
-            title="The week of the year",
+            name="study_week",
+            title="Study week",
             type="integer",
-            description="The week of the year (1-53) when the SEFNC measurement was recorded.",
+            description="The study week when the SEFNC measurement was recorded.",
             categories=SEFNC_WEEKS,
             constraints=sp.ConstraintsProperties(
                 required=True,
