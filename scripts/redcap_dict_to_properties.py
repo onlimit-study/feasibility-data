@@ -271,7 +271,7 @@ def _form_to_resource(
             name="calendar_week",
             title="Week of the year",
             type="integer",
-            description="The study week when the SEFNC measurement was recorded.",
+            description="The week number (0-52) in the year when the SEFNC measurement was recorded.",
             categories=SEFNC_WEEKS,
             constraints=sp.ConstraintsProperties(
                 required=True,
