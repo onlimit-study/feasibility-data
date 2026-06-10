@@ -23832,10 +23832,10 @@
             ]
           },
           {
-            "name": "week",
-            "title": "Week",
+            "name": "calendar_week",
+            "title": "The week of the year",
             "type": "integer",
-            "description": "The study week when the SEFNC measurement was recorded.",
+            "description": "The week of the year (1-53) when the SEFNC measurement was recorded.",
             "constraints": {
               "required": true,
               "enum": [

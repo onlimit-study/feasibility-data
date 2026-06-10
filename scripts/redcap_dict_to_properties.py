@@ -272,9 +272,9 @@ def _form_to_resource(
         )
         week_field = sp.FieldProperties(
             name="calendar_week",
-            title="Week of the year",
+            title="The week of the year",
             type="integer",
-            description="The week number (0-52) in the year when the SEFNC measurement was recorded.",
+            description="The week of the year (1-53) when the SEFNC measurement was recorded.",
             categories=SEFNC_WEEKS,
             constraints=sp.ConstraintsProperties(
                 required=True,
