@@ -274,7 +274,11 @@ def _form_to_resource(
             name="study_week",
             title="Study week",
             type="integer",
-            description="The study week when the SEFNC measurement was recorded.",
+            description=(
+                "The study week when the SEFNC measurement was recorded. Must be"
+                "in the range 0-52, where 0 is the baseline week and 52 represents"
+                "52 weeks after the baseline week."
+            ),
             categories=SEFNC_WEEKS,
             constraints=sp.ConstraintsProperties(
                 required=True,

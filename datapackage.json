@@ -23835,7 +23835,7 @@
             "name": "study_week",
             "title": "Study week",
             "type": "integer",
-            "description": "The study week when the SEFNC measurement was recorded.",
+            "description": "The study week when the SEFNC measurement was recorded. Must bein the range 0-52, where 0 is the baseline week and 52 represents52 weeks after the baseline week.",
             "constraints": {
               "required": true,
               "enum": [
