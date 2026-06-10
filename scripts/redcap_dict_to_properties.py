@@ -123,7 +123,7 @@ def _form_to_resource(
         name="participant_id",
         title="Participant identifier",
         type="string",
-        description=("The unique identifier of the participant."),
+        description="The unique identifier of the participant.",
         constraints=sp.ConstraintsProperties(required=True),
     )
     event_field = sp.FieldProperties(
