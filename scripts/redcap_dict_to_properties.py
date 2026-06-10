@@ -19,6 +19,12 @@ SEFNC_FORM_WEEKS = {
     "sefnc_week12_v6": 12,
     "selfefficacy_for_nutrition_change_sefnc_week_52": 52,
 }
+SEFNC_VISITS = [4, 6, 10]
+SEFNC_FORM_VISITS = {
+    "sefnc_baseline_v4": 4,
+    "sefnc_week12_v6": 6,
+    "selfefficacy_for_nutrition_change_sefnc_week_52": 10,
+}
 SEFNC_WEEK_FIELD_PATTERN = re.compile(r"_v(6|10)$")
 
 
@@ -250,6 +256,17 @@ def _form_to_resource(
         primary_key.append("minutes_from_meal")
 
     if form_name == "sefnc":
+        visit_field = sp.FieldProperties(
+            name="visit",
+            title="Visit",
+            type="integer",
+            description="The study visit when the SEFNC measurement was recorded.",
+            categories=SEFNC_VISITS,
+            constraints=sp.ConstraintsProperties(
+                required=True,
+                enum=SEFNC_VISITS,
+            ),
+        )
         week_field = sp.FieldProperties(
             name="week",
             title="Week",
@@ -261,8 +278,9 @@ def _form_to_resource(
                 enum=SEFNC_WEEKS,
             ),
         )
+        default_fields.append(visit_field)
         default_fields.append(week_field)
-        primary_key.append("week")
+        primary_key.append("visit")
 
     # Discard fields displayed for information only
     form_redcap_fields = _filter(
@@ -325,8 +343,8 @@ def _get_resource_description(form_name: str) -> str:
 
     if form_name == "sefnc":
         return (
-            "Self-efficacy measurements for nutrition change that were self-reported by "
-            "participants during the study across the weeks."
+            "Self-efficacy measurements for nutrition change that were "
+            "self-reported by participants during the study across the weeks."
         )
 
     return form_name

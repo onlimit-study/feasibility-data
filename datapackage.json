@@ -23781,7 +23781,7 @@
       "name": "sefnc",
       "path": "resources/sefnc/data.parquet",
       "title": "Self-efficacy for nutrition change",
-      "description": "Self-efficacy for nutrition change measurements self-reported by participants across study weeks.",
+      "description": "Self-efficacy measurements for nutrition change that were self-reported by participants during the study across the weeks.",
       "schema": {
         "fields": [
           {
@@ -23810,6 +23810,25 @@
               "Copenhagen",
               "Aarhus",
               "Odense"
+            ]
+          },
+          {
+            "name": "visit",
+            "title": "Visit",
+            "type": "integer",
+            "description": "The study visit when the SEFNC measurement was recorded.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                4,
+                6,
+                10
+              ]
+            },
+            "categories": [
+              4,
+              6,
+              10
             ]
           },
           {
@@ -24149,7 +24168,7 @@
         ],
         "primaryKey": [
           "event",
-          "week"
+          "visit"
         ]
       }
     },
