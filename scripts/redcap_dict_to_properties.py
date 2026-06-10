@@ -325,8 +325,8 @@ def _get_resource_description(form_name: str) -> str:
 
     if form_name == "sefnc":
         return (
-            "Self-efficacy for nutrition change measurements self-reported by "
-            "participants across study weeks."
+            "Self-efficacy measurements for nutrition change that were self-reported by "
+            "participants during the study across the weeks."
         )
 
     return form_name
