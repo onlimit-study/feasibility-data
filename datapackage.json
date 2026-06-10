@@ -23813,10 +23813,10 @@
             ]
           },
           {
-            "name": "visit",
-            "title": "Visit",
+            "name": "visit_id",
+            "title": "Visit ID",
             "type": "integer",
-            "description": "The study visit when the SEFNC measurement was recorded.",
+            "description": "The study visit ID for when participants had the SEFNC measurement recorded.",
             "constraints": {
               "required": true,
               "enum": [
@@ -24168,7 +24168,7 @@
         ],
         "primaryKey": [
           "event",
-          "visit"
+          "visit_id"
         ]
       }
     },

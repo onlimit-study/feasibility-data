@@ -260,7 +260,10 @@ def _form_to_resource(
             name="visit_id",
             title="Visit ID",
             type="integer",
-            description="The study visit ID for when participants had the SEFNC measurement recorded.",
+            description=(
+                "The study visit ID for when participants had the SEFNC "
+                "measurement recorded."
+            ),
             categories=SEFNC_VISITS,
             constraints=sp.ConstraintsProperties(
                 required=True,
