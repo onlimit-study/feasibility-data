@@ -23778,10 +23778,10 @@
       }
     },
     {
-      "name": "sefnc_baseline_v4",
-      "path": "resources/sefnc_baseline_v4/data.parquet",
-      "title": "sefnc_baseline_v4",
-      "description": "sefnc_baseline_v4",
+      "name": "sefnc",
+      "path": "resources/sefnc/data.parquet",
+      "title": "Self-efficacy for nutrition change",
+      "description": "Self-efficacy measurements for nutrition change that were self-reported by participants during the study across the weeks.",
       "schema": {
         "fields": [
           {
@@ -23813,10 +23813,48 @@
             ]
           },
           {
-            "name": "sefnc_when_tired",
-            "title": "sefnc_when_tired",
+            "name": "visit_id",
+            "title": "Visit ID",
+            "type": "integer",
+            "description": "The study visit ID for when participants had the SEFNC measurement recorded.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                4,
+                6,
+                10
+              ]
+            },
+            "categories": [
+              4,
+              6,
+              10
+            ]
+          },
+          {
+            "name": "study_week",
+            "title": "Study week",
+            "type": "integer",
+            "description": "The study week when the SEFNC measurement was recorded. Must bein the range 0-52, where 0 is the baseline week and 52 represents52 weeks after the baseline week.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                1,
+                12,
+                52
+              ]
+            },
+            "categories": [
+              1,
+              12,
+              52
+            ]
+          },
+          {
+            "name": "when_tired",
+            "title": "when_tired",
             "type": "string",
-            "description": "Participant's confidence in following their diet when feeling tired. Self-reported by participant. Baseline (V4).",
+            "description": "Participant's confidence in following their diet when feeling tired.",
             "constraints": {
               "required": true,
               "enum": [
@@ -23848,10 +23886,10 @@
             ]
           },
           {
-            "name": "sefnc_during_crisis",
-            "title": "sefnc_during_crisis",
+            "name": "during_crisis",
+            "title": "during_crisis",
             "type": "string",
-            "description": "Participant's confidence in following their diet during or after a personal crisis. Baseline (V4).",
+            "description": "Participant's confidence in following their diet during or after a personal crisis.",
             "constraints": {
               "required": true,
               "enum": [
@@ -23883,10 +23921,10 @@
             ]
           },
           {
-            "name": "sefnc_when_depressed",
-            "title": "sefnc_when_depressed",
+            "name": "when_depressed",
+            "title": "when_depressed",
             "type": "string",
-            "description": "Participant's confidence in following their diet when feeling depressed. Self-reported by participant. Baseline (V4).",
+            "description": "Participant's confidence in following their diet when feeling depressed.",
             "constraints": {
               "required": true,
               "enum": [
@@ -23918,10 +23956,10 @@
             ]
           },
           {
-            "name": "sefnc_when_anxious",
-            "title": "sefnc_when_anxious",
+            "name": "when_anxious",
+            "title": "when_anxious",
             "type": "string",
-            "description": "Participant's confidence in following their diet when feeling anxious. Self-reported by participant. Baseline (V4).",
+            "description": "Participant's confidence in following their diet when feeling anxious.",
             "constraints": {
               "required": true,
               "enum": [
@@ -23953,10 +23991,10 @@
             ]
           },
           {
-            "name": "sefnc_on_vacation",
-            "title": "sefnc_on_vacation",
+            "name": "on_vacation",
+            "title": "on_vacation",
             "type": "string",
-            "description": "Participant's confidence in following their diet while on vacation. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10).",
+            "description": "Participant's confidence in following their diet while on vacation.",
             "constraints": {
               "required": true,
               "enum": [
@@ -23988,10 +24026,10 @@
             ]
           },
           {
-            "name": "sefnc_when_busy",
-            "title": "sefnc_when_busy",
+            "name": "when_busy",
+            "title": "when_busy",
             "type": "string",
-            "description": "Participant's confidence in following their diet when they have a heavy workload. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10).",
+            "description": "Participant's confidence in following their diet when they have a heavy workload.",
             "constraints": {
               "required": true,
               "enum": [
@@ -24023,10 +24061,10 @@
             ]
           },
           {
-            "name": "sefnc_when_missed_goals",
-            "title": "sefnc_when_missed_goals",
+            "name": "when_missed_goals",
+            "title": "when_missed_goals",
             "type": "string",
-            "description": "Participant's confidence in following their diet when they have not met their dietary goals. Self-reported by participant. Baseline (V4).",
+            "description": "Participant's confidence in following their diet when they have not met their dietary goals.",
             "constraints": {
               "required": true,
               "enum": [
@@ -24058,10 +24096,10 @@
             ]
           },
           {
-            "name": "sefnc_no_support",
-            "title": "sefnc_no_support",
+            "name": "no_support",
+            "title": "no_support",
             "type": "string",
-            "description": "Participant's confidence in following their diet when lacking support from family or friends. Baseline (V4).",
+            "description": "Participant's confidence in following their diet when lacking support from family or friends.",
             "constraints": {
               "required": true,
               "enum": [
@@ -24093,10 +24131,10 @@
             ]
           },
           {
-            "name": "sefnc_busy_schedule",
-            "title": "sefnc_busy_schedule",
+            "name": "busy_schedule",
+            "title": "busy_schedule",
             "type": "string",
-            "description": "Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding. Self-reported by participant. Baseline (V4).",
+            "description": "Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding.",
             "constraints": {
               "required": true,
               "enum": [
@@ -24129,719 +24167,8 @@
           }
         ],
         "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "sefnc_week12_v6",
-      "path": "resources/sefnc_week12_v6/data.parquet",
-      "title": "sefnc_week12_v6",
-      "description": "sefnc_week12_v6",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "sefnc_when_tired_v6",
-            "title": "sefnc_when_tired_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when feeling tired. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_during_crisis_v6",
-            "title": "sefnc_during_crisis_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet during or after a personal crisis. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_when_depressed_v6",
-            "title": "sefnc_when_depressed_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when feeling depressed. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_when_anxious_v6",
-            "title": "sefnc_when_anxious_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when feeling anxious. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_on_vacation_v6",
-            "title": "sefnc_on_vacation_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet while on vacation. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_when_busy_v6",
-            "title": "sefnc_when_busy_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when they have a heavy workload. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_when_missed_goals_v6",
-            "title": "sefnc_when_missed_goals_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when they have not met their dietary goals. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_no_support_v6",
-            "title": "sefnc_no_support_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when lacking support from family or friends. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_ubusy_schedule_v6",
-            "title": "sefnc_ubusy_schedule_v6",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding. Self-reported by participant. Week 12 (V6).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          }
-        ],
-        "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "selfefficacy_for_nutrition_change_sefnc_week_52",
-      "path": "resources/selfefficacy_for_nutrition_change_sefnc_week_52/data.parquet",
-      "title": "selfefficacy_for_nutrition_change_sefnc_week_52",
-      "description": "selfefficacy_for_nutrition_change_sefnc_week_52",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "sefnc_when_tired_v10",
-            "title": "sefnc_when_tired_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when feeling tired. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_during_crisis_v10",
-            "title": "sefnc_during_crisis_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet during or after a personal crisis. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_when_depressed_v10",
-            "title": "sefnc_when_depressed_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when feeling depressed. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_when_anxious_v10",
-            "title": "sefnc_when_anxious_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when feeling anxious. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_on_vacation_v10",
-            "title": "sefnc_on_vacation_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet while on vacation. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_when_busy_v10",
-            "title": "sefnc_when_busy_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when they have a heavy workload. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_when_missed_goals_v10",
-            "title": "sefnc_when_missed_goals_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when they have not met their dietary goals. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_no_support_v10",
-            "title": "sefnc_no_support_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when lacking support from family or friends. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          },
-          {
-            "name": "sefnc_ubusy_schedule_v10",
-            "title": "sefnc_ubusy_schedule_v10",
-            "type": "string",
-            "description": "Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding. Self-reported by participant. Week 52 (10).",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "0%",
-                "10%",
-                "20%",
-                "30%",
-                "40%",
-                "50%",
-                "60%",
-                "70%",
-                "80%",
-                "90%",
-                "100%"
-              ]
-            },
-            "categories": [
-              "0%",
-              "10%",
-              "20%",
-              "30%",
-              "40%",
-              "50%",
-              "60%",
-              "70%",
-              "80%",
-              "90%",
-              "100%"
-            ]
-          }
-        ],
-        "primaryKey": [
-          "event"
+          "event",
+          "visit_id"
         ]
       }
     },
