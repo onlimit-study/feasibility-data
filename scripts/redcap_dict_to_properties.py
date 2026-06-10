@@ -119,9 +119,16 @@ def _remove_vas_time_from_annotation(annotation: str) -> str:
 def _form_to_resource(
     form_name: str, fields: list[dict[str, str]]
 ) -> sp.ResourceProperties:
+    participant_field = sp.FieldProperties(
+        name="participant_id",
+        title="Participant identifier",
+        type="string",
+        description=("The unique identifier of the participant."),
+        constraints=sp.ConstraintsProperties(required=True),
+    )
     event_field = sp.FieldProperties(
-        name="event",
-        title="The unique name of the event",
+        name="event_id",
+        title="Event identifier",
         type="string",
         description=(
             "The unique name identifying the event when the form was filled in."
@@ -139,8 +146,15 @@ def _form_to_resource(
             enum=["Copenhagen", "Aarhus", "Odense"],
         ),
     )
-    default_fields = [event_field, center_field]
-    primary_key = ["event"]
+    submission_field = sp.FieldProperties(
+        name="submission_id",
+        title="Submission identifier",
+        type="string",
+        description="A value uniquely identifying one submission of this form.",
+        constraints=sp.ConstraintsProperties(required=True),
+    )
+    default_fields = [participant_field, event_field, submission_field, center_field]
+    primary_key = ["participant_id", "event_id", "submission_id"]
 
     if form_name == "vas":
         time_field = sp.FieldProperties(
