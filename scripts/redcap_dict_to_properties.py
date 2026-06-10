@@ -268,8 +268,8 @@ def _form_to_resource(
             ),
         )
         week_field = sp.FieldProperties(
-            name="week",
-            title="Week",
+            name="calendar_week",
+            title="Week of the year",
             type="integer",
             description="The study week when the SEFNC measurement was recorded.",
             categories=SEFNC_WEEKS,
@@ -280,7 +280,7 @@ def _form_to_resource(
         )
         default_fields.append(visit_field)
         default_fields.append(week_field)
-        primary_key.append("visit")
+        primary_key.append("visit_id")
 
     # Discard fields displayed for information only
     form_redcap_fields = _filter(
