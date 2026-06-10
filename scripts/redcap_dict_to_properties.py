@@ -257,10 +257,10 @@ def _form_to_resource(
 
     if form_name == "sefnc":
         visit_field = sp.FieldProperties(
-            name="visit",
-            title="Visit",
+            name="visit_id",
+            title="Visit ID",
             type="integer",
-            description="The study visit when the SEFNC measurement was recorded.",
+            description="The study visit ID for when participants had the SEFNC measurement recorded.",
             categories=SEFNC_VISITS,
             constraints=sp.ConstraintsProperties(
                 required=True,
