@@ -1,0 +1,42 @@
+[
+  {
+    "event_name": "stamdata_arm_1",
+    "form_name": "adverse_events",
+    "custom_form_label": ""
+  },
+  {
+    "event_name": "fase_1_arm_1",
+    "form_name": "fase_1_ditetiske_afvigelser",
+    "custom_form_label": ""
+  },
+  {
+    "event_name": "fase_2_arm_1",
+    "form_name": "fase_2_ditetiske_afvigelser",
+    "custom_form_label": ""
+  },
+  {
+    "event_name": "fase_3_arm_1",
+    "form_name": "fase_3_ditetiske_afvigelser",
+    "custom_form_label": ""
+  },
+  {
+    "event_name": "fase_3_arm_1",
+    "form_name": "trningsafvigelser",
+    "custom_form_label": ""
+  },
+  {
+    "event_name": "ekstra_kontaktsttt_arm_1",
+    "form_name": "ekstra_kontakt",
+    "custom_form_label": ""
+  },
+  {
+    "event_name": "medicinndringer_arm_1",
+    "form_name": "medicine_changes",
+    "custom_form_label": ""
+  },
+  {
+    "event_name": "hba1c_ekstra_mling_arm_1",
+    "form_name": "hba1c_follow_up",
+    "custom_form_label": ""
+  }
+]
