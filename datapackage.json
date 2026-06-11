@@ -95,15 +95,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -121,6 +112,15 @@
               "Aarhus",
               "Odense"
             ]
+          },
+          {
+            "name": "submission_id",
+            "title": "Submission identifier",
+            "type": "string",
+            "description": "A value uniquely identifying one submission of this form. This is used when forms can be submitted multiple times, so that a participant might have several values from the form for a given event.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "ae_report_date",
@@ -320,15 +320,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -590,8 +581,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -616,15 +606,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -708,6 +689,15 @@
             "description": "Specifies the accompanying relative or support person present at the visit. Recorded by study staff. Visit 1.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v1",
+            "title": "visit_attention_points_v1",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 1.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -2439,6 +2429,23 @@
             ]
           },
           {
+            "name": "sp_note_visit_v1",
+            "title": "sp_note_visit_v1",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 1. Added from ID19.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
             "name": "handed_out_v1",
             "title": "handed_out_v1",
             "type": "string",
@@ -3336,8 +3343,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -3362,15 +3368,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -3456,6 +3453,15 @@
             "description": "The name of the relative attending the visit. Visit 10.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v10",
+            "title": "visit_attention_points_v10",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 10.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -4006,6 +4012,241 @@
             ]
           },
           {
+            "name": "morning_tooth_brushing_before_visit_v10",
+            "title": "morning_tooth_brushing_before_visit_v10",
+            "type": "string",
+            "description": "Indicates whether the participant brushed their teeth on the morning of the visit. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "time_tooth_brushing_morning_v10",
+            "title": "time_tooth_brushing_morning_v10",
+            "type": "time",
+            "format": "%H:%M",
+            "description": "Time at which the participant brushed their teeth on the morning of the visit. Visit 10.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "saliva_sample_chlorhexidine_v10",
+            "title": "saliva_sample_chlorhexidine_v10",
+            "type": "string",
+            "description": "Use of oral chlorhexidine treatment within the past 6 weeks. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_chlorhexidine_extra_v10",
+            "title": "saliva_sample_chlorhexidine_extra_v10",
+            "type": "string",
+            "description": "Additional details related to the use of chlorhexidine within 6 weeks (e.g., type, duration, frequency, or dosage). Visit 10.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_antifungal_medication_v10",
+            "title": "saliva_sample_antifungal_medication_v10",
+            "type": "string",
+            "description": "Use of oral antifungal medication. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_antifungal_medication_extra_v10",
+            "title": "saliva_sample_antifungal_medication_extra_v10",
+            "type": "string",
+            "description": "Additional details related to the use of antifungal medication (e.g., type, duration, frequency, or dosage). Visit 10.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_antibiotic_v10",
+            "title": "saliva_sample_antibiotic_v10",
+            "type": "string",
+            "description": "Systemic antibiotic treatment within the past 2 months. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_antibiotic_extra_v10",
+            "title": "saliva_sample_antibiotic_extra_v10",
+            "type": "string",
+            "description": "Additional details related to the use of antibiotic treatment (e.g., type, duration, frequency, or dosage). Visit 10.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_mouthwash_v10",
+            "title": "saliva_sample_mouthwash_v10",
+            "type": "string",
+            "description": "Regular use of mouthwash products. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_mouthwash_extra_v10",
+            "title": "saliva_sample_mouthwash_extra_v10",
+            "type": "string",
+            "description": "Additional details related to the use of mouthwash products (e.g., type, duration, frequency, or dosage). Visit 10.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_high_fluoride_v10",
+            "title": "saliva_sample_high_fluoride_v10",
+            "type": "string",
+            "description": "Use of toothpaste containing more than 1500 ppm fluoride. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_high_fluoride_extra_v10",
+            "title": "saliva_sample_high_fluoride_extra_v10",
+            "type": "string",
+            "description": "Additional details related to the use of toothpaste containing more than 1500 ppm fluoride (e.g., type, duration, frequency, or dosage). Visit 10.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_herbal_toothpaste_v10",
+            "title": "saliva_sample_herbal_toothpaste_v10",
+            "type": "string",
+            "description": "Use of herbal toothpaste, potentially containing antibacterial compounds. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_herbal_toothpaste_extra_v10",
+            "title": "saliva_sample_herbal_toothpaste_extra_v10",
+            "type": "string",
+            "description": "Additional details related to the use of herbal toothpaste (e.g., type, duration, frequency, or dosage). Visit 10.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_dental_treatment_v10",
+            "title": "saliva_sample_dental_treatment_v10",
+            "type": "string",
+            "description": "Dental treatment within the past 6 weeks (e.g., cleaning, fillings). Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_dental_treatment_extra_v10",
+            "title": "saliva_sample_dental_treatment_extra_v10",
+            "type": "string",
+            "description": "Additional details related to dental treatment within the past 6 weeks. Visit 10.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_smoking_v10",
+            "title": "saliva_sample_smoking_v10",
+            "type": "string",
+            "description": "Smoking status, including duration and intensity of use. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_smoking_extra_v10",
+            "title": "saliva_sample_smoking_extra_v10",
+            "type": "string",
+            "description": "Additional details related to smoking (e.g., duration, frequency, or dosage). Visit 10.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
             "name": "urin_sample_v10",
             "title": "urin_sample_v10",
             "type": "string",
@@ -4306,13 +4547,21 @@
             ]
           },
           {
-            "name": "dxa_upload_v10",
-            "title": "dxa_upload_v10",
+            "name": "dxa_print_v10",
+            "title": "dxa_print_v10",
             "type": "string",
-            "description": "DXA data upload. Workflow. Visit 10.",
+            "description": "States whether DXA data have been printed and filed in the ON LiMiT folder. Visit 10.",
             "constraints": {
-              "required": true
-            }
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           },
           {
             "name": "food_pref_test_v4_glasses_v10",
@@ -4547,7 +4796,7 @@
             "name": "sys_bp_avg_v10",
             "title": "sys_bp_avg_v10",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three systolic BP measurements. Visit 10. Derived using the formula: if(\n(\nif([sys_bp_1_v10] <> \"\", 1, 0) +\nif([sys_bp_2_v10] <> \"\", 1, 0) +\nif([sys_bp_3_v10] <> \"\", 1, 0)\n) > 0,\n\n(\nif([sys_bp_1_v10] <> \"\", [sys_bp_1_v10], 0) +\nif([sys_bp_2_v10] <> \"\", [sys_bp_2_v10], 0) +\nif([sys_bp_3_v10] <> \"\", [sys_bp_3_v10], 0)\n)\n/\n(\nif([sys_bp_1_v10] <> \"\", 1, 0) +\nif([sys_bp_2_v10] <> \"\", 1, 0) +\nif([sys_bp_3_v10] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Mean of last two systolic BP measurements (2 and 3); otherwise most recent available. Visit 10. Derived using the formula: if(\r\n[sys_bp_3_v10]<>'' and [sys_bp_2_v10]<>'',\r\n([sys_bp_3_v10]+[sys_bp_2_v10])/2,\r\nif(\r\n[sys_bp_3_v10]<>'' and [sys_bp_2_v10]='',\r\n[sys_bp_3_v10],\r\nif(\r\n[sys_bp_3_v10]='' and [sys_bp_2_v10]<>'',\r\n[sys_bp_2_v10],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -4556,7 +4805,7 @@
             "name": "dia_bp_avg_v10",
             "title": "dia_bp_avg_v10",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three diastolic BP measurements. Visit 10. Derived using the formula: if(\n(\nif([dia_bp_1_v10] <> \"\", 1, 0) +\nif([dia_bp_2_v10] <> \"\", 1, 0) +\nif([dia_bp_3_v10] <> \"\", 1, 0)\n) > 0,\n\n(\nif([dia_bp_1_v10] <> \"\", [dia_bp_1_v10], 0) +\nif([dia_bp_2_v10] <> \"\", [dia_bp_2_v10], 0) +\nif([dia_bp_3_v10] <> \"\", [dia_bp_3_v10], 0)\n)\n/\n(\nif([dia_bp_1_v10] <> \"\", 1, 0) +\nif([dia_bp_2_v10] <> \"\", 1, 0) +\nif([dia_bp_3_v10] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Mean of last two systolic BP measurements (2 and 3); otherwise most recent available. Visit 10. Derived using the formula: if(\r\n[dia_bp_3_v10]<>'' and [dia_bp_2_v10]<>'',\r\n([dia_bp_3_v10]+[dia_bp_2_v10])/2,\r\nif(\r\n[dia_bp_3_v10]<>'' and [dia_bp_2_v10]='',\r\n[dia_bp_3_v10],\r\nif(\r\n[dia_bp_3_v10]='' and [dia_bp_2_v10]<>'',\r\n[dia_bp_2_v10],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -4565,7 +4814,7 @@
             "name": "pulse_avg_v10",
             "title": "pulse_avg_v10",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three pulse measurements. Bpm. Visit 10. Derived using the formula: if(\n(\nif([pulse_1_v10] <> \"\", 1, 0) +\nif([pulse_2_v10] <> \"\", 1, 0) +\nif([pulse_3_v10] <> \"\", 1, 0)\n) > 0,\n\n(\nif([pulse_1_v10] <> \"\", [pulse_1_v10], 0) +\nif([pulse_2_v10] <> \"\", [pulse_2_v10], 0) +\nif([pulse_3_v10] <> \"\", [pulse_3_v10], 0)\n)\n/\n(\nif([pulse_1_v10] <> \"\", 1, 0) +\nif([pulse_2_v10] <> \"\", 1, 0) +\nif([pulse_3_v10] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Calculates pulse based on the last available measurements: mean of measurement 2 and 3 if both are present; otherwise uses the most recent available (measurement 3 or 2). Bpm. Visit 10. Derived using the formula: if(\r\n[pulse_3_v10]<>'' and [pulse_2_v10]<>'',\r\n([pulse_3_v10]+[pulse_2_v10])/2,\r\nif(\r\n[pulse_3_v10]<>'' and [pulse_2_v10]='',\r\n[pulse_3_v10],\r\nif(\r\n[pulse_3_v10]='' and [pulse_2_v10]<>'',\r\n[pulse_2_v10],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -5922,12 +6171,28 @@
             "constraints": {
               "required": false
             }
+          },
+          {
+            "name": "sp_note_visit_v10",
+            "title": "sp_note_visit_v10",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 10.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -5952,15 +6217,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -6046,6 +6302,15 @@
             "description": "The name of the relative attending the visit. Visit 5.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v5",
+            "title": "visit_attention_points_v5",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 5.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -6179,12 +6444,28 @@
               "Ja",
               "Nej"
             ]
+          },
+          {
+            "name": "sp_note_visit_v5",
+            "title": "sp_note_visit_v5",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 5.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -6209,15 +6490,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -6303,6 +6575,15 @@
             "description": "The name of the relative attending the visit. Visit 6.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v6",
+            "title": "visit_attention_points_v6",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 6.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -6660,6 +6941,241 @@
               "Ja",
               "Nej"
             ]
+          },
+          {
+            "name": "morning_tooth_brushing_before_visit_v6",
+            "title": "morning_tooth_brushing_before_visit_v6",
+            "type": "string",
+            "description": "Indicates whether the participant brushed their teeth on the morning of the visit. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "time_tooth_brushing_morning_v6",
+            "title": "time_tooth_brushing_morning_v6",
+            "type": "time",
+            "format": "%H:%M",
+            "description": "Time at which the participant brushed their teeth on the morning of the visit. Visit 6.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_chlorhexidine_v6",
+            "title": "saliva_sample_chlorhexidine_v6",
+            "type": "string",
+            "description": "Use of oral chlorhexidine treatment within the past 6 weeks. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_chlorhexidine_extra_v6",
+            "title": "saliva_sample_chlorhexidine_extra_v6",
+            "type": "string",
+            "description": "Additional details related to the use of chlorhexidine within 6 weeks (e.g., type, duration, frequency, or dosage). Visit 6.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_antifungal_medication_v6",
+            "title": "saliva_sample_antifungal_medication_v6",
+            "type": "string",
+            "description": "Use of oral antifungal medication. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_antifungal_medication_extra_v6",
+            "title": "saliva_sample_antifungal_medication_extra_v6",
+            "type": "string",
+            "description": "Additional details related to the use of antifungal medication (e.g., type, duration, frequency, or dosage). Visit 6.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_antibiotic_v6",
+            "title": "saliva_sample_antibiotic_v6",
+            "type": "string",
+            "description": "Systemic antibiotic treatment within the past 2 months. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_antibiotic_extra_v6",
+            "title": "saliva_sample_antibiotic_extra_v6",
+            "type": "string",
+            "description": "Additional details related to the use of antibiotic treatment (e.g., type, duration, frequency, or dosage). Visit 6.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_mouthwash_v6",
+            "title": "saliva_sample_mouthwash_v6",
+            "type": "string",
+            "description": "Regular use of mouthwash products. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_mouthwash_extra_v6",
+            "title": "saliva_sample_mouthwash_extra_v6",
+            "type": "string",
+            "description": "Additional details related to the use of mouthwash products (e.g., type, duration, frequency, or dosage). Visit 6.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_high_fluoride_v6",
+            "title": "saliva_sample_high_fluoride_v6",
+            "type": "string",
+            "description": "Use of toothpaste containing more than 1500 ppm fluoride. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_high_fluoride_extra_v6",
+            "title": "saliva_sample_high_fluoride_extra_v6",
+            "type": "string",
+            "description": "Additional details related to the use of toothpaste containing more than 1500 ppm fluoride (e.g., type, duration, frequency, or dosage). Visit 6.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_herbal_toothpaste_v6",
+            "title": "saliva_sample_herbal_toothpaste_v6",
+            "type": "string",
+            "description": "Use of herbal toothpaste, potentially containing antibacterial compounds. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_herbal_toothpaste_extra_v6",
+            "title": "saliva_sample_herbal_toothpaste_extra_v6",
+            "type": "string",
+            "description": "Additional details related to the use of herbal toothpaste (e.g., type, duration, frequency, or dosage). Visit 6.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_dental_treatment_v6",
+            "title": "saliva_sample_dental_treatment_v6",
+            "type": "string",
+            "description": "Dental treatment within the past 6 weeks (e.g., cleaning, fillings). Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_dental_treatment_extra_v6",
+            "title": "saliva_sample_dental_treatment_extra_v6",
+            "type": "string",
+            "description": "Additional details related to dental treatment within the past 6 weeks. Visit 6.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_smoking_v6",
+            "title": "saliva_sample_smoking_v6",
+            "type": "string",
+            "description": "Smoking status, including duration and intensity of use. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_smoking_extra_v6",
+            "title": "saliva_sample_smoking_extra_v6",
+            "type": "string",
+            "description": "Additional details related to smoking (e.g., duration, frequency, or dosage). Visit 6.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "urin_sample_v6",
@@ -7056,13 +7572,21 @@
             ]
           },
           {
-            "name": "dxa_upload_v6",
-            "title": "dxa_upload_v6",
+            "name": "dxa_print_v6",
+            "title": "dxa_print_v6",
             "type": "string",
-            "description": "DXA data upload. Workflow. Visit 6.",
+            "description": "States whether DXA data have been printed and filed in the ON LiMiT folder. Visit 6.",
             "constraints": {
-              "required": true
-            }
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           },
           {
             "name": "food_pref_test_v4_glasses_v6",
@@ -7297,7 +7821,7 @@
             "name": "sys_bp_avg_v6",
             "title": "sys_bp_avg_v6",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three diastolic BP measurements. Visit 6. Derived using the formula: if(\n(\nif([sys_bp_1_v6] <> \"\", 1, 0) +\nif([sys_bp_2_v6] <> \"\", 1, 0) +\nif([sys_bp_3_v6] <> \"\", 1, 0)\n) > 0,\n\n(\nif([sys_bp_1_v6] <> \"\", [sys_bp_1_v6], 0) +\nif([sys_bp_2_v6] <> \"\", [sys_bp_2_v6], 0) +\nif([sys_bp_3_v6] <> \"\", [sys_bp_3_v6], 0)\n)\n/\n(\nif([sys_bp_1_v6] <> \"\", 1, 0) +\nif([sys_bp_2_v6] <> \"\", 1, 0) +\nif([sys_bp_3_v6] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Mean of last two systolic BP measurements (2 and 3); otherwise most recent available. Visit 6. Derived using the formula: if(\r\n[sys_bp_3_v6]<>'' and [sys_bp_2_v6]<>'',\r\n([sys_bp_3_v6]+[sys_bp_2_v6])/2,\r\nif(\r\n[sys_bp_3_v6]<>'' and [sys_bp_2_v6]='',\r\n[sys_bp_3_v6],\r\nif(\r\n[sys_bp_3_v6]='' and [sys_bp_2_v6]<>'',\r\n[sys_bp_2_v6],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -7306,7 +7830,7 @@
             "name": "dia_bp_avg_v6",
             "title": "dia_bp_avg_v6",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three diastolic BP measurements. Visit 6. Derived using the formula: if(\n(\nif([dia_bp_1_v6] <> \"\", 1, 0) +\nif([dia_bp_2_v6] <> \"\", 1, 0) +\nif([dia_bp_3_v6] <> \"\", 1, 0)\n) > 0,\n\n(\nif([dia_bp_1_v6] <> \"\", [dia_bp_1_v6], 0) +\nif([dia_bp_2_v6] <> \"\", [dia_bp_2_v6], 0) +\nif([dia_bp_3_v6] <> \"\", [dia_bp_3_v6], 0)\n)\n/\n(\nif([dia_bp_1_v6] <> \"\", 1, 0) +\nif([dia_bp_2_v6] <> \"\", 1, 0) +\nif([dia_bp_3_v6] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Mean of last two diastolic BP measurements (2 and 3); otherwise most recent available. Visit 6. Derived using the formula: if(\r\n[dia_bp_3_v6]<>'' and [dia_bp_2_v6]<>'',\r\n([dia_bp_3_v6]+[dia_bp_2_v6])/2,\r\nif(\r\n[dia_bp_3_v6]<>'' and [dia_bp_2_v6]='',\r\n[dia_bp_3_v6],\r\nif(\r\n[dia_bp_3_v6]='' and [dia_bp_2_v6]<>'',\r\n[dia_bp_2_v6],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -7315,7 +7839,7 @@
             "name": "pulse_avg_v6",
             "title": "pulse_avg_v6",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three pulse measurements. Bpm. Visit 6. Derived using the formula: if(\n(\nif([pulse_1_v6] <> \"\", 1, 0) +\nif([pulse_2_v6] <> \"\", 1, 0) +\nif([pulse_3_v6] <> \"\", 1, 0)\n) > 0,\n\n(\nif([pulse_1_v6] <> \"\", [pulse_1_v6], 0) +\nif([pulse_2_v6] <> \"\", [pulse_2_v6], 0) +\nif([pulse_3_v6] <> \"\", [pulse_3_v6], 0)\n)\n/\n(\nif([pulse_1_v6] <> \"\", 1, 0) +\nif([pulse_2_v6] <> \"\", 1, 0) +\nif([pulse_3_v6] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Calculates pulse based on the last available measurements: mean of measurement 2 and 3 if both are present; otherwise uses the most recent available (measurement 3 or 2). Bpm. Visit 6. Derived using the formula: if(\r\n[pulse_3_v6]<>'' and [pulse_2_v6]<>'',\r\n([pulse_3_v6]+[pulse_2_v6])/2,\r\nif(\r\n[pulse_3_v6]<>'' and [pulse_2_v6]='',\r\n[pulse_3_v6],\r\nif(\r\n[pulse_3_v6]='' and [pulse_2_v6]<>'',\r\n[pulse_2_v6],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -8640,6 +9164,23 @@
             }
           },
           {
+            "name": "sp_note_visit_v6",
+            "title": "sp_note_visit_v6",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 6.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
             "name": "intervention_challenges_v6___1",
             "title": "Udfordring i forhold til diæten.",
             "type": "boolean",
@@ -8669,8 +9210,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -8695,15 +9235,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -8789,6 +9320,15 @@
             "description": "The name of the relative attending the visit. Visit 7.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v7",
+            "title": "visit_attention_points_v7",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 7.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -8939,12 +9479,28 @@
               "Ja",
               "Nej"
             ]
+          },
+          {
+            "name": "sp_note_visit_v7",
+            "title": "sp_note_visit_v7",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 7.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -8969,15 +9525,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -9063,6 +9610,15 @@
             "description": "The name of the relative attending the visit. Visit 8.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v8",
+            "title": "visit_attention_points_v8",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 8.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -9465,6 +10021,241 @@
             ]
           },
           {
+            "name": "morning_tooth_brushing_before_visit_v8",
+            "title": "morning_tooth_brushing_before_visit_v8",
+            "type": "string",
+            "description": "Indicates whether the participant brushed their teeth on the morning of the visit. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "time_tooth_brushing_morning_v8",
+            "title": "time_tooth_brushing_morning_v8",
+            "type": "time",
+            "format": "%H:%M",
+            "description": "Time at which the participant brushed their teeth on the morning of the visit. Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_chlorhexidine_v8",
+            "title": "saliva_sample_chlorhexidine_v8",
+            "type": "string",
+            "description": "Use of oral chlorhexidine treatment within the past 6 weeks. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_chlorhexidine_extra_v8",
+            "title": "saliva_sample_chlorhexidine_extra_v8",
+            "type": "string",
+            "description": "Additional details related to the use of chlorhexidine within 6 weeks (e.g., type, duration, frequency, or dosage). Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_antifungal_medication_v8",
+            "title": "saliva_sample_antifungal_medication_v8",
+            "type": "string",
+            "description": "Use of oral antifungal medication. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_antifungal_medication_extra_v8",
+            "title": "saliva_sample_antifungal_medication_extra_v8",
+            "type": "string",
+            "description": "Additional details related to the use of antifungal medication (e.g., type, duration, frequency, or dosage). Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_antibiotic_v8",
+            "title": "saliva_sample_antibiotic_v8",
+            "type": "string",
+            "description": "Systemic antibiotic treatment within the past 2 months. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_antibiotic_extra_v8",
+            "title": "saliva_sample_antibiotic_extra_v8",
+            "type": "string",
+            "description": "Additional details related to the use of antibiotic treatment (e.g., type, duration, frequency, or dosage). Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_mouthwash_v8",
+            "title": "saliva_sample_mouthwash_v8",
+            "type": "string",
+            "description": "Regular use of mouthwash products. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_mouthwash_extra_v8",
+            "title": "saliva_sample_mouthwash_extra_v8",
+            "type": "string",
+            "description": "Additional details related to the use of mouthwash products (e.g., type, duration, frequency, or dosage). Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_high_fluoride_v8",
+            "title": "saliva_sample_high_fluoride_v8",
+            "type": "string",
+            "description": "Use of toothpaste containing more than 1500 ppm fluoride. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_high_fluoride_extra_v8",
+            "title": "saliva_sample_high_fluoride_extra_v8",
+            "type": "string",
+            "description": "Additional details related to the use of toothpaste containing more than 1500 ppm fluoride (e.g., type, duration, frequency, or dosage). Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_herbal_toothpaste_v8",
+            "title": "saliva_sample_herbal_toothpaste_v8",
+            "type": "string",
+            "description": "Use of herbal toothpaste, potentially containing antibacterial compounds. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_herbal_toothpaste_extra_v8",
+            "title": "saliva_sample_herbal_toothpaste_extra_v8",
+            "type": "string",
+            "description": "Additional details related to the use of herbal toothpaste (e.g., type, duration, frequency, or dosage). Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_dental_treatment_v8",
+            "title": "saliva_sample_dental_treatment_v8",
+            "type": "string",
+            "description": "Dental treatment within the past 6 weeks (e.g., cleaning, fillings). Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_dental_treatment_extra_v8",
+            "title": "saliva_sample_dental_treatment_extra_v8",
+            "type": "string",
+            "description": "Additional details related to dental treatment within the past 6 weeks. Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_smoking_v8",
+            "title": "saliva_sample_smoking_v8",
+            "type": "string",
+            "description": "Smoking status, including duration and intensity of use. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_smoking_extra_v8",
+            "title": "saliva_sample_smoking_extra_v8",
+            "type": "string",
+            "description": "Additional details related to smoking (e.g., duration, frequency, or dosage). Visit 8.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
             "name": "urin_sample_v8",
             "title": "urin_sample_v8",
             "type": "string",
@@ -9859,13 +10650,21 @@
             ]
           },
           {
-            "name": "dxa_upload_v8",
-            "title": "dxa_upload_v8",
+            "name": "dxa_print_v8",
+            "title": "dxa_print_v8",
             "type": "string",
-            "description": "DXA data upload. Workflow. Visit 8.",
+            "description": "States whether DXA data have been printed and filed in the ON LiMiT folder. Visit 8.",
             "constraints": {
-              "required": true
-            }
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           },
           {
             "name": "food_pref_test_v4_glasses_v8",
@@ -10100,7 +10899,7 @@
             "name": "sys_bp_avg_v8",
             "title": "sys_bp_avg_v8",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three diastolic BP measurements. Visit 8. Derived using the formula: if(\n(\nif([sys_bp_1_v8] <> \"\", 1, 0) +\nif([sys_bp_2_v8] <> \"\", 1, 0) +\nif([sys_bp_3_v8] <> \"\", 1, 0)\n) > 0,\n\n(\nif([sys_bp_1_v8] <> \"\", [sys_bp_1_v8], 0) +\nif([sys_bp_2_v8] <> \"\", [sys_bp_2_v8], 0) +\nif([sys_bp_3_v8] <> \"\", [sys_bp_3_v8], 0)\n)\n/\n(\nif([sys_bp_1_v8] <> \"\", 1, 0) +\nif([sys_bp_2_v8] <> \"\", 1, 0) +\nif([sys_bp_3_v8] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Mean of last two systolic BP measurements (2 and 3); otherwise most recent available. Visit 8. Derived using the formula: if(\r\n[sys_bp_3_v8]<>'' and [sys_bp_2_v8]<>'',\r\n([sys_bp_3_v8]+[sys_bp_2_v8])/2,\r\nif(\r\n[sys_bp_3_v8]<>'' and [sys_bp_2_v8]='',\r\n[sys_bp_3_v8],\r\nif(\r\n[sys_bp_3_v8]='' and [sys_bp_2_v8]<>'',\r\n[sys_bp_2_v8],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -10109,7 +10908,7 @@
             "name": "dia_bp_avg_v8",
             "title": "dia_bp_avg_v8",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three diastolic BP measurements. Visit 8. Derived using the formula: if(\n(\nif([dia_bp_1_v8] <> \"\", 1, 0) +\nif([dia_bp_2_v8] <> \"\", 1, 0) +\nif([dia_bp_3_v8] <> \"\", 1, 0)\n) > 0,\n\n(\nif([dia_bp_1_v8] <> \"\", [dia_bp_1_v8], 0) +\nif([dia_bp_2_v8] <> \"\", [dia_bp_2_v8], 0) +\nif([dia_bp_3_v8] <> \"\", [dia_bp_3_v8], 0)\n)\n/\n(\nif([dia_bp_1_v8] <> \"\", 1, 0) +\nif([dia_bp_2_v8] <> \"\", 1, 0) +\nif([dia_bp_3_v8] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Mean of last two diastolic BP measurements (2 and 3); otherwise most recent available. Visit 8. Derived using the formula: if(\r\n[dia_bp_3_v8]<>'' and [dia_bp_2_v8]<>'',\r\n([dia_bp_3_v8]+[dia_bp_2_v8])/2,\r\nif(\r\n[dia_bp_3_v8]<>'' and [dia_bp_2_v8]='',\r\n[dia_bp_3_v8],\r\nif(\r\n[dia_bp_3_v8]='' and [dia_bp_2_v8]<>'',\r\n[dia_bp_2_v8],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -10118,7 +10917,7 @@
             "name": "pulse_avg_v8",
             "title": "pulse_avg_v8",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three pulse measurements. Bpm. Visit 8. Derived using the formula: if(\n(\nif([pulse_1_v8] <> \"\", 1, 0) +\nif([pulse_2_v8] <> \"\", 1, 0) +\nif([pulse_3_v8] <> \"\", 1, 0)\n) > 0,\n\n(\nif([pulse_1_v8] <> \"\", [pulse_1_v8], 0) +\nif([pulse_2_v8] <> \"\", [pulse_2_v8], 0) +\nif([pulse_3_v8] <> \"\", [pulse_3_v8], 0)\n)\n/\n(\nif([pulse_1_v8] <> \"\", 1, 0) +\nif([pulse_2_v8] <> \"\", 1, 0) +\nif([pulse_3_v8] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Calculates pulse based on the last available measurements: mean of measurement 2 and 3 if both are present; otherwise uses the most recent available (measurement 3 or 2). Bpm. Visit 8. Derived using the formula: if(\r\n[pulse_3_v8]<>'' and [pulse_2_v8]<>'',\r\n([pulse_3_v8]+[pulse_2_v8])/2,\r\nif(\r\n[pulse_3_v8]<>'' and [pulse_2_v8]='',\r\n[pulse_3_v8],\r\nif(\r\n[pulse_3_v8]='' and [pulse_2_v8]<>'',\r\n[pulse_2_v8],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -11310,6 +12109,23 @@
             }
           },
           {
+            "name": "sp_note_visit_v8",
+            "title": "sp_note_visit_v8",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 8.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
             "name": "intervention_challenges_v8___1",
             "title": "Udfordring i forhold til diæten.",
             "type": "boolean",
@@ -11339,8 +12155,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -11365,15 +12180,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -11434,6 +12240,41 @@
               "Ja",
               "Nej"
             ]
+          },
+          {
+            "name": "relative_v2",
+            "title": "relative_v2",
+            "type": "string",
+            "description": "Indicates whether a relative or accompanying person is present at the visit. Visit 2. Added 20-04-2026.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "relative_name_v2",
+            "title": "relative_name_v2",
+            "type": "string",
+            "description": "The name of the relative attending the visit. Visit 2. Added 20-04-26.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v2",
+            "title": "visit_attention_points_v2",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 2.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "consent_share_info_gp_v2",
@@ -12075,6 +12916,25 @@
             }
           },
           {
+            "name": "handedness_v2",
+            "title": "handedness_v2",
+            "type": "string",
+            "description": "Dominant hand of the participant. Visit 2. Added from ID08.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Venstrehåndet",
+                "Højrehåndet",
+                "Andet"
+              ]
+            },
+            "categories": [
+              "Venstrehåndet",
+              "Højrehåndet",
+              "Andet"
+            ]
+          },
+          {
             "name": "bp_chosen_arm_v2",
             "title": "bp_chosen_arm_v2",
             "type": "string",
@@ -12090,6 +12950,15 @@
               "Venstre",
               "Højre"
             ]
+          },
+          {
+            "name": "arm_comment_v2",
+            "title": "arm_comment_v2",
+            "type": "string",
+            "description": "Optional comment explaining choice of arm (e.g. prior surgery, vascular access, injury). Visit 2. Added from ID08.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "finapres_finger_cuff_size_v2",
@@ -12759,12 +13628,28 @@
             "constraints": {
               "required": false
             }
+          },
+          {
+            "name": "sp_note_visit_v2",
+            "title": "sp_note_visit_v2",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 2. Not added for ID 01, 02, 03, 04, 05 and 07.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -12789,15 +13674,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -12883,6 +13759,15 @@
             "description": "The name of the relative attending the visit. Visit 3.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v3",
+            "title": "visit_attention_points_v3",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 3.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -13708,12 +14593,28 @@
             "constraints": {
               "required": false
             }
+          },
+          {
+            "name": "sp_note_visit_v3",
+            "title": "sp_note_visit_v3",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 3. Not added for ID 01, 02, 03 and 07.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -13738,15 +14639,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -13832,6 +14724,71 @@
             "description": "The name of the relative attending the visit. Visit 4.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v4",
+            "title": "visit_attention_points_v4",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 4.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "stc_performed_v4",
+            "title": "stc_performed_v4",
+            "type": "string",
+            "description": "Indicates whether cardiac auscultation was performed and if findings were normal. Visit 4. Not added for ID03.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja, normal st.c. (regelmæssig aktion lig PP, ingen mislyde)",
+                "Nej",
+                "Ja, afvigende st.c."
+              ]
+            },
+            "categories": [
+              "Ja, normal st.c. (regelmæssig aktion lig PP, ingen mislyde)",
+              "Nej",
+              "Ja, afvigende st.c."
+            ]
+          },
+          {
+            "name": "stc_comment",
+            "title": "stc_comment",
+            "type": "string",
+            "description": "Details on abnormal cardiac auscultation findings. Visit 4.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "stp_performed_v4",
+            "title": "stp_performed_v4",
+            "type": "string",
+            "description": "Indicates whether lung auscultation was performed and if findings were normal. Visit 4. Not added for ID02 and ID03.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja, normal st.p. (vesikulær respiration bilat., ingen bilyde)",
+                "Nej",
+                "Ja, afvigende st.p."
+              ]
+            },
+            "categories": [
+              "Ja, normal st.p. (vesikulær respiration bilat., ingen bilyde)",
+              "Nej",
+              "Ja, afvigende st.p."
+            ]
+          },
+          {
+            "name": "stp_comment",
+            "title": "stp_comment",
+            "type": "string",
+            "description": "Details on abnormal lung auscultation findings. Visit 4.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -14044,6 +15001,241 @@
             ]
           },
           {
+            "name": "morning_tooth_brushing_before_visit_v4",
+            "title": "morning_tooth_brushing_before_visit_v4",
+            "type": "string",
+            "description": "Indicates whether the participant brushed their teeth on the morning of the visit. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "time_tooth_brushing_morning_v4",
+            "title": "time_tooth_brushing_morning_v4",
+            "type": "time",
+            "format": "%H:%M",
+            "description": "Time at which the participant brushed their teeth on the morning of the visit. Visit 4.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "saliva_sample_chlorhexidine_v4",
+            "title": "saliva_sample_chlorhexidine_v4",
+            "type": "string",
+            "description": "Use of oral chlorhexidine treatment within the past 6 weeks. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_chlorhexidine_extra_v4",
+            "title": "saliva_sample_chlorhexidine_extra_v4",
+            "type": "string",
+            "description": "Additional details related to the use of chlorhexidine within 6 weeks (e.g., type, duration, frequency, or dosage). Visit 4.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_antifungal_medication_v4",
+            "title": "saliva_sample_antifungal_medication_v4",
+            "type": "string",
+            "description": "Use of oral antifungal medication. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_antifungal_medication_extra_v4",
+            "title": "saliva_sample_antifungal_medication_extra_v4",
+            "type": "string",
+            "description": "Additional details related to the use of antifungal medication (e.g., type, duration, frequency, or dosage). Visit 4.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_antibiotic_v4",
+            "title": "saliva_sample_antibiotic_v4",
+            "type": "string",
+            "description": "Systemic antibiotic treatment within the past 2 months. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_antibiotic_extra_v4",
+            "title": "saliva_sample_antibiotic_extra_v4",
+            "type": "string",
+            "description": "Additional details related to the use of antibiotic treatment (e.g., type, duration, frequency, or dosage). Visit 4.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_mouthwash_v4",
+            "title": "saliva_sample_mouthwash_v4",
+            "type": "string",
+            "description": "Regular use of mouthwash products. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_mouthwash_extra_v4",
+            "title": "saliva_sample_mouthwash_extra_v4",
+            "type": "string",
+            "description": "Additional details related to the use of mouthwash products (e.g., type, duration, frequency, or dosage). Visit 4.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_high_fluoride_v4",
+            "title": "saliva_sample_high_fluoride_v4",
+            "type": "string",
+            "description": "Use of toothpaste containing more than 1500 ppm fluoride. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_high_fluoride_extra_v4",
+            "title": "saliva_sample_high_fluoride_extra_v4",
+            "type": "string",
+            "description": "Additional details related to the use of toothpaste containing more than 1500 ppm fluoride (e.g., type, duration, frequency, or dosage). Visit 4.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_herbal_toothpaste_v4",
+            "title": "saliva_sample_herbal_toothpaste_v4",
+            "type": "string",
+            "description": "Use of herbal toothpaste, potentially containing antibacterial compounds. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_herbal_toothpaste_extra_v4",
+            "title": "saliva_sample_herbal_toothpaste_extra_v4",
+            "type": "string",
+            "description": "Additional details related to the use of herbal toothpaste (e.g., type, duration, frequency, or dosage). Visit 4.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_dental_treatment_v4",
+            "title": "saliva_sample_dental_treatment_v4",
+            "type": "string",
+            "description": "Dental treatment within the past 6 weeks (e.g., cleaning, fillings). Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_dental_treatment_extra_v4",
+            "title": "saliva_sample_dental_treatment_extra_v4",
+            "type": "string",
+            "description": "Additional details related to dental treatment within the past 6 weeks. Visit 4.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "saliva_sample_smoking_v4",
+            "title": "saliva_sample_smoking_v4",
+            "type": "string",
+            "description": "Smoking status, including duration and intensity of use. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "saliva_sample_smoking_extra_v4",
+            "title": "saliva_sample_smoking_extra_v4",
+            "type": "string",
+            "description": "Additional details related to smoking (e.g., duration, frequency, or dosage). Visit 4.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
             "name": "urin_sample_v4",
             "title": "urin_sample_v4",
             "type": "string",
@@ -14154,7 +15346,7 @@
             "name": "waist_hip_ratio_v4",
             "title": "waist_hip_ratio_v4",
             "type": "string",
-            "description": "The waist hip ratio in cm. Calculated using the average of the 2 waist measurements and 2 hip measurements. Visit 4. Derived using the formula: [waist_average_v4]/[hip_average_v4]",
+            "description": "The waist hip ratio in cm. Calculated using the average of the 2 waist measurements and 2 hip measurements. Visit 4. Derived using the formula: round([waist_average_v4]/[hip_average_v4], 2)",
             "constraints": {
               "required": true
             }
@@ -14283,15 +15475,6 @@
             }
           },
           {
-            "name": "weight_garmin_v4",
-            "title": "weight_garmin_v4",
-            "type": "number",
-            "description": "The participant's weight on the digital Garmin scale in the participant's home. Visit 4.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "bmi_v4",
             "title": "bmi_v4",
             "type": "string",
@@ -14344,13 +15527,21 @@
             ]
           },
           {
-            "name": "dxa_upload_v4",
-            "title": "dxa_upload_v4",
+            "name": "dxa_print_v4",
+            "title": "dxa_print_v4",
             "type": "string",
-            "description": "DXA data upload. Workflow. Visit 4.",
+            "description": "States whether DXA data have been printed and filed in the ON LiMiT folder. Visit 4.",
             "constraints": {
-              "required": true
-            }
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           },
           {
             "name": "food_pref_test_performed_v4",
@@ -14573,10 +15764,10 @@
             }
           },
           {
-            "name": "sys_bp_avg_2lowest_v4",
-            "title": "sys_bp_avg_2lowest_v4",
+            "name": "sys_bp_avg_v4",
+            "title": "sys_bp_avg_v4",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three systolic BP measurements. Visit 4. Derived using the formula: if(\n(\nif([sys_bp_1_v4] <> \"\", 1, 0) +\nif([sys_bp_2_v4] <> \"\", 1, 0) +\nif([sys_bp_3_v4] <> \"\", 1, 0)\n) > 0,\n\n(\nif([sys_bp_1_v4] <> \"\", [sys_bp_1_v4], 0) +\nif([sys_bp_2_v4] <> \"\", [sys_bp_2_v4], 0) +\nif([sys_bp_3_v4] <> \"\", [sys_bp_3_v4], 0)\n)\n/\n(\nif([sys_bp_1_v4] <> \"\", 1, 0) +\nif([sys_bp_2_v4] <> \"\", 1, 0) +\nif([sys_bp_3_v4] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Mean of last two systolic BP measurements (2 and 3); otherwise most recent available. Visit 4. Derived using the formula: if(\r\n[sys_bp_3_v4]<>'' and [sys_bp_2_v4]<>'',\r\n([sys_bp_3_v4]+[sys_bp_2_v4])/2,\r\nif(\r\n[sys_bp_3_v4]<>'' and [sys_bp_2_v4]='',\r\n[sys_bp_3_v4],\r\nif(\r\n[sys_bp_3_v4]='' and [sys_bp_2_v4]<>'',\r\n[sys_bp_2_v4],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -14585,7 +15776,7 @@
             "name": "dia_bp_avg_v4",
             "title": "dia_bp_avg_v4",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three diastolic BP measurements. Visit 4. Derived using the formula: if(\n(\nif([dia_bp_1_v4] <> \"\", 1, 0) +\nif([dia_bp_2_v4] <> \"\", 1, 0) +\nif([dia_bp_3_v4] <> \"\", 1, 0)\n) > 0,\n\n(\nif([dia_bp_1_v4] <> \"\", [dia_bp_1_v4], 0) +\nif([dia_bp_2_v4] <> \"\", [dia_bp_2_v4], 0) +\nif([dia_bp_3_v4] <> \"\", [dia_bp_3_v4], 0)\n)\n/\n(\nif([dia_bp_1_v4] <> \"\", 1, 0) +\nif([dia_bp_2_v4] <> \"\", 1, 0) +\nif([dia_bp_3_v4] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Mean of last two diastolic BP measurements (2 and 3); otherwise most recent available. Visit 4. Derived using the formula: if(\r\n[dia_bp_3_v4]<>'' and [dia_bp_2_v4]<>'',\r\n([dia_bp_3_v4]+[dia_bp_2_v4])/2,\r\nif(\r\n[dia_bp_3_v4]<>'' and [dia_bp_2_v4]='',\r\n[dia_bp_3_v4],\r\nif(\r\n[dia_bp_3_v4]='' and [dia_bp_2_v4]<>'',\r\n[dia_bp_2_v4],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -14594,7 +15785,7 @@
             "name": "pulse_avg_v4",
             "title": "pulse_avg_v4",
             "type": "string",
-            "description": "Automatically calculated as the mean of the three pulse measurements. Bpm. Visit 4. Derived using the formula: if(\n(\nif([pulse_1_v4] <> \"\", 1, 0) +\nif([pulse_2_v4] <> \"\", 1, 0) +\nif([pulse_3_v4] <> \"\", 1, 0)\n) > 0,\n\n(\nif([pulse_1_v4] <> \"\", [pulse_1_v4], 0) +\nif([pulse_2_v4] <> \"\", [pulse_2_v4], 0) +\nif([pulse_3_v4] <> \"\", [pulse_3_v4], 0)\n)\n/\n(\nif([pulse_1_v4] <> \"\", 1, 0) +\nif([pulse_2_v4] <> \"\", 1, 0) +\nif([pulse_3_v4] <> \"\", 1, 0)\n),\n\n\"\"\n)",
+            "description": "Calculates pulse based on the last available measurements: mean of measurement 2 and 3 if both are present; otherwise uses the most recent available (measurement 3 or 2). Bpm. Visit 4. Derived using the formula: if(\r\n[pulse_3_v4]<>'' and [pulse_2_v4]<>'',\r\n([pulse_3_v4]+[pulse_2_v4])/2,\r\nif(\r\n[pulse_3_v4]<>'' and [pulse_2_v4]='',\r\n[pulse_3_v4],\r\nif(\r\n[pulse_3_v4]='' and [pulse_2_v4]<>'',\r\n[pulse_2_v4],\r\n'')))",
             "constraints": {
               "required": false
             }
@@ -15355,40 +16546,6 @@
             }
           },
           {
-            "name": "homeurin_deviation_v4",
-            "title": "homeurin_deviation_v4",
-            "type": "string",
-            "description": "Record any deviations from protocol for the home urin test. Deviations include delay, missed sample, wrong tube, or insufficient volume. Applies to all items in this matrix. visit 4",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Ja",
-                "Nej"
-              ]
-            },
-            "categories": [
-              "Ja",
-              "Nej"
-            ]
-          },
-          {
-            "name": "stool_sample_deviation_v4",
-            "title": "stool_sample_deviation_v4",
-            "type": "string",
-            "description": "Record any deviations from protocol for the stool sample. Visit 4.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Ja",
-                "Nej"
-              ]
-            },
-            "categories": [
-              "Ja",
-              "Nej"
-            ]
-          },
-          {
             "name": "spit_sample_deviation_v4",
             "title": "spit_sample_deviation_v4",
             "type": "string",
@@ -15576,23 +16733,6 @@
             ]
           },
           {
-            "name": "medicin_deviation_v4",
-            "title": "medicin_deviation_v4",
-            "type": "string",
-            "description": "Record any deviations from protocol going through the medication . Visit 4.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Ja",
-                "Nej"
-              ]
-            },
-            "categories": [
-              "Ja",
-              "Nej"
-            ]
-          },
-          {
             "name": "survey_deviation_v4",
             "title": "survey_deviation_v4",
             "type": "string",
@@ -15659,24 +16799,6 @@
               "Ja",
               "Nej"
             ]
-          },
-          {
-            "name": "homeurin_deviation_describe_v4",
-            "title": "homeurin_deviation_describe_v4",
-            "type": "string",
-            "description": "Description of any deviations regarding the home urin collection. Visit 4.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "stoolsample_deviation_describe_v4",
-            "title": "stoolsample_deviation_describe_v4",
-            "type": "string",
-            "description": "Description of any deviations regarding the stool sample. Visit 4.",
-            "constraints": {
-              "required": true
-            }
           },
           {
             "name": "spitsample_deviation_describe_v4",
@@ -15778,15 +16900,6 @@
             }
           },
           {
-            "name": "medicin_deviation_describe_v4",
-            "title": "medicin_deviation_describe_v4",
-            "type": "string",
-            "description": "Description of any deviations regarding medicine. Visit 4.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "survey_deviation_describe_v4",
             "title": "survey_deviation_describe_v4",
             "type": "string",
@@ -15840,6 +16953,74 @@
             ]
           },
           {
+            "name": "nupo_introduction_v4",
+            "title": "nupo_introduction_v4",
+            "type": "string",
+            "description": "Whether the participant has been introduced to the NUPO diet. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "nupo_tasting_box_v4",
+            "title": "nupo_tasting_box_v4",
+            "type": "string",
+            "description": "Whether the participant has received the NUPO taste box. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "handed_out_bp_v4",
+            "title": "handed_out_bp_v4",
+            "type": "string",
+            "description": "States if the participant has been handed blood pressure monitor. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "handed_out_bs_v5",
+            "title": "handed_out_bs_v5",
+            "type": "string",
+            "description": "States if the participant has been handed blood sugar monitor. Visit 4.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
             "name": "randomization_v4",
             "title": "randomization_v4",
             "type": "string",
@@ -15866,37 +17047,26 @@
             }
           },
           {
-            "name": "handed_out_v4___1",
-            "title": "Vægt",
-            "type": "boolean",
-            "description": "States if the participant has been handed scale, blood pressure monitor, and smartwatch. Visit 4.",
+            "name": "sp_note_visit_v4",
+            "title": "sp_note_visit_v4",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 4. Not added for ID 03.",
             "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "handed_out_v4___2",
-            "title": "Blodtryksapparat",
-            "type": "boolean",
-            "description": "States if the participant has been handed scale, blood pressure monitor, and smartwatch. Visit 4.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "handed_out_v4___3",
-            "title": "Garminur",
-            "type": "boolean",
-            "description": "States if the participant has been handed scale, blood pressure monitor, and smartwatch. Visit 4.",
-            "constraints": {
-              "required": true
-            }
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -15921,15 +17091,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -16015,6 +17176,15 @@
             "description": "The name of the relative attending the visit. Visit 9.",
             "constraints": {
               "required": true
+            }
+          },
+          {
+            "name": "visit_attention_points_v9",
+            "title": "visit_attention_points_v9",
+            "type": "string",
+            "description": "Documents any important notes, considerations, or issues relevant for the visit. Visit 9.",
+            "constraints": {
+              "required": false
             }
           },
           {
@@ -16236,12 +17406,28 @@
               "Ja",
               "Nej"
             ]
+          },
+          {
+            "name": "sp_note_visit_v9",
+            "title": "sp_note_visit_v9",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 9.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -16266,15 +17452,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -16447,8 +17624,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -16473,15 +17649,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -16623,8 +17790,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -16649,15 +17815,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -16790,8 +17947,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -16821,15 +17977,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -16847,6 +17994,15 @@
               "Aarhus",
               "Odense"
             ]
+          },
+          {
+            "name": "submission_id",
+            "title": "Submission identifier",
+            "type": "string",
+            "description": "A value uniquely identifying one submission of this form. This is used when forms can be submitted multiple times, so that a participant might have several values from the form for a given event.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "contact_date",
@@ -16882,15 +18038,6 @@
             ]
           },
           {
-            "name": "contact_staffinitials",
-            "title": "contact_staffinitials",
-            "type": "string",
-            "description": "The name or initials of the staff member. Extra contact. Repeated instrument.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "contact_who",
             "title": "contact_who",
             "type": "string",
@@ -16898,14 +18045,27 @@
             "constraints": {
               "required": true,
               "enum": [
-                "Deltageren",
-                "Projektpersonale"
+                "Deltageren har taget kontakt til projektpersonale",
+                "Projektpersonale har taget kontakt til deltageren",
+                "PureGym-instruktør har taget kontakt til projektpersonale",
+                "Projektpersonale har taget kontakt til PureGym-instruktør"
               ]
             },
             "categories": [
-              "Deltageren",
-              "Projektpersonale"
+              "Deltageren har taget kontakt til projektpersonale",
+              "Projektpersonale har taget kontakt til deltageren",
+              "PureGym-instruktør har taget kontakt til projektpersonale",
+              "Projektpersonale har taget kontakt til PureGym-instruktør"
             ]
+          },
+          {
+            "name": "contact_staffinitials",
+            "title": "contact_staffinitials",
+            "type": "string",
+            "description": "The name or initials of the staff member. Extra contact. Repeated instrument.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "contact_reason_specification",
@@ -17241,15 +18401,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -17386,8 +18537,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -17417,15 +18567,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -17443,6 +18584,15 @@
               "Aarhus",
               "Odense"
             ]
+          },
+          {
+            "name": "submission_id",
+            "title": "Submission identifier",
+            "type": "string",
+            "description": "A value uniquely identifying one submission of this form. This is used when forms can be submitted multiple times, so that a participant might have several values from the form for a given event.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "date_registration_dietary_deviation_1",
@@ -17565,15 +18715,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -17591,6 +18732,15 @@
               "Aarhus",
               "Odense"
             ]
+          },
+          {
+            "name": "submission_id",
+            "title": "Submission identifier",
+            "type": "string",
+            "description": "A value uniquely identifying one submission of this form. This is used when forms can be submitted multiple times, so that a participant might have several values from the form for a given event.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "date_registration_dietary_deviation_2",
@@ -17737,15 +18887,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -17763,6 +18904,15 @@
               "Aarhus",
               "Odense"
             ]
+          },
+          {
+            "name": "submission_id",
+            "title": "Submission identifier",
+            "type": "string",
+            "description": "A value uniquely identifying one submission of this form. This is used when forms can be submitted multiple times, so that a participant might have several values from the form for a given event.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "date_registration_dietary_deviation_3",
@@ -17889,15 +19039,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -17962,8 +19103,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -17988,15 +19128,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18040,8 +19171,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18066,15 +19196,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18114,29 +19235,11 @@
               "Ja",
               "Nej"
             ]
-          },
-          {
-            "name": "medicin_print_wfv4",
-            "title": "medicin_print_wfv4",
-            "type": "string",
-            "description": "Whether the participant's medication list has been printed in preparation for the visit. Workflow. Visit 4.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Ja",
-                "Nej"
-              ]
-            },
-            "categories": [
-              "Ja",
-              "Nej"
-            ]
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18166,15 +19269,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -18198,6 +19292,23 @@
             "title": "bloodsamples_order_wfv1",
             "type": "string",
             "description": "Bloodsamples for screening ordered. Workflow. Visit 1.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "medicin_print_wfv4",
+            "title": "medicin_print_wfv4",
+            "type": "string",
+            "description": "Whether the participant's medication list has been printed in preparation for the visit. Workflow. Visit 4.",
             "constraints": {
               "required": true,
               "enum": [
@@ -18298,8 +19409,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18324,15 +19434,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18393,8 +19494,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18419,15 +19519,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18497,8 +19588,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18523,15 +19613,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18575,8 +19656,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18601,15 +19681,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18670,8 +19741,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18696,15 +19766,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18748,8 +19809,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18774,15 +19834,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18877,8 +19928,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -18903,15 +19953,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -18963,13 +20004,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_1",
+            "title": "alternative_attendance_group_meeting_1",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 1.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "weight_group_meeting_1",
@@ -19052,12 +20105,29 @@
             ]
           },
           {
-            "name": "gcm_envelop_given_group_meeting_1",
-            "title": "gcm_envelop_given_group_meeting_1",
+            "name": "cgm_envelop_given_group_meeting_1",
+            "title": "cgm_envelop_given_group_meeting_1",
             "type": "string",
             "description": "Whether a zip bag was given for the CGM. Group meeting week 1.",
             "constraints": {
               "required": false,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "handed_out_group_meeting_1",
+            "title": "handed_out_group_meeting_1",
+            "type": "string",
+            "description": "States if the participant has been handed scale. Group meeting 1.",
+            "constraints": {
+              "required": true,
               "enum": [
                 "Ja",
                 "Nej"
@@ -19080,8 +20150,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -19106,15 +20175,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -19166,13 +20226,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_11",
+            "title": "alternative_attendance_group_meeting_11",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 11.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_11",
@@ -19212,8 +20284,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -19238,15 +20309,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -19298,13 +20360,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_13",
+            "title": "alternative_attendance_group_meeting_13",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 13.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_13",
@@ -19327,8 +20401,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -19353,15 +20426,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -19413,13 +20477,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_15",
+            "title": "alternative_attendance_group_meeting_15",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 15.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_15",
@@ -19442,8 +20518,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -19468,15 +20543,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -19528,13 +20594,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_17",
+            "title": "alternative_attendance_group_meeting_17",
+            "type": "datetime",
+            "format": "%d/%m/%Y %H:%M",
+            "description": "Indicates participant's alternative attendance. Group meeting week 17.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_17",
@@ -19557,8 +20635,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -19583,15 +20660,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -19643,13 +20711,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_18",
+            "title": "alternative_attendance_group_meeting_18",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 18.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_18",
@@ -19672,8 +20752,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -19698,15 +20777,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -19758,13 +20828,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_3",
+            "title": "alternative_attendance_group_meeting_3",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 3.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_3",
@@ -19952,8 +21034,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -19978,15 +21059,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -20038,13 +21110,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_5",
+            "title": "alternative_attendance_group_meeting_5",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 5.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_5",
@@ -20067,8 +21151,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -20093,15 +21176,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -20153,13 +21227,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_7",
+            "title": "alternative_attendance_group_meeting_7",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 7.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_7",
@@ -20182,8 +21268,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -20208,15 +21293,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -20268,13 +21344,25 @@
               "required": true,
               "enum": [
                 "Ja",
-                "Nej"
+                "Nej",
+                "Fremmøde på andet aftalt tidspunkt"
               ]
             },
             "categories": [
               "Ja",
-              "Nej"
+              "Nej",
+              "Fremmøde på andet aftalt tidspunkt"
             ]
+          },
+          {
+            "name": "alternative_attendance_group_meeting_9",
+            "title": "alternative_attendance_group_meeting_9",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "description": "Indicates participant's alternative attendance. Group meeting week 7.",
+            "constraints": {
+              "required": false
+            }
           },
           {
             "name": "weight_group_meeting_9",
@@ -20297,8 +21385,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -20328,15 +21415,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -20354,6 +21432,15 @@
               "Aarhus",
               "Odense"
             ]
+          },
+          {
+            "name": "submission_id",
+            "title": "Submission identifier",
+            "type": "string",
+            "description": "A value uniquely identifying one submission of this form. This is used when forms can be submitted multiple times, so that a participant might have several values from the form for a given event.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "date_hba1c_measurement_extra",
@@ -20424,7 +21511,7 @@
             "name": "hba1c_extra_reason_fingerstick_extra",
             "title": "hba1c_extra_reason_fingerstick_extra",
             "type": "string",
-            "description": "Records the visit/week where the glucose level by fingerstick measurement was to high. HbA1c extra. Repeated instrument.",
+            "description": "Records the visit/week where the glucose level by fingerstick measurement was to high. Field completion dependent on chosing option 2 or 3 in hba1c_extra_reason_extra. HbA1c extra. Repeated instrument.",
             "constraints": {
               "required": true,
               "enum": [
@@ -20465,7 +21552,7 @@
             "name": "hba1c_extra_reason_fingerstick_other_extra",
             "title": "hba1c_extra_reason_fingerstick_other_extra",
             "type": "string",
-            "description": "Description of other week of fingerstick blood sugar measurement. HbA1c extra. Repeated instrument.",
+            "description": "Description of other week of fingerstick blood sugar measurement. Field completion dependent on chosing option 2 or 3 in hba1c_extra_reason_extra. HbA1c extra. Repeated instrument.",
             "constraints": {
               "required": true
             }
@@ -20571,15 +21658,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -20775,8 +21853,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -20801,15 +21878,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -21005,8 +22073,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -21031,15 +22098,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -21139,8 +22197,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -21165,15 +22222,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -21273,8 +22321,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -21299,15 +22346,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -21407,8 +22445,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -21433,15 +22470,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -21541,8 +22569,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -21567,15 +22594,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -22194,8 +23212,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -22225,15 +23242,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -22251,6 +23259,15 @@
               "Aarhus",
               "Odense"
             ]
+          },
+          {
+            "name": "submission_id",
+            "title": "Submission identifier",
+            "type": "string",
+            "description": "A value uniquely identifying one submission of this form. This is used when forms can be submitted multiple times, so that a participant might have several values from the form for a given event.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "date_change_medication_rep",
@@ -23216,15 +24233,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -23514,8 +24522,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -23540,15 +24547,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -23920,8 +24918,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -23946,15 +24943,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -24689,6 +25677,23 @@
             }
           },
           {
+            "name": "sp_note_visit_v0",
+            "title": "sp_note_visit_v0",
+            "type": "string",
+            "description": "Indicates whether a note for the visit is documented in SP. Visit 0. Added from ID i1104.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
             "name": "treatment_v0___1",
             "title": "Livstilbehandling (f.eks. forløb hos diætist, træningsforløb eller andet)",
             "type": "boolean",
@@ -24718,8 +25723,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -24744,15 +25748,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -24806,7 +25801,8 @@
           {
             "name": "rand_datetime77",
             "title": "rand_datetime77",
-            "type": "string",
+            "type": "date",
+            "format": "%Y/%m/%d",
             "description": "",
             "constraints": {
               "required": false
@@ -24832,8 +25828,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -24858,15 +25853,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -25247,7 +26233,6 @@
         "primaryKey": [
           "participant_id",
           "event_id",
-          "submission_id",
           "visit_id"
         ]
       }
@@ -25273,15 +26258,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -25817,8 +26793,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -25843,15 +26818,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -26273,8 +27239,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -26299,15 +27264,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -26507,8 +27463,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -26533,15 +27488,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -27116,12 +28062,76 @@
             "constraints": {
               "required": false
             }
+          },
+          {
+            "name": "group_id_participant",
+            "title": "group_id_participant",
+            "type": "string",
+            "description": "Group ID of the participant.",
+            "constraints": {
+              "required": false,
+              "enum": [
+                "Hold 1",
+                "Hold 2"
+              ]
+            },
+            "categories": [
+              "Hold 1",
+              "Hold 2"
+            ]
+          },
+          {
+            "name": "participant_subgroup_id",
+            "title": "participant_subgroup_id",
+            "type": "string",
+            "description": "Group ID of participants after randomisation.",
+            "constraints": {
+              "required": false,
+              "enum": [
+                "Hold 1a",
+                "Hold 1b",
+                "Hold 2a",
+                "Hold 2b"
+              ]
+            },
+            "categories": [
+              "Hold 1a",
+              "Hold 1b",
+              "Hold 2a",
+              "Hold 2b"
+            ]
+          },
+          {
+            "name": "dietary_restrictions",
+            "title": "dietary_restrictions",
+            "type": "string",
+            "description": "Participant's special dietary considerations or restrictions, e.g., allergies, intolerances, religious dietary rules (e.g., halal), or other food-related requirements.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "number_of_household_members",
+            "title": "number_of_household_members",
+            "type": "string",
+            "description": "Total number of people living in the participant's household, including the participant.",
+            "constraints": {
+              "required": false
+            }
+          },
+          {
+            "name": "diet_and_eating_information",
+            "title": "diet_and_eating_information",
+            "type": "string",
+            "description": "Information regarding the participant's relationship with food and eating behaviours.",
+            "constraints": {
+              "required": false
+            }
           }
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -27146,15 +28156,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -27238,8 +28239,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -27264,15 +28264,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -27429,8 +28420,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     },
@@ -27460,15 +28450,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -27486,6 +28467,15 @@
               "Aarhus",
               "Odense"
             ]
+          },
+          {
+            "name": "submission_id",
+            "title": "Submission identifier",
+            "type": "string",
+            "description": "A value uniquely identifying one submission of this form. This is used when forms can be submitted multiple times, so that a participant might have several values from the form for a given event.",
+            "constraints": {
+              "required": true
+            }
           },
           {
             "name": "date_registration_exercise_deviation_phase3",
@@ -27641,15 +28631,6 @@
             }
           },
           {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
             "name": "center",
             "title": "Research center",
             "type": "string",
@@ -27789,7 +28770,6 @@
         "primaryKey": [
           "participant_id",
           "event_id",
-          "submission_id",
           "minutes_from_meal"
         ]
       }
@@ -27815,15 +28795,6 @@
             "title": "Event identifier",
             "type": "string",
             "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "submission_id",
-            "title": "Submission identifier",
-            "type": "string",
-            "description": "A value uniquely identifying one submission of this form.",
             "constraints": {
               "required": true
             }
@@ -29278,8 +30249,7 @@
         ],
         "primaryKey": [
           "participant_id",
-          "event_id",
-          "submission_id"
+          "event_id"
         ]
       }
     }
