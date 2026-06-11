@@ -86,3 +86,7 @@ download-data-dict:
 # Download data from REDCap
 download-data:
   uv run python scripts/redcap_data.py
+
+# Stage raw data
+stage-data:
+  uv run python scripts/stage_data.py
