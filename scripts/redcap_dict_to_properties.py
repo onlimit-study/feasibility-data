@@ -13,13 +13,21 @@ Out = TypeVar("Out")
 VAS_TIMEPOINTS = [-10, 30, 60, 90, 120, 180, 240]
 VAS_TIME_FORM_PATTERN = re.compile(r"^vas_(minus10|(30|60|90|120|180|240)_?min)$")
 VAS_TIME_FIELD_PATTERN = re.compile(r"(_fasted)?_(minus10|30|60|90|120|180|240)min$")
+
 SEFNC_WEEKS = [0, 12, 52]
 SEFNC_FORM_WEEKS = {
     "sefnc_baseline_v4": 0,
     "sefnc_week12_v6": 12,
     "selfefficacy_for_nutrition_change_sefnc_week_52": 52,
 }
+SEFNC_VISITS = [4, 6, 10]
+SEFNC_FORM_VISITS = {
+    "sefnc_baseline_v4": 4,
+    "sefnc_week12_v6": 6,
+    "selfefficacy_for_nutrition_change_sefnc_week_52": 10,
+}
 SEFNC_WEEK_FIELD_PATTERN = re.compile(r"_v(6|10)$")
+
 FOER_BESOEGSDAG_VISITS = [2, 3, 4]
 FOER_BESOEGSDAG_FORM_VISITS = {
     "foer_besoegsdag_2": 2,
@@ -52,6 +60,7 @@ def dictionary_to_properties(
     redcap_fields: list[dict[str, str]],
 ) -> list[sp.ResourceProperties]:
     """Converts REDCap data dictionary to Data Package resources."""
+    redcap_fields = _join_sefnc_week_resources(redcap_fields)
     redcap_fields = _join_vas_time_resources(redcap_fields)
     redcap_fields = _join_sefnc_week_resources(redcap_fields)
     redcap_fields = _join_foer_besoegsdag_visit_resources(redcap_fields)
@@ -365,27 +374,47 @@ def _form_to_resource(
         primary_key.append("minutes_from_meal")
 
     if form_name == "sefnc":
-        week_field = sp.FieldProperties(
-            name="week",
-            title="Week",
+        visit_field = sp.FieldProperties(
+            name="visit_id",
+            title="Visit ID",
             type="integer",
-            description="The study week when the SEFNC measurement was recorded.",
+            description=(
+                "The study visit ID for when participants had the SEFNC "
+                "measurement recorded."
+            ),
+            categories=SEFNC_VISITS,
+            constraints=sp.ConstraintsProperties(
+                required=True,
+                enum=SEFNC_VISITS,
+            ),
+        )
+        week_field = sp.FieldProperties(
+            name="study_week",
+            title="Study week",
+            type="integer",
+            description=(
+                "The study week when the SEFNC measurement was recorded. Must be "
+                "in the range 0-52, where 0 is the baseline week and 52 represents "
+                "52 weeks after the baseline week."
+            ),
             categories=SEFNC_WEEKS,
             constraints=sp.ConstraintsProperties(
                 required=True,
                 enum=SEFNC_WEEKS,
             ),
         )
+        default_fields.append(visit_field)
         default_fields.append(week_field)
-        primary_key.append("week")
-
+        primary_key.append("visit_id")
+        
+        
     if form_name == "foer_besoegsdag":
         visit_field = sp.FieldProperties(
-            name="visit",
-            title="Visit",
+            name="visit_id",
+            title="Visit ID",
             type="integer",
             description=(
-                "The study visit that the before-visit-day workflow item was "
+                "The study visit ID that the before-visit-day workflow item was "
                 "recorded for."
             ),
             categories=FOER_BESOEGSDAG_VISITS,
@@ -395,7 +424,7 @@ def _form_to_resource(
             ),
         )
         default_fields.append(visit_field)
-        primary_key.append("visit")
+        primary_key.append("visit_id")
 
     # Discard fields displayed for information only
     form_redcap_fields = _filter(
@@ -461,8 +490,8 @@ def _get_resource_description(form_name: str) -> str:
 
     if form_name == "sefnc":
         return (
-            "Self-efficacy for nutrition change measurements self-reported by "
-            "participants across study weeks."
+            "Self-efficacy measurements for nutrition change that were "
+            "self-reported by participants during the study across the weeks."
         )
 
     if form_name == "foer_besoegsdag":

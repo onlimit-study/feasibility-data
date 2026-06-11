@@ -4,7 +4,7 @@
   "title": "ON LiMiT Feasibility Study Data",
   "description": "Full data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.",
   "homepage": "https://onlimit.org",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "created": "2025-12-09T15:00:26+01:00",
   "contributors": [
     {
@@ -23685,7 +23685,7 @@
       "name": "sefnc",
       "path": "resources/sefnc/data.parquet",
       "title": "Self-efficacy for nutrition change",
-      "description": "Self-efficacy for nutrition change measurements self-reported by participants across study weeks.",
+      "description": "Self-efficacy measurements for nutrition change that were self-reported by participants during the study across the weeks.",
       "schema": {
         "fields": [
           {
@@ -24023,6 +24023,324 @@
             "constraints": {
               "required": true,
               "enum": [
+                4,
+                6,
+                10
+              ]
+            },
+            "categories": [
+              4,
+              6,
+              10
+            ]
+          },
+          {
+            "name": "study_week",
+            "title": "Study week",
+            "type": "integer",
+            "description": "The study week when the SEFNC measurement was recorded. Must bein the range 0-52, where 0 is the baseline week and 52 represents 52 weeks after the baseline week.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                0,
+                12,
+                52
+              ]
+            },
+            "categories": [
+              0,
+              12,
+              52
+            ]
+          },
+          {
+            "name": "when_tired",
+            "title": "when_tired",
+            "type": "string",
+            "description": "Participant's confidence in following their diet when feeling tired.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "0%",
+                "10%",
+                "20%",
+                "30%",
+                "40%",
+                "50%",
+                "60%",
+                "70%",
+                "80%",
+                "90%",
+                "100%"
+              ]
+            },
+            "categories": [
+              "0%",
+              "10%",
+              "20%",
+              "30%",
+              "40%",
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "name": "during_crisis",
+            "title": "during_crisis",
+            "type": "string",
+            "description": "Participant's confidence in following their diet during or after a personal crisis.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "0%",
+                "10%",
+                "20%",
+                "30%",
+                "40%",
+                "50%",
+                "60%",
+                "70%",
+                "80%",
+                "90%",
+                "100%"
+              ]
+            },
+            "categories": [
+              "0%",
+              "10%",
+              "20%",
+              "30%",
+              "40%",
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "name": "when_depressed",
+            "title": "when_depressed",
+            "type": "string",
+            "description": "Participant's confidence in following their diet when feeling depressed.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "0%",
+                "10%",
+                "20%",
+                "30%",
+                "40%",
+                "50%",
+                "60%",
+                "70%",
+                "80%",
+                "90%",
+                "100%"
+              ]
+            },
+            "categories": [
+              "0%",
+              "10%",
+              "20%",
+              "30%",
+              "40%",
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "name": "when_anxious",
+            "title": "when_anxious",
+            "type": "string",
+            "description": "Participant's confidence in following their diet when feeling anxious.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "0%",
+                "10%",
+                "20%",
+                "30%",
+                "40%",
+                "50%",
+                "60%",
+                "70%",
+                "80%",
+                "90%",
+                "100%"
+              ]
+            },
+            "categories": [
+              "0%",
+              "10%",
+              "20%",
+              "30%",
+              "40%",
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "name": "on_vacation",
+            "title": "on_vacation",
+            "type": "string",
+            "description": "Participant's confidence in following their diet while on vacation.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "0%",
+                "10%",
+                "20%",
+                "30%",
+                "40%",
+                "50%",
+                "60%",
+                "70%",
+                "80%",
+                "90%",
+                "100%"
+              ]
+            },
+            "categories": [
+              "0%",
+              "10%",
+              "20%",
+              "30%",
+              "40%",
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "name": "when_busy",
+            "title": "when_busy",
+            "type": "string",
+            "description": "Participant's confidence in following their diet when they have a heavy workload.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "0%",
+                "10%",
+                "20%",
+                "30%",
+                "40%",
+                "50%",
+                "60%",
+                "70%",
+                "80%",
+                "90%",
+                "100%"
+              ]
+            },
+            "categories": [
+              "0%",
+              "10%",
+              "20%",
+              "30%",
+              "40%",
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "name": "when_missed_goals",
+            "title": "when_missed_goals",
+            "type": "string",
+            "description": "Participant's confidence in following their diet when they have not met their dietary goals.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "0%",
+                "10%",
+                "20%",
+                "30%",
+                "40%",
+                "50%",
+                "60%",
+                "70%",
+                "80%",
+                "90%",
+                "100%"
+              ]
+            },
+            "categories": [
+              "0%",
+              "10%",
+              "20%",
+              "30%",
+              "40%",
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "name": "no_support",
+            "title": "no_support",
+            "type": "string",
+            "description": "Participant's confidence in following their diet when lacking support from family or friends.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "0%",
+                "10%",
+                "20%",
+                "30%",
+                "40%",
+                "50%",
+                "60%",
+                "70%",
+                "80%",
+                "90%",
+                "100%"
+              ]
+            },
+            "categories": [
+              "0%",
+              "10%",
+              "20%",
+              "30%",
+              "40%",
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "name": "busy_schedule",
+            "title": "busy_schedule",
+            "type": "string",
+            "description": "Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding.",
+            "constraints": {
+              "required": true,
+              "enum": [
                 "0%",
                 "10%",
                 "20%",
@@ -24053,7 +24371,7 @@
         ],
         "primaryKey": [
           "event",
-          "week"
+          "visit_id"
         ]
       }
     },
