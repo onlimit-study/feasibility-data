@@ -1,6 +1,6 @@
 [project]
 name = "feasibility-data"
-version = "0.10.0"
+version = "0.11.1"
 description = "A Data Package for the ON LiMiT feasibility study. The data itself is connected to this Data Package via storage on GenomeDK at Aarhus University, Denmark but is not publicly accessible. The publicly accessible content of this Data Package is the documentation and metadata associated with the data."
 authors = [
   { name = "Kristiane Beicher", email = "kris.beicher@clin.au.dk" },
@@ -24,7 +24,7 @@ license-files = ["LICENSE-MIT.md"]
 
 requires-python = ">=3.12"
 dependencies = [
-  "polars>=1.40.1",
+  "polars>=1.41.2",
   "python-dotenv>=1.2.2",
   "requests>=2.32.5",
   "seedcase-flower>=0.28.1",
@@ -37,9 +37,9 @@ repository = "https://github.com/onlimit-study/feasibility-data"
 
 [dependency-groups]
 dev = [
-  "commitizen>=4.13.10",
+  "commitizen>=4.16.3",
   "pre-commit>=4.6.0",
-  "ruff>=0.15.12",
+  "ruff>=0.15.15",
   "types-requests>=2.32.4.20260107",
-  "typos>=1.40.0",
+  "typos>=1.47.0",
 ]

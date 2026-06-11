@@ -1,3 +1,17 @@
+## 0.11.1 (2026-06-10)
+
+### Refactor
+
+- ♻️ join SEFNC weeks resources (#90)
+
+## 0.11.0 (2026-06-03)
+
+## 0.10.1 (2026-06-02)
+
+### Refactor
+
+- :recycle:  convert column time suffixes to its own variable in VAS (#89)
+
 ## 0.10.0 (2026-05-20)
 
 ### Feat
