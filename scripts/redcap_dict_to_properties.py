@@ -6,6 +6,7 @@ from operator import itemgetter
 from pathlib import Path
 from typing import Callable, Iterable, Literal, Optional, TypeVar, Union, cast
 
+import seedcase_soil as so
 import seedcase_sprout as sp
 
 In = TypeVar("In")
@@ -45,6 +46,15 @@ def read_dictionary() -> list[dict[str, str]]:
     """Loads REDCap data dictionary from `scripts/data_dictionary.json`."""
     with open(Path("scripts") / "data_dictionary.json") as f:
         return json.load(f)
+
+
+def read_repeating_instruments() -> set[str]:
+    """Loads repeating instruments from `scripts/repeating_instruments.json`."""
+    with open(Path("scripts") / "repeating_instruments.json") as f:
+        return set(so.fmap(json.load(f), itemgetter("form_name")))
+
+
+repeating_instruments = read_repeating_instruments()
 
 
 def dictionary_to_properties(
@@ -214,6 +224,16 @@ def _remove_sefnc_week_from_annotation(annotation: str) -> str:
 def _form_to_resource(
     form_name: str, fields: list[dict[str, str]]
 ) -> sp.ResourceProperties:
+    """Transforms a REDCap form to a resource.
+
+    Primary keys:
+    - All resources:
+        - `participant_id` (from raw `record_id_s`),
+        - `event_id` (from raw `redcap_event_name`)
+    - Repeating resources: `submission_id` (from raw `redcap_repeat_instance`)
+    - VAS resource: `minutes_from_meal`
+    - SEFNC resource: `visit_id`
+    """
     participant_field = sp.FieldProperties(
         name="participant_id",
         title="Participant identifier",
@@ -245,11 +265,19 @@ def _form_to_resource(
         name="submission_id",
         title="Submission identifier",
         type="string",
-        description="A value uniquely identifying one submission of this form.",
+        description=(
+            "A value uniquely identifying one submission of this form. "
+            "This is used when forms can be submitted multiple times, so that a "
+            "participant might have several values from the form for a given event."
+        ),
         constraints=sp.ConstraintsProperties(required=True),
     )
-    default_fields = [participant_field, event_field, submission_field, center_field]
-    primary_key = ["participant_id", "event_id", "submission_id"]
+    default_fields = [participant_field, event_field, center_field]
+    primary_key = ["participant_id", "event_id"]
+
+    if form_name in repeating_instruments:
+        default_fields.append(submission_field)
+        primary_key.append("submission_id")
 
     if form_name == "vas":
         time_field = sp.FieldProperties(

@@ -79,8 +79,8 @@ preview-website: build-docs
 build-readme:
   uvx --from quarto quarto render README.qmd --to gfm
 
-# Download data dictionary from REDCap
-download-data-dict:
+# Download metadata from REDCap
+download-metadata:
   uv run python scripts/redcap_metadata.py
 
 # Download data from REDCap
