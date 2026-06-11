@@ -17464,10 +17464,10 @@
       }
     },
     {
-      "name": "foer_besoegsdag_2",
-      "path": "resources/foer_besoegsdag_2/data.parquet",
-      "title": "foer_besoegsdag_2",
-      "description": "foer_besoegsdag_2",
+      "name": "foer_besoegsdag",
+      "path": "resources/foer_besoegsdag/data.parquet",
+      "title": "Before visit day workflow",
+      "description": "Workflow items completed before study visit days.",
       "schema": {
         "fields": [
           {
@@ -17499,10 +17499,29 @@
             ]
           },
           {
-            "name": "book_bloodsample_wfv2",
-            "title": "book_bloodsample_wfv2",
+            "name": "visit_id",
+            "title": "Visit ID",
+            "type": "integer",
+            "description": "The study visit ID that the before-visit-day workflow item was recorded for.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                2,
+                3,
+                4
+              ]
+            },
+            "categories": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "name": "book_bloodsample",
+            "title": "book_bloodsample",
             "type": "string",
-            "description": "Blood sample booking prior to visit. Workflow. Visit 2.",
+            "description": "Blood sample booking prior to visit. Workflow.",
             "constraints": {
               "required": true,
               "enum": [
@@ -17516,21 +17535,38 @@
             ]
           },
           {
-            "name": "cgm_reader_wfv2",
-            "title": "cgm_reader_wfv2",
+            "name": "cgm_reader",
+            "title": "cgm_reader",
             "type": "string",
-            "description": "Reader to be prepared for the visit. The same reader used to initialise the sensor at Visit 1. Wfv2. Derived using the formula: [besg_1__screening_arm_1][cgmreader_v1]",
+            "description": "Reader to be prepared for the visit. The same reader used to initialise the sensor at Visit 1. Derived using the formula: [besg_1__screening_arm_1][cgmreader_v1]",
             "constraints": {
-              "required": true
+              "required": false
             }
           },
           {
-            "name": "cgm_reader_ready_wfv2",
-            "title": "cgm_reader_ready_wfv2",
+            "name": "cgm_reader_ready",
+            "title": "cgm_reader_ready",
             "type": "string",
-            "description": "CGM reader ready. Workflow. Visit 2.",
+            "description": "CGM reader ready. Workflow.",
             "constraints": {
-              "required": true,
+              "required": false,
+              "enum": [
+                "Ja",
+                "Nej"
+              ]
+            },
+            "categories": [
+              "Ja",
+              "Nej"
+            ]
+          },
+          {
+            "name": "medicin_print",
+            "title": "medicin_print",
+            "type": "string",
+            "description": "Whether the participant's medication list has been printed in preparation for the visit. Workflow.",
+            "constraints": {
+              "required": false,
               "enum": [
                 "Ja",
                 "Nej"
@@ -17543,140 +17579,8 @@
           }
         ],
         "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "foer_besoegsdag_3",
-      "path": "resources/foer_besoegsdag_3/data.parquet",
-      "title": "foer_besoegsdag_3",
-      "description": "foer_besoegsdag_3",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "book_bloodsample_wfv3",
-            "title": "book_bloodsample_wfv3",
-            "type": "string",
-            "description": "Blood sample booking prior to visit. Workflow. Visit 3.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Ja",
-                "Nej"
-              ]
-            },
-            "categories": [
-              "Ja",
-              "Nej"
-            ]
-          }
-        ],
-        "primaryKey": [
-          "event"
-        ]
-      }
-    },
-    {
-      "name": "foer_besoegsdag_4",
-      "path": "resources/foer_besoegsdag_4/data.parquet",
-      "title": "foer_besoegsdag_4",
-      "description": "foer_besoegsdag_4",
-      "schema": {
-        "fields": [
-          {
-            "name": "event",
-            "title": "The unique name of the event",
-            "type": "string",
-            "description": "The unique name identifying the event when the form was filled in.",
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "center",
-            "title": "Research center",
-            "type": "string",
-            "description": "The research center where the data item was recorded.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Copenhagen",
-                "Aarhus",
-                "Odense"
-              ]
-            },
-            "categories": [
-              "Copenhagen",
-              "Aarhus",
-              "Odense"
-            ]
-          },
-          {
-            "name": "book_bloodsample_wfv4",
-            "title": "book_bloodsample_wfv4",
-            "type": "string",
-            "description": "Indicates if bloodsamples have been ordered for the participant. Workflow. Visit 4.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Ja",
-                "Nej"
-              ]
-            },
-            "categories": [
-              "Ja",
-              "Nej"
-            ]
-          },
-          {
-            "name": "medicin_print_wfv4",
-            "title": "medicin_print_wfv4",
-            "type": "string",
-            "description": "Whether the participant's medication list has been printed in preparation for the visit. Workflow. Visit 4.",
-            "constraints": {
-              "required": true,
-              "enum": [
-                "Ja",
-                "Nej"
-              ]
-            },
-            "categories": [
-              "Ja",
-              "Nej"
-            ]
-          }
-        ],
-        "primaryKey": [
-          "event"
+          "event",
+          "visit_id"
         ]
       }
     },
@@ -23835,17 +23739,17 @@
             "name": "study_week",
             "title": "Study week",
             "type": "integer",
-            "description": "The study week when the SEFNC measurement was recorded. Must bein the range 0-52, where 0 is the baseline week and 52 represents52 weeks after the baseline week.",
+            "description": "The study week when the SEFNC measurement was recorded. Must be in the range 0-52, where 0 is the baseline week and 52 represents 52 weeks after the baseline week.",
             "constraints": {
               "required": true,
               "enum": [
-                1,
+                0,
                 12,
                 52
               ]
             },
             "categories": [
-              1,
+              0,
               12,
               52
             ]
