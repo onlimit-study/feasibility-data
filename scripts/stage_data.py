@@ -10,6 +10,17 @@ import seedcase_soil as so
 VAS_TIME_FIELD_PATTERN = re.compile(
     r"^vas_(?P<field_name>.+?)(_fasted)?_(?P<time>minus10|30|60|90|120|180|240)min$"
 )
+# TODO: Get from file when PK PR merged
+REPEATING_RESOURCES = {
+    "fase_2_ditetiske_afvigelser",
+    "medicine_changes",
+    "trningsafvigelser",
+    "fase_1_ditetiske_afvigelser",
+    "hba1c_follow_up",
+    "ekstra_kontakt",
+    "adverse_events",
+    "fase_3_ditetiske_afvigelser",
+}
 
 
 def load_raw_data() -> pl.DataFrame:
@@ -46,10 +57,11 @@ def _select_with_base_cols(
 ) -> pl.DataFrame:
     """Selects columns and adds base columns common to all dataframes."""
     return (
-        raw_df.select(["redcap_event_name"] + cols)
-        .rename({"redcap_event_name": "event"})
+        raw_df.select(["record_id_s", "redcap_event_name"] + cols)
+        .rename({"record_id_s": "participant_id", "redcap_event_name": "event_id"})
         .with_columns(
             pl.lit("Copenhagen").alias("center"),
+            # Only used for creating the Parquet files.
             pl.lit(resource_name).alias("resource_name"),
         )
     )
@@ -75,11 +87,34 @@ def _create_df_for_resource(
     """Creates a dataframe for a resource."""
     resource_name, field_names = resource_entry
 
-    # Remove fields not in the raw data
-    field_names.remove("event")
-    field_names.remove("center")
+    field_names = so.keep(
+        field_names,
+        lambda field: (
+            field
+            not in [
+                # Will be added everywhere, not just in stamdata
+                "record_id_s",
+                # Will be renamed from columns in raw data
+                "participant_id",
+                "event_id",
+                "submission_id",
+                # Not in raw data
+                "center",
+            ]
+        ),
+    )
 
-    return _select_with_base_cols(raw_df, resource_name, field_names)
+    df = _select_with_base_cols(raw_df, resource_name, field_names)
+
+    if resource_name in REPEATING_RESOURCES:
+        df = df.with_columns(
+            raw_df["redcap_repeat_instance"]
+            .cast(pl.String)
+            .fill_null("1")
+            .alias("submission_id")
+        )
+
+    return df
 
 
 def _create_vas_df(raw_df: pl.DataFrame) -> pl.DataFrame:
