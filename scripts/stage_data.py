@@ -38,6 +38,31 @@ def load_raw_data() -> pl.DataFrame:
     return pl.read_csv(latest_file)
 
 
+def raw_to_staged(raw_df: pl.DataFrame) -> list[pl.DataFrame]:
+    """Transforms the raw data into staged dataframes."""
+    resources = _get_fields_by_resource()
+
+    # Resources with special handling
+    resources.pop("vas", None)
+    dfs = [_create_vas_df(raw_df)]
+
+    # Resources without special handling
+    return dfs + so.pairwise_fmap(
+        list(resources.items()), [raw_df], _create_df_for_resource
+    )
+
+
+def write_staged_df(df: pl.DataFrame) -> None:
+    """Writes the dataframe to `staging/redcap/<resource-name>/<timestamp>.parquet`."""
+    resource_name = df["resource_name"][0]
+    timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
+    file_path = Path("staging") / "redcap" / resource_name / f"{timestamp}.parquet"
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+
+    df.drop("resource_name").write_parquet(file_path)
+    so.pretty_print(f"Wrote staged data to '{file_path}'.")
+
+
 def _get_fields_by_resource() -> dict[str, list[str]]:
     """Gets a mapping from resource names to a list of field names in that resource."""
     properties = so.read_properties(so.parse_source("datapackage.json"))
@@ -64,20 +89,6 @@ def _select_with_base_cols(
             # Only used for creating the Parquet files.
             pl.lit(resource_name).alias("resource_name"),
         )
-    )
-
-
-def raw_to_staged(raw_df: pl.DataFrame) -> list[pl.DataFrame]:
-    """Transforms the raw data into staged dataframes."""
-    resources = _get_fields_by_resource()
-
-    # Resources with special handling
-    resources.pop("vas", None)
-    dfs = [_create_vas_df(raw_df)]
-
-    # Resources without special handling
-    return dfs + so.pairwise_fmap(
-        list(resources.items()), [raw_df], _create_df_for_resource
     )
 
 
@@ -156,17 +167,6 @@ def _create_df_for_time_group(
         .rename(renamed_cols)
         .with_columns(pl.lit(time).alias("minutes_from_meal"))
     )
-
-
-def write_staged_df(df: pl.DataFrame) -> None:
-    """Writes the dataframe to `staging/redcap/<resource-name>/<timestamp>.parquet`."""
-    resource_name = df["resource_name"][0]
-    timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
-    file_path = Path("staging") / "redcap" / resource_name / f"{timestamp}.parquet"
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-
-    df.drop("resource_name").write_parquet(file_path)
-    so.pretty_print(f"Wrote staged data to '{file_path}'.")
 
 
 if __name__ == "__main__":
