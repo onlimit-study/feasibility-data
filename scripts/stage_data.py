@@ -132,7 +132,7 @@ def _create_df_for_resource(
     columns = [
         pl.col("record_id_s").alias("participant_id"),
         pl.col("redcap_event_name").alias("event_id"),
-        *so.fmap(content_fields, lambda field: pl.col(field)),
+        *so.fmap(content_fields, pl.col),
         pl.lit("Copenhagen").alias("center"),
         # Only used for creating the Parquet files.
         pl.lit(resource_name).alias("resource_name"),
