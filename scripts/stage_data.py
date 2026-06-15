@@ -1,15 +1,10 @@
-import re
 from datetime import datetime
 from operator import itemgetter
 from pathlib import Path
-from typing import cast
 
 import polars as pl
 import seedcase_soil as so
 
-VAS_TIME_FIELD_PATTERN = re.compile(
-    r"^vas_(?P<field_name>.+?)(_fasted)?_(?P<time>minus10|30|60|90|120|180|240)min$"
-)
 # TODO: Get from file when PK PR merged
 REPEATING_RESOURCES = {
     "fase_2_ditetiske_afvigelser",
@@ -22,8 +17,156 @@ REPEATING_RESOURCES = {
     "fase_3_ditetiske_afvigelser",
 }
 
+# TODO: Get from file
+FORM_EVENTS = {
+    "stamdata": ["stamdata_arm_1"],
+    "adverse_events": ["stamdata_arm_1"],
+    "bookinger": ["stamdata_arm_1"],
+    "randomisering": ["randomisering_arm_1"],
+    "prscreening_telefoninterview_frste_kontakt": ["prscreening_arm_1"],
+    "fr_besgsdag_1_screening": ["besg_1__screening_arm_1"],
+    "besg_1_screening": ["besg_1__screening_arm_1"],
+    "bedq": ["besg_1__screening_arm_1"],
+    "foer_besoegsdag_2": ["besg_2_arm_1"],
+    "besoegsdag_2": ["besg_2_arm_1"],
+    "vas_minus10": [
+        "besg_2_arm_1",
+        "besg_3_arm_1",
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_8_arm_1",
+        "besg_10_arm_1",
+    ],
+    "vas_30min": [
+        "besg_2_arm_1",
+        "besg_3_arm_1",
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_8_arm_1",
+        "besg_10_arm_1",
+    ],
+    "vas_60min": [
+        "besg_2_arm_1",
+        "besg_3_arm_1",
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_8_arm_1",
+        "besg_10_arm_1",
+    ],
+    "vas_90_min": [
+        "besg_2_arm_1",
+        "besg_3_arm_1",
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_8_arm_1",
+        "besg_10_arm_1",
+    ],
+    "vas_120_min": [
+        "besg_2_arm_1",
+        "besg_3_arm_1",
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_8_arm_1",
+        "besg_10_arm_1",
+    ],
+    "vas_180_min": [
+        "besg_2_arm_1",
+        "besg_3_arm_1",
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_8_arm_1",
+        "besg_10_arm_1",
+    ],
+    "vas_240_min": [
+        "besg_2_arm_1",
+        "besg_3_arm_1",
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_8_arm_1",
+        "besg_10_arm_1",
+    ],
+    "foer_besoegsdag_3": ["besg_3_arm_1"],
+    "besoegsdag_3": ["besg_3_arm_1"],
+    "foer_besoegsdag_4": ["besg_4_arm_1"],
+    "besoegsdag_4": ["besg_4_arm_1"],
+    "sociodemografiske_karakteristika": ["besg_4_arm_1"],
+    "diabetes_status": ["besg_4_arm_1", "besg_10_arm_1"],
+    "pittsburgh_sleep_quality_index_psqi": [
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_10_arm_1",
+    ],
+    "physical_and_mental_health_sf12": [
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_10_arm_1",
+    ],
+    "european_quality_of_life_5_dimensions_eq5d5l": [
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_10_arm_1",
+    ],
+    "tobacco_and_nicotine_use": ["besg_4_arm_1", "besg_6_arm_1", "besg_10_arm_1"],
+    "sefnc_baseline_v4": ["besg_4_arm_1"],
+    "the_three_item_loneliness_scale_tils": [
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_10_arm_1",
+    ],
+    "item_bodily_distress_syndrome_checklist": [
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_10_arm_1",
+    ],
+    "yale_food_addiction_scale_yfas": ["besg_4_arm_1", "besg_6_arm_1", "besg_10_arm_1"],
+    "social_support_for_eating_habits": [
+        "besg_4_arm_1",
+        "besg_6_arm_1",
+        "besg_10_arm_1",
+    ],
+    "diabetes_distress_paid5_scale": ["besg_4_arm_1", "besg_6_arm_1", "besg_10_arm_1"],
+    "fr_besgsdag_5": ["besg_5_arm_1"],
+    "besgsdag_5": ["besg_5_arm_1"],
+    "fr_besgsdag_6": ["besg_6_arm_1"],
+    "besgsdag_6": ["besg_6_arm_1"],
+    "sefnc_week12_v6": ["besg_6_arm_1"],
+    "fr_besgsdag_7": ["besg_7_arm_1"],
+    "besgsdag_7": ["besg_7_arm_1"],
+    "fr_besgsdag_8": ["besg_8_arm_1"],
+    "besgsdag_8": ["besg_8_arm_1"],
+    "hba1c_uge_30": ["hba1c_30_uger_arm_1"],
+    "hba1c_uge_42": ["hba1c_42_uger_arm_1"],
+    "fr_besgsdag_9": ["besg_9_arm_1"],
+    "besoegsdag_9": ["besg_9_arm_1"],
+    "fr_besgsdag_5_9bba": ["besg_10_arm_1"],
+    "besgsdag_10_5f76": ["besg_10_arm_1"],
+    "sociodemografiske_karakteristika_short": ["besg_10_arm_1"],
+    "selfefficacy_for_nutrition_change_sefnc_week_52": ["besg_10_arm_1"],
+    "gruppemde_uge_1": ["fase_1_arm_1"],
+    "gruppemde_uge_3": ["fase_1_arm_1"],
+    "gruppemde_uge_5": ["fase_1_arm_1"],
+    "gruppemde_uge_7": ["fase_1_arm_1"],
+    "gruppemde_uge_9": ["fase_1_arm_1"],
+    "gruppemde_uge_11": ["fase_1_arm_1"],
+    "fase_1_ditetiske_afvigelser": ["fase_1_arm_1"],
+    "gruppemde_uge_13": ["fase_2_arm_1"],
+    "gruppemde_uge_15": ["fase_2_arm_1"],
+    "gruppemde_uge_17": ["fase_2_arm_1"],
+    "gruppemde_uge_18": ["fase_2_arm_1"],
+    "fase_2_ditetiske_afvigelser": ["fase_2_arm_1"],
+    "individuel_ditistsamtale_1": ["fase_3_arm_1"],
+    "individuel_ditistsamtale_2": ["fase_3_arm_1"],
+    "individuel_ditistsamtale_3": ["fase_3_arm_1"],
+    "individuel_ditistsamtale_4": ["fase_3_arm_1"],
+    "fase_3_ditetiske_afvigelser": ["fase_3_arm_1"],
+    "trningsafvigelser": ["fase_3_arm_1"],
+    "ekstra_kontakt": ["ekstra_kontaktsttt_arm_1"],
+    "medicine_changes": ["medicinndringer_arm_1"],
+    "hba1c_follow_up": ["hba1c_ekstra_mling_arm_1"],
+}
 
-def load_raw_data() -> pl.DataFrame:
+
+def load_latest_raw_redcap_data() -> pl.DataFrame:
     """Loads the latest raw data from `raw/redcap/<timestamp>.csv.gz`."""
     file_path = Path("raw") / "redcap"
     files = list(file_path.glob("*.csv.gz"))
@@ -43,13 +186,13 @@ def raw_to_staged(raw_df: pl.DataFrame) -> list[pl.DataFrame]:
     resources = _get_fields_by_resource()
 
     # Resources with special handling
+    # TODO: Create these resources separately
     resources.pop("vas", None)
-    dfs = [_create_vas_df(raw_df)]
+    resources.pop("sefnc", None)
 
     # Resources without special handling
-    return dfs + so.pairwise_fmap(
-        list(resources.items()), [raw_df], _create_df_for_resource
-    )
+    dfs = so.pairwise_fmap(list(resources.items()), [raw_df], _create_df_for_resource)
+    return so.keep(dfs, lambda df: not df.is_empty())
 
 
 def write_staged_df(df: pl.DataFrame) -> None:
@@ -77,28 +220,13 @@ def _get_fields_by_resource() -> dict[str, list[str]]:
     )
 
 
-def _select_with_base_cols(
-    raw_df: pl.DataFrame, resource_name: str, cols: list[str]
-) -> pl.DataFrame:
-    """Selects columns and adds base columns common to all dataframes."""
-    return (
-        raw_df.select(["record_id_s", "redcap_event_name"] + cols)
-        .rename({"record_id_s": "participant_id", "redcap_event_name": "event_id"})
-        .with_columns(
-            pl.lit("Copenhagen").alias("center"),
-            # Only used for creating the Parquet files.
-            pl.lit(resource_name).alias("resource_name"),
-        )
-    )
-
-
 def _create_df_for_resource(
-    resource_entry: tuple[str, list[str]], raw_df: pl.DataFrame
+    resource_entry: tuple[str, list[str]],
+    raw_df: pl.DataFrame,
 ) -> pl.DataFrame:
-    """Creates a dataframe for a resource."""
     resource_name, field_names = resource_entry
 
-    field_names = so.keep(
+    content_fields = so.keep(
         field_names,
         lambda field: (
             field
@@ -114,62 +242,44 @@ def _create_df_for_resource(
             ]
         ),
     )
+    events = FORM_EVENTS[resource_name]
 
-    df = _select_with_base_cols(raw_df, resource_name, field_names)
+    filters = [
+        # Keep only rows for events where the resource was filled in
+        pl.col("redcap_event_name").is_in(events),
+        # Keep only non-empty rows
+        pl.any_horizontal(
+            so.fmap(content_fields, lambda field: pl.col(field).is_not_null())
+        ),
+    ]
 
-    if resource_name in REPEATING_RESOURCES:
-        df = df.with_columns(
-            raw_df["redcap_repeat_instance"]
-            .cast(pl.String)
-            .fill_null("1")
-            .alias("submission_id")
+    is_repeating = resource_name in REPEATING_RESOURCES
+    if is_repeating:
+        # Repeating resources are listed in separate rows for each submission,
+        # not in the same row as data for other resources for the same event.
+        # Keep only rows for the resource.
+        filters.append(pl.col("redcap_repeat_instrument") == resource_name)
+
+    columns = [
+        pl.col("record_id_s").alias("participant_id"),
+        pl.col("redcap_event_name").alias("event_id"),
+        *so.fmap(content_fields, lambda field: pl.col(field)),
+        pl.lit("Copenhagen").alias("center"),
+        # Only used for creating the Parquet files.
+        pl.lit(resource_name).alias("resource_name"),
+    ]
+
+    if is_repeating:
+        # Different submissions for the same repeating resource are told apart by
+        # `redcap_repeat_instance`.
+        columns.insert(
+            2, pl.col("redcap_repeat_instance").cast(pl.String).alias("submission_id")
         )
 
-    return df
-
-
-def _create_vas_df(raw_df: pl.DataFrame) -> pl.DataFrame:
-    """Creates a dataframe for the VAS resource."""
-    vas_cols = so.keep(
-        raw_df.columns,
-        lambda column: VAS_TIME_FIELD_PATTERN.match(column) is not None,
-    )
-
-    cols_grouped_by_time: dict[int, list[str]] = {}
-    for col in vas_cols:
-        match = cast(re.Match[str], VAS_TIME_FIELD_PATTERN.match(col))
-
-        time = match.group("time")
-        if time == "minus10":
-            time = "-10"
-
-        cols_grouped_by_time.setdefault(int(time), []).append(col)
-
-    vas_dfs = so.pairwise_fmap(
-        list(cols_grouped_by_time.items()), [raw_df], _create_df_for_time_group
-    )
-    return pl.concat(vas_dfs, how="vertical")
-
-
-def _create_df_for_time_group(
-    time_group: tuple[int, list[str]], raw_df: pl.DataFrame
-) -> pl.DataFrame:
-    """Creates a dataframe for a group of VAS columns with the same time."""
-    time, cols = time_group
-
-    renamed_cols = {
-        col: cast(re.Match[str], VAS_TIME_FIELD_PATTERN.match(col)).group("field_name")
-        for col in cols
-    }
-
-    return (
-        _select_with_base_cols(raw_df, "vas", cols)
-        .rename(renamed_cols)
-        .with_columns(pl.lit(time).alias("minutes_from_meal"))
-    )
+    return raw_df.filter(filters).select(columns)
 
 
 if __name__ == "__main__":
-    raw = load_raw_data()
+    raw = load_latest_raw_redcap_data()
     for df in raw_to_staged(raw):
         write_staged_df(df)
