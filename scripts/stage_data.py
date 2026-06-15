@@ -20,7 +20,7 @@ REPEATING_RESOURCES = {
 }
 
 
-def _read_form_event_mapping() -> dict[str, list[str]]:
+def read_form_event_mapping() -> dict[str, list[str]]:
     """Creates a mapping from form names to event names where the form is filled in."""
     with open(Path("scripts") / "form_event.json") as f:
         contents = json.load(f)
@@ -32,7 +32,7 @@ def _read_form_event_mapping() -> dict[str, list[str]]:
     return mapping
 
 
-FORM_EVENTS = _read_form_event_mapping()
+FORM_EVENTS = read_form_event_mapping()
 
 
 def load_latest_raw_redcap_data() -> pl.DataFrame:
@@ -47,7 +47,7 @@ def load_latest_raw_redcap_data() -> pl.DataFrame:
 
     latest_file = max(files, key=lambda file: file.name)
     so.pretty_print(f"Loading data from '{latest_file}'.")
-    return pl.read_csv(latest_file)
+    return pl.read_csv(latest_file, infer_schema=False)
 
 
 def raw_to_staged(raw_df: pl.DataFrame) -> list[pl.DataFrame]:
