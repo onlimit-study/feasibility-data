@@ -1,3 +1,5 @@
+import json
+from collections import defaultdict
 from datetime import datetime
 from operator import itemgetter
 from pathlib import Path
@@ -17,153 +19,20 @@ REPEATING_RESOURCES = {
     "fase_3_ditetiske_afvigelser",
 }
 
-# TODO: Get from file
-FORM_EVENTS = {
-    "stamdata": ["stamdata_arm_1"],
-    "adverse_events": ["stamdata_arm_1"],
-    "bookinger": ["stamdata_arm_1"],
-    "randomisering": ["randomisering_arm_1"],
-    "prscreening_telefoninterview_frste_kontakt": ["prscreening_arm_1"],
-    "fr_besgsdag_1_screening": ["besg_1__screening_arm_1"],
-    "besg_1_screening": ["besg_1__screening_arm_1"],
-    "bedq": ["besg_1__screening_arm_1"],
-    "foer_besoegsdag_2": ["besg_2_arm_1"],
-    "besoegsdag_2": ["besg_2_arm_1"],
-    "vas_minus10": [
-        "besg_2_arm_1",
-        "besg_3_arm_1",
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_8_arm_1",
-        "besg_10_arm_1",
-    ],
-    "vas_30min": [
-        "besg_2_arm_1",
-        "besg_3_arm_1",
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_8_arm_1",
-        "besg_10_arm_1",
-    ],
-    "vas_60min": [
-        "besg_2_arm_1",
-        "besg_3_arm_1",
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_8_arm_1",
-        "besg_10_arm_1",
-    ],
-    "vas_90_min": [
-        "besg_2_arm_1",
-        "besg_3_arm_1",
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_8_arm_1",
-        "besg_10_arm_1",
-    ],
-    "vas_120_min": [
-        "besg_2_arm_1",
-        "besg_3_arm_1",
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_8_arm_1",
-        "besg_10_arm_1",
-    ],
-    "vas_180_min": [
-        "besg_2_arm_1",
-        "besg_3_arm_1",
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_8_arm_1",
-        "besg_10_arm_1",
-    ],
-    "vas_240_min": [
-        "besg_2_arm_1",
-        "besg_3_arm_1",
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_8_arm_1",
-        "besg_10_arm_1",
-    ],
-    "foer_besoegsdag_3": ["besg_3_arm_1"],
-    "besoegsdag_3": ["besg_3_arm_1"],
-    "foer_besoegsdag_4": ["besg_4_arm_1"],
-    "besoegsdag_4": ["besg_4_arm_1"],
-    "sociodemografiske_karakteristika": ["besg_4_arm_1"],
-    "diabetes_status": ["besg_4_arm_1", "besg_10_arm_1"],
-    "pittsburgh_sleep_quality_index_psqi": [
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_10_arm_1",
-    ],
-    "physical_and_mental_health_sf12": [
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_10_arm_1",
-    ],
-    "european_quality_of_life_5_dimensions_eq5d5l": [
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_10_arm_1",
-    ],
-    "tobacco_and_nicotine_use": ["besg_4_arm_1", "besg_6_arm_1", "besg_10_arm_1"],
-    "sefnc_baseline_v4": ["besg_4_arm_1"],
-    "the_three_item_loneliness_scale_tils": [
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_10_arm_1",
-    ],
-    "item_bodily_distress_syndrome_checklist": [
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_10_arm_1",
-    ],
-    "yale_food_addiction_scale_yfas": ["besg_4_arm_1", "besg_6_arm_1", "besg_10_arm_1"],
-    "social_support_for_eating_habits": [
-        "besg_4_arm_1",
-        "besg_6_arm_1",
-        "besg_10_arm_1",
-    ],
-    "diabetes_distress_paid5_scale": ["besg_4_arm_1", "besg_6_arm_1", "besg_10_arm_1"],
-    "fr_besgsdag_5": ["besg_5_arm_1"],
-    "besgsdag_5": ["besg_5_arm_1"],
-    "fr_besgsdag_6": ["besg_6_arm_1"],
-    "besgsdag_6": ["besg_6_arm_1"],
-    "sefnc_week12_v6": ["besg_6_arm_1"],
-    "fr_besgsdag_7": ["besg_7_arm_1"],
-    "besgsdag_7": ["besg_7_arm_1"],
-    "fr_besgsdag_8": ["besg_8_arm_1"],
-    "besgsdag_8": ["besg_8_arm_1"],
-    "hba1c_uge_30": ["hba1c_30_uger_arm_1"],
-    "hba1c_uge_42": ["hba1c_42_uger_arm_1"],
-    "fr_besgsdag_9": ["besg_9_arm_1"],
-    "besoegsdag_9": ["besg_9_arm_1"],
-    "fr_besgsdag_5_9bba": ["besg_10_arm_1"],
-    "besgsdag_10_5f76": ["besg_10_arm_1"],
-    "sociodemografiske_karakteristika_short": ["besg_10_arm_1"],
-    "selfefficacy_for_nutrition_change_sefnc_week_52": ["besg_10_arm_1"],
-    "gruppemde_uge_1": ["fase_1_arm_1"],
-    "gruppemde_uge_3": ["fase_1_arm_1"],
-    "gruppemde_uge_5": ["fase_1_arm_1"],
-    "gruppemde_uge_7": ["fase_1_arm_1"],
-    "gruppemde_uge_9": ["fase_1_arm_1"],
-    "gruppemde_uge_11": ["fase_1_arm_1"],
-    "fase_1_ditetiske_afvigelser": ["fase_1_arm_1"],
-    "gruppemde_uge_13": ["fase_2_arm_1"],
-    "gruppemde_uge_15": ["fase_2_arm_1"],
-    "gruppemde_uge_17": ["fase_2_arm_1"],
-    "gruppemde_uge_18": ["fase_2_arm_1"],
-    "fase_2_ditetiske_afvigelser": ["fase_2_arm_1"],
-    "individuel_ditistsamtale_1": ["fase_3_arm_1"],
-    "individuel_ditistsamtale_2": ["fase_3_arm_1"],
-    "individuel_ditistsamtale_3": ["fase_3_arm_1"],
-    "individuel_ditistsamtale_4": ["fase_3_arm_1"],
-    "fase_3_ditetiske_afvigelser": ["fase_3_arm_1"],
-    "trningsafvigelser": ["fase_3_arm_1"],
-    "ekstra_kontakt": ["ekstra_kontaktsttt_arm_1"],
-    "medicine_changes": ["medicinndringer_arm_1"],
-    "hba1c_follow_up": ["hba1c_ekstra_mling_arm_1"],
-}
+
+def _read_form_event_mapping() -> dict[str, list[str]]:
+    """Creates a mapping from form names to event names where the form is filled in."""
+    with open(Path("scripts") / "form_event.json") as f:
+        contents = json.load(f)
+
+    mapping: dict[str, list[str]] = defaultdict(list)
+    for item in contents:
+        mapping[item["form"]].append(item["unique_event_name"])
+
+    return mapping
+
+
+FORM_EVENTS = _read_form_event_mapping()
 
 
 def load_latest_raw_redcap_data() -> pl.DataFrame:
