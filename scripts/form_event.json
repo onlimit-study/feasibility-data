@@ -1,0 +1,632 @@
+[
+  {
+    "arm_num": 1,
+    "unique_event_name": "stamdata_arm_1",
+    "form": "stamdata"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "stamdata_arm_1",
+    "form": "adverse_events"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "stamdata_arm_1",
+    "form": "bookinger"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "randomisering_arm_1",
+    "form": "randomisering"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "prscreening_arm_1",
+    "form": "prscreening_telefoninterview_frste_kontakt"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_1__screening_arm_1",
+    "form": "fr_besgsdag_1_screening"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_1__screening_arm_1",
+    "form": "besg_1_screening"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_1__screening_arm_1",
+    "form": "bedq"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "foer_besoegsdag_2"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "besoegsdag_2"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "vas_minus10"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "vas_30min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "vas_60min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "vas_90_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "vas_120_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "vas_180_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_2_arm_1",
+    "form": "vas_240_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "foer_besoegsdag_3"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "besoegsdag_3"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "vas_minus10"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "vas_30min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "vas_60min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "vas_90_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "vas_120_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "vas_180_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_3_arm_1",
+    "form": "vas_240_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "foer_besoegsdag_4"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "besoegsdag_4"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "vas_minus10"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "vas_30min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "vas_60min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "vas_90_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "vas_120_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "vas_180_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "vas_240_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "sociodemografiske_karakteristika"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "diabetes_status"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "pittsburgh_sleep_quality_index_psqi"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "physical_and_mental_health_sf12"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "european_quality_of_life_5_dimensions_eq5d5l"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "tobacco_and_nicotine_use"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "sefnc_baseline_v4"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "the_three_item_loneliness_scale_tils"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "item_bodily_distress_syndrome_checklist"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "yale_food_addiction_scale_yfas"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "social_support_for_eating_habits"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_4_arm_1",
+    "form": "diabetes_distress_paid5_scale"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_5_arm_1",
+    "form": "fr_besgsdag_5"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_5_arm_1",
+    "form": "besgsdag_5"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "fr_besgsdag_6"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "besgsdag_6"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "vas_minus10"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "vas_30min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "vas_60min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "vas_90_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "vas_120_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "vas_180_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "vas_240_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "pittsburgh_sleep_quality_index_psqi"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "physical_and_mental_health_sf12"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "european_quality_of_life_5_dimensions_eq5d5l"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "tobacco_and_nicotine_use"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "sefnc_week12_v6"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "the_three_item_loneliness_scale_tils"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "item_bodily_distress_syndrome_checklist"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "yale_food_addiction_scale_yfas"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "social_support_for_eating_habits"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_6_arm_1",
+    "form": "diabetes_distress_paid5_scale"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_7_arm_1",
+    "form": "fr_besgsdag_7"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_7_arm_1",
+    "form": "besgsdag_7"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "fr_besgsdag_8"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "besgsdag_8"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "vas_minus10"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "vas_30min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "vas_60min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "vas_90_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "vas_120_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "vas_180_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_8_arm_1",
+    "form": "vas_240_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "hba1c_30_uger_arm_1",
+    "form": "hba1c_uge_30"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "hba1c_42_uger_arm_1",
+    "form": "hba1c_uge_42"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_9_arm_1",
+    "form": "fr_besgsdag_9"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_9_arm_1",
+    "form": "besoegsdag_9"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "fr_besgsdag_5_9bba"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "besgsdag_10_5f76"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "vas_minus10"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "vas_30min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "vas_60min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "vas_90_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "vas_120_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "vas_180_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "vas_240_min"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "sociodemografiske_karakteristika_short"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "diabetes_status"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "pittsburgh_sleep_quality_index_psqi"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "physical_and_mental_health_sf12"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "european_quality_of_life_5_dimensions_eq5d5l"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "tobacco_and_nicotine_use"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "selfefficacy_for_nutrition_change_sefnc_week_52"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "the_three_item_loneliness_scale_tils"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "item_bodily_distress_syndrome_checklist"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "yale_food_addiction_scale_yfas"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "social_support_for_eating_habits"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "besg_10_arm_1",
+    "form": "diabetes_distress_paid5_scale"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_1_arm_1",
+    "form": "gruppemde_uge_1"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_1_arm_1",
+    "form": "gruppemde_uge_3"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_1_arm_1",
+    "form": "gruppemde_uge_5"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_1_arm_1",
+    "form": "gruppemde_uge_7"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_1_arm_1",
+    "form": "gruppemde_uge_9"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_1_arm_1",
+    "form": "gruppemde_uge_11"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_1_arm_1",
+    "form": "fase_1_ditetiske_afvigelser"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_1_arm_1",
+    "form": "bedq"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_2_arm_1",
+    "form": "gruppemde_uge_13"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_2_arm_1",
+    "form": "gruppemde_uge_15"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_2_arm_1",
+    "form": "gruppemde_uge_17"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_2_arm_1",
+    "form": "gruppemde_uge_18"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_2_arm_1",
+    "form": "fase_2_ditetiske_afvigelser"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_3_arm_1",
+    "form": "individuel_ditistsamtale_1"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_3_arm_1",
+    "form": "individuel_ditistsamtale_2"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_3_arm_1",
+    "form": "individuel_ditistsamtale_3"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_3_arm_1",
+    "form": "individuel_ditistsamtale_4"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_3_arm_1",
+    "form": "fase_3_ditetiske_afvigelser"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "fase_3_arm_1",
+    "form": "trningsafvigelser"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "ekstra_kontaktsttt_arm_1",
+    "form": "ekstra_kontakt"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "medicinndringer_arm_1",
+    "form": "medicine_changes"
+  },
+  {
+    "arm_num": 1,
+    "unique_event_name": "hba1c_ekstra_mling_arm_1",
+    "form": "hba1c_follow_up"
+  }
+]
