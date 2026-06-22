@@ -1,3 +1,9 @@
+## 0.12.0 (2026-06-22)
+
+### Feat
+
+- ✨ update data and metadata from REDCap (#113)
+
 ## 0.11.1 (2026-06-10)
 
 ### Refactor
