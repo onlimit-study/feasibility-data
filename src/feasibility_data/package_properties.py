@@ -1,6 +1,6 @@
 import seedcase_sprout as sp
 
-from scripts.redcap_dict_to_properties import (
+from src.feasibility_data.redcap_dict_to_properties import (
     dictionary_to_properties,
     read_dictionary,
 )
@@ -88,7 +88,6 @@ package_properties = sp.SproutProperties(
     #        ## Optional:
     #        path="",
     #        email="",
-    #        version="",
     #    ),
     # ],
     resources=dictionary_to_properties(read_dictionary()),
