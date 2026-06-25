@@ -42,13 +42,10 @@ extend = ".config/ruff.toml"
 
 [tool.mypy]
 python_version = 3.12
-strict = True
+strict = true
 
 [dependency-groups]
 dev = [
-  "commitizen>=4.16.3",
-  "pre-commit>=4.6.0",
-  "ruff>=0.15.15",
+  "mypy>=2.1.0",
   "types-requests>=2.32.4.20260107",
-  "typos>=1.47.0",
 ]
