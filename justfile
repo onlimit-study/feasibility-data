@@ -66,7 +66,7 @@ check-security:
 check-urls:
   lychee . \
     --verbose \
-    --extensions md,qmd,py \
+    --extensions md,qmd \
     --exclude-path "_badges.qmd"
 
 # Check for unused code in the package and its tests
@@ -89,7 +89,7 @@ build-contributors:
 
 # Re-build the README file from the Quarto version
 build-readme:
-  uvx --from quarto quarto render README.qmd --to gfm
+  quarto render README.qmd --to gfm
 
 # Build the documentation for the data package
 build-metadata-docs:
@@ -97,11 +97,11 @@ build-metadata-docs:
 
 # Build the documentation website using Quarto
 build-website: build-metadata-docs
-  uvx quarto render
+  quarto render
 
 # Preview the documentation website with automatic reload on changes
 preview-website:
-  uvx quarto preview
+  quarto preview
 
 # Check for and apply updates from the template
 update-from-template:

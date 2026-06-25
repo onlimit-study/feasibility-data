@@ -16,7 +16,7 @@
 
 ### Refactor
 
-- :recycle:  convert column time suffixes to its own variable in VAS (#89)
+- :recycle: convert column time suffixes to its own variable in VAS (#89)
 
 ## 0.10.0 (2026-05-20)
 
