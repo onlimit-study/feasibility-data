@@ -1,6 +1,6 @@
 
 
-# Data package of the feasibility phase of the ON-LiMiT study
+# Data package for the feasibility phase of the ON-LiMiT study
 
 <!-- TODO: Include DOI after uploading -->
 
