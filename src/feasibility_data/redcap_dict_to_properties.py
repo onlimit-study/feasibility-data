@@ -42,8 +42,8 @@ def _flat_map(items: Iterable[In], fn: Callable[[In], Iterable[Out]]) -> list[Ou
 
 
 def read_dictionary() -> list[dict[str, str]]:
-    """Loads REDCap data dictionary from `src/feasibility_data/data_dictionary.json`."""
-    with open(Path("scripts") / "data_dictionary.json") as f:
+    """Loads REDCap data dictionary from `data_dictionary.json`."""
+    with open(Path("src") / "feasibility_data" / "data_dictionary.json") as f:
         return json.load(f)
 
 
