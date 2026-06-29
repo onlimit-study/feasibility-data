@@ -11,7 +11,7 @@ metadata-files:
 {{< include /docs/includes/_badges.qmd >}}
 
 This repository contains the data package for the feasibility phase of the [ON
-LiMiT](https://onlimit.org/) study. The data package has both the metadata and
+LiMiT](https://onlimit.org/) study. The data package includes both the metadata and
 the data. The metadata is publicly accessible from this repository while the
 data is stored on the [GenomeDK](https://genome.au.dk) server at [Aarhus
 University](https://au.dk), Denmark.
