@@ -11,8 +11,8 @@ metadata-files:
 {{< include /docs/includes/_badges.qmd >}}
 
 This repository contains the data package for the feasibility phase of the [ON
-LiMiT](https://onlimit.org/) study. The data package includes both the metadata and
-the data. The metadata is publicly accessible from this repository while the
+LiMiT](https://onlimit.org/) study. The data package includes both the metadata
+and the data. The metadata is publicly accessible from this repository while the
 data is stored on the [GenomeDK](https://genome.au.dk) server at [Aarhus
 University](https://au.dk), Denmark.
 
@@ -38,10 +38,6 @@ abide by its terms.
 ### Contributors
 
 {{< include /docs/includes/_contributors.qmd >}}
-
-## Licensing
-
-This project is licensed under the [MIT License](LICENSE.md).
 
 ## Licensing
 

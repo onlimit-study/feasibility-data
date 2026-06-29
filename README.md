@@ -21,9 +21,9 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 <!-- [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) -->
 
 This repository contains the data package for the feasibility phase of
-the [ON LiMiT](https://onlimit.org/) study. The data package has both
-the metadata and the data. The metadata is publicly accessible from this
-repository while the data is stored on the
+the [ON LiMiT](https://onlimit.org/) study. The data package includes
+both the metadata and the data. The metadata is publicly accessible from
+this repository while the data is stored on the
 [GenomeDK](https://genome.au.dk) server at [Aarhus
 University](https://au.dk), Denmark.
 
@@ -59,10 +59,6 @@ requests :tada:
 [@lwjohnst86](https://github.com/lwjohnst86),
 [@martonvago](https://github.com/martonvago),
 [@signekb](https://github.com/signekb)
-
-## Licensing
-
-This project is licensed under the [MIT License](LICENSE.md).
 
 ## Licensing
 
