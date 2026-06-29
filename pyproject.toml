@@ -32,14 +32,20 @@ dependencies = [
 ]
 
 [project.urls]
-issues = "https://github.com/onlimit-study/feasibility-data/issues"
+homepage = "https://onlimit-study.github.io/feasibility-data"
 repository = "https://github.com/onlimit-study/feasibility-data"
+issues = "https://github.com/onlimit-study/feasibility-data/issues"
+changelog = "https://github.com/onlimit-study/feasibility-data/blob/main/CHANGELOG.md"
+
+[tool.ruff]
+extend = ".config/ruff.toml"
+
+[tool.mypy]
+python_version = 3.12
+strict = true
 
 [dependency-groups]
 dev = [
-  "commitizen>=4.16.3",
-  "pre-commit>=4.6.0",
-  "ruff>=0.15.15",
+  "mypy>=2.1.0",
   "types-requests>=2.32.4.20260107",
-  "typos>=1.47.0",
 ]

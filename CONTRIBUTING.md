@@ -20,18 +20,18 @@ manage our project, such as to run checks on the data package and build the
 website. Both the uv and justfile websites have a more detailed guide on using
 uv, but below are some simple instructions to get you started.
 
-It's easiest to first
-[install uv](https://docs.astral.sh/uv/getting-started/installation/) and then
-install justfile with uv. Once you've installed uv, install justfile by running:
+It's easiest to first [install
+uv](https://docs.astral.sh/uv/getting-started/installation/) and then install
+justfile with uv. Once you've installed uv, install justfile by running:
 
-``` bash
+```bash
 uv tool install rust-just
 ```
 
 We keep all our development workflows in the `justfile`, so you can explore it
 to see what commands are available. To see a list of commands available, run:
 
-``` bash
+```bash
 just
 ```
 
@@ -39,19 +39,19 @@ As you contribute, make sure your changes will pass our tests by opening a
 terminal so that the working directory is the root of this project
 (`feasibility-data/`) and running:
 
-``` bash
+```bash
 just run-all
 ```
 
-When committing changes, please try to follow
-[Conventional Commits](https://decisions.seedcase-project.org/why-conventional-commits/)
-as Git messages. Using this convention allows us to be able to automatically
-create a release based on the commit message by using
+When committing changes, please try to follow [Conventional
+Commits](https://decisions.seedcase-project.org/why-conventional-commits/) as
+Git messages. Using this convention allows us to be able to automatically create
+a release based on the commit message by using
 [Cocogitto](https://decisions.seedcase-project.org/why-semantic-release-with-cocogitto/).
 If you don't use Conventional Commits when making a commit, we will revise the
-pull request title to follow that format, as we use squash merges when merging
-pull requests, so all other commits in the pull request will be squashed into
-one commit.
+pull request title to follow that format. That's because we use squash merges
+when merging pull requests, so all other commits in the pull request will be
+squashed into one commit.
 
 ## :file_folder: Explanation of files and folders
 
@@ -83,8 +83,8 @@ This is a brief description of some of the files in this repository.
     managing versions.
   - `cliff.toml`: [git-cliff](https://git-cliff.org) configuration file for
     creating the changelog.
-  - `ruff.toml`: [Ruff](https://github.com/charliermarsh/ruff) configuration file for
-    linting and formatting Python code.
+  - `ruff.toml`: [Ruff](https://github.com/charliermarsh/ruff) configuration
+    file for linting and formatting Python code.
 - `.editorconfig`: Editor configuration file for
   [EditorConfig](https://editorconfig.org/) to maintain consistent coding styles
   across different editors and IDEs.
@@ -95,3 +95,31 @@ This is a brief description of some of the files in this repository.
 - `justfile`: [`just`](https://just.systems/man/en/) configuration file for
   scripting project tasks.
 - `CHANGELOG.md`: Changelog file for tracking changes in the project.
+
+## Layout of `src/`
+
+Similar to how `raw/` and `staging/` are organized, the Python files within
+`src/` are organized at the top level by `data` and `metadata`, then by source
+of the original data, and finally by the eventual resource name. The structure
+under `src/feasibility_data/` is:
+
+- `metadata/<source>/<resource>.py`: Python files within this directory contain
+  functions that are used to convert the raw dictionaries into the final
+  `datapackage.json` metadata file. Functions within these modules can be named
+  without needing to state the source or resource (as the module path already
+  contains that information). For example, `metadata/redcap/vas.py` would
+  contain the functions for processing the metadata for the VAS resource from
+  the REDCap source.
+- `data/<source>/<resource>.py`: Same with the metadata files, but these contain
+  functions for taking the original raw data and converting them into the
+  `staging/` folder. Unlike the metadata above, raw data goes into `staging/`
+  first before being processed into the final data resource as Sprout needs to
+  run checks against the metadata before converting it into the final data
+  resource.
+- `common/`: Contains functions that are used across multiple resources. The
+  names of the Python files within are not standardized, but they should be
+  descriptive of the overall functionality they provide within.
+- `build.py`: This file lists all the functions (as
+  [pytask](https://pytask-dev.readthedocs.io/en/stable/) tasks) that are needed
+  to take the raw data and raw dictionaries and turn it all into a final data
+  package.
