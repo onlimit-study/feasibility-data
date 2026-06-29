@@ -25,7 +25,7 @@ the [ON LiMiT](https://onlimit.org/) study. The data package has both
 the metadata and the data. The metadata is publicly accessible from this
 repository while the data is stored on the
 [GenomeDK](https://genome.au.dk) server at [Aarhus
-University](https://au.dk), Denmark. publicly accessible.
+University](https://au.dk), Denmark.
 
 Check out our
 [website](https://onlimit-study.github.io/feasibility-data) for more
@@ -81,8 +81,14 @@ For a list of changes, see our [changelog](CHANGELOG.md) page.
 
 If you use this package in your work, please cite it as follows:
 
-‘CITATION.cff’ does not pass validation. Conversion aborted.
+Beicher K., Ibsen D., Johnston L.W., Brødbæk S.K., Vago M., Ostblom J.
+ON LiMiT Feasibility Study Data Package URL:
+https://github.com/onlimit-study/feasibility-data
 
 Or as a BibTeX entry:
 
-    'CITATION.cff' does not pass validation. Conversion aborted.
+    @misc{YourReferenceHere,
+    author = {Beicher, Kristiane and Ibsen, Daniel and Johnston, Luke William and Brødbæk, Signe Kirk and Vago, Marton and Ostblom, Joel},
+    title = {ON LiMiT Feasibility Study Data Package},
+    url = {https://github.com/onlimit-study/feasibility-data}
+    }

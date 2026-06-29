@@ -14,7 +14,7 @@ This repository contains the data package for the feasibility phase of the [ON
 LiMiT](https://onlimit.org/) study. The data package has both the metadata and
 the data. The metadata is publicly accessible from this repository while the
 data is stored on the [GenomeDK](https://genome.au.dk) server at [Aarhus
-University](https://au.dk), Denmark. publicly accessible.
+University](https://au.dk), Denmark.
 
 Check out our [website]({{< meta links.site >}}) for more information, such as
 the [metadata]({{< meta links.site >}}/docs/) on the data package and its
