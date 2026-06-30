@@ -1,15 +1,15 @@
 # import polars as pl
 import seedcase_sprout as sp
 
-from scripts.package_properties import package_properties
+from src.feasibility_data.package_properties import package_properties
 
 
 def main():
     """Run the build pipeline of the data package."""
     ## PROPERTIES
 
-    ## Create the properties script in default location if it doesn't already exist.
-    sp.create_properties_script()
+    ## Create the properties file in default location if it doesn't already exist.
+    # sp.create_properties_script()
 
     # package_path = sp.PackagePath()
 

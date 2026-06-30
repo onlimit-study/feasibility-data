@@ -26,9 +26,9 @@ def get_data_dict_from_redcap() -> list[dict[str, str]]:
 
 
 def save_data_dict():
-    """Saves the data dictionary from REDCap to `scripts/data_dictionary.json`."""
+    """Saves the data dictionary from REDCap to `src/feasibility_data/data_dictionary.json`."""
     data_dict = get_data_dict_from_redcap()
-    file_path = Path("scripts") / "data_dictionary.json"
+    file_path = Path("src") / "feasibility_data" / "data_dictionary.json"
     file_path.parent.mkdir(parents=True, exist_ok=True)
     with open(file_path, "w") as f:
         json.dump(data_dict, f, indent=2, ensure_ascii=False)
