@@ -20,6 +20,12 @@ under `src/feasibility_data/` is:
   first before being processed into the final data resource as Sprout needs to
   run checks against the metadata before converting it into the final data
   resource.
+- In either the `data/` or `metadata/` directories, files named `*/core.py`
+  contain functions that do general or common processing tasks related to the
+  parent folder name. For example, `metadata/core.py` contains functions for
+  top-level metadata processing that isn't specific any one source or resource,
+  while `metadata/redcap/core.py` contains functions for processing REDCap data
+  that isn't specific to any one resource.
 - `common/`: Contains functions that are used across multiple resources. The
   names of the Python files within are not standardized, but they should be
   descriptive of the overall functionality they provide within.
