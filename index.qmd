@@ -15,3 +15,21 @@ Code in this project is licensed under the [MIT License](LICENSE-MIT.md).
 ## Changelog
 
 For a list of changes, see our [changelog](CHANGELOG.md) page.
+
+## Collaborating institutions {.appendix}
+
+::: {layout-ncol="3"}
+![](/_extensions/onlimit-study/onlimit-theme/images/sdca.svg){height='40px'}
+
+![](/_extensions/onlimit-study/onlimit-theme/images/au.svg){height='40px'}
+
+![](/_extensions/onlimit-study/onlimit-theme/images/sdcc.svg){height='40px'}
+:::
+
+::: {layout-ncol="3"}
+![](/_extensions/onlimit-study/onlimit-theme/images/sdco.svg){height='40px'}
+
+![](/_extensions/onlimit-study/onlimit-theme/images/ku.svg){height='40px'}
+
+![](/_extensions/onlimit-study/onlimit-theme/images/bispebjerg.svg){height='40px'}
+:::
