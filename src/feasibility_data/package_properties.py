@@ -8,9 +8,9 @@ from src.feasibility_data.redcap_dict_to_properties import (
 package_properties = sp.SproutProperties(
     ## Required:
     name="feasibility-data",
-    title="ON LiMiT Feasibility Study Data",
-    description="Full data set on 24 participants in the feasibility arm of the "
-    "ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using "
+    title="ON LiMiT Feasibility Data Package",
+    description="Data package of the 24 participants for ON LiMiT's feasibility study. "
+    "ON LiMiT is an intervention study examining remission of type 2 diabetes using "
     "diet and exercise.",
     licenses=[
         sp.LicenseProperties(
