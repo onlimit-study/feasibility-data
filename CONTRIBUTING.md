@@ -23,16 +23,17 @@ under `src/feasibility_data/` is:
 - In either the `data/` or `metadata/` directories, files named `*/core.py`
   contain functions that do general processing tasks related to the parent
   folder name. For example, `metadata/core.py` contains functions for top-level
-  metadata processing that isn't specific to any one source or resource, while
-  `data/redcap/core.py` contains functions for processing REDCap data that
-  aren't specific to any one resource. This `core.py` file can be treated like
-  the `__init__.py` file. We don't use `__init__.py` files to store functions as
-  the semantic meaning of `__init__.py` is to initialise the folder as part of
-  the package. The semantic meaning of `core.py` is to be a collection of
-  functions that are used in its parent source/resource folder.
+  metadata processing that is for general metadata, but not strictly tied to any
+  given source or resource, such as data package-level metadata. Meanwhile,
+  `data/redcap/vas/core.py` contains functions for processing REDCap data that
+  is specific to the VAS resource. This `core.py` file can be treated like the
+  `__init__.py` file. We don't use `__init__.py` files to store functions as the
+  semantic meaning of `__init__.py` is to initialise the folder as part of the
+  package. The semantic meaning of `core.py` is to be a collection of functions
+  that are used in its parent source/resource folder.
 - `common/`: Contains functions that are used across *all* (or many) Python
   files, between metadata and data or between sources/resources. This is not the
-  same as the `**/core.py` file that are *specific* to the particular source or
+  same as the `**/core.py` files that are *specific* to the particular source or
   resource. The names of the Python files within are not standardized, but they
   should be descriptive of the overall functionality they provide within. An
   advantage of keeping common functions in one location is that it makes it
