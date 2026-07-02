@@ -59,10 +59,35 @@ under `src/feasibility_data/` is:
   first before being processed into the final data resource as Sprout needs to
   run checks against the metadata before converting it into the final data
   resource.
-- `common/`: Contains functions that are used across multiple resources. The
-  names of the Python files within are not standardized, but they should be
-  descriptive of the overall functionality they provide within.
+- In either the `data/` or `metadata/` directories, files named `*/core.py`
+  contain functions that do general processing tasks related to the parent
+  folder name. For example, `metadata/core.py` contains functions for top-level
+  metadata processing that is for general metadata, but not strictly tied to any
+  given source or resource, such as data package-level metadata. Meanwhile,
+  `data/redcap/vas/core.py` contains functions for processing REDCap data that
+  is specific to the VAS resource. This `core.py` file can be treated like the
+  `__init__.py` file. We don't use `__init__.py` files to store functions as the
+  semantic meaning of `__init__.py` is to initialise the folder as part of the
+  package. The semantic meaning of `core.py` is to be a collection of functions
+  that are used in its parent source/resource folder.
+- `common/`: Contains functions that are used across *all* (or many) Python
+  files, between metadata and data or between sources/resources. This is not the
+  same as the `**/core.py` files that are *specific* to the particular source or
+  resource. The names of the Python files within are not standardized, but they
+  should be descriptive of the overall functionality they provide within. An
+  advantage of keeping common functions in one location is that it makes it
+  easier for us to identify if any of these functions belong in their own
+  package.
 - `build.py`: This file lists all the functions (as
   [pytask](https://pytask-dev.readthedocs.io/en/stable/) tasks) that are needed
   to take the raw data and raw dictionaries and turn it all into a final data
-  package.
+  package. We keep all tasks in this file to make it easier to track, review,
+  and update the full build process in one location.
+
+Similar to a Python package, all Python files must only contain functions and/or
+classes and not be called directly. Functions are kept small and focused, with a
+narrow scope and clear input and output (with type hints, ideally using custom
+types). The only exception is the `build.py` file that has the pytask tasks.
+This file is used to build up all the smaller functions into specific tasks.
+These tasks have input/output that matches the style of pytask and can be larger
+and more complex than the non-build functions.
