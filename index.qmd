@@ -15,3 +15,21 @@ Code in this project is licensed under the [MIT License](LICENSE-MIT.md).
 ## Changelog
 
 For a list of changes, see our [changelog](CHANGELOG.md) page.
+
+## Collaborating institutions {.appendix}
+
+::: {layout-ncol="3"}
+[![](/_extensions/onlimit-study/onlimit-theme/images/sdca.svg){width='160px' fig-alt='Steno Diabetes Center Aarhus logo'}](https://www.stenoaarhus.dk)
+
+[![](/_extensions/onlimit-study/onlimit-theme/images/sdcc.svg){width='180px' fig-alt='Steno Diabetes Center Copenhagen logo'}](https://www.sdcc.dk)
+
+[![](/_extensions/onlimit-study/onlimit-theme/images/bispebjerg.svg){width='115px' fig-alt='Bispebjerg Hospital logo'}](https://www.bispebjerghospital.dk/english/Sider/default.aspx)
+:::
+
+::: {layout-ncol='3'}
+[![](/_extensions/onlimit-study/onlimit-theme/images/au.svg){width='190px' fig-alt='Aarhus University logo'}](https://www.au.dk)
+
+[![](/_extensions/onlimit-study/onlimit-theme/images/sdco.svg){width='160px' fig-alt='Steno Diabetes Center Odense logo'}](https://www.sdco.dk)
+
+[![](/_extensions/onlimit-study/onlimit-theme/images/ku.svg){width='170px' fig-alt='University of Copenhagen logo'}](https://www.ku.dk)
+:::
