@@ -10,12 +10,10 @@ from feasibility_data.data.redcap.core import (
     split_forms,
     stage_other_resources,
 )
-from feasibility_data.data.redcap.raw import download_data
+from feasibility_data.data.redcap.raw import download_redcap_data
 from feasibility_data.data.redcap.vas import stage_vas
 from feasibility_data.metadata.redcap.core import (
-    download_event_metadata,
-    download_field_metadata,
-    download_repeating_forms,
+    download_redcap_metadata,
     expand_checkbox_fields,
 )
 
@@ -38,14 +36,14 @@ def task_download_data(
 ) -> None:
     """Download the latest data from all centers to `RAW_REDCAP/<timestamp>.csv.gz`."""
     for center in [Center.Copenhagen]:
-        download_data(raw_data_dir, center)
+        download_redcap_data(raw_data_dir, center)
 
 
 def task_download_event_metadata(
     event_metadata_path: Annotated[Path, Product] = BLD_REDCAP / "event_metadata.json",
 ) -> None:
     """Download event metadata to `BLD_REDCAP`."""
-    download_event_metadata(event_metadata_path)
+    download_redcap_metadata(event_metadata_path, "formEventMapping")
 
 
 def task_download_repeating_forms(
@@ -53,14 +51,14 @@ def task_download_repeating_forms(
     / "repeating_forms.json",
 ) -> None:
     """Download repeating forms to `BLD_REDCAP`."""
-    download_repeating_forms(repeating_forms_path)
+    download_redcap_metadata(repeating_forms_path, "repeatingFormsEvents")
 
 
 def task_download_field_metadata(
     data_dict_path: Annotated[Path, Product] = BLD_REDCAP / "field_metadata.json",
 ) -> None:
     """Download field metadata to `BLD_REDCAP`."""
-    download_field_metadata(data_dict_path)
+    download_redcap_metadata(data_dict_path, "metadata")
 
 
 def task_preprocess_field_metadata(

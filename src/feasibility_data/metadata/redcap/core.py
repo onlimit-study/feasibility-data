@@ -1,38 +1,17 @@
 import json
 import re
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
 
 import seedcase_soil as so
 
 from feasibility_data.common.redcap.api import get_json_from_redcap
 
 
-def download_field_metadata(data_dict_path: Path) -> None:
-    """Download field metadata."""
-    data_dict = get_json_from_redcap("metadata")
-
-    data_dict_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(data_dict_path, "w") as f:
-        json.dump(data_dict, f, indent=2, ensure_ascii=False)
-
-
-def download_event_metadata(event_metadata_path: Path) -> None:
-    """Download event metadata."""
-    event_metadata = get_json_from_redcap("formEventMapping")
-
-    event_metadata_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(event_metadata_path, "w") as f:
-        json.dump(event_metadata, f, indent=2, ensure_ascii=False)
-
-
-def download_repeating_forms(repeating_forms_path: Path) -> None:
-    """Download repeating forms."""
-    repeating_forms = get_json_from_redcap("repeatingFormsEvents")
-
-    repeating_forms_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(repeating_forms_path, "w") as f:
-        json.dump(repeating_forms, f, indent=2, ensure_ascii=False)
+def download_redcap_metadata(path: Path, content: str) -> None:
+    """Download data from REDCap and save it to a JSON file."""
+    data = get_json_from_redcap(content)
+    _write_json(path, data)
 
 
 def expand_checkbox_fields(
@@ -51,8 +30,7 @@ def expand_checkbox_fields(
     expanded_choice_fields = so.flat_fmap(checkbox_fields, _expand_checkbox_field)
 
     field_metadata_preprocessed = non_checkbox_fields + expanded_choice_fields
-    with open(field_metadata_preprocessed_path, "w") as f:
-        json.dump(field_metadata_preprocessed, f, indent=2, ensure_ascii=False)
+    _write_json(field_metadata_preprocessed_path, field_metadata_preprocessed)
 
 
 def _expand_checkbox_field(checkbox_field: dict[str, str]) -> list[dict[str, str]]:
@@ -92,3 +70,10 @@ def _get_error_message(field: dict[str, str], key: str) -> str:
         f"Unexpected value {field[key]!r} for `{key}` in field {field['field_name']!r} "
         f"in form {field['form_name']!r}."
     )
+
+
+def _write_json(path: Path, data: Any) -> None:
+    """Write data to a JSON file."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)

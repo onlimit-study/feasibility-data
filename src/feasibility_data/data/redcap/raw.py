@@ -7,7 +7,7 @@ import polars as pl
 from feasibility_data.common.redcap.api import Center, get_from_redcap
 
 
-def download_data(
+def download_redcap_data(
     raw_data_dir: Path,
     center: Center,
 ) -> None:
