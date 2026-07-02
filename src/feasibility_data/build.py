@@ -4,6 +4,7 @@ from typing import Annotated
 
 from pytask import DirectoryNode, Product
 
+from feasibility_data.common.redcap.api import Center
 from feasibility_data.data.redcap.core import (
     group_forms_by_resource,
     split_forms,
@@ -35,11 +36,11 @@ def task_download_data(
         Product,
     ],
 ) -> None:
-    """Download the latest data to `RAW_REDCAP/<timestamp>.csv.gz`."""
-    download_data(raw_data_dir)
+    """Download the latest data from all centers to `RAW_REDCAP/<timestamp>.csv.gz`."""
+    for center in [Center.Copenhagen]:
+        download_data(raw_data_dir, center)
 
 
-# TODO: share api logic
 def task_download_event_metadata(
     event_metadata_path: Annotated[Path, Product] = BLD_REDCAP / "event_metadata.json",
 ) -> None:

@@ -154,6 +154,7 @@ def _create_df_for_form(
         pl.col("record_id_s").alias("participant_id"),
         pl.col("redcap_event_name").alias("event_id"),
         *so.fmap(content_fields, pl.col),
+        # TODO: handle different centers
         pl.lit("Copenhagen").alias("center"),
         # Only used for creating the Parquet files.
         pl.lit(form_name).alias("form_name"),

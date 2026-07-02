@@ -1,32 +1,16 @@
 import json
-import os
 import re
 from pathlib import Path
 from typing import cast
 
-import requests
 import seedcase_soil as so
-from dotenv import load_dotenv
 
-load_dotenv()
+from feasibility_data.common.redcap.api import get_json_from_redcap
 
 
 def download_field_metadata(data_dict_path: Path) -> None:
     """Download field metadata."""
-    token = os.environ.get("REDC_CPH_API_KEY")
-    if not token:
-        raise RuntimeError("REDC_CPH_API_KEY environment variable is not set.")
-
-    data = {
-        "token": token,
-        "content": "metadata",
-        "format": "json",
-        "returnFormat": "json",
-    }
-    # response = requests.post("https://redcap.regionh.dk/api/", data=data, timeout=30)
-    response = requests.post("https://redcap.au.dk/api/", data=data, timeout=30)
-    response.raise_for_status()
-    data_dict = response.json()
+    data_dict = get_json_from_redcap("metadata")
 
     data_dict_path.parent.mkdir(parents=True, exist_ok=True)
     with open(data_dict_path, "w") as f:
@@ -35,20 +19,7 @@ def download_field_metadata(data_dict_path: Path) -> None:
 
 def download_event_metadata(event_metadata_path: Path) -> None:
     """Download event metadata."""
-    token = os.environ.get("REDC_CPH_API_KEY")
-    if not token:
-        raise RuntimeError("REDC_CPH_API_KEY environment variable is not set.")
-
-    data = {
-        "token": token,
-        "content": "formEventMapping",
-        "format": "json",
-        "returnFormat": "json",
-    }
-    # response = requests.post("https://redcap.regionh.dk/api/", data=data, timeout=30)
-    response = requests.post("https://redcap.au.dk/api/", data=data, timeout=30)
-    response.raise_for_status()
-    event_metadata = response.json()
+    event_metadata = get_json_from_redcap("formEventMapping")
 
     event_metadata_path.parent.mkdir(parents=True, exist_ok=True)
     with open(event_metadata_path, "w") as f:
@@ -57,20 +28,7 @@ def download_event_metadata(event_metadata_path: Path) -> None:
 
 def download_repeating_forms(repeating_forms_path: Path) -> None:
     """Download repeating forms."""
-    token = os.environ.get("REDC_CPH_API_KEY")
-    if not token:
-        raise RuntimeError("REDC_CPH_API_KEY environment variable is not set.")
-
-    data = {
-        "token": token,
-        "content": "repeatingFormsEvents",
-        "format": "json",
-        "returnFormat": "json",
-    }
-    # response = requests.post("https://redcap.regionh.dk/api/", data=data, timeout=30)
-    response = requests.post("https://redcap.au.dk/api/", data=data, timeout=30)
-    response.raise_for_status()
-    repeating_forms = response.json()
+    repeating_forms = get_json_from_redcap("repeatingFormsEvents")
 
     repeating_forms_path.parent.mkdir(parents=True, exist_ok=True)
     with open(repeating_forms_path, "w") as f:
