@@ -23,9 +23,9 @@ under `src/feasibility_data/` is:
 - In either the `data/` or `metadata/` directories, files named `*/core.py`
   contain functions that do general or common processing tasks related to the
   parent folder name. For example, `metadata/core.py` contains functions for
-  top-level metadata processing that isn't specific any one source or resource,
-  while `metadata/redcap/core.py` contains functions for processing REDCap data
-  that isn't specific to any one resource.
+  top-level metadata processing that isn't specific to any one source or resource,
+  while `data/redcap/core.py` contains functions for processing REDCap data
+  that aren't specific to any one resource.
 - `common/`: Contains functions that are used across multiple resources. The
   names of the Python files within are not standardized, but they should be
   descriptive of the overall functionality they provide within.
