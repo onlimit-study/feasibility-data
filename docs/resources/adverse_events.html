@@ -569,10 +569,10 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <table class="caption-top table">
 <caption>Fields in the <code>adverse_events</code> resource.</caption>
 <colgroup>
-<col style="width: 18%">
-<col style="width: 19%">
 <col style="width: 5%">
-<col style="width: 56%">
+<col style="width: 5%">
+<col style="width: 1%">
+<col style="width: 87%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -593,7 +593,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>center</code></td>
 <td>Research center</td>
 <td>string</td>
-<td>The research center where the data item was recorded.</td>
+<td>The research center where the data item was recorded.<br>Allowed values: <code>Copenhagen</code>, <code>Aarhus</code>, <code>Odense</code></td>
 </tr>
 <tr class="odd">
 <td><code>ae_report_date</code></td>
@@ -617,7 +617,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>ae_ended</code></td>
 <td>ae_ended</td>
 <td>string</td>
-<td>Whether the incident/side effect is ended. Repeated instrument.</td>
+<td>Whether the incident/side effect is ended. Repeated instrument.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="odd">
 <td><code>ae_end_date</code></td>
@@ -629,25 +629,25 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>ae_phase</code></td>
 <td>ae_phase</td>
 <td>string</td>
-<td>Study phase in which the adverse event occurred. Repeated instrument.</td>
+<td>Study phase in which the adverse event occurred. Repeated instrument.<br>Allowed values: <code>Fase 1: Vægttabsfasen</code>, <code>Fase 2: Opstart på diæt og træning</code>, <code>Fase 3: Vedligeholdelsesfasen</code></td>
 </tr>
 <tr class="odd">
 <td><code>ae_type</code></td>
 <td>ae_type</td>
 <td>string</td>
-<td>Whether the adverse event is a single event or periodic event. Repeated instrument.</td>
+<td>Whether the adverse event is a single event or periodic event. Repeated instrument.<br>Allowed values: <code>Enkelt tilfælde</code>, <code>Periodisk</code></td>
 </tr>
 <tr class="even">
 <td><code>ae_grade</code></td>
 <td>ae_grade</td>
 <td>string</td>
-<td>Description of the severity of the complication. Repeated instrument.</td>
+<td>Description of the severity of the complication. Repeated instrument.<br>Allowed values: <code>Mild (Uden betydning for daglige aktiviteter. Kræver ingen behandling.)</code>, <code>Moderat (Påvirker daglige aktiviteter i nogen grad. Kan kræve behandling, justering af interventionen eller kontakt til sundhedspersonale.)</code>, <code>Svær (Klar påvirkning af daglige aktiviteter. Kræver lægelig vurdering, behandling eller medfører afbrydelse af interventionen.)</code>, <code>Ikke relevant</code></td>
 </tr>
 <tr class="odd">
 <td><code>ae_related_study</code></td>
 <td>ae_related_study</td>
 <td>string</td>
-<td>Complication’s relevance to the study. Repeated instrument.</td>
+<td>Complication’s relevance to the study. Repeated instrument.<br>Allowed values: <code>Ja</code>, <code>Nej</code>, <code>Kan ikke udelukkes</code></td>
 </tr>
 <tr class="even">
 <td><code>ae_related_study_exp</code></td>

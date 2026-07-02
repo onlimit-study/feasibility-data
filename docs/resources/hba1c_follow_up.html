@@ -569,10 +569,10 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <table class="caption-top table">
 <caption>Fields in the <code>hba1c_follow_up</code> resource.</caption>
 <colgroup>
-<col style="width: 15%">
-<col style="width: 14%">
-<col style="width: 2%">
-<col style="width: 67%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 1%">
+<col style="width: 78%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -593,7 +593,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>center</code></td>
 <td>Research center</td>
 <td>string</td>
-<td>The research center where the data item was recorded.</td>
+<td>The research center where the data item was recorded.<br>Allowed values: <code>Copenhagen</code>, <code>Aarhus</code>, <code>Odense</code></td>
 </tr>
 <tr class="odd">
 <td><code>date_hba1c_measurement_extra</code></td>
@@ -605,13 +605,13 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>hba1c_extra_reason_extra</code></td>
 <td>hba1c_extra_reason_extra</td>
 <td>string</td>
-<td>Specifies the reason for an additional HbA1c measurement. HbA1c extra. Repeated instrument.</td>
+<td>Specifies the reason for an additional HbA1c measurement. HbA1c extra. Repeated instrument.<br>Allowed values: <code>HbA1c-måling: &gt; 53 mmol/mol</code>, <code>Fingerprikmåling: Gennemsnitlig daglig glukose over tærskelværdi (&gt; 16 mmol/l på 1 dag eller &gt; 10 mmol/l på to på hinanden følgende dage)</code>, <code>CGM: Gennemsnitlig glukose &gt; 10 mmol/l</code></td>
 </tr>
 <tr class="odd">
 <td><code>hba1c_extra_reason_hba1c_extra</code></td>
 <td>hba1c_extra_reason_hba1c_extra</td>
 <td>string</td>
-<td>Records the visit/week where the HbA1c value was above 53 mmol/mol. HbA1c extra. Repeated instrument.</td>
+<td>Records the visit/week where the HbA1c value was above 53 mmol/mol. HbA1c extra. Repeated instrument.<br>Allowed values: <code>V6 (uge 12)</code>, <code>V8 (uge 18)</code>, <code>Uge 30</code>, <code>Uge 42</code>, <code>V10 (uge 52)</code>, <code>Andet</code></td>
 </tr>
 <tr class="even">
 <td><code>hba1c_extra_reason_other_extra</code></td>
@@ -623,7 +623,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>hba1c_extra_reason_fingerstick_extra</code></td>
 <td>hba1c_extra_reason_fingerstick_extra</td>
 <td>string</td>
-<td>Records the visit/week where the glucose level by fingerstick measurement was to high. Field completion dependent on chosing option 2 or 3 in hba1c_extra_reason_extra. HbA1c extra. Repeated instrument.</td>
+<td>Records the visit/week where the glucose level by fingerstick measurement was to high. Field completion dependent on chosing option 2 or 3 in hba1c_extra_reason_extra. HbA1c extra. Repeated instrument.<br>Allowed values: <code>Uge 1</code>, <code>Uge 2</code>, <code>Uge 3</code>, <code>Uge 4</code>, <code>Uge 8</code>, <code>Uge 12</code>, <code>Uge 18</code>, <code>Uge 24</code>, <code>Uge 30</code>, <code>Uge 36</code>, <code>Uge 42</code>, <code>Uge 48</code>, <code>Uge 52</code>, <code>Andet</code></td>
 </tr>
 <tr class="even">
 <td><code>hba1c_extra_reason_fingerstick_other_extra</code></td>
@@ -635,7 +635,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>hba1c_extra_reason_cgm_extra</code></td>
 <td>hba1c_extra_reason_cgm_extra</td>
 <td>string</td>
-<td>Records the visit/week where the glucose level by CGM measurement was to high. HbA1c extra. Repeated instrument.</td>
+<td>Records the visit/week where the glucose level by CGM measurement was to high. HbA1c extra. Repeated instrument.<br>Allowed values: <code>Uge 1-2</code>, <code>Uge 50-51</code>, <code>Andet</code></td>
 </tr>
 <tr class="even">
 <td><code>hba1c_extra_reason_cgm_other_extra</code></td>
@@ -653,13 +653,13 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>hba1c_participant_extra</code></td>
 <td>hba1c_participant_extra</td>
 <td>string</td>
-<td>Participant contacted regarding initiation of glucose lowering medication via the responsible physician. HbA1c extra. Repeated instrument.</td>
+<td>Participant contacted regarding initiation of glucose lowering medication via the responsible physician. HbA1c extra. Repeated instrument.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="odd">
 <td><code>hba1c_responsible_physician_extra</code></td>
 <td>hba1c_responsible_physician_extra</td>
 <td>string</td>
-<td>Contact made with responsible physisian regarding blood glucose. HbA1c extra. Repeated instrument.</td>
+<td>Contact made with responsible physisian regarding blood glucose. HbA1c extra. Repeated instrument.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 </tbody>
 </table>

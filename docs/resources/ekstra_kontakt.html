@@ -569,10 +569,10 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <table class="caption-top table">
 <caption>Fields in the <code>ekstra_kontakt</code> resource.</caption>
 <colgroup>
+<col style="width: 6%">
 <col style="width: 11%">
-<col style="width: 21%">
-<col style="width: 2%">
-<col style="width: 64%">
+<col style="width: 1%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -593,7 +593,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>center</code></td>
 <td>Research center</td>
 <td>string</td>
-<td>The research center where the data item was recorded.</td>
+<td>The research center where the data item was recorded.<br>Allowed values: <code>Copenhagen</code>, <code>Aarhus</code>, <code>Odense</code></td>
 </tr>
 <tr class="odd">
 <td><code>contact_date</code></td>
@@ -605,13 +605,13 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>contact_type</code></td>
 <td>contact_type</td>
 <td>string</td>
-<td>If the extra contact was conducted in person, by telephone, by live video in Liva Health, by video in Liva Health or by message in Liva Health. Extra contact. Repeated instrument.</td>
+<td>If the extra contact was conducted in person, by telephone, by live video in Liva Health, by video in Liva Health or by message in Liva Health. Extra contact. Repeated instrument.<br>Allowed values: <code>Fremmøde</code>, <code>Videomøde via studieappen</code>, <code>Asynkron video via studieappen</code>, <code>Besked via studieappen</code>, <code>Telefon</code></td>
 </tr>
 <tr class="odd">
 <td><code>contact_who</code></td>
 <td>contact_who</td>
 <td>string</td>
-<td>Whether the contact was initiated by the participant or by staff member. Extra contact. Repeated instrument.</td>
+<td>Whether the contact was initiated by the participant or by staff member. Extra contact. Repeated instrument.<br>Allowed values: <code>Deltageren har taget kontakt til projektpersonale</code>, <code>Projektpersonale har taget kontakt til deltageren</code>, <code>PureGym-instruktør har taget kontakt til projektpersonale</code>, <code>Projektpersonale har taget kontakt til PureGym-instruktør</code></td>
 </tr>
 <tr class="even">
 <td><code>contact_staffinitials</code></td>
@@ -623,43 +623,43 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>contact_reason_specification</code></td>
 <td>contact_reason_specification</td>
 <td>string</td>
-<td>Specification of reason to contact due to no training completion. Extra contact. Repeated instrument.</td>
+<td>Specification of reason to contact due to no training completion. Extra contact. Repeated instrument.<br>Allowed values: <code>Motivation</code>, <code>Skade</code>, <code>Forhindret af anden aktivitet</code>, <code>Ingen af delene</code></td>
 </tr>
 <tr class="even">
 <td><code>contact_reason_blood_glucose</code></td>
 <td>contact_reason_blood_glucose</td>
 <td>string</td>
-<td>Description of how glyceamic threshold is met. Extra contact. Repeated instrument.</td>
+<td>Description of how glyceamic threshold is met. Extra contact. Repeated instrument.<br>Allowed values: <code>HbA1c &gt; 48 mmol/mol</code>, <code>Uge 0-5: Blodsukker &gt; 16 mmol/l over 2 dage målt ved fingerprik</code>, <code>Uge 0-5: Blodsukker &gt; 16 mmol/l målt ved CGM</code>, <code>Uge 0-5: Blodsukker &gt; 16 mmol/l over 2 dage over 2 på hinanden følgende uger målt ved fingerprik</code>, <code>Uge 0-5: Blodsukker &gt; 16 mmol/l målt ved CGM, siden &gt; 16 mmol/l over 2 dage målt ved fingerprik</code>, <code>Uge 6-52: Blodsukker &gt; 12 mmol/l over 2 dage målt ved fingerprik</code>, <code>Uge 6-52: Blodsukker &gt; 12 mmol/l målt ved CGM</code></td>
 </tr>
 <tr class="odd">
 <td><code>contact_reason_blood_glucose_intervention</code></td>
 <td>contact_reason_blood_glucose_intervention</td>
 <td>string</td>
-<td>Challenges with adherence to the intervention, whether diet or training. Extra contact. Repeated instrument.</td>
+<td>Challenges with adherence to the intervention, whether diet or training. Extra contact. Repeated instrument.<br>Allowed values: <code>Udfordring i forhold til diæten.</code>, <code>Udfordring i forhold til træningen.</code>, <code>Andet</code></td>
 </tr>
 <tr class="even">
 <td><code>contact_bs_participant</code></td>
 <td>contact_bs_participant</td>
 <td>string</td>
-<td>Participant contacted regarding initiation of glucose lowering medication via the responsible physician. Extra contact. Repeated instrument.</td>
+<td>Participant contacted regarding initiation of glucose lowering medication via the responsible physician. Extra contact. Repeated instrument.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="odd">
 <td><code>contact_bs_responsible_physician</code></td>
 <td>contact_bs_responsible_physician</td>
 <td>string</td>
-<td>Contact made with responsible physisian regarding blood glucose. Extra contact. Repeated instrument.</td>
+<td>Contact made with responsible physisian regarding blood glucose. Extra contact. Repeated instrument.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="even">
 <td><code>contact_bp_participant</code></td>
 <td>contact_bp_participant</td>
 <td>string</td>
-<td>Participant contacted regarding initiation of antihypertensive treatment via the responsible physician. Extra contact. Repeated instrument.</td>
+<td>Participant contacted regarding initiation of antihypertensive treatment via the responsible physician. Extra contact. Repeated instrument.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="odd">
 <td><code>contact_bp_responsible_physician</code></td>
 <td>contact_bp_responsible_physician</td>
 <td>string</td>
-<td>Contact made with responsible physisian regarding blood pressure. Extra contact. Repeated instrument.</td>
+<td>Contact made with responsible physisian regarding blood pressure. Extra contact. Repeated instrument.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="even">
 <td><code>contact_reason_other</code></td>
@@ -671,13 +671,13 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>contact_direct_time</code></td>
 <td>contact_direct_time</td>
 <td>string</td>
-<td>Select the 5-minute interval that best reflects the total combined time spent in direct contact with the participant (telephone, video consultation, or in-person visit). Extra contact. Repeated instrument.</td>
+<td>Select the 5-minute interval that best reflects the total combined time spent in direct contact with the participant (telephone, video consultation, or in-person visit). Extra contact. Repeated instrument.<br>Allowed values: <code>0-5 minutter</code>, <code>6-10 minutter</code>, <code>11-15 minutter</code>, <code>16-20 minutter</code>, <code>21-25 minutter</code>, <code>26-30 minutter</code>, <code>31-35 minutter</code>, <code>36-40 minutter</code>, <code>41-45 minutter</code>, <code>&gt; 45 minutter</code></td>
 </tr>
 <tr class="even">
 <td><code>contact_administration_time</code></td>
 <td>contact_administration_time</td>
 <td>string</td>
-<td>Select the 5-minute interval that best reflects the total time spent on administrative tasks related to this specific contact with the participant (documentation, scheduling, emails, coordination, etc.). Extra contact. Repeated instrument.</td>
+<td>Select the 5-minute interval that best reflects the total time spent on administrative tasks related to this specific contact with the participant (documentation, scheduling, emails, coordination, etc.). Extra contact. Repeated instrument.<br>Allowed values: <code>0-5 minutter</code>, <code>6-10 minutter</code>, <code>11-15 minutter</code>, <code>16-20 minutter</code>, <code>21-25 minutter</code>, <code>26-30 minutter</code>, <code>31-35 minutter</code>, <code>36-40 minutter</code>, <code>41-45 minutter</code>, <code>&gt; 45 minutter</code></td>
 </tr>
 <tr class="odd">
 <td><code>contact_summary</code></td>

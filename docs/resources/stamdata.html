@@ -569,10 +569,10 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <table class="caption-top table">
 <caption>Fields in the <code>stamdata</code> resource.</caption>
 <colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 2%">
-<col style="width: 77%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 1%">
+<col style="width: 87%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -593,7 +593,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>center</code></td>
 <td>Research center</td>
 <td>string</td>
-<td>The research center where the data item was recorded.</td>
+<td>The research center where the data item was recorded.<br>Allowed values: <code>Copenhagen</code>, <code>Aarhus</code>, <code>Odense</code></td>
 </tr>
 <tr class="odd">
 <td><code>record_id_s</code></td>
@@ -629,7 +629,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>sex_stamdata</code></td>
 <td>sex_stamdata</td>
 <td>string</td>
-<td>Sex of the participant. Master data.</td>
+<td>Sex of the participant. Master data.<br>Allowed values: <code>Mand</code>, <code>Kvinde</code></td>
 </tr>
 <tr class="odd">
 <td><code>phone_stamdata</code></td>
@@ -713,13 +713,13 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>treatment_responsibility_stamdata</code></td>
 <td>treatment_responsibility_stamdata</td>
 <td>string</td>
-<td>Treatment responsibility for blood glucose and blood pressure management (general practitioner or trial site physician). Master data.</td>
+<td>Treatment responsibility for blood glucose and blood pressure management (general practitioner or trial site physician). Master data.<br>Allowed values: <code>Egen læge</code>, <code>Forsøgsstedets ansvarlige læge</code>, <code>Uafklaret (svar rettes til, når det er afklaret)</code></td>
 </tr>
 <tr class="odd">
 <td><code>recruitment_source_v1</code></td>
 <td>recruitment_source_v1</td>
 <td>string</td>
-<td>States recruitment source: ON LiMiT website; Other website; Recruitment agency (TrialTree); General practitioner; Danish Diabetes Association; Social media (e.g.&nbsp;Facebook, Instagram, LinkedIn); Physical poster (e.g.&nbsp;health centre, library, GP practice); Other; Cannot recall. Master data.</td>
+<td>States recruitment source: ON LiMiT website; Other website; Recruitment agency (TrialTree); General practitioner; Danish Diabetes Association; Social media (e.g.&nbsp;Facebook, Instagram, LinkedIn); Physical poster (e.g.&nbsp;health centre, library, GP practice); Other; Cannot recall. Master data.<br>Allowed values: <code>Via ON LiMiT's hjemmeside</code>, <code>Via anden hjemmeside</code>, <code>Via rekrutteringsfirmaet Trial Tree</code>, <code>Via egen læge</code>, <code>Via Diabetesforeningen</code>, <code>Via opslag på sociale medier (fx Facebook, Instagram, LinkedIn)</code>, <code>Via fysisk opslag (fx sundhedscenter, bibliotek, lægehus)</code>, <code>Andet</code>, <code>Kan ikke huske</code></td>
 </tr>
 <tr class="even">
 <td><code>recruitment_source_other_master_data</code></td>
@@ -731,7 +731,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>dropout_before_v1</code></td>
 <td>dropout_before_v1</td>
 <td>string</td>
-<td>Reason for dropout before prescreening. Master data.</td>
+<td>Reason for dropout before prescreening. Master data.<br>Allowed values: <code>Ja - Afsluttet efter manglende tilbagemelding efter rykker (lost to follow-up)</code>, <code>Ja - Andet</code></td>
 </tr>
 <tr class="even">
 <td><code>dropout_reason_before_v1</code></td>
@@ -755,7 +755,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>dropout_prescreen</code></td>
 <td>dropout_prescreen</td>
 <td>string</td>
-<td>Reason for dropout at prescreening. Master data.</td>
+<td>Reason for dropout at prescreening. Master data.<br>Allowed values: <code>Ja - Afsluttet efter manglende tilbagemelding efter rykker</code>, <code>Ja - Var ikke interesseret efter skriftlig deltagerinformation</code>, <code>Ja - Opfylder ikke inklusionskriterierne</code>, <code>Ja - Opfylder et eller flere af eksklusionskriterierne</code>, <code>Ja - Andet</code></td>
 </tr>
 <tr class="even">
 <td><code>dropout_reason_prescreen</code></td>
@@ -779,7 +779,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>dropout_v1</code></td>
 <td>dropout_v1</td>
 <td>string</td>
-<td>Reason for dropout at visit 1. Master data.</td>
+<td>Reason for dropout at visit 1. Master data.<br>Allowed values: <code>Ja - Afsluttet efter manglende tilbagemelding efter rykker</code>, <code>Ja - Var ikke interesseret efter skriftlig deltagerinformation</code>, <code>Ja - Opfylder ikke inklusionskriterierne</code>, <code>Ja - Opfylder et eller flere af eksklusionskriterierne</code>, <code>Ja - Andet</code></td>
 </tr>
 <tr class="even">
 <td><code>dropout_reason_v1</code></td>
@@ -803,13 +803,13 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>dropout_baseline</code></td>
 <td>dropout_baseline</td>
 <td>string</td>
-<td>Participant dropped out between the baseline visits (V1, V2, V3, V4). Master data.</td>
+<td>Participant dropped out between the baseline visits (V1, V2, V3, V4). Master data.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="even">
 <td><code>dropout_reason_baseline</code></td>
 <td>dropout_reason_baseline</td>
 <td>string</td>
-<td>Reason for droupout during baseline visits. Master data.</td>
+<td>Reason for droupout during baseline visits. Master data.<br>Allowed values: <code>Personlige/helbredsmæssige årsager</code>, <code>Praktiske årsager</code>, <code>Utilfredshed med interventionen</code>, <code>Har trukket sit samtykke tilbage</code>, <code>Ekskluderet</code>, <code>Andet</code></td>
 </tr>
 <tr class="odd">
 <td><code>dropout_reason_expl_baseline</code></td>
@@ -821,13 +821,13 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>dropout_intervention</code></td>
 <td>dropout_intervention</td>
 <td>string</td>
-<td>Whether the participant dropped out during the intervention period. Master data.</td>
+<td>Whether the participant dropped out during the intervention period. Master data.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="odd">
 <td><code>dropout_time</code></td>
 <td>dropout_time</td>
 <td>string</td>
-<td>When the participant dropped out during the intervention period. Master data.</td>
+<td>When the participant dropped out during the intervention period. Master data.<br>Allowed values: <code>Mellem besøg 4 og 5</code>, <code>Mellem besøg 5 og 6</code>, <code>Mellem besøg 6 og 7</code>, <code>Mellem besøg 7 og 8</code>, <code>Mellem besøg 8 og 9</code>, <code>Mellem besøg 9 og 10</code></td>
 </tr>
 <tr class="even">
 <td><code>dropout_weeks_completed</code></td>
@@ -839,7 +839,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>dropout_reason</code></td>
 <td>dropout_reason</td>
 <td>string</td>
-<td>Reason for droupout during the intervention. Master data.</td>
+<td>Reason for droupout during the intervention. Master data.<br>Allowed values: <code>Bivirkinger</code>, <code>Personlige/helbredsmæssige årsager</code>, <code>Praktiske årsager</code>, <code>Utilfredshed med interventionen</code>, <code>Har trukket sit samtykke tilbage</code>, <code>Ekskluderet</code>, <code>Andet</code></td>
 </tr>
 <tr class="even">
 <td><code>dropout_reason_expl</code></td>
@@ -851,7 +851,7 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>interventionen_completed</code></td>
 <td>interventionen_completed</td>
 <td>string</td>
-<td>Whether participant has completed the intervention period of 52 weeks. Master data.</td>
+<td>Whether participant has completed the intervention period of 52 weeks. Master data.<br>Allowed values: <code>Ja</code>, <code>Nej</code></td>
 </tr>
 <tr class="even">
 <td><code>notes_intervention</code></td>
@@ -863,13 +863,13 @@ If you want to edit the content, please make changes to the `datapackage.json` f
 <td><code>group_id_participant</code></td>
 <td>group_id_participant</td>
 <td>string</td>
-<td>Group ID of the participant.</td>
+<td>Group ID of the participant.<br>Allowed values: <code>Hold 1</code>, <code>Hold 2</code></td>
 </tr>
 <tr class="even">
 <td><code>participant_subgroup_id</code></td>
 <td>participant_subgroup_id</td>
 <td>string</td>
-<td>Group ID of participants after randomisation.</td>
+<td>Group ID of participants after randomisation.<br>Allowed values: <code>Hold 1a</code>, <code>Hold 1b</code>, <code>Hold 2a</code>, <code>Hold 2b</code></td>
 </tr>
 <tr class="odd">
 <td><code>dietary_restrictions</code></td>
