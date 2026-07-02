@@ -55,10 +55,10 @@ def task_download_repeating_forms(
 
 
 def task_download_field_metadata(
-    data_dict_path: Annotated[Path, Product] = BLD_REDCAP / "field_metadata.json",
+    field_metadata_path: Annotated[Path, Product] = BLD_REDCAP / "field_metadata.json",
 ) -> None:
     """Download field metadata to `BLD_REDCAP`."""
-    download_redcap_metadata(data_dict_path, "metadata")
+    download_redcap_metadata(field_metadata_path, "metadata")
 
 
 def task_preprocess_field_metadata(

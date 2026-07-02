@@ -12,7 +12,7 @@ def split_forms(
     forms_dir: Path,
     raw_data_path: Path,
     field_metadata_path: Path,
-    event_info_path: Path,
+    event_metadata_path: Path,
     repeating_forms_path: Path,
 ) -> None:
     """Split data into one Parquet file per form."""
@@ -22,8 +22,8 @@ def split_forms(
     field_metadata = read_json(field_metadata_path)
     form_to_fields = _get_form_field_mapping(field_metadata)
 
-    event_info = read_json(event_info_path)
-    form_to_events = _get_form_event_mapping(event_info)
+    event_metadata = read_json(event_metadata_path)
+    form_to_events = _get_form_event_mapping(event_metadata)
 
     repeating_forms = read_json(repeating_forms_path)
     repeating_form_names = _get_repeating_forms(repeating_forms)
@@ -169,19 +169,23 @@ def _create_df_for_form(
     return raw_df.filter(filters).select(columns)
 
 
-def _get_form_field_mapping(data_dict: list[dict[str, str]]) -> dict[str, list[str]]:
+def _get_form_field_mapping(
+    field_metadata: list[dict[str, str]],
+) -> dict[str, list[str]]:
     """Gets a mapping from form name to a list of field names in that form."""
     mapping: dict[str, list[str]] = defaultdict(list)
-    for field in data_dict:
+    for field in field_metadata:
         mapping[field["form_name"]].append(field["field_name"])
 
     return mapping
 
 
-def _get_form_event_mapping(event_info: list[dict[str, str]]) -> dict[str, list[str]]:
+def _get_form_event_mapping(
+    event_metadata: list[dict[str, str]],
+) -> dict[str, list[str]]:
     """Creates a mapping from form names to event names where the form is filled in."""
     mapping: dict[str, list[str]] = defaultdict(list)
-    for item in event_info:
+    for item in event_metadata:
         mapping[item["form"]].append(item["unique_event_name"])
 
     return mapping
