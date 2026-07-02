@@ -10,6 +10,8 @@ website:
     logo-alt: "ON LiMiT Feasibility Study Data"
     pinned: true
     left:
+      - text: "Overview"
+        href: index.qmd
       - text: "Data Package"
         href: docs/index.qmd
     tools:
@@ -17,6 +19,12 @@ website:
         href: "https://github.com/onlimit-study/feasibility-data"
         aria-label: "GitHub icon: Source repository"
   sidebar:
+    - id: overview
+      style: "docked"
+      contents:
+        - index.md
+        - CONTRIBUTING.md
+        - CHANGELOG.md
     - id: package
       style: "docked"
       contents:
