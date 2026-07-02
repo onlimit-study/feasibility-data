@@ -8,8 +8,8 @@ The data flows directly from the REDCap API into `raw/redcap/` as a JSON file
 with a timestamp appended to the filename. Every time the data is pulled from
 REDCap, a new JSON file is created in `raw/redcap/` with the current timestamp.
 
-Using code writing in `src/feasibility_data/data/redcap/<resource>.py`, each raw
-JSON file is processed into `staging/redcap/<resource>/<timestamp>.parquet`.
+Using code written in `src/feasibility_data/data/redcap/<resource>.py`, each raw
+JSON file is processed into a collection of `staging/redcap/<resource>/<timestamp>.parquet` files.
 There should be a 1-to-1 mapping between the raw JSON's timestamp and the staged
 resource Parquet file's timestamp.
 
