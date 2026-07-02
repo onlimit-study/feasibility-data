@@ -25,6 +25,7 @@ license-files = ["LICENSE-MIT.md"]
 requires-python = ">=3.12"
 dependencies = [
   "polars>=1.41.2",
+  "pytask>=0.6.0",
   "python-dotenv>=1.2.2",
   "requests>=2.32.5",
   "seedcase-flower>=0.28.1",
@@ -49,3 +50,7 @@ dev = [
   "mypy>=2.1.0",
   "types-requests>=2.32.4.20260107",
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
