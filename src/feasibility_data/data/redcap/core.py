@@ -1,4 +1,3 @@
-from collections import defaultdict
 from pathlib import Path
 
 
@@ -25,20 +24,7 @@ def split_forms(
 
 def group_forms_by_resource(form_paths: list[Path]) -> dict[str, list[Path]]:
     """Group forms by the resource they should map to."""
-    grouped_forms: dict[str, list[Path]] = defaultdict(list)
-    for form_path in form_paths:
-        form_name = form_path.stem
-        # TODO: refine this
-        if form_name.startswith("vas"):
-            resource_name = "vas"
-        elif form_name.startswith("sefnc"):
-            resource_name = "sefnc"
-            ...
-        else:
-            resource_name = "other"
-        grouped_forms[resource_name].append(form_path)
-
-    return grouped_forms
+    ...
 
 
 def stage_other_resources(
