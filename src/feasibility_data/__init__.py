@@ -1,1 +1,1 @@
-"""Processing and build pipeline scripts."""
+"""Processing and build pipeline code."""
