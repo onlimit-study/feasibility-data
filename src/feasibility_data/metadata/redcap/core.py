@@ -1,25 +1,24 @@
-import json
 import re
 from pathlib import Path
-from typing import Any, cast
+from typing import cast
 
 import seedcase_soil as so
 
 from feasibility_data.common.redcap.api import get_json_from_redcap
+from feasibility_data.common.redcap.json import read_json, write_json
 
 
 def download_redcap_metadata(path: Path, content: str) -> None:
     """Download data from REDCap and save it to a JSON file."""
     data = get_json_from_redcap(content)
-    _write_json(path, data)
+    write_json(path, data)
 
 
 def expand_checkbox_fields(
     field_metadata_preprocessed_path: Path, field_metadata_path: Path
 ) -> None:
     """Expand checkbox fields in the field metadata."""
-    with open(field_metadata_path) as f:
-        field_metadata = json.load(f)
+    field_metadata = read_json(field_metadata_path)
 
     checkbox_fields = so.keep(
         field_metadata, lambda field: field["field_type"] == "checkbox"
@@ -30,7 +29,7 @@ def expand_checkbox_fields(
     expanded_choice_fields = so.flat_fmap(checkbox_fields, _expand_checkbox_field)
 
     field_metadata_preprocessed = non_checkbox_fields + expanded_choice_fields
-    _write_json(field_metadata_preprocessed_path, field_metadata_preprocessed)
+    write_json(field_metadata_preprocessed_path, field_metadata_preprocessed)
 
 
 def _expand_checkbox_field(checkbox_field: dict[str, str]) -> list[dict[str, str]]:
@@ -70,10 +69,3 @@ def _get_error_message(field: dict[str, str], key: str) -> str:
         f"Unexpected value {field[key]!r} for `{key}` in field {field['field_name']!r} "
         f"in form {field['form_name']!r}."
     )
-
-
-def _write_json(path: Path, data: Any) -> None:
-    """Write data to a JSON file."""
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)

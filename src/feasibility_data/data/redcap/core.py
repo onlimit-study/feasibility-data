@@ -1,10 +1,11 @@
-import json
 from collections import defaultdict
 from operator import itemgetter
 from pathlib import Path
 
 import polars as pl
 import seedcase_soil as so
+
+from feasibility_data.common.redcap.json import read_json
 
 
 def split_forms(
@@ -18,16 +19,13 @@ def split_forms(
     data = pl.read_csv(raw_data_path, infer_schema=False)
     timestamp = raw_data_path.name.removesuffix(".csv.gz")
 
-    with open(field_metadata_path) as f:
-        field_metadata = json.load(f)
+    field_metadata = read_json(field_metadata_path)
     form_to_fields = _get_form_field_mapping(field_metadata)
 
-    with open(event_info_path) as f:
-        event_info = json.load(f)
+    event_info = read_json(event_info_path)
     form_to_events = _get_form_event_mapping(event_info)
 
-    with open(repeating_forms_path) as f:
-        repeating_forms = json.load(f)
+    repeating_forms = read_json(repeating_forms_path)
     repeating_form_names = _get_repeating_forms(repeating_forms)
 
     for df in _create_dfs_for_forms(
