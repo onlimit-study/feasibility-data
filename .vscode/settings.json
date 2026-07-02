@@ -28,6 +28,7 @@
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
   "python.languageServer": "Pylance",
   "mypy.runUsingActiveInterpreter": true,
+  "typos.config": ".config/typos.toml",
   "files.insertFinalNewline": true,
   "conventionalCommits.emojiFormat": "emoji",
   "conventionalCommits.promptScopes": false

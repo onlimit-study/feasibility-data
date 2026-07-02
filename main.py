@@ -1,7 +1,7 @@
 # import polars as pl
 import seedcase_sprout as sp
 
-from src.feasibility_data.package_properties import package_properties
+from feasibility_data.metadata.core import package_properties
 
 
 def main():
