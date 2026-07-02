@@ -77,8 +77,8 @@ def task_split_forms(
         DirectoryNode(root_dir=BLD_REDCAP / "forms", pattern="**/*.parquet"),
         Product,
     ],
-    raw_data_dir: Annotated[
-        Path, DirectoryNode(root_dir=RAW_REDCAP, pattern="*.csv.gz")
+    raw_data_paths: Annotated[
+        list[Path], DirectoryNode(root_dir=RAW_REDCAP, pattern="*.csv.gz")
     ],
     field_metadata_path: Path = BLD_REDCAP / "field_metadata_preprocessed.json",
     event_metadata_path: Path = BLD_REDCAP / "event_metadata.json",
@@ -88,7 +88,7 @@ def task_split_forms(
 
     Written to `BLD_REDCAP/forms/<timestamp>/<form_name>.parquet`.
     """
-    for raw_data_path in raw_data_dir.iterdir():
+    for raw_data_path in raw_data_paths:
         split_forms(
             forms_dir,
             raw_data_path,
@@ -104,8 +104,8 @@ def task_stage_resources(
         DirectoryNode(root_dir=STAGING_REDCAP, pattern="**/*.parquet"),
         Product,
     ],
-    forms_dir: Annotated[
-        Path,
+    form_paths: Annotated[
+        list[Path],
         DirectoryNode(root_dir=BLD_REDCAP / "forms", pattern="**/*.parquet"),
     ],
     # Possibly other dependencies
@@ -114,7 +114,7 @@ def task_stage_resources(
 
     Written to `STAGING_REDCAP/<resource_name>/<timestamp>.parquet`.
     """
-    forms_by_resource = group_forms_by_resource(forms_dir)
+    forms_by_resource = group_forms_by_resource(form_paths)
     stage_vas(staging_dir, forms_by_resource["vas"])
     ...
     stage_other_resources(staging_dir, forms_by_resource["other"])

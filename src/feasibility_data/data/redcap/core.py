@@ -201,21 +201,20 @@ def _write_df(df: pl.DataFrame, forms_dir: Path, timestamp: str) -> None:
     df.drop("form_name").write_parquet(file_path)
 
 
-def group_forms_by_resource(forms_dir: Path) -> dict[str, list[Path]]:
+def group_forms_by_resource(form_paths: list[Path]) -> dict[str, list[Path]]:
     """Groups forms by target resource."""
     grouped_forms: dict[str, list[Path]] = defaultdict(list)
-    for batch in forms_dir.iterdir():
-        for form in batch.iterdir():
-            form_name = form.stem
-            # TODO: refine this
-            if form_name.startswith("vas"):
-                resource_name = "vas"
-            elif form_name.startswith("sefnc"):
-                resource_name = "sefnc"
-                ...
-            else:
-                resource_name = "other"
-            grouped_forms[resource_name].append(form)
+    for form_path in form_paths:
+        form_name = form_path.stem
+        # TODO: refine this
+        if form_name.startswith("vas"):
+            resource_name = "vas"
+        elif form_name.startswith("sefnc"):
+            resource_name = "sefnc"
+            ...
+        else:
+            resource_name = "other"
+        grouped_forms[resource_name].append(form_path)
 
     return grouped_forms
 

@@ -17,8 +17,9 @@ def stage_vas(
 
     for timestamp, paths in grouped_by_timestamp.items():
         vas_forms = so.fmap(paths, pl.read_parquet)
-        # TODO: process VAS forms into:
-        vas_resource = pl.DataFrame(vas_forms)
+
+        # TODO: replace with actual implementation:
+        vas_resource = pl.DataFrame({"timestamp": [timestamp] * len(vas_forms)})
 
         resource_path = staging_dir / "vas" / f"{timestamp}.parquet"
         resource_path.parent.mkdir(parents=True, exist_ok=True)
