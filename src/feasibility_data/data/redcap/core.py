@@ -72,6 +72,7 @@ def _create_df_for_form(
     is_repeating = form_name in repeating_form_names
     content_fields = so.keep(field_names, lambda field: field not in REDCAP_ID_COLS)
 
+    # TODO: just for testing, remove!
     content_fields = so.keep(
         content_fields,
         lambda field: (
