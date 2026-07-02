@@ -237,7 +237,7 @@ requires-dist = [
     { name = "polars", specifier = ">=1.41.2" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "requests", specifier = ">=2.32.5" },
-    { name = "seedcase-flower", specifier = ">=0.28.1" },
+    { name = "seedcase-flower", specifier = ">=0.30.1" },
     { name = "seedcase-sprout", specifier = ">=0.49.7" },
 ]
 
@@ -822,7 +822,7 @@ wheels = [
 
 [[package]]
 name = "seedcase-flower"
-version = "0.29.0"
+version = "0.30.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "check-datapackage" },
@@ -833,9 +833,9 @@ dependencies = [
     { name = "rich" },
     { name = "seedcase-soil" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/82/d0/1bfa4461344a3187ee1898c5ecb74750bc400cb99a5d0565a1debc8b5e60/seedcase_flower-0.29.0.tar.gz", hash = "sha256:12a91f69eb344d7e659ece3b67b247bb1a1dced533107be18e5b3e9ce0f1a884", size = 1806395, upload-time = "2026-06-04T07:09:58.752Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d6/ca/6f12a6492314a0c0803b39641a5a6ceb9f6edcf29f5b73d4d6d1cba5eabe/seedcase_flower-0.30.1.tar.gz", hash = "sha256:b4ffbeddac97eecd6fc6b7375849d0dde282e37dd4ba592d944526a5d02c4ff3", size = 1809593, upload-time = "2026-06-29T11:35:17.085Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d5/f9/8b7e42c4b8ca8a4e40a3d37df3fbbea8e93d6937687f56a9452e12cb3b41/seedcase_flower-0.29.0-py3-none-any.whl", hash = "sha256:216fdbc2e1b759c0fe19a46da30145d0fe74227f622ac66a09a125365d88b46e", size = 20003, upload-time = "2026-06-04T07:09:59.818Z" },
+    { url = "https://files.pythonhosted.org/packages/51/42/81606b2ae732faea36fec881a1c9452e176aad9606ab04b8037cb94339e4/seedcase_flower-0.30.1-py3-none-any.whl", hash = "sha256:3df62055dc0a8b1172bb1692b7d47bf179ab1a6eb61656136f6788d19d0c2b63", size = 20194, upload-time = "2026-06-29T11:35:15.666Z" },
 ]
 
 [[package]]
