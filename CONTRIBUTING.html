@@ -123,6 +123,27 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="contributing" class="level1">
 <h1>Contributing</h1>
+<section id="flow-of-data" class="level2">
+<h2 class="anchored" data-anchor-id="flow-of-data">Flow of data</h2>
+<section id="redcap" class="level3">
+<h3 class="anchored" data-anchor-id="redcap">REDCap</h3>
+<p>The data flows directly from the REDCap API into <code>raw/redcap/</code> as a CSV file with a timestamp appended to the filename. Every time the data is pulled from REDCap, a new CSV file is created in <code>raw/redcap/</code> with the current timestamp.</p>
+<p>Using code written in <code>src/feasibility_data/data/redcap/&lt;resource&gt;.py</code>, each raw CSV file is processed into a collection of <code>staging/redcap/&lt;resource&gt;/&lt;timestamp&gt;.parquet</code> files. There should be a 1-to-1 mapping between the raw CSV’s timestamp and the staged resource Parquet file’s timestamp.</p>
+<p>If metadata drifts over time, errors will happen when processing the older raw CSV files using the newer metadata. This is expected and desirable behaviour as it:</p>
+<ul>
+<li>Informs us that we need to update or resolve the older data to match the newer metadata.</li>
+<li>Helps ensure transparency and a record of how the data has changed over time and how we’ve fixed it.</li>
+<li>Ensures that all files in <code>staging/</code> are aligned, as Sprout takes all files in <code>staging/</code> and converts them into a single resource. So they must always match together.</li>
+<li>Matches the behaviour of our pipelines from other sources. While REDCap stores data for up to 5 years, other sources of data for ON LiMiT have much shorter retention periods. So previously pulled raw data in this repository may be the only copy of that data available to us. Which means we need to us all raw data when processing into <code>staging/</code> and eventually into <code>resources/</code>.</li>
+</ul>
+<p>There are specific things to note about the REDCap data:</p>
+<ul>
+<li>Fields ending in <code>_id</code> are primary/foreign keys.</li>
+<li>Fields that contain <code>admin</code> are excluded from the data package.</li>
+</ul>
+<p>When processing the data, each resource should (almost always) contain a <code>participant_id</code> and a <code>visit_id</code> field.</p>
+</section>
+</section>
 <section id="layout-of-src" class="level2">
 <h2 class="anchored" data-anchor-id="layout-of-src">Layout of <code>src/</code></h2>
 <p>Similar to how <code>raw/</code> and <code>staging/</code> are organized, the Python files within <code>src/</code> are organized at the top level by <code>data</code> and <code>metadata</code>, then by source of the original data, and finally by the eventual resource name. The structure under <code>src/feasibility_data/</code> is:</p>
