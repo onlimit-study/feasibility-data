@@ -1,6 +1,7 @@
 import os
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any
 
 import requests
 from dotenv import load_dotenv
@@ -48,7 +49,7 @@ def get_from_redcap(
 def get_json_from_redcap(
     content: str,
     center: Center = Center.Copenhagen,
-) -> list[dict[str, str]]:
+) -> Any:
     """Send a request to the REDCap API and return the JSON response."""
     data = {
         "content": content,
