@@ -66,3 +66,9 @@ under `src/feasibility_data/` is:
   [pytask](https://pytask-dev.readthedocs.io/en/stable/) tasks) that are needed
   to take the raw data and raw dictionaries and turn it all into a final data
   package.
+
+## Writing Python code
+
+- Each "public" function should be at the top of the module file, with "private"
+  (prefixed with `_`) functions below them.
+- Classes, either public or private, go at the top of the file.
