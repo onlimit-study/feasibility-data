@@ -1,48 +1,37 @@
-import os
 from datetime import datetime
 from io import StringIO
 from pathlib import Path
 
 import polars as pl
-import requests
-import seedcase_soil as so
-from dotenv import load_dotenv
 
-load_dotenv()
+from feasibility_data.common.redcap.api import Center, get_from_redcap
 
 
-def write_raw() -> Path:
-    """Writes the raw data to `raw/redcap/<timestamp>.csv.gz`."""
-    data = _request_raw()
+def download_redcap_data(
+    raw_data_dir: Path,
+    center: Center,
+) -> None:
+    """Download the data."""
+    response = get_from_redcap(
+        data={
+            "content": "record",
+            "action": "export",
+            "format": "csv",
+            "type": "flat",
+            "csvDelimiter": ";",
+            "rawOrLabel": "raw",
+            "rawOrLabelHeaders": "raw",
+            "exportCheckboxLabel": "false",
+            "exportSurveyFields": "false",
+            "exportDataAccessGroups": "false",
+            "returnFormat": "json",
+        },
+        center=center,
+    )
+    data = response.text
+
     df = pl.read_csv(StringIO(data), separator=";", infer_schema=False)
     timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
-    file_path = Path("raw") / "redcap" / f"{timestamp}.csv.gz"
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    df.write_csv(file_path, compression="gzip")
-    so.pretty_print(f"Saved data to '{file_path}'.")
-    return file_path
-
-
-def _request_raw() -> str:
-    """Gets the data from REDCap as CSV."""
-    token = os.environ.get("REDC_CPH_API_KEY")
-    if not token:
-        raise RuntimeError("REDC_CPH_API_KEY environment variable is not set.")
-
-    data = {
-        "token": token,
-        "content": "record",
-        "action": "export",
-        "format": "csv",
-        "type": "flat",
-        "csvDelimiter": ";",
-        "rawOrLabel": "raw",
-        "rawOrLabelHeaders": "raw",
-        "exportCheckboxLabel": "false",
-        "exportSurveyFields": "false",
-        "exportDataAccessGroups": "false",
-        "returnFormat": "json",
-    }
-    response = requests.post("https://redcap.regionh.dk/api/", data=data, timeout=60)
-    response.raise_for_status()
-    return response.text
+    data_path = raw_data_dir / f"{timestamp}.csv.gz"
+    raw_data_dir.parent.mkdir(parents=True, exist_ok=True)
+    df.write_csv(data_path, compression="gzip")
