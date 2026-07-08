@@ -50,3 +50,6 @@ docs/index.qmd
 
 # Misc files
 *.log
+
+# Data package build folders
+releases/
