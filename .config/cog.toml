@@ -7,7 +7,7 @@ pre_bump_hooks = [
   "RUST_LOG='none' uvx git-cliff --tag {{version}}",
   "uvx --from panache-cli panache format CHANGELOG.md --quiet",
   "uv version {{version}}",
-  "sed -i 's/version=.*,/version=\"{{version}}\",/' src/feasibility_data/package_properties.py",
+  "sed -i 's/version=.*,/version=\"{{version}}\",/' src/feasibility_data/metadata/core.py",
   "sed -i 's/\"version\": .*,/\"version\": \"{{version}}\",/' datapackage.json",
   "git commit CHANGELOG.md pyproject.toml uv.lock -m 'build: 🔖 update version to {{version}} [skip ci]'",
 ]

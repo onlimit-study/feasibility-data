@@ -1,4 +1,6 @@
-# ON LiMiT Feasibility Study Data
+---
+title: ON LiMiT Feasibility Data Package
+---
 
 A Data Package for the [ON LiMiT](https://onlimit.org/) feasibility study. The
 data itself is connected to this Data Package via storage on GenomeDK at Aarhus
