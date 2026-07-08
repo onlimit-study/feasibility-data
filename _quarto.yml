@@ -2,14 +2,16 @@ project:
   type: onlimit-theme
 
 website:
-  title: "ON LiMiT Feasibility Study Data"
+  title: "Feasibility Data Package"
   site-url: "https://onlimit-study.github.io/feasibility-data"
   repo-url: "https://github.com/onlimit-study/feasibility-data"
   navbar:
     logo: "_extensions/onlimit-study/onlimit-theme/images/onlimit-apple.png"
-    logo-alt: "ON LiMiT Feasibility Study Data"
+    logo-alt: "ON LiMiT logo"
     pinned: true
     left:
+      - text: "Overview"
+        href: index.qmd
       - text: "Data Package"
         href: docs/index.qmd
     tools:
@@ -17,6 +19,12 @@ website:
         href: "https://github.com/onlimit-study/feasibility-data"
         aria-label: "GitHub icon: Source repository"
   sidebar:
+    - id: overview
+      style: "docked"
+      contents:
+        - index.md
+        - CONTRIBUTING.md
+        - CHANGELOG.md
     - id: package
       style: "docked"
       contents:
