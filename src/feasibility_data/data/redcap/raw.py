@@ -4,16 +4,16 @@ from pathlib import Path
 
 import polars as pl
 
-from feasibility_data.common.redcap.api import Center, get_from_redcap
+import feasibility_data.common.redcap as cr
 
 
 def download_redcap_data(
     raw_data_dir: Path,
-    center: Center,
+    center: cr.Center,
 ) -> None:
     """Download the data."""
-    response = get_from_redcap(
-        data={
+    response = cr.get(
+        request_data={
             "content": "record",
             "action": "export",
             "format": "csv",

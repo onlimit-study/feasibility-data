@@ -1,7 +1,7 @@
 import os
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any
+from typing import Any, Literal
 
 import requests
 from dotenv import load_dotenv
@@ -29,8 +29,8 @@ class Center(Enum):
     Test = APIConfig(env_key="TEST_API_KEY", url="https://redcap.au.dk/api/")
 
 
-def get_from_redcap(
-    data: dict[str, str],
+def get(
+    request_data: dict[str, str],
     center: Center = Center.Copenhagen,
 ) -> requests.Response:
     """Send a request to the REDCap API."""
@@ -38,23 +38,23 @@ def get_from_redcap(
     if not token:
         raise RuntimeError(f"{center.value.env_key} environment variable is not set.")
 
-    data["token"] = token
+    request_data["token"] = token
 
-    response = requests.post(center.value.url, data=data, timeout=60)
+    response = requests.post(center.value.url, data=request_data, timeout=60)
     response.raise_for_status()
 
     return response
 
 
-def get_json_from_redcap(
-    content: str,
+def get_json(
+    content: Literal["metadata", "repeatingFormsEvents", "formEventMapping"],
     center: Center = Center.Copenhagen,
 ) -> Any:
     """Send a request to the REDCap API and return the JSON response."""
-    data = {
+    request_data = {
         "content": content,
         "format": "json",
         "returnFormat": "json",
     }
-    response = get_from_redcap(data, center)
+    response = get(request_data, center)
     return response.json()

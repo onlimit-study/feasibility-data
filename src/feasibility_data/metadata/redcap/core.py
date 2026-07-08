@@ -1,10 +1,14 @@
 from pathlib import Path
+from typing import Literal
 
-from feasibility_data.common.redcap.api import get_json_from_redcap
-from feasibility_data.common.redcap.json import write_json
+import feasibility_data.common.json as cj
+import feasibility_data.common.redcap as cr
 
 
-def download_redcap_metadata(path: Path, content: str) -> None:
+def download_redcap_metadata(
+    path: Path,
+    content: Literal["metadata", "repeatingFormsEvents", "formEventMapping"],
+) -> None:
     """Download data from REDCap and save it to a JSON file."""
-    data = get_json_from_redcap(content)
-    write_json(path, data)
+    data = cr.get_json(content)
+    cj.write_json(path, data)
