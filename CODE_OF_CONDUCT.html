@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>contributing – Feasibility Data Package</title>
+<title>code_of_conduct – Feasibility Data Package</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -67,7 +32,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./CHANGELOG.html" rel="next">
 <link href="site_libs/quarto-contrib/quarto-project/onlimit-study/onlimit-theme/favicon/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -113,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -149,42 +113,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./CONTRIBUTING.html">Contributing</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
- <span class="menu-text">index.md</span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./CONTRIBUTING.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Contributing</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./CHANGELOG.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">0.12.0 (2026-06-22)</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
@@ -193,88 +125,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="contributing" class="level1">
-<h1>Contributing</h1>
-<section id="issues-and-bugs" class="level2">
-<h2 class="anchored" data-anchor-id="issues-and-bugs"><span class="emoji" data-emoji="bug">🐛</span> Issues and bugs</h2>
-<p>The easiest way to contribute is to report issues or bugs that you might find while using feasibility-data. You can do this by creating a new issue on our GitHub repository.</p>
-</section>
-<section id="adding-or-modifying-content" class="level2">
-<h2 class="anchored" data-anchor-id="adding-or-modifying-content"><span class="emoji" data-emoji="pencil2">✏️</span> Adding or modifying content</h2>
-<p>If you would like to contribute content, please check out our <a href="https://guidebook.seedcase-project.org/">guidebook</a> for more specific details on how we work and develop. It is a regularly evolving document, so is at various states of completion.</p>
-<p>To contribute to feasibility-data, you first need to install <a href="https://docs.astral.sh/uv/">uv</a> and <a href="https://just.systems/man/en/packages.html">justfile</a>. We use uv and justfile to manage our project, such as to run checks on the data package and build the website. Both the uv and justfile websites have a more detailed guide on using uv, but below are some simple instructions to get you started.</p>
-<p>It’s easiest to first <a href="https://docs.astral.sh/uv/getting-started/installation/">install uv</a> and then install justfile with uv. Once you’ve installed uv, install justfile by running:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> tool install rust-just</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>We keep all our development workflows in the <code>justfile</code>, so you can explore it to see what commands are available. To see a list of commands available, run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">just</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>As you contribute, make sure your changes will pass our tests by opening a terminal so that the working directory is the root of this project (<code>feasibility-data/</code>) and running:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">just</span> run-all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>When committing changes, please try to follow <a href="https://decisions.seedcase-project.org/why-conventional-commits/">Conventional Commits</a> as Git messages. Using this convention allows us to be able to automatically create a release based on the commit message by using <a href="https://decisions.seedcase-project.org/why-semantic-release-with-cocogitto/">Cocogitto</a>. If you don’t use Conventional Commits when making a commit, we will revise the pull request title to follow that format. That’s because we use squash merges when merging pull requests, so all other commits in the pull request will be squashed into one commit.</p>
-</section>
-<section id="explanation-of-files-and-folders" class="level2">
-<h2 class="anchored" data-anchor-id="explanation-of-files-and-folders"><span class="emoji" data-emoji="file_folder">📁</span> Explanation of files and folders</h2>
-<p>This is a brief description of some of the files in this repository.</p>
-<ul>
-<li><code>.copier-answers.yml</code>: Contains the answers you gave when copying the project from the template. <strong>You should not modify this file directly.</strong></li>
-<li><code>.github/</code>: Contains GitHub-specific files, such as issue and pull request templates, workflows, <a href="https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide">dependabot</a> configuration, pull request templates, and a <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">CODEOWNERS</a> file.</li>
-<li><code>_quarto.yml</code>: Quarto configuration file for the website, including settings for the website, such as the theme, navigation, and other options.</li>
-<li><code>_metadata.yml</code>: Quarto metadata file for the website, including information about the project, such as the titles and GitHub names.</li>
-<li><code>.gitignore</code>: This ignore file tells Git which files to not track. Unless you know what you are doing, it’s best to not touch this file.</li>
-<li><code>.pre-commit-config.yaml</code>: <a href="https://pre-commit.com/">Pre-commit</a> configuration file for managing and running checks before each commit.</li>
-<li><code>.config/</code>: Contains configuration files for various tools used in the project, such as:
-<ul>
-<li><code>typos.toml</code>: <a href="https://github.com/crate-ci/typos">typos</a> spell checker configuration file.</li>
-<li><code>rumdl.toml</code>: <a href="https://rumdl.dev">rumdl</a> configuration file for formatting Markdown files in the project.</li>
-<li><code>cog.toml</code>: <a href="https://docs.cocogitto.io">Cocogitto</a> configuration file for managing versions.</li>
-<li><code>cliff.toml</code>: <a href="https://git-cliff.org">git-cliff</a> configuration file for creating the changelog.</li>
-<li><code>ruff.toml</code>: <a href="https://github.com/charliermarsh/ruff">Ruff</a> configuration file for linting and formatting Python code.</li>
-</ul></li>
-<li><code>.editorconfig</code>: Editor configuration file for <a href="https://editorconfig.org/">EditorConfig</a> to maintain consistent coding styles across different editors and IDEs.</li>
-<li><code>CITATION.cff</code>: Structured citation metadata for your project when archived on <a href="https://zenodo.org/">Zenodo</a> and used by GitHub to display the citation information on the repository page. This is used to add the metadata to Zenodo when a GitHub release has been uploaded to Zenodo.</li>
-<li><code>justfile</code>: <a href="https://just.systems/man/en/"><code>just</code></a> configuration file for scripting project tasks.</li>
-<li><code>CHANGELOG.md</code>: Changelog file for tracking changes in the project.</li>
-</ul>
-</section>
-<section id="flow-of-data" class="level2">
-<h2 class="anchored" data-anchor-id="flow-of-data">Flow of data</h2>
-<section id="redcap" class="level3">
-<h3 class="anchored" data-anchor-id="redcap">REDCap</h3>
-<p>The data flows directly from the REDCap API into <code>raw/redcap/</code> as a CSV file with a timestamp appended to the filename. Every time the data is pulled from REDCap, a new CSV file is created in <code>raw/redcap/</code> with the current timestamp.</p>
-<p>Using code written in <code>src/feasibility_data/data/redcap/&lt;resource&gt;.py</code>, each raw CSV file is processed into a collection of <code>staging/redcap/&lt;resource&gt;/&lt;timestamp&gt;.parquet</code> files. There should be a 1-to-1 mapping between the raw CSV’s timestamp and the staged resource Parquet file’s timestamp.</p>
-<p>If metadata drifts over time, errors will happen when processing the older raw CSV files using the newer metadata. This is expected and desirable behaviour as it:</p>
-<ul>
-<li>Informs us that we need to update or resolve the older data to match the newer metadata.</li>
-<li>Helps ensure transparency and a record of how the data has changed over time and how we’ve fixed it.</li>
-<li>Ensures that all files in <code>staging/</code> are aligned, as Sprout takes all files in <code>staging/</code> and converts them into a single resource. So they must always match together.</li>
-<li>Matches the behaviour of our pipelines from other sources. While REDCap stores data for up to 5 years, other sources of data for ON LiMiT have much shorter retention periods. So previously pulled raw data in this repository may be the only copy of that data available to us. Which means we need to us all raw data when processing into <code>staging/</code> and eventually into <code>resources/</code>.</li>
-</ul>
-<p>There are specific things to note about the REDCap data:</p>
-<ul>
-<li>Fields ending in <code>_id</code> are primary/foreign keys.</li>
-<li>Fields that contain <code>admin</code> are excluded from the data package.</li>
-</ul>
-<p>When processing the data, each resource should (almost always) contain a <code>participant_id</code> and a <code>visit_id</code> field.</p>
-</section>
-</section>
-<section id="layout-of-src" class="level2">
-<h2 class="anchored" data-anchor-id="layout-of-src">Layout of <code>src/</code></h2>
-<p>Similar to how <code>raw/</code> and <code>staging/</code> are organized, the Python files within <code>src/</code> are organized at the top level by <code>data</code> and <code>metadata</code>, then by source of the original data, and finally by the eventual resource name. The structure under <code>src/feasibility_data/</code> is:</p>
-<ul>
-<li><code>metadata/&lt;source&gt;/&lt;resource&gt;.py</code>: Python files within this directory contain functions that are used to convert the raw dictionaries into the final <code>datapackage.json</code> metadata file. Functions within these modules can be named without needing to state the source or resource (as the module path already contains that information). For example, <code>metadata/redcap/vas.py</code> would contain the functions for processing the metadata for the VAS resource from the REDCap source.</li>
-<li><code>data/&lt;source&gt;/&lt;resource&gt;.py</code>: Same with the metadata files, but these contain functions for taking the original raw data and converting them into the <code>staging/</code> folder. Unlike the metadata above, raw data goes into <code>staging/</code> first before being processed into the final data resource as Sprout needs to run checks against the metadata before converting it into the final data resource.</li>
-<li><code>common/</code>: Contains functions that are used across multiple resources. The names of the Python files within are not standardized, but they should be descriptive of the overall functionality they provide within.</li>
-<li><code>build.py</code>: This file lists all the functions (as <a href="https://pytask-dev.readthedocs.io/en/stable/">pytask</a> tasks) that are needed to take the raw data and raw dictionaries and turn it all into a final data package.</li>
-</ul>
-</section>
-<section id="writing-python-code" class="level2">
-<h2 class="anchored" data-anchor-id="writing-python-code">Writing Python code</h2>
-<ul>
-<li>Each “public” function should be at the top of the module file, with “private” (prefixed with <code>_</code>) functions below them.</li>
-<li>Classes, either public or private, go at the top of the file.</li>
-</ul>
+<section id="contributor-code-of-conduct" class="level1">
+<h1>Contributor Code of Conduct</h1>
+<p>As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting suggestions, updating any material, submitting pull requests, and other activities.</p>
+<p>We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.</p>
+<p>Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.</p>
+<p>Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. Project maintainers who do not follow the Code of Conduct may be removed from the project team.</p>
+<p>Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.</p>
+<p>This Code of Conduct is adapted from the Contributor Covenant (<a href="https://www.contributor-covenant.org" class="uri">https://www.contributor-covenant.org</a>), version 1.0.0, available at <a href="https://www.contributor-covenant.org/version/1/0/0/" class="uri">https://www.contributor-covenant.org/version/1/0/0/</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -678,15 +538,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./CHANGELOG.html" class="pagination-link" aria-label="0.12.0 (2026-06-22)">
-        <span class="nav-page-text">0.12.0 (2026-06-22)</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
