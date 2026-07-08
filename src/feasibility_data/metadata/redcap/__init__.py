@@ -1,1 +1,0 @@
-"""REDCap metadata functions."""

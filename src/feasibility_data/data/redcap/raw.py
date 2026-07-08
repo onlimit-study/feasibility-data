@@ -7,12 +7,9 @@ import polars as pl
 import feasibility_data.common.redcap as cr
 
 
-def download_redcap_data(
-    raw_data_dir: Path,
-    center: cr.Center,
-) -> None:
+def download_data(center: cr.Center) -> str:
     """Download the data."""
-    response = cr.get(
+    return cr.get(
         request_data={
             "content": "record",
             "action": "export",
@@ -27,9 +24,11 @@ def download_redcap_data(
             "returnFormat": "json",
         },
         center=center,
-    )
-    data = response.text
+    ).text
 
+
+def write_data(raw_data_dir: Path, data: str) -> None:
+    """Write the data as a timestamped file."""
     df = pl.read_csv(StringIO(data), separator=";", infer_schema=False)
     timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
     data_path = raw_data_dir / f"{timestamp}.csv.gz"
