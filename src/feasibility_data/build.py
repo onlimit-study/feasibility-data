@@ -12,9 +12,11 @@ BLD = SRC.joinpath("..", "bld").resolve()
 
 BLD_REDCAP = BLD / "redcap"
 
+FIELD_METADATA_PATH = BLD_REDCAP / "field_metadata.json"
+
 
 def task_download_field_metadata(
-    field_metadata_path: Annotated[Path, Product] = BLD_REDCAP / "field_metadata.json",
+    field_metadata_path: Annotated[Path, Product] = FIELD_METADATA_PATH,
 ) -> None:
     """Download field metadata to `BLD_REDCAP`."""
     metadata = cr.get_json("metadata")
