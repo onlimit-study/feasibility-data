@@ -89,7 +89,7 @@ build-contributors:
 
 # Re-build the README file from the Quarto version
 build-readme:
-  quarto render README.qmd --to gfm
+  uv run quarto render README.qmd --to gfm
 
 # Build the documentation for the data package
 build-metadata-docs:
@@ -97,11 +97,11 @@ build-metadata-docs:
 
 # Build the documentation website using Quarto
 build-website: build-metadata-docs
-  quarto render
+  uv run quarto render
 
 # Preview the documentation website with automatic reload on changes
 preview-website:
-  quarto preview
+  uv run quarto preview
 
 # Check for and apply updates from the template
 update-from-template:

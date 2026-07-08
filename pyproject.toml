@@ -41,11 +41,13 @@ changelog = "https://github.com/onlimit-study/feasibility-data/blob/main/CHANGEL
 extend = ".config/ruff.toml"
 
 [tool.mypy]
-python_version = 3.12
+python_version = "3.12"
 strict = true
 
 [dependency-groups]
 dev = [
+  "jupyter>=1.1.1",
   "mypy>=2.1.0",
+  "quarto>=0.1.0",
   "types-requests>=2.32.4.20260107",
 ]

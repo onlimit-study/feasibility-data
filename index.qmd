@@ -1,5 +1,5 @@
 ---
-title: "ON LiMiT Feasibility Study Data"
+title: ON LiMiT Feasibility Data Package
 ---
 
 A Data Package for the [ON LiMiT](https://onlimit.org/) feasibility study. The
