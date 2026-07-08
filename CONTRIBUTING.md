@@ -64,8 +64,8 @@ under `src/feasibility_data/` is:
   folder name. For example, `metadata/core.py` contains functions for top-level
   metadata processing that is for general metadata, but not strictly tied to any
   given source or resource, such as data package-level metadata. Meanwhile,
-  `data/redcap/vas/core.py` contains functions for processing REDCap data that
-  is specific to the VAS resource. This `core.py` file can be treated like the
+  `data/redcap/core.py` contains functions for processing REDCap data that is
+  *not* specific to any resource. This `core.py` file can be treated like the
   `__init__.py` file. We don't use `__init__.py` files to store functions as the
   semantic meaning of `__init__.py` is to initialise the folder as part of the
   package. The semantic meaning of `core.py` is to be a collection of functions
