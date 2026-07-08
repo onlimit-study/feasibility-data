@@ -47,7 +47,8 @@ just run-all
 
 Like other types of packages (e.g. Rust, Python, R), the contents of the
 repository *build* the final data package, but aren't the data package itself.
-We need to "compile" the code into the final data package.
+The repository contains the source code and raw data input, but isn't the package itself.
+We need to first "compile" the code and the raw data input into the final data package.
 
 Here are some of the steps involved in the build process:
 
@@ -75,7 +76,7 @@ Here are some of the steps involved in the build process:
 
 What this means during development is that:
 
-- Do *not* save or store any data in the Git LFS. Outside of the build process,
+- No data is saved or stored in the Git LFS. Outside of the build process,
   we treat any data pulled from sources or processed into staging or resources
   as temporary.
 - Pull requests should *not* contain any changes to the `datapackage.json` file
@@ -83,7 +84,7 @@ What this means during development is that:
   are generated during the build process and should not be modified or added
   directly.
 - Commit messages should still be written in the Conventional Commits format,
-  though the apecific commit types used are a bit different considering no data
+  though the specific commit types used are a bit different considering no data
   or metadata files are being modified directly. See the [release
   process](#release-process) section below for more details on commit messages
   to use.
