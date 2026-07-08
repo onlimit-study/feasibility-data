@@ -43,6 +43,53 @@ terminal so that the working directory is the root of this project
 just run-all
 ```
 
+## Build process
+
+Like other types of packages (e.g. Rust, Python, R), the contents of the
+repository *build* the final data package, but aren't the data package itself.
+We need to "compile" the code into the final data package.
+
+Here are some of the steps involved in the build process:
+
+- The raw data is pulled from the source locations during the build process,
+  saved into `raw/` and processed into `staging/`. We use
+  [pytask](https://pytask-dev.readthedocs.io/en/stable/) to manage this phase of
+  the build process.
+- The `raw/` data files are saved into the Git LFS during the build process, but
+  no other data artifact is kept in the Git history.
+- The metadata file is generated from the Python code into `datapackage.json`
+  and the resource files are generated from the `staging/` data. The metadata
+  file is the only file saved in the Git history during this phase. We use
+  [Sprout](https://sprout.seedcase-project.org/) along with
+  [pytask](https://pytask-dev.readthedocs.io/en/stable/) to handle this section
+  of the build process.
+- The data package is built into one `.tar` file that contains the metadata file
+  (`datapackage.json`), `LICENSE.md`, `README.md`, and the resource files. It is
+  also built into a `.zip` file with the same files except for the data. This
+  `.zip` file will be what is uploaded to public archives, while the `.tar` file
+  remains in the server. The `.tar` and `.zip` files are saved into a Git
+  ignored `releases/` directory, with the filename being the name of the data
+  package and the version number (e.g. `feasibility-data_0.1.0.tar`).
+
+<!-- TODO: Do we also want to store the README in the `.tar` file? Any other files? -->
+
+What this means during development is that:
+
+- Do *not* save or store any data in the Git LFS. Outside of the build process,
+  we treat any data pulled from sources or processed into staging or resources
+  as temporary.
+- Pull requests should *not* contain any changes to the `datapackage.json` file
+  nor any additions of data in `raw/`, `staging/`, or `resources/`. These files
+  are generated during the build process and should not be modified or added
+  directly.
+- Commit messages should still be written in the Conventional Commits format,
+  though the apecific commit types used are a bit different considering no data
+  or metadata files are being modified directly. See the [release
+  process](#release-process) section below for more details on commit messages
+  to use.
+
+## Release process
+
 When committing changes, please try to follow [Conventional
 Commits](https://decisions.seedcase-project.org/why-conventional-commits/) as
 Git messages. Using this convention allows us to be able to automatically create
