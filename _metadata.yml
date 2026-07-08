@@ -1,0 +1,9 @@
+gh:
+  org: onlimit-study
+  repo: feasibility-data
+
+tagline: "Data package for the feasibility phase of the ON-LiMiT study"
+
+links:
+  github: "https://github.com/onlimit-study/feasibility-data"
+  site: "https://onlimit-study.github.io/feasibility-data"
