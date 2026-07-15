@@ -56,7 +56,7 @@ Here are some of the steps involved in the build process:
   saved into `raw/` and processed into `staging/`. We use
   [pytask](https://pytask-dev.readthedocs.io/en/stable/) to manage this phase of
   the build process.
-- The `raw/` data files are saved into the Git LFS during the build process, but
+- The `raw/` data files are saved into Git LFS during the build process, but
   no other data artifact is kept in the Git history.
 - The metadata file is generated from the Python code into `datapackage.json`
   and the resource files are generated from the `staging/` data. The metadata
@@ -68,15 +68,15 @@ Here are some of the steps involved in the build process:
   (`datapackage.json`), `LICENSE.md`, `README.md`, and the resource files. It is
   also built into a `.zip` file with the same files except for the data. This
   `.zip` file will be what is uploaded to public archives, while the `.tar` file
-  remains in the server. The `.tar` and `.zip` files are saved into a Git
+  remains on the server. The `.tar` and `.zip` files are saved into a Git
   ignored `releases/` directory, with the filename being the name of the data
   package and the version number (e.g. `feasibility-data_0.1.0.tar`).
 
-<!-- TODO: Do we also want to store the README in the `.tar` file? Any other files? -->
+<!-- TODO: Do we want to store the README and other files in the `.tar` and `zip` files? Others? -->
 
 What this means during development is that:
 
-- No data is saved or stored in the Git LFS. Outside of the build process,
+- No data is saved or stored in Git LFS. Outside of the build process,
   we treat any data pulled from sources or processed into staging or resources
   as temporary.
 - Pull requests should *not* contain any changes to the `datapackage.json` file
