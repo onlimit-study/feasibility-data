@@ -47,21 +47,23 @@ just run-all
 
 Like other types of packages (e.g. Rust, Python, R), the contents of the
 repository *build* the final data package, but aren't the data package itself.
-The repository contains the source code and raw data input, but isn't the package itself.
-We need to first "compile" the code and the raw data input into the final data package.
+The repository contains the source code and raw data input, but isn't the
+package itself. We need to first "compile" the code and the raw data input into
+the final data package.
 
 Here are some of the steps involved in the build process:
 
-- The raw data is pulled from the source locations during the build process,
-  saved into `raw/` and processed into `staging/`. We use
-  [pytask](https://pytask-dev.readthedocs.io/en/stable/) to manage this phase of
-  the build process.
-- The `raw/` data files are saved into Git LFS during the build process, but
-  no other data artifact is kept in the Git history.
+- The raw data is pulled from the source locations during the build and release
+  (described below) process, saved into `raw/` and processed into `staging/`. We
+  use [pytask](https://pytask-dev.readthedocs.io/en/stable/) to manage this
+  phase of the build process.
+- The `raw/` data files are saved into Git LFS during the build and release
+  (described below) process, but no other data artifact is kept in the Git
+  history.
 - The metadata file is generated from the Python code into `datapackage.json`
   and the resource files are generated from the `staging/` data. The metadata
-  file is the only file saved in the Git history during this phase. We use
-  [Sprout](https://sprout.seedcase-project.org/) along with
+  file is the only file saved in the Git history during the build and release
+  phase. We use [Sprout](https://sprout.seedcase-project.org/) along with
   [pytask](https://pytask-dev.readthedocs.io/en/stable/) to handle this section
   of the build process.
 - The data package is built into one `.tar` file that contains the metadata file
@@ -76,9 +78,9 @@ Here are some of the steps involved in the build process:
 
 What this means during development is that:
 
-- No data is saved or stored in Git LFS. Outside of the build process,
-  we treat any data pulled from sources or processed into staging or resources
-  as temporary.
+- No data is saved or stored in Git LFS. Outside of the build and release
+  (described below) process, we treat any data pulled from sources or processed
+  into staging or resources as temporary.
 - Pull requests should *not* contain any changes to the `datapackage.json` file
   nor any additions of data in `raw/`, `staging/`, or `resources/`. These files
   are generated during the build process and should not be modified or added
@@ -88,6 +90,15 @@ What this means during development is that:
   or metadata files are being modified directly. See the [release
   process](#release-process) section below for more details on commit messages
   to use.
+
+::: callout-tip
+The build process is simply an automated sequence of steps that uses the code to
+pull raw data (and potentially metadata), process it, and save it into the final
+data package. It does not do anything to the Git history, e.g. committing files.
+However, the release process is where files generated from the build process are
+committed to Git and saved into Git LFS. The release process is described in
+more detail below.
+:::
 
 ## Release process
 
