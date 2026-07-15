@@ -21,7 +21,7 @@ contributes:
       navbar:
         pinned: true
         logo: images/onlimit-apple.png
-        logo-alt: "ON-LiMiT: Main page"
+        logo-alt: "ON LiMiT: Main page"
       search:
         location: navbar
         type: textbox
