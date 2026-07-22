@@ -25,6 +25,7 @@ license-files = ["LICENSE-MIT.md"]
 requires-python = ">=3.12"
 dependencies = [
   "polars>=1.42.1",
+  "pytask>=0.6.0",
   "python-dotenv>=1.2.2",
   "requests>=2.32.5",
   "seedcase-flower>=0.30.1",
@@ -44,6 +45,10 @@ extend = ".config/ruff.toml"
 python_version = "3.12"
 strict = true
 
+[tool.pytask.ini_options]
+paths = ["src/feasibility_data"]
+task_files = ["task_*.py", "build.py"]
+
 [dependency-groups]
 dev = [
   "jupyter>=1.1.1",
@@ -51,3 +56,7 @@ dev = [
   "quarto>=0.1.0",
   "types-requests>=2.32.4.20260107",
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
