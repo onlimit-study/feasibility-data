@@ -50,3 +50,6 @@ docs/index.qmd
 
 # Misc files
 *.log
+
+# Pytask products
+bld/

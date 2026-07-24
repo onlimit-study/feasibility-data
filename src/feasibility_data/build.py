@@ -13,6 +13,8 @@ BLD = SRC.joinpath("..", "bld").resolve()
 BLD_REDCAP = BLD / "redcap"
 
 FIELD_METADATA_PATH = BLD_REDCAP / "field_metadata.json"
+EVENT_METADATA_PATH = BLD_REDCAP / "event_metadata.json"
+REPEATING_FORMS_METADATA_PATH = BLD_REDCAP / "repeating_forms_metadata.json"
 
 
 def task_download_field_metadata(
@@ -21,3 +23,21 @@ def task_download_field_metadata(
     """Download field metadata to `BLD_REDCAP`."""
     metadata = cr.get_json("metadata")
     cj.write_json(field_metadata_path, metadata)
+
+
+def task_download_event_metadata(
+    event_metadata_path: Annotated[Path, Product] = EVENT_METADATA_PATH,
+) -> None:
+    """Download event metadata to `BLD_REDCAP`."""
+    metadata = cr.get_json("formEventMapping")
+    cj.write_json(event_metadata_path, metadata)
+
+
+def task_download_repeating_forms_metadata(
+    repeating_forms_metadata_path: Annotated[
+        Path, Product
+    ] = REPEATING_FORMS_METADATA_PATH,
+) -> None:
+    """Download repeating forms metadata to `BLD_REDCAP`."""
+    metadata = cr.get_json("repeatingFormsEvents")
+    cj.write_json(repeating_forms_metadata_path, metadata)
