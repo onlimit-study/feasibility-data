@@ -2,8 +2,7 @@ from importlib.resources import files
 from pathlib import Path
 from typing import Annotated
 
-from _pytask.nodes import DirectoryNode
-from pytask import Product
+from pytask import DirectoryNode, Product
 
 import feasibility_data.common.json as cj
 import feasibility_data.common.redcap as cr
