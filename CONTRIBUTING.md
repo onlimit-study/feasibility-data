@@ -43,15 +43,98 @@ terminal so that the working directory is the root of this project
 just run-all
 ```
 
+## Release process
+
+Usually the release process for other types of packages is done through a
+`release.yml` GitHub workflow. But for data packages it's a bit different,
+especially when there is human data involved and when the data is on secure
+servers.
+
+- Because the data is on secure servers, we can't use GitHub workflows. Which
+  means we can't use a continuous release process. Instead, releases are done on
+  the server through a scheduler (as a cron job) that runs on a regular basis.
+- The first release happens once there is code that takes the first resource and
+  its metadata from raw into its final state. The code must also be integrated
+  into the `build.py` file, so that the build pipeline can run automatically.
+  Note that we've already created a few releases, but we realised this process
+  didn't work well for data packages and switched to this scheduled process.
+- Because the release is scheduled, each pull request won't trigger a release
+  anymore. Instead, a release will only be created on a schedule (if there are
+  any releasable changes).
+
+<!-- TODO: How often should we release? -->
+
+The steps for creating a release are:
+
+- Check the commit history since the last release for any releasable changes. If
+  no releasable changes are found, then no release is created. Otherwise, the
+  process continues.
+- Update the version based on the commit message and save it into the
+  `pyproject.toml` file using `uv version`. The `datapackage.json` version field
+  uses the version in `pyproject.toml` and will be updated automatically when
+  the `datapackage.json` file is (re)generated.
+- Run the build process from start to end. This is described above in the [build
+  process](#build-process) section.
+- Generate the changelog based on the commit messages since the last release.
+- Commit the changes to the `CHANGELOG.md`, `raw/` files, and `datapackage.json`
+  files, then create a tag for the new version on that commit. Push to GitHub.
+- Create a new GitHub release on GitHub from the new tag and changelog. Attach
+  the built `.zip` file (renamed to `feasibility_data.zip`, since the tag itself
+  contains the version number) to the release.
+
+### Commit types and versions
+
 When committing changes, please try to follow [Conventional
 Commits](https://decisions.seedcase-project.org/why-conventional-commits/) as
-Git messages. Using this convention allows us to be able to automatically create
-a release based on the commit message by using
+Git messages. This convention allows us to be able to automatically create a
+release based on the commit message by using
 [Cocogitto](https://decisions.seedcase-project.org/why-semantic-release-with-cocogitto/).
 If you don't use Conventional Commits when making a commit, we will revise the
 pull request title to follow that format. That's because we use squash merges
 when merging pull requests, so all other commits in the pull request will be
 squashed into one commit.
+
+Which Conventional Commit type you use depends on the content of the commit
+message. We use aspects of [Data Package's semantic
+versioning](https://datapackage.org/recipes/data-package-version/), where `feat`
+updates the `MINOR` version, `fix` and `refactor` updates the `PATCH` version,
+and any `BREAKING CHANGE` (in the commit message footer) or `<type>!` (e.g.,
+`feat!`) updates the `MAJOR` version. The final format is `MAJOR.MINOR.PATCH`.
+
+<!-- TODO: When should a "stable release" be? After all participants go through the first phases? -->
+
+Breaking changes with the `<type>!` format only happens after the first stable
+release. We define the first stable release to be when the data package has all
+expected or planned resources, the metadata has been filled out, and the
+participants have completed the initial, main phases of the study. Before that
+point, only `MINOR` and `PATCH` changes are allowed (we remain at
+`0.MINOR.PATCH`). After that point, breaking changes would be when you:
+
+- Change the data package, resource, or column name or identifier.
+- Remove a resource or column from the data package.
+- Move a column into another resource.
+- Change a column type (e.g. from integer to string).
+- Change a column's constraints to be more restrictive (e.g. reduce the distance
+  between the minimum and maximum values).
+- Remove a participant's data (e.g. they request their data be deleted).
+- Substantially change the meaning of the text in the metadata (e.g. a column's
+  description or a resource's title).
+
+Minor changes with the `feat` format would be:
+
+- Add a new resource.
+- Add data, either as rows or columns to an existing resource.
+- Change a column's constraints to be less restrictive (e.g. increase the
+  distance between the minimum and maximum values).
+- Change data to reflect changes in referenced data
+
+Patch changes with the `fix` and `refactor` formats would be:
+
+- Correct errors in existing data, like a typo or data entry error. Depending on
+  the severity of the error, this could also be a breaking change.
+- Change the text of the metadata without changing the meaning, for example
+  fixing typos, grammatical errors, or clarifying the text without changing its
+  meaning.
 
 ## :file_folder: Explanation of files and folders
 
