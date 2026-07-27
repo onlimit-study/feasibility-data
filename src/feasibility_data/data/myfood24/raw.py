@@ -11,7 +11,7 @@ load_dotenv()
 
 
 def download() -> requests.Response:
-    """Download the data."""
+    """Download the myfood24 data."""
     api = APIConfig(
         # Key couldn't be named "MYFOOD24" bc the entropy became too high and
         # and was flagged by gitleaks as a secret.
