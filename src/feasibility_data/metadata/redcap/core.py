@@ -46,7 +46,7 @@ def _get_choices(field: dict[str, str]) -> list[tuple[str, str]]:
     if not all(matches):
         raise ValueError(_get_error_message(field, "select_choices_or_calculations"))
     return so.fmap(
-        cast(list[re.Match], matches),
+        cast(list[re.Match[str]], matches),
         lambda match: (match.group(1), match.group(2)),
     )
 
