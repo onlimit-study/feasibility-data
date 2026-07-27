@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import UTC, datetime
 from io import StringIO
 from pathlib import Path
 
@@ -30,7 +30,7 @@ def download_data(center: cr.Center) -> str:
 def write_data(raw_data_dir: Path, data: str) -> None:
     """Write the data as a timestamped file."""
     df = pl.read_csv(StringIO(data), separator=";", infer_schema=False)
-    timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
+    timestamp = datetime.now(UTC).strftime("%Y-%m-%dT%H-%M-%SZ")
     data_path = raw_data_dir / f"{timestamp}.csv.gz"
     raw_data_dir.parent.mkdir(parents=True, exist_ok=True)
     df.write_csv(data_path, compression="gzip")
