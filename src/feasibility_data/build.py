@@ -34,6 +34,7 @@ def task_download_data(
     ],
 ) -> None:
     """Download the latest data from all centers to `RAW_REDCAP/<timestamp>.csv.gz`."""
+    # TODO: Handle all centers
     for center in [cr.Center.Copenhagen]:
         data = dr.download_data(center)
         dr.write_data(raw_data_dir, data)
