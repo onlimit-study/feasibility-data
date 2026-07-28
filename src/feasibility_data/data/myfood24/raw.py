@@ -23,7 +23,7 @@ def download() -> requests.Response:
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
-    response = requests.post(api.url, headers=headers, stream=True)
+    response = requests.post(api.url, headers=headers, stream=True, timeout=60)
     response.raise_for_status()
 
     return response
@@ -31,12 +31,10 @@ def download() -> requests.Response:
 
 def write(raw_data_dir: Path, response: requests.Response) -> None:
     """Write the myfood24 data extract zip to the `raw/myfood24/` directory."""
-    timestamp = datetime.now(tz=UTC).strftime("%Y-%m-%dT%H-%M-%S")
+    timestamp = datetime.now(tz=UTC).strftime("%Y-%m-%dT%H-%M-%SZ")
     data_path = raw_data_dir / f"{timestamp}.zip"
     raw_data_dir.parent.mkdir(parents=True, exist_ok=True)
     with open(data_path, "wb") as f:
-        total_size = 0
         for chunk in response.iter_content(chunk_size=8192):
             if chunk:
                 f.write(chunk)
-                total_size += len(chunk)
