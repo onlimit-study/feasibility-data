@@ -32,5 +32,5 @@ def write_data(raw_data_dir: Path, data: str) -> None:
     df = pl.read_csv(StringIO(data), separator=";", infer_schema=False)
     timestamp = datetime.now(UTC).strftime("%Y-%m-%dT%H-%M-%SZ")
     data_path = raw_data_dir / f"{timestamp}.csv.gz"
-    raw_data_dir.parent.mkdir(parents=True, exist_ok=True)
+    raw_data_dir.mkdir(parents=True, exist_ok=True)
     df.write_csv(data_path, compression="gzip")
