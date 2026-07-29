@@ -1,4 +1,8 @@
+import gzip
 import os
+import shutil
+import tempfile
+import zipfile
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -30,10 +34,25 @@ def download() -> requests.Response:
 
 
 def write(raw_data_dir: Path, response: requests.Response) -> None:
-    """Write the myfood24 data extract zip to the `raw/myfood24/` directory."""
+    """Write the myfood24 data extract `.csv.gz` files to the raw directory."""
     timestamp = datetime.now(tz=UTC).strftime("%Y-%m-%dT%H-%M-%SZ")
-    data_path = raw_data_dir / f"{timestamp}.zip"
-    with open(data_path, "wb") as f:
+
+    # Write zip to temporary file.
+    with tempfile.NamedTemporaryFile(suffix=".zip") as temp_file:
         for chunk in response.iter_content(chunk_size=8192):
-            if chunk:
-                f.write(chunk)
+            temp_file.write(chunk)
+        # Ensure data is written to disk.
+        temp_file.flush()
+
+        # Write zip to gzip in `raw/`.
+        with zipfile.ZipFile(temp_file.name) as zip_file:
+            for file in zip_file.infolist():
+                output_path = (
+                    raw_data_dir / f"{Path(file.filename).stem}-{timestamp}.csv.gz"
+                )
+
+                with (
+                    zip_file.open(file) as source_file,
+                    gzip.open(output_path, "wb") as target_file,
+                ):
+                    shutil.copyfileobj(source_file, target_file)
