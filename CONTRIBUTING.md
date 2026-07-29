@@ -74,7 +74,7 @@ Here are some of the steps involved in the build process:
   ignored `releases/` directory, with the filename being the name of the data
   package and the version number (e.g. `feasibility-data_0.1.0.tar`).
 
-<!-- TODO: Do we want to store the README and other files in the `.tar` and `zip` files? Others? -->
+<!-- TODO: Do we want to store other files in the `.tar` and `.zip` files?  -->
 
 What this means during development is that:
 
