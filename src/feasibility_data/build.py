@@ -26,7 +26,7 @@ def task_download_field_metadata(
     cj.write_json(field_metadata_path, metadata)
 
 
-def task_download_data(
+def task_download_raw_redcap_data(
     raw_data_dir: Annotated[
         Path,
         DirectoryNode(root_dir=RAW_REDCAP, pattern="*.csv.gz"),
@@ -37,4 +37,4 @@ def task_download_data(
     # TODO: Handle all centers
     for center in [cr.Center.Copenhagen]:
         data = dr.download_data(center)
-        dr.write_data(raw_data_dir, data)
+        dr.write_data(data, raw_data_dir)

@@ -27,7 +27,7 @@ def download_data(center: cr.Center) -> str:
     ).text
 
 
-def write_data(raw_data_dir: Path, data: str) -> None:
+def write_data(data: str, raw_data_dir: Path) -> None:
     """Write the data as a timestamped file."""
     df = pl.read_csv(StringIO(data), separator=";", infer_schema=False)
     data_path = raw_data_dir / f"{get_current_datetime()}.csv.gz"
