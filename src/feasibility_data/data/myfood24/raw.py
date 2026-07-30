@@ -42,7 +42,7 @@ def write(raw_data_dir: Path, response: requests.Response) -> None:
         # Ensure data is written to disk.
         temp_file.flush()
 
-        # Write zip to gzip in `raw/`.
+        # Extract each CSV from the archive and recompress it as `.csv.gz`.
         with zipfile.ZipFile(temp_file.name) as zip_file:
             for file in zip_file.infolist():
                 output_path = (
