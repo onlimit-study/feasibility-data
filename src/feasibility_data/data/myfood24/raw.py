@@ -3,12 +3,12 @@ import os
 import shutil
 import tempfile
 import zipfile
-from datetime import UTC, datetime
 from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
 
+from feasibility_data.common.datetime import get_current_datetime
 from feasibility_data.common.redcap import APIConfig
 
 load_dotenv()
@@ -35,8 +35,6 @@ def download() -> requests.Response:
 
 def write(raw_data_dir: Path, response: requests.Response) -> None:
     """Write the myfood24 data extract `.csv.gz` files to the raw directory."""
-    timestamp = datetime.now(tz=UTC).strftime("%Y-%m-%dT%H-%M-%SZ")
-
     # Write zip to temporary file.
     with tempfile.NamedTemporaryFile(suffix=".zip") as temp_file:
         for chunk in response.iter_content(chunk_size=8192):
@@ -48,7 +46,8 @@ def write(raw_data_dir: Path, response: requests.Response) -> None:
         with zipfile.ZipFile(temp_file.name) as zip_file:
             for file in zip_file.infolist():
                 output_path = (
-                    raw_data_dir / f"{Path(file.filename).stem}-{timestamp}.csv.gz"
+                    raw_data_dir
+                    / f"{Path(file.filename).stem}-{get_current_datetime()}.csv.gz"
                 )
 
                 with (
