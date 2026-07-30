@@ -9,25 +9,23 @@ import requests
 from dotenv import load_dotenv
 
 from feasibility_data.common.datetime import get_current_datetime
-from feasibility_data.common.redcap import APIConfig
 
 load_dotenv()
 
 
 def download() -> requests.Response:
     """Download the myfood24 data."""
-    api = APIConfig(
-        # Key couldn't be named "MYFOOD24" bc the entropy became too high and
-        # and was flagged by gitleaks as a secret.
-        env_key="MYFOOD_API_KEY",
-        url="https://myfood24.org/api/projects/23816/extract",
-    )
     headers = {
-        "Authorization": f"Api-Key {os.environ.get(api.env_key)}",
+        "Authorization": f"Api-Key {os.environ.get('MYFOOD_API_KEY')}",
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
-    response = requests.post(api.url, headers=headers, stream=True, timeout=60)
+    response = requests.post(
+        "https://myfood24.org/api/projects/23816/extract",
+        headers=headers,
+        stream=True,
+        timeout=60,
+    )
     response.raise_for_status()
 
     return response
