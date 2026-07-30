@@ -44,10 +44,12 @@ def write(raw_data_dir: Path, response: requests.Response) -> None:
 
         # Extract each CSV from the archive and recompress it as `.csv.gz`.
         with zipfile.ZipFile(temp_file.name) as zip_file:
+            current_datetime = get_current_datetime()
+
             for file in zip_file.infolist():
                 output_path = (
                     raw_data_dir
-                    / f"{Path(file.filename).stem}-{get_current_datetime()}.csv.gz"
+                    / f"{Path(file.filename).stem}-{current_datetime}.csv.gz"
                 )
 
                 with (
