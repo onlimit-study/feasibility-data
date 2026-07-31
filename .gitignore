@@ -53,3 +53,6 @@ docs/index.qmd
 
 # Pytask products
 bld/
+
+# Data package build folders
+releases/
