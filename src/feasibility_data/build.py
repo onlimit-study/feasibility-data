@@ -9,6 +9,7 @@ import feasibility_data.common.json as cj
 import feasibility_data.common.redcap as cr
 import feasibility_data.data.myfood24.raw as dmr
 import feasibility_data.data.redcap.raw as dr
+import feasibility_data.metadata.redcap.core as mrc
 
 load_dotenv()
 
@@ -22,6 +23,7 @@ RAW_REDCAP = RAW / "redcap"
 RAW_MYFOOD24 = RAW / "myfood24"
 
 FIELD_METADATA_PATH = BLD_REDCAP / "field_metadata.json"
+FIELD_METADATA_PREPROCESSED_PATH = BLD_REDCAP / "field_metadata_preprocessed.json"
 
 
 def task_download_field_metadata(
@@ -30,18 +32,6 @@ def task_download_field_metadata(
     """Download field metadata to `BLD_REDCAP`."""
     metadata = cr.get_json("metadata")
     cj.write_json(field_metadata_path, metadata)
-
-
-def task_download_myfood24_data(
-    myfood24_raw_data_dir: Annotated[
-        Path,
-        DirectoryNode(root_dir=RAW_MYFOOD24, pattern="*.zip"),
-        Product,
-    ],
-) -> None:
-    """Download the myfood24 data."""
-    data = dmr.download()
-    dmr.write(data, myfood24_raw_data_dir)
 
 
 def task_download_raw_redcap_data(
@@ -56,3 +46,27 @@ def task_download_raw_redcap_data(
     for center in [cr.Center.Copenhagen]:
         data = dr.download_data(center)
         dr.write_data(data, raw_data_dir)
+
+
+def task_preprocess_field_metadata(
+    field_metadata_preprocessed_path: Annotated[
+        Path, Product
+    ] = FIELD_METADATA_PREPROCESSED_PATH,
+    field_metadata_path: Path = FIELD_METADATA_PATH,
+) -> None:
+    """Preprocess field metadata."""
+    field_metadata = cj.read_json(field_metadata_path)
+    field_metadata_preprocessed = mrc.expand_checkbox_fields(field_metadata)
+    cj.write_json(field_metadata_preprocessed_path, field_metadata_preprocessed)
+
+
+def task_download_myfood24_data(
+    myfood24_raw_data_dir: Annotated[
+        Path,
+        DirectoryNode(root_dir=RAW_MYFOOD24, pattern="*.zip"),
+        Product,
+    ],
+) -> None:
+    """Download the myfood24 data."""
+    data = dmr.download()
+    dmr.write(data, myfood24_raw_data_dir)
