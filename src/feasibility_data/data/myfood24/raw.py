@@ -6,11 +6,8 @@ import zipfile
 from pathlib import Path
 
 import requests
-from dotenv import load_dotenv
 
 from feasibility_data.common.datetime import get_current_datetime
-
-load_dotenv()
 
 
 def download() -> requests.Response:

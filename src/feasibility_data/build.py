@@ -2,12 +2,15 @@ from importlib.resources import files
 from pathlib import Path
 from typing import Annotated
 
+from dotenv import load_dotenv
 from pytask import DirectoryNode, Product
 
 import feasibility_data.common.json as cj
 import feasibility_data.common.redcap as cr
 import feasibility_data.data.myfood24.raw as dmr
 import feasibility_data.data.redcap.raw as dr
+
+load_dotenv()
 
 SRC = Path(str(files("feasibility_data"))).joinpath("..").resolve()
 BLD = SRC.joinpath("..", "bld").resolve()
