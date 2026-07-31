@@ -4,9 +4,6 @@ from enum import Enum
 from typing import Any, Literal
 
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 @dataclass
