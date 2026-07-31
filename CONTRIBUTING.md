@@ -200,18 +200,20 @@ Before we can extract properties from the data downloaded from REDCap, we have
 to tidy the data and split it into separate files by resource. To do this, we
 use the following metadata files downloaded from REDCap:
 
-- `field-metadata.json` (REDCap content `metadata`): The list of all fields
-  across all forms in the study. We use this to find which fields belong to
-  which form.
-- `event_metadata.json` (REDCap content `formEventMapping`): The list of all
-  form-event pairs. We use this to determine which forms are filled in at which
-  events (i.e., data collection points).
-- `repeating_forms_metadata.json` (REDCap content `repeatingFormsEvents`): The
-  list of all form-event pairs that includes only forms that can repeat, i.e.,
-  that can be submitted multiple times for the same participant at the same data
-  collection point. We use this to identify which forms can repeat and therefore
-  which derived resources must include a `submission_id` to tell apart different
-  submissions for the same participant at the same data collection point.
+- `field-metadata.json` (REDCap API `content` value: `metadata`): The list of
+  all fields across all forms in the study. We use this to find which fields
+  belong to which form.
+- `event_metadata.json` (REDCap API `content` value: `formEventMapping`): The
+  list of all form-event pairs. We use this to determine which forms are filled
+  in at which events.
+- `repeating_forms_metadata.json` (REDCap API `content` value:
+  `repeatingFormsEvents`): The list of all form-event pairs that includes only
+  forms that can repeat. We use this to identify which forms can repeat and
+  therefore which derived resources must include a `submission_id` to tell apart
+  different submissions for the same participant at the same data collection
+  point.
+
+See the [Glossary](#glossary) for a definition of terms.
 
 ## Layout of `src/`
 
@@ -271,3 +273,22 @@ and more complex than the non-build functions.
 - Each "public" function should be at the top of the module file, with "private"
   (prefixed with `_`) functions below them.
 - Classes, either public or private, go at the top of the file.
+
+## Glossary
+
+- Form: In REDCap, a form or instrument is a collection of related fields that
+  record information about a participant, such as demographics, laboratory
+  measurements, or questionnaire responses. Forms may be completed either by
+  participants (as surveys) or by members of the study team. Every field belongs
+  to exactly one form.
+- Event: In REDCap, an event is a scheduled data collection point in a
+  longitudinal study, such as Prescreening, Visit 1, or Phase 1. It represents a
+  planned stage of the study when data is collected from a participant (rather
+  than the date and time when data is entered into REDCap). One or more forms
+  can be assigned to each event to collect different kinds of information about
+  the participant.
+- Repeating form: In REDCap, a repeating form is a form that can be completed
+  multiple times for the same participant within the same event. Each submission
+  represents a separate instance of the form for that participant and event. For
+  example, the Phase 1 Dietary Deviations form is a repeating form because a
+  participant can report multiple deviations during Phase 1 of the study.
