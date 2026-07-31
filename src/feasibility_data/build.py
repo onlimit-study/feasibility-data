@@ -38,7 +38,7 @@ def task_download_myfood24_data(
 ) -> None:
     """Download the myfood24 data."""
     data = dmr.download()
-    dmr.write(myfood24_raw_data_dir, data)
+    dmr.write(data, myfood24_raw_data_dir)
     
     
 def task_download_raw_redcap_data(

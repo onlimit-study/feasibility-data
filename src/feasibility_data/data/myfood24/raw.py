@@ -31,11 +31,11 @@ def download() -> requests.Response:
     return response
 
 
-def write(raw_data_dir: Path, response: requests.Response) -> None:
+def write(response: requests.Response, output_dir: Path) -> None:
     """Write the myfood24 data extract `.csv.gz` files to the raw directory."""
     # Create raw data dir. Strictly not necessary because pytask creates the dir, but
     # useful if we ever need to run this outside the pytask pipeline.
-    raw_data_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     # Write zip to temporary file.
     with tempfile.NamedTemporaryFile(suffix=".zip") as temp_file:
@@ -50,7 +50,7 @@ def write(raw_data_dir: Path, response: requests.Response) -> None:
 
             for file in zip_file.infolist():
                 output_path = (
-                    raw_data_dir
+                    output_dir
                     / f"{Path(file.filename).stem}-{current_datetime}.csv.gz"
                 )
 
