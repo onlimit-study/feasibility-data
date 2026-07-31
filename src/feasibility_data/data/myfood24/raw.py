@@ -47,8 +47,7 @@ def write(response: requests.Response, output_dir: Path) -> None:
 
             for file in zip_file.infolist():
                 output_path = (
-                    output_dir
-                    / f"{Path(file.filename).stem}-{current_datetime}.csv.gz"
+                    output_dir / f"{Path(file.filename).stem}-{current_datetime}.csv.gz"
                 )
 
                 with (

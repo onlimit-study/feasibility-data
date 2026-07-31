@@ -42,8 +42,8 @@ def task_download_myfood24_data(
     """Download the myfood24 data."""
     data = dmr.download()
     dmr.write(data, myfood24_raw_data_dir)
-    
-    
+
+
 def task_download_raw_redcap_data(
     raw_data_dir: Annotated[
         Path,
