@@ -194,6 +194,25 @@ There are specific things to note about the REDCap data:
 When processing the data, each resource should (almost always) contain a
 `participant_id` and a `visit_id` field.
 
+#### REDCap metadata files
+
+Before we can extract properties from the data downloaded from REDCap, we have
+to tidy the data and split it into separate files by resource. To do this, we
+use the following metadata files downloaded from REDCap:
+
+- `field-metadata.json` (REDCap content `metadata`): The list of all fields
+  across all forms in the study. We use this to find which fields belong to
+  which form.
+- `event_metadata.json` (REDCap content `formEventMapping`): The list of all
+  form-event pairs. We use this to determine which forms are filled in at which
+  events (i.e., data collection points).
+- `repeating_forms_metadata.json` (REDCap content `repeatingFormsEvents`): The
+  list of all form-event pairs that includes only forms that can repeat, i.e.,
+  that can be submitted multiple times for the same participant at the same data
+  collection point. We use this to identify which forms can repeat and therefore
+  which derived resources must include a `submission_id` to tell apart different
+  submissions for the same participant at the same data collection point.
+
 ## Layout of `src/`
 
 Similar to how `raw/` and `staging/` are organized, the Python files within
