@@ -50,7 +50,7 @@ Usually the release process for other types of packages is done through a
 especially when there is human data involved and when the data is on secure
 servers.
 
-- Because the data is on secure servers, we can't use GitHub workflows. Which
+- Because the data is on secure servers, we can't use GitHub workflows. This
   means we can't use a continuous release process. Instead, releases are done on
   the server through a scheduler (as a cron job) that runs on a regular basis.
 - The first release happens once there is code that takes the first resource and
@@ -103,7 +103,7 @@ and any `BREAKING CHANGE` (in the commit message footer) or `<type>!` (e.g.,
 
 <!-- TODO: When should a "stable release" be? After all participants go through the first phases? -->
 
-Breaking changes with the `<type>!` format only happens after the first stable
+Breaking changes with the `<type>!` format only happen after the first stable
 release. We define the first stable release to be when the data package has all
 expected or planned resources, the metadata has been filled out, and the
 participants have completed the initial, main phases of the study. Before that
