@@ -212,6 +212,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">just</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>As you contribute, make sure your changes will pass our tests by opening a terminal so that the working directory is the root of this project (<code>feasibility-data/</code>) and running:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">just</span> run-all</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="build-process" class="level2">
+<h2 class="anchored" data-anchor-id="build-process">Build process</h2>
+<p>Like other types of packages (e.g.&nbsp;Rust, Python, R), the contents of the repository <em>build</em> the final data package, but aren’t the data package itself. The repository contains the source code and raw data input, but isn’t the package itself. We need to first “compile” the code and the raw data input into the final data package.</p>
+<p>Here are some of the steps involved in the build process:</p>
+<ul>
+<li>The raw data is pulled from the source locations during the build and release (described below) process, saved into <code>raw/</code> and processed into <code>staging/</code>. We use <a href="https://pytask-dev.readthedocs.io/en/stable/">pytask</a> to manage this phase of the build process.</li>
+<li>The <code>raw/</code> data files are saved into Git LFS during the build and release (described below) process, but no other data artifact is kept in the Git history.</li>
+<li>The metadata file is generated from the Python code into <code>datapackage.json</code> and the resource files are generated from the <code>staging/</code> data. The metadata file is the only file saved in the Git history during the build and release phase. We use <a href="https://sprout.seedcase-project.org/">Sprout</a> along with <a href="https://pytask-dev.readthedocs.io/en/stable/">pytask</a> to handle this section of the build process.</li>
+<li>The data package is built into one <code>.tar</code> file that contains the metadata file (<code>datapackage.json</code>), <code>LICENSE.md</code>, <code>README.md</code>, and the resource files. It is also built into a <code>.zip</code> file with the same files except for the data. This <code>.zip</code> file will be what is uploaded to public archives, while the <code>.tar</code> file remains on the server. The <code>.tar</code> and <code>.zip</code> files are saved into a Git ignored <code>releases/</code> directory, with the filename being the name of the data package and the version number (e.g.&nbsp;<code>feasibility-data_0.1.0.tar</code>).</li>
+</ul>
+<!-- TODO: Do we want to store other files in the `.tar` and `.zip` files?  -->
+<p>What this means during development is that:</p>
+<ul>
+<li>No data is saved or stored in Git LFS. Outside of the build and release (described below) process, we treat any data pulled from sources or processed into staging or resources as temporary.</li>
+<li>Pull requests should <em>not</em> contain any changes to the <code>datapackage.json</code> file nor any additions of data in <code>raw/</code>, <code>staging/</code>, or <code>resources/</code>. These files are generated during the build process and should not be modified or added directly.</li>
+<li>Commit messages should still be written in the Conventional Commits format, though the specific commit types used are a bit different considering no data or metadata files are being modified directly. See the <a href="#release-process">release process</a> section below for more details on commit messages to use.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The build process is simply an automated sequence of steps that uses the code to pull raw data (and potentially metadata), process it, and save it into the final data package. It does not do anything to the Git history, e.g.&nbsp;committing files. However, the release process is where files generated from the build process are committed to Git and saved into Git LFS. The release process is described in more detail below.</p>
+</div>
+</div>
+</section>
+<section id="release-process" class="level2">
+<h2 class="anchored" data-anchor-id="release-process">Release process</h2>
 <p>When committing changes, please try to follow <a href="https://decisions.seedcase-project.org/why-conventional-commits/">Conventional Commits</a> as Git messages. Using this convention allows us to be able to automatically create a release based on the commit message by using <a href="https://decisions.seedcase-project.org/why-semantic-release-with-cocogitto/">Cocogitto</a>. If you don’t use Conventional Commits when making a commit, we will revise the pull request title to follow that format. That’s because we use squash merges when merging pull requests, so all other commits in the pull request will be squashed into one commit.</p>
 </section>
 <section id="explanation-of-files-and-folders" class="level2">
