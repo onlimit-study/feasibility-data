@@ -91,7 +91,7 @@ What this means during development is that:
   process](#release-process) section below for more details on commit messages
   to use.
 
-::: callout-tip
+::: callout-note
 The build process is simply an automated sequence of steps that uses the code to
 pull raw data (and potentially metadata), process it, and save it into the final
 data package. It does not do anything to the Git history, e.g. committing files.
