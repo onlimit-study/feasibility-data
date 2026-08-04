@@ -200,7 +200,7 @@ Before we can extract properties from the data downloaded from REDCap, we have
 to tidy the data and split it into separate files by resource. To do this, we
 use the following metadata files downloaded from REDCap:
 
-- `field-metadata.json` (REDCap API `content` value: `metadata`): The list of
+- `field_metadata.json` (REDCap API `content` value: `metadata`): The list of
   all fields across all forms in the study. We use this to find which fields
   belong to which form.
 - `event_metadata.json` (REDCap API `content` value: `formEventMapping`): The
