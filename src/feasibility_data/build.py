@@ -4,14 +4,9 @@ from typing import Annotated
 
 from pytask import DirectoryNode, Product
 
-import feasibility_data.common.json as cj
-import feasibility_data.common.redcap as cr
-import feasibility_data.data.myfood24.raw as dmr
-import feasibility_data.data.redcap.raw as dr
-import feasibility_data.metadata.redcap.core as mrc
-from feasibility_data.common import dotenv
+from feasibility_data import common, data, metadata
 
-dotenv.load_env_vars()
+common.dotenv.load_env_vars()
 
 SRC = Path(str(files("feasibility_data"))).joinpath("..").resolve()
 BLD = SRC.joinpath("..", "bld").resolve()
@@ -32,8 +27,8 @@ def task_download_field_metadata(
     field_metadata_path: Annotated[Path, Product] = FIELD_METADATA_PATH,
 ) -> None:
     """Download field metadata to `BLD_REDCAP`."""
-    metadata = cr.get_json("metadata")
-    cj.write_json(field_metadata_path, metadata)
+    metadata = common.redcap.get_json("metadata")
+    common.json.write(field_metadata_path, metadata)
 
 
 def task_download_event_metadata(
@@ -63,9 +58,9 @@ def task_download_raw_redcap_data(
 ) -> None:
     """Download the latest data from all centers to `RAW_REDCAP/<timestamp>.csv.gz`."""
     # TODO: Handle all centers
-    for center in [cr.Center.Copenhagen]:
-        data = dr.download_data(center)
-        dr.write_data(data, raw_data_dir)
+    for center in [common.redcap.Center.Copenhagen]:
+        csv_data = data.redcap.raw.download(center)
+        data.redcap.raw.write(csv_data, raw_data_dir)
 
 
 def task_preprocess_field_metadata(
@@ -75,9 +70,11 @@ def task_preprocess_field_metadata(
     field_metadata_path: Path = FIELD_METADATA_PATH,
 ) -> None:
     """Preprocess field metadata."""
-    field_metadata = cj.read_json(field_metadata_path)
-    field_metadata_preprocessed = mrc.expand_checkbox_fields(field_metadata)
-    cj.write_json(field_metadata_preprocessed_path, field_metadata_preprocessed)
+    field_metadata = common.json.read(field_metadata_path)
+    field_metadata_preprocessed = metadata.redcap.core.expand_checkbox_fields(
+        field_metadata
+    )
+    common.json.write(field_metadata_preprocessed_path, field_metadata_preprocessed)
 
 
 def task_download_myfood24_data(
@@ -88,5 +85,5 @@ def task_download_myfood24_data(
     ],
 ) -> None:
     """Download the myfood24 data."""
-    data = dmr.download()
-    dmr.write(data, myfood24_raw_data_dir)
+    response = data.myfood24.raw.download()
+    data.myfood24.raw.write(response, myfood24_raw_data_dir)
