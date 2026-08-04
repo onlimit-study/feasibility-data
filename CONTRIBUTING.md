@@ -280,7 +280,7 @@ and more complex than the non-build functions.
   record information about a participant, such as demographics, laboratory
   measurements, or questionnaire responses. Forms may be completed either by
   participants (as surveys) or by members of the study team. Every field belongs
-  to exactly one form.
+  to exactly one form and field names are unique across all forms.
 - Event: In REDCap, an event is a scheduled data collection point in a
   longitudinal study, such as Prescreening, Visit 1, or Phase 1. It represents a
   planned stage of the study when data is collected from a participant (rather
