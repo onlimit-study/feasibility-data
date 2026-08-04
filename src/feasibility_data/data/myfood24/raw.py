@@ -7,7 +7,7 @@ from pathlib import Path
 
 import requests
 
-from feasibility_data.common.datetime import get_current_datetime
+from feasibility_data import common
 
 
 def download() -> requests.Response:
@@ -43,7 +43,7 @@ def write(response: requests.Response, output_dir: Path) -> None:
 
         # Extract each CSV from the archive and recompress it as `.csv.gz`.
         with zipfile.ZipFile(temp_file.name) as zip_file:
-            current_datetime = get_current_datetime()
+            current_datetime = common.datetime.get_current()
 
             for file in zip_file.infolist():
                 output_path = (
