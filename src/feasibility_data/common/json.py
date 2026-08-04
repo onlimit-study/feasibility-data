@@ -3,13 +3,13 @@ from pathlib import Path
 from typing import Any
 
 
-def read_json(path: Path) -> Any:
+def read(path: Path) -> Any:
     """Read a JSON file and return the data."""
     with open(path) as f:
         return json.load(f)
 
 
-def write_json(path: Path, data: Any) -> None:
+def write(path: Path, data: Any) -> None:
     """Write data to a JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:
