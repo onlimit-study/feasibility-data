@@ -7,6 +7,7 @@ from pytask import DirectoryNode, Product
 import feasibility_data.common.json as cj
 import feasibility_data.common.redcap as cr
 import feasibility_data.data.myfood24.raw as dmr
+import feasibility_data.data.redcap.core as drc
 import feasibility_data.data.redcap.raw as dr
 import feasibility_data.metadata.redcap.core as mrc
 from feasibility_data.common import dotenv
@@ -19,6 +20,7 @@ RAW = SRC.joinpath("..", "raw").resolve()
 
 BLD_REDCAP = BLD / "redcap"
 RAW_REDCAP = RAW / "redcap"
+RAW_REDCAP_DATA = DirectoryNode(root_dir=RAW_REDCAP, pattern="*.csv.gz")
 
 RAW_MYFOOD24 = RAW / "myfood24"
 
@@ -26,6 +28,7 @@ FIELD_METADATA_PATH = BLD_REDCAP / "field_metadata.json"
 EVENT_METADATA_PATH = BLD_REDCAP / "event_metadata.json"
 REPEATING_FORMS_METADATA_PATH = BLD_REDCAP / "repeating_forms_metadata.json"
 FIELD_METADATA_PREPROCESSED_PATH = BLD_REDCAP / "field_metadata_preprocessed.json"
+FORMS = BLD_REDCAP / "forms"
 
 
 def task_download_field_metadata(
@@ -55,11 +58,7 @@ def task_download_repeating_forms_metadata(
 
 
 def task_download_raw_redcap_data(
-    raw_data_dir: Annotated[
-        Path,
-        DirectoryNode(root_dir=RAW_REDCAP, pattern="*.csv.gz"),
-        Product,
-    ],
+    raw_data_dir: Annotated[Path, RAW_REDCAP_DATA, Product],
 ) -> None:
     """Download the latest data from all centers to `RAW_REDCAP/<timestamp>.csv.gz`."""
     # TODO: Handle all centers
@@ -78,6 +77,31 @@ def task_preprocess_field_metadata(
     field_metadata = cj.read_json(field_metadata_path)
     field_metadata_preprocessed = mrc.expand_checkbox_fields(field_metadata)
     cj.write_json(field_metadata_preprocessed_path, field_metadata_preprocessed)
+
+
+def task_split_forms(
+    forms_dir: Annotated[
+        Path,
+        DirectoryNode(root_dir=FORMS, pattern="**/*.parquet"),
+        Product,
+    ],
+    raw_data_paths: Annotated[list[Path], RAW_REDCAP_DATA],
+    field_metadata_path: Path = FIELD_METADATA_PREPROCESSED_PATH,
+    event_metadata_path: Path = EVENT_METADATA_PATH,
+    repeating_forms_path: Path = REPEATING_FORMS_METADATA_PATH,
+) -> None:
+    """Split each batch of raw data into one Parquet file per form.
+
+    Written to `FORMS/<timestamp>/<form_name>.parquet`.
+    """
+    for raw_data_path in raw_data_paths:
+        drc.split_forms(
+            forms_dir,
+            raw_data_path,
+            cj.read_json(field_metadata_path),
+            cj.read_json(event_metadata_path),
+            cj.read_json(repeating_forms_path),
+        )
 
 
 def task_download_myfood24_data(
