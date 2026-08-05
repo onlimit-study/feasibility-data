@@ -35,8 +35,8 @@ def task_download_event_metadata(
     event_metadata_path: Annotated[Path, Product] = EVENT_METADATA_PATH,
 ) -> None:
     """Download event metadata to `BLD_REDCAP`."""
-    metadata = cr.get_json("formEventMapping")
-    cj.write_json(event_metadata_path, metadata)
+    metadata = common.redcap.get_json("formEventMapping")
+    common.json.write(event_metadata_path, metadata)
 
 
 def task_download_repeating_forms_metadata(
@@ -45,8 +45,8 @@ def task_download_repeating_forms_metadata(
     ] = REPEATING_FORMS_METADATA_PATH,
 ) -> None:
     """Download repeating forms metadata to `BLD_REDCAP`."""
-    metadata = cr.get_json("repeatingFormsEvents")
-    cj.write_json(repeating_forms_metadata_path, metadata)
+    metadata = common.redcap.get_json("repeatingFormsEvents")
+    common.json.write(repeating_forms_metadata_path, metadata)
 
 
 def task_download_raw_redcap_data(
