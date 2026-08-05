@@ -102,15 +102,96 @@ more detail below.
 
 ## Release process
 
+Usually the release process for other types of packages is done through a
+`release.yml` GitHub workflow. But for data packages it's a bit different,
+especially when there is human data involved and when the data is on secure
+servers.
+
+- Because the data is on secure servers, we can't use GitHub workflows. This
+  means we can't use a continuous release process. Instead, releases are done on
+  the server through a scheduler (as a cron job) that runs on a regular basis.
+- The first release happens once there is code that takes the first resource and
+  its metadata from raw into its final state. The code must also be integrated
+  into the `build.py` file, so that the build pipeline can run automatically.
+  Note that we've already created a few releases, but we realised this process
+  didn't work well for data packages and switched to this scheduled process.
+- Because the release is scheduled, each pull request won't trigger a release
+  anymore. Instead, a release will only be created on a schedule (if there are
+  any releasable changes).
+
+<!-- TODO: How often should we release? -->
+
+The steps for creating a release are:
+
+- Check the commit history since the last release for any releasable changes. If
+  no releasable changes are found, then no release is created. Otherwise, the
+  process continues.
+- Update the version based on the commit message and save it into the
+  `pyproject.toml` file using `uv version`. The `datapackage.json` version field
+  uses the version in `pyproject.toml` and will be updated automatically when
+  the `datapackage.json` file is (re)generated.
+- Run the build process from start to end. This is described above in the [build
+  process](#build-process) section.
+- Generate the changelog based on the commit messages since the last release.
+- Commit the changes to the `CHANGELOG.md`, `raw/` files, and `datapackage.json`
+  files, then create a tag for the new version on that commit. Push to GitHub.
+- Create a new GitHub release on GitHub from the new tag and changelog. Attach
+  the built `.zip` file (renamed to `feasibility_data.zip`, since the tag itself
+  contains the version number) to the release.
+
+### Commit types and versions
+
 When committing changes, please try to follow [Conventional
 Commits](https://decisions.seedcase-project.org/why-conventional-commits/) as
-Git messages. Using this convention allows us to be able to automatically create
-a release based on the commit message by using
+Git messages. This convention allows us to be able to automatically create a
+release based on the commit message by using
 [Cocogitto](https://decisions.seedcase-project.org/why-semantic-release-with-cocogitto/).
 If you don't use Conventional Commits when making a commit, we will revise the
 pull request title to follow that format. That's because we use squash merges
 when merging pull requests, so all other commits in the pull request will be
 squashed into one commit.
+
+Which Conventional Commit type you use depends on the content of the commit
+message. We use aspects of [Data Package's semantic
+versioning](https://datapackage.org/recipes/data-package-version/), where `feat`
+updates the `MINOR` version, `fix` and `refactor` updates the `PATCH` version,
+and any `BREAKING CHANGE` (in the commit message footer) or `<type>!` (e.g.,
+`feat!`) updates the `MAJOR` version. The final format is `MAJOR.MINOR.PATCH`.
+
+<!-- TODO: When should a "stable release" be? After all participants go through the first phases? -->
+
+Breaking changes with the `<type>!` format only happen after the first stable
+release. We define the first stable release to be when the data package has all
+expected or planned resources, the metadata has been filled out, and the
+participants have completed the initial, main phases of the study. Before that
+point, only `MINOR` and `PATCH` changes are allowed (we remain at
+`0.MINOR.PATCH`). After that point, breaking changes would be when you:
+
+- Change the data package, resource, or column name or identifier.
+- Remove a resource or column from the data package.
+- Move a column into another resource.
+- Change a column type (e.g. from integer to string).
+- Change a column's constraints to be more restrictive (e.g. reduce the distance
+  between the minimum and maximum values).
+- Remove a participant's data (e.g. they request their data be deleted).
+- Substantially change the meaning of the text in the metadata (e.g. a column's
+  description or a resource's title).
+
+Minor changes with the `feat` format would be:
+
+- Add a new resource.
+- Add data, either as rows or columns to an existing resource.
+- Change a column's constraints to be less restrictive (e.g. increase the
+  distance between the minimum and maximum values).
+- Change data to reflect changes in referenced data
+
+Patch changes with the `fix` and `refactor` formats would be:
+
+- Correct errors in existing data, like a typo or data entry error. Depending on
+  the severity of the error, this could also be a breaking change.
+- Change the text of the metadata without changing the meaning, for example
+  fixing typos, grammatical errors, or clarifying the text without changing its
+  meaning.
 
 ## :file_folder: Explanation of files and folders
 
@@ -194,6 +275,27 @@ There are specific things to note about the REDCap data:
 When processing the data, each resource should (almost always) contain a
 `participant_id` and a `visit_id` field.
 
+#### REDCap metadata files
+
+Before we can extract properties from the data downloaded from REDCap, we have
+to tidy the data and split it into separate files by resource. To do this, we
+use the following metadata files downloaded from REDCap:
+
+- `field_metadata.json` (REDCap API `content` value: `metadata`): The list of
+  all fields across all forms in the study. We use this to find which fields
+  belong to which form.
+- `event_metadata.json` (REDCap API `content` value: `formEventMapping`): The
+  list of all form-event pairs. We use this to determine which forms are filled
+  in at which events.
+- `repeating_forms_metadata.json` (REDCap API `content` value:
+  `repeatingFormsEvents`): The list of all form-event pairs that includes only
+  forms that can repeat. We use this to identify which forms can repeat and
+  therefore which derived resources must include a `submission_id` to tell apart
+  different submissions for the same participant at the same data collection
+  point.
+
+See the [Glossary](#glossary) for a definition of terms.
+
 ## Layout of `src/`
 
 Similar to how `raw/` and `staging/` are organized, the Python files within
@@ -252,3 +354,22 @@ and more complex than the non-build functions.
 - Each "public" function should be at the top of the module file, with "private"
   (prefixed with `_`) functions below them.
 - Classes, either public or private, go at the top of the file.
+
+## Glossary
+
+- Form: In REDCap, a form or instrument is a collection of related fields that
+  record information about a participant, such as demographics, laboratory
+  measurements, or questionnaire responses. Forms may be completed either by
+  participants (as surveys) or by members of the study team. Every field belongs
+  to exactly one form and field names are unique across all forms.
+- Event: In REDCap, an event is a scheduled data collection point in a
+  longitudinal study, such as Prescreening, Visit 1, or Phase 1. It represents a
+  planned stage of the study when data is collected from a participant (rather
+  than the date and time when data is entered into REDCap). One or more forms
+  can be assigned to each event to collect different kinds of information about
+  the participant.
+- Repeating form: In REDCap, a repeating form is a form that can be completed
+  multiple times for the same participant within the same event. Each submission
+  represents a separate instance of the form for that participant and event. For
+  example, the Phase 1 Dietary Deviations form is a repeating form because a
+  participant can report multiple deviations during Phase 1 of the study.
