@@ -14,17 +14,27 @@ def split_forms(
     repeating_forms: list[dict[str, str]],
 ) -> None:
     """Split data into one Parquet file per form."""
-    data = pl.read_csv(raw_data_path, infer_schema=False)
-    timestamp = raw_data_path.name.removesuffix(".csv.gz")
+    raw_df = pl.read_csv(raw_data_path, infer_schema=False)
+    raw_df = _add_missing_columns(raw_df, field_metadata)
 
     form_to_fields = _get_form_field_mapping(field_metadata)
     form_to_events = _get_form_event_mapping(event_metadata)
     repeating_form_names = _get_repeating_forms(repeating_forms)
 
+    timestamp = raw_data_path.name.removesuffix(".csv.gz")
     for df in _split_data_by_form(
-        data, form_to_fields, form_to_events, repeating_form_names
+        raw_df, form_to_fields, form_to_events, repeating_form_names
     ):
         _write_df(df, forms_dir, timestamp)
+
+
+def _add_missing_columns(
+    df: pl.DataFrame, field_metadata: list[dict[str, str]]
+) -> pl.DataFrame:
+    """Add any missing metadata fields as columns in the dataframe."""
+    metadata_fields = so.fmap(field_metadata, itemgetter("field_name"))
+    missing_fields = so.keep(metadata_fields, lambda field: field not in df.columns)
+    return df.with_columns(so.fmap(missing_fields, pl.lit(None).alias))
 
 
 def _split_data_by_form(
