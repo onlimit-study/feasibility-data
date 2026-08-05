@@ -1,4 +1,4 @@
-"""REDCap data functions."""
+"""myfood24 data functions."""
 
 from . import raw
 

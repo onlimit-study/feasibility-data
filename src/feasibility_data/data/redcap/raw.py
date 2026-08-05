@@ -1,15 +1,14 @@
-from datetime import datetime
 from io import StringIO
 from pathlib import Path
 
 import polars as pl
 
-import feasibility_data.common.redcap as cr
+from feasibility_data import common
 
 
-def download_data(center: cr.Center) -> str:
+def download(center: common.redcap.Center) -> str:
     """Download the data."""
-    return cr.get(
+    return common.redcap.get(
         request_data={
             "content": "record",
             "action": "export",
@@ -27,10 +26,9 @@ def download_data(center: cr.Center) -> str:
     ).text
 
 
-def write_data(raw_data_dir: Path, data: str) -> None:
+def write(data: str, raw_data_dir: Path) -> None:
     """Write the data as a timestamped file."""
     df = pl.read_csv(StringIO(data), separator=";", infer_schema=False)
-    timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
-    data_path = raw_data_dir / f"{timestamp}.csv.gz"
-    raw_data_dir.parent.mkdir(parents=True, exist_ok=True)
+    data_path = raw_data_dir / f"{common.datetime.get_current()}.csv.gz"
+    raw_data_dir.mkdir(parents=True, exist_ok=True)
     df.write_csv(data_path, compression="gzip")
