@@ -1,9 +1,26 @@
 from collections import defaultdict
+from dataclasses import dataclass
 from operator import itemgetter
 from pathlib import Path
 
 import polars as pl
 import seedcase_soil as so
+
+
+@dataclass
+class Form:
+    """Class to hold the name and data of a form."""
+
+    name: str
+    data: pl.DataFrame
+
+
+REDCAP_ID_COLS = [
+    "record_id_s",
+    "redcap_event_name",
+    "redcap_repeat_instrument",
+    "redcap_repeat_instance",
+]
 
 
 def split_forms(
@@ -22,10 +39,10 @@ def split_forms(
     repeating_form_names = _get_repeating_forms(repeating_forms)
 
     timestamp = raw_data_path.name.removesuffix(".csv.gz")
-    for df in _split_data_by_form(
+    for form in _split_data_by_form(
         raw_lf, form_to_fields, form_to_events, repeating_form_names
     ):
-        _write_df(df, forms_dir, timestamp)
+        _write_form(form, forms_dir, timestamp)
 
 
 def _add_missing_columns(
@@ -33,9 +50,8 @@ def _add_missing_columns(
 ) -> pl.LazyFrame:
     """Add any missing metadata fields as columns in the dataframe."""
     metadata_fields = so.fmap(field_metadata, itemgetter("field_name"))
-    missing_fields = so.keep(
-        metadata_fields, lambda field: field not in lf.collect_schema().names()
-    )
+    data_fields = set(lf.collect_schema().names())
+    missing_fields = so.keep(metadata_fields, lambda field: field not in data_fields)
     return lf.with_columns(so.fmap(missing_fields, pl.lit(None).alias))
 
 
@@ -44,23 +60,15 @@ def _split_data_by_form(
     form_to_fields: dict[str, list[str]],
     form_to_events: dict[str, list[str]],
     repeating_form_names: set[str],
-) -> list[pl.DataFrame]:
+) -> list[Form]:
     """Split the raw data into one dataframe per form."""
-    dfs = so.fmap(
+    forms = so.fmap(
         form_to_fields.items(),
         lambda form_entry: _create_df_for_form(
             form_entry, raw_lf, form_to_events, repeating_form_names
         ),
     )
-    return so.keep(dfs, lambda df: not df.is_empty())
-
-
-REDCAP_ID_COLS = [
-    "record_id_s",
-    "redcap_event_name",
-    "redcap_repeat_instrument",
-    "redcap_repeat_instance",
-]
+    return so.keep(forms, lambda form: not form.data.is_empty())
 
 
 def _create_df_for_form(
@@ -68,7 +76,7 @@ def _create_df_for_form(
     raw_lf: pl.LazyFrame,
     form_to_events: dict[str, list[str]],
     repeating_form_names: set[str],
-) -> pl.DataFrame:
+) -> Form:
     form_name, field_names = form_entry
     events = form_to_events.get(form_name, [])
     is_repeating = form_name in repeating_form_names
@@ -80,8 +88,6 @@ def _create_df_for_form(
         *so.fmap(content_fields, pl.col),
         # TODO: handle different centers
         pl.lit("Copenhagen").alias("center"),
-        # Only used for creating the Parquet files.
-        pl.lit(form_name).alias("form_name"),
     ]
 
     if is_repeating:
@@ -100,7 +106,7 @@ def _create_df_for_form(
         ),
     ]
 
-    return raw_lf.filter(filters).select(columns).collect()
+    return Form(name=form_name, data=raw_lf.filter(filters).select(columns).collect())
 
 
 def _get_form_field_mapping(
@@ -130,10 +136,8 @@ def _get_repeating_forms(repeating_forms: list[dict[str, str]]) -> set[str]:
     return set(so.fmap(repeating_forms, itemgetter("form_name")))
 
 
-def _write_df(df: pl.DataFrame, forms_dir: Path, timestamp: str) -> None:
+def _write_form(form: Form, forms_dir: Path, timestamp: str) -> None:
     """Write the dataframe."""
-    form_name = df["form_name"][0]
-    file_path = forms_dir / timestamp / f"{form_name}.parquet"
+    file_path = forms_dir / timestamp / f"{form.name}.parquet"
     file_path.parent.mkdir(parents=True, exist_ok=True)
-
-    df.drop("form_name").write_parquet(file_path)
+    form.data.write_parquet(file_path)
