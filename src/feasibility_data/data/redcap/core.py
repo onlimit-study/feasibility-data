@@ -23,6 +23,11 @@ REDCAP_ID_COLS = [
 ]
 
 
+def read_raw(raw_data_path: Path) -> pl.LazyFrame:
+    """Read the raw data into a LazyFrame for optimised processing."""
+    return pl.scan_csv(raw_data_path, infer_schema=False)
+
+
 def get_form_field_mapping(
     field_metadata: list[dict[str, str]],
 ) -> dict[str, list[str]]:
@@ -51,13 +56,12 @@ def get_repeating_forms(repeating_forms: list[dict[str, str]]) -> set[str]:
 
 
 def split_forms(
-    raw_data_path: Path,
+    raw_lf: pl.LazyFrame,
     form_to_fields: dict[str, list[str]],
     form_to_events: dict[str, list[str]],
     repeating_form_names: set[str],
 ) -> list[Form]:
     """Split data into one Parquet file per form."""
-    raw_lf = pl.scan_csv(raw_data_path, infer_schema=False)
     raw_lf = _add_missing_columns(raw_lf, form_to_fields)
 
     return _split_data_by_form(

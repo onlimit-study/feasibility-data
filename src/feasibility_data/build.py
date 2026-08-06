@@ -100,8 +100,9 @@ def task_split_forms(
         common.json.read(repeating_forms_path)
     )
     for raw_data_path in raw_data_paths:
+        raw_data = data.redcap.core.read_raw(raw_data_path)
         forms = data.redcap.core.split_forms(
-            raw_data_path,
+            raw_data,
             form_to_fields,
             form_to_events,
             repeating_form_names,
