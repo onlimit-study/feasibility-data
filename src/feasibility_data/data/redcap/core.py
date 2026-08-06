@@ -14,8 +14,8 @@ def split_forms(
     repeating_forms: list[dict[str, str]],
 ) -> None:
     """Split data into one Parquet file per form."""
-    raw_df = pl.read_csv(raw_data_path, infer_schema=False)
-    raw_df = _add_missing_columns(raw_df, field_metadata)
+    raw_lf = pl.scan_csv(raw_data_path, infer_schema=False)
+    raw_lf = _add_missing_columns(raw_lf, field_metadata)
 
     form_to_fields = _get_form_field_mapping(field_metadata)
     form_to_events = _get_form_event_mapping(event_metadata)
@@ -23,22 +23,24 @@ def split_forms(
 
     timestamp = raw_data_path.name.removesuffix(".csv.gz")
     for df in _split_data_by_form(
-        raw_df, form_to_fields, form_to_events, repeating_form_names
+        raw_lf, form_to_fields, form_to_events, repeating_form_names
     ):
         _write_df(df, forms_dir, timestamp)
 
 
 def _add_missing_columns(
-    df: pl.DataFrame, field_metadata: list[dict[str, str]]
-) -> pl.DataFrame:
+    lf: pl.LazyFrame, field_metadata: list[dict[str, str]]
+) -> pl.LazyFrame:
     """Add any missing metadata fields as columns in the dataframe."""
     metadata_fields = so.fmap(field_metadata, itemgetter("field_name"))
-    missing_fields = so.keep(metadata_fields, lambda field: field not in df.columns)
-    return df.with_columns(so.fmap(missing_fields, pl.lit(None).alias))
+    missing_fields = so.keep(
+        metadata_fields, lambda field: field not in lf.collect_schema().names()
+    )
+    return lf.with_columns(so.fmap(missing_fields, pl.lit(None).alias))
 
 
 def _split_data_by_form(
-    raw_df: pl.DataFrame,
+    raw_lf: pl.LazyFrame,
     form_to_fields: dict[str, list[str]],
     form_to_events: dict[str, list[str]],
     repeating_form_names: set[str],
@@ -47,7 +49,7 @@ def _split_data_by_form(
     dfs = so.fmap(
         form_to_fields.items(),
         lambda form_entry: _create_df_for_form(
-            form_entry, raw_df, form_to_events, repeating_form_names
+            form_entry, raw_lf, form_to_events, repeating_form_names
         ),
     )
     return so.keep(dfs, lambda df: not df.is_empty())
@@ -63,7 +65,7 @@ REDCAP_ID_COLS = [
 
 def _create_df_for_form(
     form_entry: tuple[str, list[str]],
-    raw_df: pl.DataFrame,
+    raw_lf: pl.LazyFrame,
     form_to_events: dict[str, list[str]],
     repeating_form_names: set[str],
 ) -> pl.DataFrame:
@@ -98,7 +100,7 @@ def _create_df_for_form(
         ),
     ]
 
-    return raw_df.filter(filters).select(columns)
+    return raw_lf.filter(filters).select(columns).collect()
 
 
 def _get_form_field_mapping(
