@@ -90,13 +90,22 @@ def task_split_forms(
 
     Written to `FORMS/<timestamp>/<form_name>.parquet`.
     """
+    form_to_fields = data.redcap.core.get_form_field_mapping(
+        common.json.read(field_metadata_path)
+    )
+    form_to_events = data.redcap.core.get_form_event_mapping(
+        common.json.read(event_metadata_path)
+    )
+    repeating_form_names = data.redcap.core.get_repeating_forms(
+        common.json.read(repeating_forms_path)
+    )
     for raw_data_path in raw_data_paths:
         data.redcap.core.split_forms(
             forms_dir,
             raw_data_path,
-            common.json.read(field_metadata_path),
-            common.json.read(event_metadata_path),
-            common.json.read(repeating_forms_path),
+            form_to_fields,
+            form_to_events,
+            repeating_form_names,
         )
 
 

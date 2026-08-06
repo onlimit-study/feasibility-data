@@ -23,20 +23,43 @@ REDCAP_ID_COLS = [
 ]
 
 
+def get_form_field_mapping(
+    field_metadata: list[dict[str, str]],
+) -> dict[str, list[str]]:
+    """Get a mapping from form name to a list of field names in that form."""
+    mapping: dict[str, list[str]] = defaultdict(list)
+    for field in field_metadata:
+        mapping[field["form_name"]].append(field["field_name"])
+
+    return mapping
+
+
+def get_form_event_mapping(
+    event_metadata: list[dict[str, str]],
+) -> dict[str, list[str]]:
+    """Get a mapping from form names to event names where the form is filled in."""
+    mapping: dict[str, list[str]] = defaultdict(list)
+    for item in event_metadata:
+        mapping[item["form"]].append(item["unique_event_name"])
+
+    return mapping
+
+
+def get_repeating_forms(repeating_forms: list[dict[str, str]]) -> set[str]:
+    """Get the set of repeating form names."""
+    return set(so.fmap(repeating_forms, itemgetter("form_name")))
+
+
 def split_forms(
     forms_dir: Path,
     raw_data_path: Path,
-    field_metadata: list[dict[str, str]],
-    event_metadata: list[dict[str, str]],
-    repeating_forms: list[dict[str, str]],
+    form_to_fields: dict[str, list[str]],
+    form_to_events: dict[str, list[str]],
+    repeating_form_names: set[str],
 ) -> None:
     """Split data into one Parquet file per form."""
     raw_lf = pl.scan_csv(raw_data_path, infer_schema=False)
-    raw_lf = _add_missing_columns(raw_lf, field_metadata)
-
-    form_to_fields = _get_form_field_mapping(field_metadata)
-    form_to_events = _get_form_event_mapping(event_metadata)
-    repeating_form_names = _get_repeating_forms(repeating_forms)
+    raw_lf = _add_missing_columns(raw_lf, form_to_fields)
 
     timestamp = raw_data_path.name.removesuffix(".csv.gz")
     for form in _split_data_by_form(
@@ -46,10 +69,10 @@ def split_forms(
 
 
 def _add_missing_columns(
-    lf: pl.LazyFrame, field_metadata: list[dict[str, str]]
+    lf: pl.LazyFrame, form_to_fields: dict[str, list[str]]
 ) -> pl.LazyFrame:
     """Add any missing metadata fields as columns in the dataframe."""
-    metadata_fields = so.fmap(field_metadata, itemgetter("field_name"))
+    metadata_fields = so.flat_fmap(form_to_fields.values(), lambda fields: fields)
     data_fields = set(lf.collect_schema().names())
     missing_fields = so.keep(metadata_fields, lambda field: field not in data_fields)
     return lf.with_columns(so.fmap(missing_fields, pl.lit(None).alias))
@@ -107,33 +130,6 @@ def _create_df_for_form(
     ]
 
     return Form(name=form_name, data=raw_lf.filter(filters).select(columns).collect())
-
-
-def _get_form_field_mapping(
-    field_metadata: list[dict[str, str]],
-) -> dict[str, list[str]]:
-    """Get a mapping from form name to a list of field names in that form."""
-    mapping: dict[str, list[str]] = defaultdict(list)
-    for field in field_metadata:
-        mapping[field["form_name"]].append(field["field_name"])
-
-    return mapping
-
-
-def _get_form_event_mapping(
-    event_metadata: list[dict[str, str]],
-) -> dict[str, list[str]]:
-    """Get a mapping from form names to event names where the form is filled in."""
-    mapping: dict[str, list[str]] = defaultdict(list)
-    for item in event_metadata:
-        mapping[item["form"]].append(item["unique_event_name"])
-
-    return mapping
-
-
-def _get_repeating_forms(repeating_forms: list[dict[str, str]]) -> set[str]:
-    """Get the set of repeating form names."""
-    return set(so.fmap(repeating_forms, itemgetter("form_name")))
 
 
 def _write_form(form: Form, forms_dir: Path, timestamp: str) -> None:
