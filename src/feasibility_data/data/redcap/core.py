@@ -23,9 +23,10 @@ REDCAP_ID_COLS = [
 ]
 
 
-def read_raw(raw_data_path: Path) -> pl.LazyFrame:
-    """Read the raw data into a LazyFrame for optimised processing."""
-    return pl.scan_csv(raw_data_path, infer_schema=False)
+def read_raw(raw_data_path: Path, form_to_fields: dict[str, list[str]]) -> pl.LazyFrame:
+    """Read the raw data into a LazyFrame with missing columns added."""
+    raw_lf = pl.scan_csv(raw_data_path, infer_schema=False)
+    return _with_missing_columns(raw_lf, form_to_fields)
 
 
 def get_form_field_mapping(
@@ -61,12 +62,14 @@ def split_forms(
     form_to_events: dict[str, list[str]],
     repeating_form_names: set[str],
 ) -> list[Form]:
-    """Split data into one Parquet file per form."""
-    raw_lf = _add_missing_columns(raw_lf, form_to_fields)
-
-    return _split_data_by_form(
-        raw_lf, form_to_fields, form_to_events, repeating_form_names
+    """Split the raw data into one dataframe per form."""
+    forms = so.fmap(
+        form_to_fields.items(),
+        lambda form_entry: _create_df_for_form(
+            form_entry, raw_lf, form_to_events, repeating_form_names
+        ),
     )
+    return so.keep(forms, lambda form: not form.data.is_empty())
 
 
 def write_form(form: Form, forms_dir: Path, timestamp: str) -> None:
@@ -76,7 +79,7 @@ def write_form(form: Form, forms_dir: Path, timestamp: str) -> None:
     form.data.write_parquet(file_path)
 
 
-def _add_missing_columns(
+def _with_missing_columns(
     lf: pl.LazyFrame, form_to_fields: dict[str, list[str]]
 ) -> pl.LazyFrame:
     """Add any missing metadata fields as columns in the dataframe."""
@@ -84,22 +87,6 @@ def _add_missing_columns(
     data_fields = set(lf.collect_schema().names())
     missing_fields = so.keep(metadata_fields, lambda field: field not in data_fields)
     return lf.with_columns(so.fmap(missing_fields, pl.lit(None).alias))
-
-
-def _split_data_by_form(
-    raw_lf: pl.LazyFrame,
-    form_to_fields: dict[str, list[str]],
-    form_to_events: dict[str, list[str]],
-    repeating_form_names: set[str],
-) -> list[Form]:
-    """Split the raw data into one dataframe per form."""
-    forms = so.fmap(
-        form_to_fields.items(),
-        lambda form_entry: _create_df_for_form(
-            form_entry, raw_lf, form_to_events, repeating_form_names
-        ),
-    )
-    return so.keep(forms, lambda form: not form.data.is_empty())
 
 
 def _create_df_for_form(
