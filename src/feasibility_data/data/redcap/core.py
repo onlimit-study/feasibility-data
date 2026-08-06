@@ -72,8 +72,9 @@ def split_forms(
     return so.keep(forms, lambda form: not form.data.is_empty())
 
 
-def write_form(form: Form, forms_dir: Path, timestamp: str) -> None:
+def write_form(form: Form, forms_dir: Path, raw_data_path: Path) -> None:
     """Write the dataframe."""
+    timestamp = raw_data_path.name.removesuffix(".csv.gz")
     file_path = forms_dir / timestamp / f"{form.name}.parquet"
     file_path.parent.mkdir(parents=True, exist_ok=True)
     form.data.write_parquet(file_path)
