@@ -100,13 +100,15 @@ def task_split_forms(
         common.json.read(repeating_forms_path)
     )
     for raw_data_path in raw_data_paths:
-        data.redcap.core.split_forms(
-            forms_dir,
+        forms = data.redcap.core.split_forms(
             raw_data_path,
             form_to_fields,
             form_to_events,
             repeating_form_names,
         )
+        timestamp = raw_data_path.name.removesuffix(".csv.gz")
+        for form in forms:
+            data.redcap.core.write_form(form, forms_dir, timestamp)
 
 
 def task_download_myfood24_data(

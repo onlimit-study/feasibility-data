@@ -51,21 +51,25 @@ def get_repeating_forms(repeating_forms: list[dict[str, str]]) -> set[str]:
 
 
 def split_forms(
-    forms_dir: Path,
     raw_data_path: Path,
     form_to_fields: dict[str, list[str]],
     form_to_events: dict[str, list[str]],
     repeating_form_names: set[str],
-) -> None:
+) -> list[Form]:
     """Split data into one Parquet file per form."""
     raw_lf = pl.scan_csv(raw_data_path, infer_schema=False)
     raw_lf = _add_missing_columns(raw_lf, form_to_fields)
 
-    timestamp = raw_data_path.name.removesuffix(".csv.gz")
-    for form in _split_data_by_form(
+    return _split_data_by_form(
         raw_lf, form_to_fields, form_to_events, repeating_form_names
-    ):
-        _write_form(form, forms_dir, timestamp)
+    )
+
+
+def write_form(form: Form, forms_dir: Path, timestamp: str) -> None:
+    """Write the dataframe."""
+    file_path = forms_dir / timestamp / f"{form.name}.parquet"
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    form.data.write_parquet(file_path)
 
 
 def _add_missing_columns(
@@ -130,10 +134,3 @@ def _create_df_for_form(
     ]
 
     return Form(name=form_name, data=raw_lf.filter(filters).select(columns).collect())
-
-
-def _write_form(form: Form, forms_dir: Path, timestamp: str) -> None:
-    """Write the dataframe."""
-    file_path = forms_dir / timestamp / f"{form.name}.parquet"
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    form.data.write_parquet(file_path)
