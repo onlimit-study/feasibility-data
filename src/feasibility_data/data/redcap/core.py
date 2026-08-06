@@ -32,7 +32,7 @@ def read_raw(raw_data_path: Path, form_to_fields: dict[str, list[str]]) -> pl.La
 def get_form_field_mapping(
     field_metadata: list[dict[str, str]],
 ) -> dict[str, list[str]]:
-    """Get a mapping from form name to a list of field names in that form."""
+    """Get a mapping from form name to field names in that form."""
     mapping: dict[str, list[str]] = defaultdict(list)
     for field in field_metadata:
         mapping[field["form_name"]].append(field["field_name"])
@@ -43,7 +43,7 @@ def get_form_field_mapping(
 def get_form_event_mapping(
     event_metadata: list[dict[str, str]],
 ) -> dict[str, list[str]]:
-    """Get a mapping from form names to event names where the form is filled in."""
+    """Get a mapping from form name to event names where the form is filled in."""
     mapping: dict[str, list[str]] = defaultdict(list)
     for item in event_metadata:
         mapping[item["form"]].append(item["unique_event_name"])
