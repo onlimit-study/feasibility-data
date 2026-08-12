@@ -1,0 +1,156 @@
+﻿Key,Danish Description,English Description,Denmark
+EDPOR,Spiselig andel,Edible proportion,Available
+SPECGRAV,Spesifik tyngdekraft,Specific gravity,Available
+SOLD,Totalt tørstof (g),Total solids (g),Available
+NCF,Nitrogenomregningsfaktor,Nitrogen conversion factor,Available
+GCF,Glycerolomregningsfaktor,Glycerol conversion factor,Available
+WATER,Vand (g),Water (g),Available
+TOTNIT,Totalt nitrogen (g),Total nitrogen (g),Available
+PROT,Protein (g),Protein (g),Available
+FAT,Fedt (g),Fat (g),Available
+CHO,Kulhydrat (g),Carbohydrate (g),Available
+KCALS,Energi (kcal),Energy (kcal),Available
+KJ,Energi (kJ),Energy (kJ),Available
+STAR,Stivelse (g),Starch (g),Available
+OLIGO,Oligosakkarid (g),Oligosaccharide (g),Available
+TOTSUG,Sukrose i alt (g),Total sugars (g),Available
+GLUC,Glukose (g),Glucose (g),Available
+GALACT,Galaktose (g),Galactose (g),Available
+FRUCT,Fruktose (g),Fructose (g),Available
+SUCR,Sukrose (g),Sucrose (g),Available
+MALT,Maltose (g),Maltose (g),Available
+LACT,Laktose (g),Lactose (g),Available
+ALCO,Alkohol (g),Alcohol (g),Available
+ENGFIB,Ikke-stivelses polysakkarid (NSP) (g),Non-starch polysaccharide (NSP) (g),Available
+AOACFIB,AOAC fiber (g),AOAC fibre (g),Available
+SATFAC,Mættede fedtsyrer pr. 100 g fedtsyre (g),Saturated fatty acids per 100g fatty acid (g),Available
+SATFOD,Mættede fedtsyrer (g),Saturated fatty acids (g),Available
+TOTn6PFAC,I alt n-6 flerumættede fedtsyrer pr. 100 g fedtsyre (g),Total n-6 polyunsaturated fatty acids per 100g fatty acid (g),Available
+TOTn6PFOD,I alt n-6 flerumættede fedtsyrer (g),Total n-6 polyunsaturated fatty acids (g),Available
+TOTn3PFAC,I alt n-3 flerumættede fedtsyrer pr. 100 g fedtsyre (g),Total n-3 polyunsaturated fatty acids per 100g fatty acid (g),Available
+TOTn3PFOD,I alt n-3 flerumættede fedtsyrer (g),Total n-3 polyunsaturated fatty acids (g),Available
+MONOFACc,cis-enkeltumættede fedtsyrer pr. 100 g fedtsyre (g),cis-Monounsaturated fatty acids per 100g fatty acid (g),Available
+MONOFODc,cis-enkeltumættede fedtsyrer (g),cis-Monounsaturated fatty acids (g),Available
+MONOFAC,enkeltumættede fedtsyrer pr. 100 g fedtsyre (g),Monounsaturated fatty acids per 100g fatty acid (g),Available
+MONOFOD,enkeltumættede fedtsyrer (g),Monounsaturated fatty acids (g),Available
+POLYFACc,cis-flerumættede fedtsyrer pr. 100 g fedtsyre (g),cis-Polyunsaturated fatty acids per 100g fatty acid (g),Available
+POLYFODc,cis-flerumættede fedtsyrer (g),cis-Polyunsaturated fatty (g),Available
+POLYFAC,flerumættede fedtsyrer pr. 100 g fedtsyre (g),Polyunsaturated fatty acids per 100g fatty acid (g),Available
+POLYFOD,Flerumættede fedtsyrer pr. 100 g fedtsyre (g),Polyunsaturated fatty acids (g),Available
+SATFACx6,Flerumættede fedtsyrer (g),Saturated fatty acids excluding branched per 100g fatty acid (g),Available
+SATFODx6,Mættede fedtsyrer eksklusive forgrenede fedtsyrer pr. 100 g (g),Saturated fatty acids excluding branched (g),Available
+TOTBRFAC,Mættede fedtsyrer syrer eksklusive forgrenede (g),Total branched chain fatty acids per 100g fatty acid (g),Available
+TOTBRFOD,Samlede forgrenede fedtsyrer pr. 100 g fedtsyre (g),Total branched chain fatty acids (g),Available
+FACTRANS,Samlede forgrenede fedtsyrer (g),Total trans fatty acids per 100g fatty acid (g),Available
+FODTRANS,Samlede transfedtsyrer pr. 100 g fedtsyre (g),Total trans fatty acids (g),Available
+CHOL,Samlede transfedtsyrer (mg),Cholesterol (mg),Available
+NA,Natrium (mg),Sodium (mg),Available
+K,Kalium (mg),Potassium (mg),Available
+CA,Calcium (mg),Calcium (mg),Available
+MG,Magnesium (mg),Magnesium (mg),Available
+P,Fosfor (mg),Phosphorus (mg),Available
+FE,Jern (mg),Iron (mg),Available
+CU,Kobber (mg),Copper (mg),Available
+ZN,Zink (mg),Zinc (mg),Available
+CL,Klorid (mg),Chloride (mg),Available
+MN,Mangan (mg),Manganese (mg),Available
+SE,Selen (µg),Selenium (µg),Available
+I,Jod (µg),Iodine (µg),Available
+RET,Retinol (µg),Retinol (µg),Available
+CAREQU,Caroten (µg),Carotene (µg),Available
+RETEQU,Retinolækvivalent (µg),Retinol Equivalent (µg),Available
+VITD,Total D-vitamin (µg),Total Vitamin D (µg),Available
+VITE,Total E-vitamin (mg),Total Vitamin E (mg),Available
+VITK1,Phylloquinon - Vitamin K1 (µg),Phylloquinone - Vitamin K1 (µg),Available
+THIA,Thiamin (mg),Thiamin (mg),Available
+RIBO,Riboflavin (mg),Riboflavin (mg),Available
+NIAC,Niacin (mg),Niacin (mg),Available
+TRYP60,Tryptophan/60 (mg),Tryptophan/60 (mg),Available
+NIACEQU,Niacinækvivalent (mg),Niacin equivalent (mg),Available
+VITB6,Vitamin B6 (mg),Vitamin B6 (mg),Available
+VITB12,Vitamin B12 (µg),Vitamin B12 (µg),Available
+FOLT,Folat (µg),Folate (µg),Available
+PANTO,Pantothenat (mg),Pantothenate (mg),Available
+BIOT,Biotin (µg),Biotin (µg),Available
+VITC,C-vitamin (mg),Vitamin C (mg),Available
+ALTRET,All-trans-retinol (µg),All-trans-retinol (µg),Available
+13CISRET,13-cis-retinol (µg),13-cis-retinol (µg),Available
+DEHYRET,Dehydroretinol (µg),Dehydroretinol (µg),Available
+RETALD,Retinaldehyd (µg),Retinaldehyde (µg),Available
+ACAR,Alfa-caroten (µg),Alpha-carotene (µg),Available
+BCAR,Beta-caroten (µg),Beta-carotene (µg),Available
+CRYPT,Cryptoxanthiner (µg),Cryptoxanthins (µg),Available
+LUT,Lutein (µg),Lutein (µg),Available
+LYCO,Lycopen (µg),Lycopene (µg),Available
+25OHD3,25-hydroxyvitamin D3 (µg),25-hydroxy vitamin D3 (µg),Available
+VITD3,Cholecalciferol (µg),Cholecalciferol (µg),Available
+5METHF,5-methylfolat (µg),5-methyl folate (µg),Available
+ATOPH,Alfa-tocopherol (mg),Alpha-tocopherol (mg),Available
+BTOPH,Beta-tocopherol (mg),Beta-tocopherol (mg),Available
+DTOPH,Delta-tocopherol (mg),Delta-tocopherol (mg),Available
+GTOPH,Gamma-tocopherol (mg),Gamma-tocopherol (mg),Available
+ATOTR,Alfa-tocotrienol (mg),Alpha-tocotrienol (mg),Available
+DTOTR,Delta-tocotrienol (mg),Delta-tocotrienol (mg),Available
+GTOTR,Gamma-tocotrienol (mg),Gamma-tocotrienol (mg),Available
+FAC14:0,Tetradecansyre C14:0 pr. 100 g fedtsyrer (g),Tetradecanoic acid C14:0 per 100g fatty acids (g),Available
+FAC16:0,Hexadecansyre C16:0 pr. 100 g fedtsyrer (g),Hexadecanoic acid C16:0 per 100g fatty acids (g),Available
+FOD14:0,Tetradecansyre C14:0 (g),Tetradecanoic acid C14:0 (g),Available
+FOD16:0,Hexadecansyre C16:0 (g),Hexadecanoic acid C16:0 (g),Available
+FAC20:3cn6,cis n-6 C20:3 eicosatriensyre pr. 100 g fedtsyrer (g),cis n-6 C20:3 eicosatrienoic acid per 100g fatty acids (g),Available
+FAC20:4cn6,cis n-6 C20:4 eicosatetraensyre pr. 100 g fedtsyrer (g),cis n-6 C20:4 eicosatetraenoic acid per 100g fatty acids (g),Available
+FAC20:5cn3,cis n-3 C20:5 eicosapentaensyre (EPA) pr. 100 g fedtsyrer (g),cis n-3 C20:5 eicosapentaenoic acid (EPA) per 100g fatty acids (g),Available
+FAC22:6cn3,cis n-3 C22:6 docosahexaensyre (DHA) pr. 100 g fedtsyrer (g),cis n-3 C22:6 docosahexaenoic acid (DHA) per 100g fatty acids (g),Available
+FOD20:3cn6,cis n-6 C20:3 eicosatriensyre (g),cis n-6 C20:3 eicosatrienoic acid (g),Available
+FOD20:5cn3,cis n-3 C20:5 eicosapentaensyre (EPA) (g),cis n-3 C20:5 eicosapentaenoic acid (EPA) (g),Available
+FOD22:6cn3,cis n-3 C22:6 docosahexaensyre (DHA) (g),cis n-3 C22:6 docosahexaenoic acid (DHA) (g),Available
+Total PHYTO,Samlede phytosteroler (mg),Total phytosterols (mg),Available
+Other CHOL and PHYTO,Andre kolesterol og phytosteroler (mg),Other cholesterol and phytosterols (mg),Available
+PHYTO,Phytosterol (mg),Phytosterol (mg),Available
+BSITPHYTO,Beta-sitosterol (mg),Beta-sitosterol (mg),Available
+BRASPHYTO,Brassicasterol (mg),Brassicasterol (mg),Available
+CAMPHYTO,Campesterol (mg),Campesterol (mg),Available
+D5AVEN,Delta-5-avenasterol (mg),Delta-5-avenasterol (mg),Available
+D7AVEN,Delta-7-avenasterol (mg),Delta-7-avenasterol (mg),Available
+D7STIG,Delta-7-stigmastenol (mg),Delta-7-stigmastenol (mg),Available
+STIGPHYTO,Stigmasterol (mg),Stigmasterol (mg),Available
+CITA,Citronsyre (g),Citric acid (g),Available
+MALA,Æblesyre (g),Malic acid (g),Available
+LKCAL,L Energi (kcal),LEnergy (kcal),Available
+LKJ,L Energi (kJ),LEnergy (kJ),Available
+LPROT,L Protein (g),LProtein (g),Available
+LCHO,L Kulhydrat (g),LCarbohydrate (g),Available
+LTOTSUG,L Sukker i alt (g),LTotal Sugars (g),Available
+LSTAR,L Stivelse (g),LStarch (g),Available
+Fruit,Total frugt (g),Total fruit (g),Available
+Veg,Total grøntsager (g),Total veg (g),Available
+Meat,Total kød (g),Total meat (g),Available
+Fish,Total fisk (g),Total fish (g),Available
+Wholegrain,Total fuldkorn (g),Total wholegrain (g),Available
+Tags,Kategorimærke,Category tag,Available
+TOTGHGE,Total drivhusgasemissioner (kg CO2e/ pr. kg),Total Green House Gas Emissions (kg CO2e/ pr. kg),Available
+AgriGHGE,Landbrugs drivhusgasemissioner,Arigculture Green House Gas Emissions,Available
+iLUCGHGE,Indirekte ændringer i arealanvendelse,Indirect Land Use Change Green House Gas Emissions,Available
+ProcGHGE,Forarbejdning af drivhusgasemissioner,Processing Green House Gas Emissions,Available
+PackGHGE,Emballage af drivhusgasemissioner,Packaging Green House Gas Emissions,Available
+TranspGHGE,Transport af drivhusgasemissioner,Transport Green House Gas Emissions,Available
+RetGHGE,Detailhandel af drivhusgasemissioner,Retail Green House Gas Emissions,Available
+SCORE_EF,Unik score EF 3.1 (AGRIBALYSE),Unique score EF 3.1 (AGRIBALYSE),Available
+CLIMATE,Klimaændringer (AGRIBALYSE),Climate change (AGRIBALYSE),Available
+OZONE,Ozonlagsnedbrydning (AGRIBALYSE),Ozone layer depletion (AGRIBALYSE),Available
+IONISATION,Ioniserende stråling (AGRIBALYSE),Ionizing radiation (AGRIBALYSE),Available
+FORMA_OZONE,Fotokemisk ozondannelse (AGRIBALYSE),Photochemical ozone formation (AGRIBALYSE),Available
+PARTICULES,Fine partikler (AGRIBALYSE),Fine particles (AGRIBALYSE),Available
+NON_CANCERO,Toksikologiske virkninger på menneskers sundhed: ikke-kræftfremkaldende stoffer (AGRIBALYSE),Toxicological effects on human health: non-carcinogenic substances (AGRIBALYSE),Available
+CANCERO,Toksikologiske virkninger på menneskers sundhed: kræftfremkaldende stoffer (AGRIBALYSE),Toxicological effects on human health: carcinogenic substances (AGRIBALYSE),Available
+ACIDIFICATION,Forsuring af land og ferskvand (AGRIBALYSE),Terrestrial and freshwater acidification (AGRIBALYSE),Available
+EUTROPH_FRESH,Eutrofiering af ferskvand (AGRIBALYSE),Eutrophication of freshwater (AGRIBALYSE),Available
+EUTROPH_MARINE,Marin eutrofiering (AGRIBALYSE),Marine eutrophication (AGRIBALYSE),Available
+EUTROPH_TERRE,Terrestrisk eutrofiering (AGRIBALYSE),Terrestrial eutrophication (AGRIBALYSE),Available
+ECOTOX,Økotoksicitet for ferskvandsøkosystemer (AGRIBALYSE),Ecotoxicity for freshwater aquatic ecosystems (AGRIBALYSE),Available
+LANDUSE,Arealanvendelse (AGRIBALYSE),Land use (AGRIBALYSE),Available
+EP_WATER,Udtømning af vandressourcer (AGRIBALYSE),Water resource depletion (AGRIBALYSE),Available
+EP_ENERGY,Udtømning af energiressourcer (AGRIBALYSE),Energy resource depletion (AGRIBALYSE),Available
+EP_MINERAL,Udtømning af mineralressourcer (AGRIBALYSE),Mineral resource depletion (AGRIBALYSE),Available
+CLIMATE_BIOGENIC,Klimaændringer - biogene emissioner (AGRIBALYSE),Climate change - biogenic emissions (AGRIBALYSE),Available
+CLIMATE_FOSSIL,Klimaændringer - fossile udledninger (AGRIBALYSE),Climate change - fossil emissions (AGRIBALYSE),Available
+CLIMATE_LANDUSE,Klimaændringer - udledninger relateret til ændringer i arealanvendelsen (AGRIBALYSE),Climate change - emissions related to land-use change (AGRIBALYSE),Available
