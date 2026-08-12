@@ -63,11 +63,16 @@ def split_forms(
     repeating_form_names: set[str],
 ) -> list[Form]:
     """Split the raw data into one dataframe per form."""
-    forms = so.fmap(
+    lazy_dfs = so.fmap(
         form_to_fields.items(),
         lambda form_entry: _create_df_for_form(
             form_entry, raw_lf, form_to_events, repeating_form_names
         ),
+    )
+    dfs = pl.collect_all(lazy_dfs)
+    forms = so.fmap(
+        zip(form_to_fields.keys(), dfs),
+        lambda zipped: Form(name=zipped[0], data=zipped[1]),
     )
     return so.keep(forms, lambda form: not form.data.is_empty())
 
@@ -95,7 +100,7 @@ def _create_df_for_form(
     raw_lf: pl.LazyFrame,
     form_to_events: dict[str, list[str]],
     repeating_form_names: set[str],
-) -> Form:
+) -> pl.LazyFrame:
     form_name, field_names = form_entry
     events = form_to_events.get(form_name, [])
     is_repeating = form_name in repeating_form_names
@@ -125,4 +130,4 @@ def _create_df_for_form(
         ),
     ]
 
-    return Form(name=form_name, data=raw_lf.filter(filters).select(columns).collect())
+    return raw_lf.filter(filters).select(columns)
