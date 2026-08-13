@@ -42,7 +42,7 @@ def split_forms(
     forms_metadata: list[metadata.redcap.core.FormMetadata],
 ) -> list[Form]:
     """Split the raw data into one dataframe per form."""
-    lazy_dfs = so.pairwise_fmap(forms_metadata, [raw_lf], _create_df_for_form)
+    lazy_dfs = so.pairwise_fmap(forms_metadata, [raw_lf], _create_lf_for_form)
     dfs = pl.collect_all(lazy_dfs)
     forms = so.pairwise_fmap(forms_metadata, dfs, Form)
     return so.keep(forms, lambda form: not form.data.is_empty())
@@ -66,7 +66,7 @@ def _with_missing_columns(
     return lf.with_columns(so.fmap(missing_fields, pl.lit(None).alias))
 
 
-def _create_df_for_form(
+def _create_lf_for_form(
     form_metadata: metadata.redcap.core.FormMetadata,
     raw_lf: pl.LazyFrame,
 ) -> pl.LazyFrame:
@@ -90,9 +90,9 @@ def _create_df_for_form(
         )
 
     filters = [
-        # Keep only rows coming from events where the form was filled in
+        # Keep only rows coming from events where the form was filled in.
         pl.col("redcap_event_name").is_in(form_metadata.events),
-        # Keep only non-empty rows
+        # Keep only non-empty rows.
         pl.any_horizontal(
             so.fmap(content_fields, lambda field: pl.col(field).is_not_null())
         ),
