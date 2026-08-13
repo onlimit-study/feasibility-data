@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Annotated
 
 import polars as pl
+import seedcase_soil as so
 from pytask import DirectoryNode, Product
 
 from feasibility_data import common, data, metadata
@@ -90,31 +91,19 @@ def task_split_forms(
         Product,
     ],
     raw_data_paths: Annotated[list[Path], RAW_REDCAP_DATA],
-    field_metadata_path: Path = FIELD_METADATA_PREPROCESSED_PATH,
-    event_metadata_path: Path = EVENT_METADATA_PATH,
-    repeating_forms_path: Path = REPEATING_FORMS_METADATA_PATH,
+    form_metadata_path: Path = FORM_METADATA_PATH,
 ) -> None:
     """Split each batch of raw data into one Parquet file per form.
 
     Written to `FORMS/<timestamp>/<form_name>.parquet`.
     """
-    form_to_fields = data.redcap.core.get_form_field_mapping(
-        common.json.read(field_metadata_path)
-    )
-    form_to_events = data.redcap.core.get_form_event_mapping(
-        common.json.read(event_metadata_path)
-    )
-    repeating_form_names = data.redcap.core.get_repeating_forms(
-        common.json.read(repeating_forms_path)
+    forms_metadata = so.fmap(
+        common.json.read(form_metadata_path),
+        lambda item: metadata.redcap.core.FormMetadata(**item),
     )
     for raw_data_path in raw_data_paths:
-        raw_data = data.redcap.core.read_raw(raw_data_path, form_to_fields)
-        forms = data.redcap.core.split_forms(
-            raw_data,
-            form_to_fields,
-            form_to_events,
-            repeating_form_names,
-        )
+        raw_data = data.redcap.core.read_raw(raw_data_path, forms_metadata)
+        forms = data.redcap.core.split_forms(raw_data, forms_metadata)
 
         for form in forms:
             data.redcap.core.write_form(form, forms_dir, raw_data_path)
