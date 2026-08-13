@@ -2,6 +2,7 @@ from importlib.resources import files
 from pathlib import Path
 from typing import Annotated
 
+import polars as pl
 from pytask import DirectoryNode, Product
 
 from feasibility_data import common, data, metadata
@@ -20,7 +21,7 @@ RAW_MYFOOD24 = RAW / "myfood24"
 FIELD_METADATA_PATH = BLD_REDCAP / "field_metadata.json"
 EVENT_METADATA_PATH = BLD_REDCAP / "event_metadata.json"
 REPEATING_FORMS_METADATA_PATH = BLD_REDCAP / "repeating_forms_metadata.json"
-FIELD_METADATA_PREPROCESSED_PATH = BLD_REDCAP / "field_metadata_preprocessed.json"
+FORM_METADATA_PATH = BLD_REDCAP / "form_metadata.json"
 
 
 def task_download_field_metadata(
@@ -63,18 +64,25 @@ def task_download_raw_redcap_data(
         data.redcap.raw.write(csv_data, raw_data_dir)
 
 
-def task_preprocess_field_metadata(
-    field_metadata_preprocessed_path: Annotated[
-        Path, Product
-    ] = FIELD_METADATA_PREPROCESSED_PATH,
+def task_create_form_metadata(
+    form_metadata_path: Annotated[Path, Product] = FORM_METADATA_PATH,
     field_metadata_path: Path = FIELD_METADATA_PATH,
+    event_metadata_path: Path = EVENT_METADATA_PATH,
+    repeating_forms_path: Path = REPEATING_FORMS_METADATA_PATH,
 ) -> None:
-    """Preprocess field metadata."""
+    """Create the metadata file describing each form."""
+    event_metadata = pl.read_json(event_metadata_path)
+    repeating_forms_metadata = pl.read_json(repeating_forms_path)
     field_metadata = common.json.read(field_metadata_path)
-    field_metadata_preprocessed = metadata.redcap.core.expand_checkbox_fields(
-        field_metadata
+    field_metadata = metadata.redcap.core.expand_checkbox_fields(field_metadata)
+
+    form_metadata = metadata.redcap.core.create_form_metadata(
+        pl.DataFrame(field_metadata),
+        event_metadata,
+        repeating_forms_metadata,
     )
-    common.json.write(field_metadata_preprocessed_path, field_metadata_preprocessed)
+
+    common.json.write(form_metadata_path, form_metadata)
 
 
 def task_download_myfood24_data(
