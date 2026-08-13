@@ -26,7 +26,13 @@ REDCAP_ID_COLS = [
 def read_raw(
     raw_data_path: Path, forms_metadata: list[metadata.redcap.core.FormMetadata]
 ) -> pl.LazyFrame:
-    """Read the raw data into a LazyFrame with missing columns added."""
+    """Read the raw data into a LazyFrame with missing columns added.
+
+    A LazyFrame lets Polars build a query plan and optimise it before executing, rather
+    than materialising intermediate results at each step. With a separate query for each
+    form and thousands of columns in the raw data, this meaningfully reduces computation
+    time compared to eager evaluation.
+    """
     raw_lf = pl.scan_csv(raw_data_path, infer_schema=False)
     return _with_missing_columns(raw_lf, forms_metadata)
 
