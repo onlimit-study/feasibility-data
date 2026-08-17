@@ -79,6 +79,53 @@ check-unused:
   # Create an allowlist with `vulture --make-allowlist`
   uvx vulture --min-confidence 100 src/ **/vulture-allowlist.py
 
+# Run the 'metadata' tasks to build the metadata files, e.g. `datapackage.json`
+build-metadata:
+  uv run pytask build -m metadata
+
+# Run the 'raw' tasks to build the raw data, e.g. by downloading from the source locations into `raw/`
+build-raw:
+  uv run pytask build -m raw
+
+# Run the 'staging' tasks to build the files in `staging/`
+build-staging:
+  uv run pytask build -m raw
+
+# Build the final resources from the staging files
+build-resources:
+  # TODO: This hasn't been created in Sprout, but could be how it looks like.
+  # Might require a config file for Sprout to set what are the staging files and
+  # where they will be created into.
+  uxv seedcase-sprout build-resources
+
+# Build all files for the data package, such as metadata, README, and resources
+build-package version="0.0.0": build-metadata build-raw build-staging build-resources build-readme
+  #!/usr/bin/env bash
+  # Safer script, see https://just.systems/man/en/safer-bash-shebang-recipes.html
+  set -euxo pipefail
+  # Move into `releases/latest/` to make it easier to make a tar file.
+  # CHANGELOG will be generated first when running `release`, see `.config/cog.toml`.
+  cp --target-directory releases/latest/ \
+    datapackage.json \
+    LICENSE.md \
+    README.md \
+    CHANGELOG.md \
+    resources/**/*.parquet
+  repo="feasibility-data"
+  (
+    cd releases/latest/ & \
+      tar --create --file=${repo}.tar * & \
+      zip feasibility_data.zip \
+        datapackage.json \
+        LICENSE.md \
+        README.md \
+        CHANGELOG.md
+  )
+  cp releases/latest/${repo}.tar \
+    releases/${repo}_{{version}}.tar
+  cp releases/latest/${repo}.zip \
+    releases/${repo}_{{version}}.zip
+
 # Generate a Quarto include file with the contributors
 build-contributors:
   sh ./tools/get-contributors.sh onlimit-study/feasibility-data > docs/includes/_contributors.qmd
@@ -111,7 +158,9 @@ reset-from-template:
 # Build data package and create a new release
 [confirm("Are you sure you want to run the release process? (yes/no)")]
 release: run-all
-  #!/bin/sh
+  #!/usr/bin/env bash
+  # Safer script, see https://just.systems/man/en/safer-bash-shebang-recipes.html
+  set -euxo pipefail
   # TODO: Remove once ready to release.
   echo "Release process not ready, cancelling."
   exit 0

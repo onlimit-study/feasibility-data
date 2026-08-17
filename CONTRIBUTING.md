@@ -45,60 +45,45 @@ just run-all
 
 ## Build process
 
-Like other types of packages (e.g. Rust, Python, R), the contents of the
-repository *build* the final data package, but aren't the data package itself.
-The repository contains the source code and raw data input, but isn't the
-package itself. We need to first "compile" the code and the raw data input into
-the final data package.
+We primarily follow the build process described in our [Building Data
+Packages](https://data-pkg-guide.seedcase-project.org/) guide, in the chapter on
+the [build process](https://data-pkg-guide.seedcase-project.org/docs/build/).
 
-Here are some of the steps involved in the build process:
+The contents of this repository *build* the final data package, but aren't the
+data package itself. The repository only contains the source code and raw data
+input. We first need to build the actual data package by running using the set
+of justfile recipes. We have one main recipe called and several helper recipes:
 
-- The raw data is pulled from the source locations during the build and release
-  (described below) process, saved into `raw/` and processed into `staging/`. We
-  use [pytask](https://pytask-dev.readthedocs.io/en/stable/) to manage this
-  phase of the build process.
-- The `raw/` data files are saved into Git LFS during the build and release
-  (described below) process, but no other data artifact is kept in the Git
-  history.
-- The metadata file is generated from the Python code into `datapackage.json`
-  and the resource files are generated from the `staging/` data. The metadata
-  file is the only file saved in the Git history during the build and release
-  phase. We use [Sprout](https://sprout.seedcase-project.org/) along with
-  [pytask](https://pytask-dev.readthedocs.io/en/stable/) to handle this section
-  of the build process.
-- The data package is built into one `.tar` file that contains the metadata file
-  (`datapackage.json`), `LICENSE.md`, `README.md`, and the resource files. It is
-  also built into a `.zip` file with the same files except for the data. This
-  `.zip` file will be what is uploaded to public archives, while the `.tar` file
-  remains on the server. The `.tar` and `.zip` files are saved into a Git
-  ignored `releases/` directory, with the filename being the name of the data
-  package and the version number (e.g. `feasibility-data_0.1.0.tar`).
+- `just build-package` builds the data package into `.tar` and `.zip` files in
+  the `releases/` folder.
+- `just build-metadata` is a helper to rebuild the metadata files if, e.g. you
+  want to test out how the metadata will look like in the website.
+- `just build-raw` is a helper to download the raw data from the source
+  locations, e.g. REDCap. We use this in order to create PRs that update the
+  data in `raw/`, since that is the only data we store in the Git LFS
+  (`staging/` and `resources/` are not saved, as described in the guide). This
+  runs the [pytask](https://pytask-dev.readthedocs.io/en/stable/) 'raw' tasks.
+- `just build-staging` is a helper to process the raw data into `staging/`. This
+  runs the [pytask](https://pytask-dev.readthedocs.io/en/stable/) 'staging'
+  tasks.
+- `just build-resources` is a helper to process `staging/` into the final
+  `resources/`.
 
-<!-- TODO: Do we want to store other files in the `.tar` and `.zip` files?  -->
+Some things to note that during the build process:
 
-What this means during development is that:
-
-- No data is saved or stored in Git LFS. Outside of the build and release
-  (described below) process, we treat any data pulled from sources or processed
-  into staging or resources as temporary.
+- No data is saved or stored in Git LFS. We treat any data pulled from sources
+  or processed into staging or resources as temporary.
 - Pull requests should *not* contain any changes to the `datapackage.json` file
-  nor any additions of data in `raw/`, `staging/`, or `resources/`. These files
-  are generated during the build process and should not be modified or added
-  directly.
-- Commit messages should still be written in the Conventional Commits format,
-  though the specific commit types used are a bit different considering no data
-  or metadata files are being modified directly. See the [release
-  process](#release-process) section below for more details on commit messages
-  to use.
+  or any additions of data in `raw/`, `staging/`, or `resources/`.
+- Commit messages should still be written in the Conventional Commits format.
+  See the [commits
+  section](https://data-pkg-guide.seedcase-project.org/docs/release#commits) of
+  the guide for details.
 
-::: callout-note
-The build process is simply an automated sequence of steps that uses the code to
-pull raw data (and potentially metadata), process it, and save it into the final
-data package. It does not do anything to the Git history, e.g. committing files.
-However, the release process is where files generated from the build process are
-committed to Git and saved into Git LFS. The release process is described in
-more detail below.
-:::
+During development, saving raw data in `raw/` into the Git LFS store should be
+intentional and should only be done within an explicit and atomic pull request.
+That way we can control what commit type is used based on what actually happens
+in the data (e.g. a fix or new data).
 
 ## Release process
 
