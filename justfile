@@ -89,7 +89,7 @@ build-raw:
 
 # Run the 'staging' tasks to build the files in `staging/`
 build-staging:
-  uv run pytask build -m raw
+  uv run pytask build -m staging
 
 # Build the final resources from the staging files
 build-resources:
@@ -99,7 +99,7 @@ build-resources:
   uxv seedcase-sprout build-resources
 
 # Build all files for the data package, such as metadata, README, and resources
-build-package version="0.0.0": build-metadata build-raw build-staging build-resources build-readme
+build-package version="0.0.0": build-staging build-metadata build-resources build-readme
   #!/usr/bin/env bash
   # Safer script, see https://just.systems/man/en/safer-bash-shebang-recipes.html
   set -euxo pipefail
@@ -113,9 +113,9 @@ build-package version="0.0.0": build-metadata build-raw build-staging build-reso
     resources/**/*.parquet
   repo="feasibility-data"
   (
-    cd releases/latest/ & \
-      tar --create --file=${repo}.tar * & \
-      zip feasibility_data.zip \
+    cd releases/latest/ && \
+      tar --create --file=${repo}.tar * && \
+      zip ${repo}.zip \
         datapackage.json \
         LICENSE.md \
         README.md \
