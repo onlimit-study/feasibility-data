@@ -3,7 +3,7 @@ abstract: "A Data Package for the ON LiMiT feasibility study. The data itself is
 authors:
   - family-names: Beicher
     given-names: Kristiane
-    orcid: "0000-0001-7556-9566"
+    orcid: "https://orcid.org/0000-0001-7556-9566"
     affiliation: "Steno Diabetes Centre Aarhus"
   - family-names: Ibsen
     given-names: Daniel
@@ -38,7 +38,7 @@ keywords:
   - "exercise intervention"
   - "remission"
 # TODO: Add a data license for the data package.
-license: ""
+# license: ""
 message: "If you use this data package, please cite it using these metadata."
 repository-code: "https://github.com/onlimit-study/feasibility-data"
 # TODO: Add a URL for any website for the data package.

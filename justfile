@@ -11,7 +11,7 @@ format-all: format-md format-python
 check-all: check-spelling check-urls check-python check-unused check-security
 
 # Run all build-related recipes
-build-all: build-datapackage build-contributors build-website build-readme
+build-all: build-contributors build-website build-readme
 
 # List all TODO items in the repository
 list-todos:
@@ -79,17 +79,13 @@ check-unused:
   # Create an allowlist with `vulture --make-allowlist`
   uvx vulture --min-confidence 100 src/ **/vulture-allowlist.py
 
-# Re-build the data package
-build-datapackage:
-  uv run main.py
-
 # Generate a Quarto include file with the contributors
 build-contributors:
   sh ./tools/get-contributors.sh onlimit-study/feasibility-data > docs/includes/_contributors.qmd
 
 # Re-build the README file from the Quarto version
 build-readme:
-  quarto render README.qmd --to gfm
+  uv run quarto render README.qmd --to gfm
 
 # Build the documentation for the data package
 build-metadata-docs:
@@ -97,11 +93,11 @@ build-metadata-docs:
 
 # Build the documentation website using Quarto
 build-website: build-metadata-docs
-  quarto render
+  uv run quarto render
 
 # Preview the documentation website with automatic reload on changes
 preview-website:
-  quarto preview
+  uv run quarto preview
 
 # Check for and apply updates from the template
 update-from-template:
@@ -111,3 +107,31 @@ update-from-template:
 # Reset repo changes to match the template
 reset-from-template:
   uvx copier recopy --defaults
+
+# Build data package and create a new release
+[confirm("Are you sure you want to run the release process? (yes/no)")]
+release: run-all
+  #!/bin/sh
+  # TODO: Remove once ready to release.
+  echo "Release process not ready, cancelling."
+  exit 0
+  # TODO: Uncomment when ready.
+  # if [[ $(cog --config .config/cog.toml bump --auto --dry-run) != No* ]]; then
+  #   echo "Found releasable changes, starting build and local release process."
+  #   cog --config .config/cog.toml bump --auto
+  #   version=$(cog get-version)
+  #   # Remove logging from git-cliff.
+  #   echo "Starting GitHub release process."
+  #   RUST_LOG='none' uvx git-cliff --latest --output RELEASE_NOTES.md --strip all
+  #   # Needs correct authentication.
+  #   gh release create "${version}" \
+  #     --title "Release ${version}" \
+  #     --notes-file RELEASE_NOTES.md \
+  #     releases/latest/feasibility-data.zip
+  #   # Clean up
+  #   rm RELEASE_NOTES.md
+  #   echo "Finished releasing ${version} to GitHub."
+  # else
+  #   echo "No releasable changes detected."
+  # fi
+

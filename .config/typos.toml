@@ -11,6 +11,10 @@ extend-exclude = [
   "docs/resources",
 ]
 
+[type.csv]
+extend-glob = ["*.csv"]
+check-file = false
+
 [default.extend-words]
 vas = "vas"
 VAS = "VAS"
