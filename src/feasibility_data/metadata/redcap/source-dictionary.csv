@@ -41,15 +41,15 @@ Det vigtigste er, at du svarer så ærligt som muligt, så vi får et godt grund
 
 Instruktioner til spørgeskemaet:
 
-Angiv hvor mange episoder med tvangsoverspisning du har haft om ugen gennem de seneste tre måneder. 
-Tvangsoverspisning betyder, at du indenfor kort tid (fx to timer) spiser væsenligt mere, end hvad der er 
-normalt, og at du ikke kan kontrollere, hvor meget du spiser. 
+Angiv hvor mange episoder med tvangsoverspisning du har haft om ugen gennem de seneste tre måneder.
+Tvangsoverspisning betyder, at du indenfor kort tid (fx to timer) spiser væsenligt mere, end hvad der er
+normalt, og at du ikke kan kontrollere, hvor meget du spiser.
 
-Sæt kryds (""X"") ved hvor mange episoder med tvangsoverspisning du har haft om ugen. 
-Hvis det er forskelligt, hvor mange episoder med tvangsoverspisning du har haft om ugen, gennem de 
-seneste tre måneder, så angiv et gennemsnit (fx 20 episoder på 12 uger = 1-3 episoder om ugen). 
+Sæt kryds (""X"") ved hvor mange episoder med tvangsoverspisning du har haft om ugen.
+Hvis det er forskelligt, hvor mange episoder med tvangsoverspisning du har haft om ugen, gennem de
+seneste tre måneder, så angiv et gennemsnit (fx 20 episoder på 12 uger = 1-3 episoder om ugen).
 
-Har du ikke haft episoder med tvangsoverspisning indenfor de seneste tre måneder, skal du svare ""Nej"" i 
+Har du ikke haft episoder med tvangsoverspisning indenfor de seneste tre måneder, skal du svare ""Nej"" i
 alle spørgsmålene. Husk at besvare alle spørgsmålene.
 
 
@@ -93,7 +93,7 @@ consent_24h_reflection_date_info_v1_admin,consent_24h_reflection_date_info_v1,vi
 ,consent_copy_taken_v1,visit_01,besg_1_screening,,radio,8. Er der blevet taget en fotokopi af samtykkeerklæringen?,"1, Ja | 2, Nej",,,,,,,y,,,,,Whether there has been made a copy of the written consent. Visit 1.
 ,consent_info_given_v1,visit_01,besg_1_screening,,radio,"<div class=""rich-text-field-label""><p>2. Er der givet mundtlig information om projektet, og hvad deltagelse indebærer? </p> <p><span style=""background-color: #bfedd2;"">OBS: Informér deltageren om, hvornår vægttabsfasen cirka kommer til at ligge for dem. Fx så de ved, at det vil strække sig over sommerferien. </span></p> <p><span style=""font-weight: normal;""><em>Se ""SOP - Inspirationssætninger til projektmedarbejder"" </em></span></p></div>","1, Ja | 2, Nej",,,,,,,y,,,,,Whether the participant has been informed about the purpose of the study and what it involves. Visit 1.
 ,consent_info_read_v1,visit_01,besg_1_screening,"Informeret samtykke
-Der skal krydses ja på spørgsmål 1-7 for at deltageren kan inkluderes 
+Der skal krydses ja på spørgsmål 1-7 for at deltageren kan inkluderes
 ",radio,1. Har deltageren læst den skriftlige information?,"1, Ja | 2, Nej",,,,,,,y,,,,,Whether the participant has read the written information. Visit 1.
 consent_original_filed_v1_admin,consent_original_filed_v1,visit_01,besg_1_screening,,radio,10. Er den originale samtykkeerklæring blevet lagt i mappen på L-drevet?,"1, Ja | 2, Nej",L:\Auditdata\ON LiMiT\2. Feasibility studie\10. Data\1. Samtykkeerklæring,,,,,,y,,,,,Whether the written consent has been saved on the L-drev. Visit 1.
 ,consent_questions_asked_v1,visit_01,besg_1_screening,,radio,"4. Er deltageren blevet spurgt, om vedkommende har nogle spørgsmål?","1, Ja | 2, Nej",,,,,,,y,,,,,Whether the participant has been asked if there is any questions. Visit 1.
@@ -265,7 +265,7 @@ bloodsample_time60_v10_dq,bloodsample_time60_v10,visit_10,besgsdag_10_5f76,Tid 6
 ","1, Ja | 2, Nej",,,,,,,y,,,,,Record whether a bloodsample was taken at time 60. Visit 10.
 bloodsample_time90_v10_dq,bloodsample_time90_v10,visit_10,besgsdag_10_5f76,Tid 90,radio,Er blodprøve 5 taget (tid 90)?,"1, Ja | 2, Nej",,,,,,,y,,,,,Record whether a bloodsample was taken at time 90. Visit 10.
 ,bmi_v10,visit_10,besgsdag_10_5f76,,calc,BMI,"round(([weight_v10])/(([height_v10])^(2)), 1)",,,,,,,y,,,,,"Body Mass Index (BMI) in kg/m², calculated from weight and height. Visit 10."
-bp_chosen_arm_v10_admin,bp_chosen_arm_v10,visit_10,besgsdag_10_5f76,"<div class=""rich-text-field-label""><p>Blodtryk og puls<br>Måles siddende efter 5-10 min hvile. Blodtryk og puls måles 3 gange. <br><br>NB: Ved gentaget systolisk blodtryk > 180 mmHg eller diastolisk blodtryk > 120 mmHg, bør deltageren ses af en læge på forsøgsstedet. </p></div>",calc,"Blodtrykket skal måles på 
+bp_chosen_arm_v10_admin,bp_chosen_arm_v10,visit_10,besgsdag_10_5f76,"<div class=""rich-text-field-label""><p>Blodtryk og puls<br>Måles siddende efter 5-10 min hvile. Blodtryk og puls måles 3 gange. <br><br>NB: Ved gentaget systolisk blodtryk > 180 mmHg eller diastolisk blodtryk > 120 mmHg, bør deltageren ses af en læge på forsøgsstedet. </p></div>",calc,"Blodtrykket skal måles på
 1: Venstre arm
 2: Højre arm",[besg_2_arm_1][bp_chosen_arm_v2],,,,,,,y,,,,,Arm used for  blood pressure measurements. Visit 10.
 ,bp_deviation_adminribe_v10,visit_10,besgsdag_10_5f76,,text,Beskriv afvigelsen i blodtryk og puls,,,,,,,[blood_pressure_deviation_v10] = '1',y,,,,,Description of any deviations regarding the measurements of the blood pressure. Visit 10.
@@ -281,7 +281,7 @@ cgm_glucosedata_upload_v10_file,cgm_glucosedata_upload_v10,visit_10,besgsdag_10_
 cgm_pdfsaved_ldrive_v10_dq,cgm_pdfsaved_ldrive_v10,visit_10,besgsdag_10_5f76,,radio,"<div class=""rich-text-field-label""><p>Er AGP-rapporten (PDF-fil) indlæst og gemt på L-drevet?<br><br><span style=""font-weight: normal;""><em>Gemmes som onlimit_ID_visit_test.pdf (eksempel: onlimit_05_v2_cgm.pdf)</em></span></p></div>","1, Ja | 2, Nej",Gemmes her: L:\AuditData\ON LiMiT\2. Feasibility studie\9. Data\3. CGM\PDF filer (AGP rapport),,,,,[cgm_returned_v10] = '1',y,,,,,AGP rapport with cmg data saved on L-drive. Workflow. Visit 10.
 cgm_reader_v10_admin,cgm_reader_v10,visit_10,besgsdag_10_5f76,,calc,"<div class=""rich-text-field-label""><p>Aflæs CGM-sensor med SAMME CGM-reader som brugt ved påsættelse ved besøg 9 (CGM-reader 1, 2 eller 3).</p></div>",[besg_9_arm_1][cgmreader_v9],"Ved manglende reader nummer, findes reader nummeret under besøg 9",,,,,,y,,,,,Number on the CGM reader. Visit 10.
 ,cgm_returned_v10,visit_10,besgsdag_10_5f76,"<div class=""rich-text-field-label""><p>CGM<br><br><span style=""font-weight: normal;"">Se SOP CGM - Påsætning, afmontering og aflæsning her: L:\AuditData\ON LiMiT\2. Feasibility studie\7. SOPs\SOPs forsøgsdage</span></p></div>",radio,Er CGM-sensor kommet retur?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates whether the partipant has returned the CGM put on at visit 9. Visit 10.
-,cgm_when_info_v10,visit_10,besgsdag_10_5f76,,radio,"Skriv til Carolien, hvornår CGM-sensor modtages og aflæses. 
+,cgm_when_info_v10,visit_10,besgsdag_10_5f76,,radio,"Skriv til Carolien, hvornår CGM-sensor modtages og aflæses.
 
 Er det gjort?","1, Ja | 2, Nej",,,,,,[cgm_returned_v10] = '2',y,,,,,Has staff been notified when the CGM will be returned. Visit 10.
 ,cgm_when_v10,visit_10,besgsdag_10_5f76,,text,"Hvis nej, hvornår får vi den retur?",,Aftal tidspunkt og fremgangsmåde.,,,,,[cgm_returned_v10] = '2',y,,,,,"If CGM not returned at visit, when then. Workflow. Visit 10."
@@ -290,11 +290,11 @@ Er det gjort?","1, Ja | 2, Nej",,,,,,[cgm_returned_v10] = '2',y,,,,,Has staff be
 ,cognition_tests_filed_office_v10,visit_10,besgsdag_10_5f76,,radio,Er SCIP-testen og TMT-testen lagt i mappen på kontoret?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the SCIP test and the TMT test has been filed in the briefcase in the office. Visit 10.
 ,comments_end_v10,visit_10,besgsdag_10_5f76,,notes,"<div class=""rich-text-field-label""><p>Her noteres generelle kommentarer til besøg 10.</p> <p><span style=""font-weight: normal;"">Det kan eksempelvis være:</span></p> <p><span style=""font-weight: normal;"">- Kommentarer om deltagerens samarbejde og forståelse</span><br><span style=""font-weight: normal;"">- Eventuelle afvigelser i protokollen eller komplikationer</span><br><span style=""font-weight: normal;"">- Information om udførte prøver og tests (fx hvis noget blev udsat eller aflyst)</span><br><span style=""font-weight: normal;"">- Eventuelle anbefalinger eller opfølgninger til næste besøg</span><br><span style=""font-weight: normal;"">- Logning af særlige hændelser eller observationer under besøget</span><br><span style=""font-weight: normal;"">- Kommentarer til dataindsamlingen, fx om data mangler eller kvaliteten</span><br><span style=""font-weight: normal;"">- Noter om deltagerens spørgsmål eller bekymringer</span></p> <p><span style=""font-weight: normal;""><em>Det er vigtigt at udfylde dette felt, da det bidrager til dokumentationen af besøget og hjælper med at samle vigtig information. Kommentarerne understøtter forståelsen af arbejdsgangene og projektets gennemførlighed, herunder identifikation af eventuelle udfordringer.</em></span></p> <p> </p> <p data-start=""0"" data-end=""184""><span style=""background-color: #bfedd2;"">Hvis der er generel information om deltageren, som er relevant for projektdeltagelsen, noteres den under instrumentet <strong data-start=""118"" data-end=""132"">""Stamdata""</strong> i feltet <strong data-start=""142"" data-end=""181"">""Noter ift. deltagelse i projektet""</strong>.</span></p> <p data-start=""186"" data-end=""373"" data-is-last-node="""" data-is-only-node=""""><span style=""background-color: #bfedd2;"">Det kan fx være oplysninger om, hvem personen bor sammen med, særlige forhold i husstanden eller en akut syg pårørende.</span></p></div>",,,,,,,,,LV,,,,Comment at the end of the visit. Visit 10.
 ,date_v10,visit_10,besgsdag_10_5f76,,text,Dato for besøget,,,date_dmy,01.02.2023,31.12.2028,,,y,,,,,Date of visit. Visit 10. @today
-,dia_bp_1_v10,visit_10,besgsdag_10_5f76,,text,Diastolisk blodtryk 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, first measurement. 
+,dia_bp_1_v10,visit_10,besgsdag_10_5f76,,text,Diastolisk blodtryk 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, first measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 10."
-,dia_bp_2_v10,visit_10,besgsdag_10_5f76,,text,Diastolisk blodtryk 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, second measurement. 
+,dia_bp_2_v10,visit_10,besgsdag_10_5f76,,text,Diastolisk blodtryk 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 10."
-,dia_bp_3_v10,visit_10,besgsdag_10_5f76,,text,Diastolisk blodtryk 3,,mmHG,number,30,150,,,y,,,,,"Systolic blood pressure in mmHg, third measurement. 
+,dia_bp_3_v10,visit_10,besgsdag_10_5f76,,text,Diastolisk blodtryk 3,,mmHG,number,30,150,,,y,,,,,"Systolic blood pressure in mmHg, third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 10."
 ,dia_bp_avg_v10,visit_10,besgsdag_10_5f76,,calc,"Diastolisk blodtryk, gennemsnit ","if(
   [dia_bp_3_v10]<>'' and [dia_bp_2_v10]<>'',
@@ -328,26 +328,26 @@ fibro_upload_v10_file,fibro_upload_v10,visit_10,besgsdag_10_5f76,,file,"<div cla
 finapres_arm_cuff_size_v10_admin,finapres_arm_cuff_size_v10,visit_10,besgsdag_10_5f76,Før Finapres,calc,"<div class=""rich-text-field-label""><p>Hvilken størrelse armmanchet bruges til Finapres-målingen? <br><br>1, Small<br>2, Medium<br>3, Large<br><br><span style=""font-weight: normal;""><em>Armmanchetten placeres på den samme arm, som blodtrykket er målt på.</em></span></p></div>",[besg_2_arm_1][finapres_arm_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.  ,,,,,,y,,,,,"Finapres measurement: Size of arm cuff (S, M or L) at visit 2. Visit 10."
 ,finapres_deviation_adminribe_v10,visit_10,besgsdag_10_5f76,,text,Beskriv afvigelsen under finapres under MMTT,,Noter tid/ tider,,,,,[finapres_deviation_v10] = '1',y,,,,,Description of any deviations regarding finapres during MMTT. Visit 10.
 ,finapres_deviation_v10,visit_10,besgsdag_10_5f76,,radio,Finapres under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v10,,Record any deviations from protocol during MMTT finapres. Visit 10.
-finapres_finger_cuff_size_v10_admin,finapres_finger_cuff_size_v10,visit_10,besgsdag_10_5f76,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen? 
+finapres_finger_cuff_size_v10_admin,finapres_finger_cuff_size_v10,visit_10,besgsdag_10_5f76,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen?
 
 1, Small
 2, Medium
 3, Large",[besg_2_arm_1][finapres_finger_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.  ,,,,,,y,,,,,"Finapres measurement: Size of finger cuff (S, M or L) at visit 2. Visit 10."
-finapres_minus20_v10_dq,finapres_minus20_v10,visit_10,besgsdag_10_5f76,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention. 
+finapres_minus20_v10_dq,finapres_minus20_v10,visit_10,besgsdag_10_5f76,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. visit 10."
-finapres_time105_v10_dq,finapres_time105_v10,visit_10,besgsdag_10_5f76,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention. 
+finapres_time105_v10_dq,finapres_time105_v10,visit_10,besgsdag_10_5f76,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 10."
-finapres_time135_v10_dq,finapres_time135_v10,visit_10,besgsdag_10_5f76,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention. 
+finapres_time135_v10_dq,finapres_time135_v10,visit_10,besgsdag_10_5f76,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention.
 Response options: 1=Yes, 2=No. visit 10."
-finapres_time15_v10_dq,finapres_time15_v10,visit_10,besgsdag_10_5f76,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention. 
+finapres_time15_v10_dq,finapres_time15_v10,visit_10,besgsdag_10_5f76,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention.
 Response options: 1=Yes, 2=No. visit 10."
-finapres_time195_v10_dq,finapres_time195_v10,visit_10,besgsdag_10_5f76,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention. 
+finapres_time195_v10_dq,finapres_time195_v10,visit_10,besgsdag_10_5f76,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 10."
-finapres_time255_v10_dq,finapres_time255_v10,visit_10,besgsdag_10_5f76,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention. 
+finapres_time255_v10_dq,finapres_time255_v10,visit_10,besgsdag_10_5f76,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 10."
-finapres_time45_v10_dq,finapres_time45_v10,visit_10,besgsdag_10_5f76,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention. 
+finapres_time45_v10_dq,finapres_time45_v10,visit_10,besgsdag_10_5f76,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 10."
-finapres_time75_v10_dq,finapres_time75_v10,visit_10,besgsdag_10_5f76,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention. 
+finapres_time75_v10_dq,finapres_time75_v10,visit_10,besgsdag_10_5f76,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 10."
 finapres_upload_ldrive_v10_dq,finapres_upload_ldrive_v10,visit_10,besgsdag_10_5f76,Efter Finapres,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #ecf0f1; color: #000000;"">Er Finapres-data indlæst og gemt i mappen på L-drevet?<br></span></p> <p><span style=""background-color: #e67e23;"">OBS: Der skal gemmes OTTE mapper, der hver indeholder 9 excelfiler. </span></p> <p><span style=""font-weight: normal;""><em>Gemmes som onlimit_ID_visit_nummer af undersøgelse_test_test (eksempel: onlimit_05_v4-3_fp) </em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\6. Finapres,,,,,,y,,,,,Indicates whetner or not the Finapres data is saved on the L-drive. Visit 10.
 ,food_intake_nonfast_v10,visit_10,besgsdag_10_5f76,,text,"Hvis deltageren IKKE er fastende, hvad har deltageren så indtaget og hvornår?",,,,,,,[fasting_status_v10] = '2',y,,,,,"Indicates what food and when the participant has eaten it, if the participant has not been fasting from 10 pm the day before the visit. Visit 10."
@@ -359,11 +359,11 @@ food_pref_test_v4_glasses_v10_admin,food_pref_test_v4_glasses_v10,visit_10,besgs
 ,food_v10,visit_10,besgsdag_10_5f76,Bolle med ost + frugt,radio,Har deltageren modtaget en bolle med ost og et stykke frugt? ,"1, Ja | 2, Nej",,,,,,,y,,,,,Food delivered. Visit 10.
 ,hba1c_deviation_adminribe_v10,visit_10,besgsdag_10_5f76,,text,Beskriv afvigelsen i HbA1c målingen,,,,,,,[hba1c_deviation_v10] = '1',y,,,,,Description of any deviations regarding the HbA1c sample. Visit 10.
 ,hba1c_deviation_v10,visit_10,besgsdag_10_5f76,,radio,HbA1c,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v10,,Record any deviations from protocol during HbA1c blood sample. Visit 10.
-hba1c_elevated_info_v10_admin,hba1c_elevated_info_v10,visit_10,besgsdag_10_5f76,,descriptive,"HbA1c er forhøjet. 
+hba1c_elevated_info_v10_admin,hba1c_elevated_info_v10,visit_10,besgsdag_10_5f76,,descriptive,"HbA1c er forhøjet.
 Deltageren afsluttes d.d. i projektet. Deltager og dennes praktiserende læge orienteres om målingen. Der anbefales planlægning af en ny HbA1c-måling. ",,,,,,,[hba1c_value_v10] > 53,,,,,,Information box. HbA1c is elevated. HbA1c needs to be remeasured. Visit 10.
-hba1c_mildly_elevated_info_v10_admin,hba1c_mildly_elevated_info_v10,visit_10,besgsdag_10_5f76,,descriptive,"HbA1c er let forhøjet. 
+hba1c_mildly_elevated_info_v10_admin,hba1c_mildly_elevated_info_v10,visit_10,besgsdag_10_5f76,,descriptive,"HbA1c er let forhøjet.
 Deltageren afsluttes d.d. i projektet. Deltager og dennes praktiserende læge orienteres om målingen. Der anbefales planlægning af en ny HbA1c-måling. ",,,,,,,[hba1c_value_v10] >= 48 AND [hba1c_value_v10] <= 53,,,,,,Information box. HbA1c is mildly elevated. Reintroduction of antidiabetic medication is not allowed. Visit 10.
-hba1c_normal_info_v10_admin,hba1c_normal_info_v10,visit_10,besgsdag_10_5f76,,descriptive,"HbA1c er inden for normalområdet. 
+hba1c_normal_info_v10_admin,hba1c_normal_info_v10,visit_10,besgsdag_10_5f76,,descriptive,"HbA1c er inden for normalområdet.
 Genintroduktion af antidiabetisk medicin er ikke tilladt. ",,,,,,,[hba1c_value_v10] < 48,,,,,,Information box. HbA1c is within normal range. Reintroduction of antidiabetic medication is not allowed. Visit 10.
 ,hba1c_v10,visit_10,besgsdag_10_5f76,HbA1c ,radio,Har deltageren fået taget HbA1c?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the participant has had HbA1c taken. Visit 10.
 ,hba1c_value_v10,visit_10,besgsdag_10_5f76,,text,HbA1c-værdi: ,,mmol/mol,number,,120,,[hba1c_v10]='1',y,,,,,"HbA1c value, mmol/mol. Visit 10."
@@ -375,7 +375,7 @@ height_v10_admin,height_v10,visit_10,besgsdag_10_5f76,,calc,Højde,[besg_1__scre
 ,home_urin_return_v10,visit_10,besgsdag_10_5f76,,text,"Hvis 'Nej', aftal med deltageren, hvornår de afleverer urinprøven.",,Aftal tidspunkt og fremgangsmåde.,,,,,[home_urin_received_v10] = '2',y,,,,,Date for return home urin sample. Visit 10
 ,home_urin_v10,visit_10,besgsdag_10_5f76,"<div class=""rich-text-field-label""><p>Hjemmeurin<br><br>OBS! Urin IKKE indsamlet samme dage som kostregistrering</p></div>",radio,Har deltageren indsamlet urin hjemme på 4 separate dage?,"1, Ja | 2, Nej",Skal IKKE være fra samme dage som kostregistrering,,,,,,y,,,,,Indicates whether the participant has collected urin 4 days at home like instructed. Visit 10.
 ,homeurin_deviation_adminribe_v10,visit_10,besgsdag_10_5f76,,text,Beskriv afvigelsen i indsamling af hjemmeurin,,,,,,,[homeurin_deviation_v10] = '1',y,,,,,Description of any deviations regarding the home urin collection. Visit 10.
-,homeurin_deviation_v10,visit_10,besgsdag_10_5f76,"Afvigelser fra forsøgsprotokol: 
+,homeurin_deviation_v10,visit_10,besgsdag_10_5f76,"Afvigelser fra forsøgsprotokol:
 Har der været afvigelser ift. forsøgsprotokollen i følgende målinger/tests?",radio,Hjemmeurin,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v10,,Record any deviations from protocol during home urin sample. Visit 10
 ,identified_name_cpr_v10,visit_10,besgsdag_10_5f76,,radio,Er deltageren identificeret med navn og CPR-nummer?,"1, Ja | 2, Nej",,,,,y,,y,,,,,Indicates whether the participant has been identified by full name and personal identification number (CPR). Visit 10.
 inform_project_doctor_cgm_v10_admin,inform_project_doctor_cgm_v10,visit_10,besgsdag_10_5f76,,descriptive,"<div class=""rich-text-field-label""><p>Der sendes liste over de deltagere, hvor der foreligger netop indlæst CGM-data, til Carolien.</p></div>",,,,,,,[cgm_returned_v10] = '1',,,,,,Information box. A list of participants with newly uploaded CGM data is sent to the project doctor. Visit 10.
@@ -403,11 +403,11 @@ Hvor meget drak de?",,,,,,,[mmtt_shake_bar_v10] = 3 or [mmtt_shake_bar_v10] = 5,
 ,other_deviation_v10,visit_10,besgsdag_10_5f76,,radio,Andre afvigelser,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v10,,Record any other deviations from protocol. Visit 10.
 ,pregnancy_test_result_v10,visit_10,besgsdag_10_5f76,,radio,Hvad var resultatet af graviditetstesten?,"1, Positiv | 2, Negativ","Hvis positiv, må DXA ikke udføres, og deltageren kan ikke fortsætte i projektet. Gå til 'Stamdata'. ",,,,,[pregnancy_test_v10]='1',y,,,,,Indicates if the pregnancy test was positive or negative. Visit 10.
 ,pregnancy_test_v10,visit_10,besgsdag_10_5f76,,radio,Kan deltageren være gravid?,"1, Ja | 2, Nej","Hvis Ja, må der foretages graviditetstest. ",,,,,,y,,,,,Indicates if the participant can be pregnant. Visit 10.
-,pulse_1_v10,visit_10,besgsdag_10_5f76,,text,Puls 1,,bpm,number,30,200,,,y,,,,,"Pulse in bpm first measurement. 
+,pulse_1_v10,visit_10,besgsdag_10_5f76,,text,Puls 1,,bpm,number,30,200,,,y,,,,,"Pulse in bpm first measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 10."
-,pulse_2_v10,visit_10,besgsdag_10_5f76,,text,Puls 2,,bpm,number,30,200,,,y,,,,,"Pulse in bpm second measurement. 
+,pulse_2_v10,visit_10,besgsdag_10_5f76,,text,Puls 2,,bpm,number,30,200,,,y,,,,,"Pulse in bpm second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 10."
-,pulse_3_v10,visit_10,besgsdag_10_5f76,,text,Puls 3,,bpm,number,30,200,,,y,,,,,"Pulse in bpm third measurement. 
+,pulse_3_v10,visit_10,besgsdag_10_5f76,,text,Puls 3,,bpm,number,30,200,,,y,,,,,"Pulse in bpm third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 10."
 ,pulse_avg_v10,visit_10,besgsdag_10_5f76,,calc,"Puls, gennemsnit ","if(
   [pulse_3_v10]<>'' and [pulse_2_v10]<>'',
@@ -457,7 +457,7 @@ scipd_performed_v10_dq,scipd_performed_v10,visit_10,besgsdag_10_5f76,Kognitionst
 sens_upload_ldrive_v10_dq,sens_upload_ldrive_v10,visit_10,besgsdag_10_5f76,,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Er SENS-data indlæst og gemt på L-drevet (CSV-fil)?<br></span></p> <p><span style=""background-color: #f1c40f;"">OBS: ikke afklaret endnu</span></p> <p><span style=""background-color: #f1c40f;""><em>Gemmes som onlimit_ID_visit_test (eksempel: onlimit_05_v2_sens)</em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\8. Aktivitetsmåling (SENS),,,,,[sens_returned_v10]= '1',y,,,,,SENS data saved on L-drive. Workflow. Visit 10.
 sens_upload_v10_file,sens_upload_v10,visit_10,besgsdag_10_5f76,,file,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Upload SENS-data (CSV-fil)</span></p> <p><span style=""background-color: #f1c40f;"">OBS: ikke afklaret endnu</span></p></div>",,,,,,,[sens_returned_v10]= '1',y,,,,,Upload sens activity file in excel. Visit 10.
 ,sensor_reuse_v10,visit_10,besgsdag_10_5f76,,radio,"<div class=""rich-text-field-label""><p>Er den slukkede sensor lagt i den rigtige kasse (klar eller død)?<br><br></p> <p><span style=""font-weight: normal;""><em>Tjek batteritiden når aktivitetsmåler slukkes i SENS webappen. </em></span></p> <p><span style=""font-weight: normal;""><em>Se SOP SENS aftagning.</em></span></p></div>","1, Ja | 2, Nej",Tjek batteritid ved data upload,,,,,[sens_returned_v10]= '1',y,,,,,Is the sensor put in the right reuse box. Workflow. Visit 10.
-,shake_bar_time_min_v10,visit_10,besgsdag_10_5f76,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar: 
+,shake_bar_time_min_v10,visit_10,besgsdag_10_5f76,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar:
 Hvor mange minutter var deltageren om at indtage shake + bar?",,,,,,,[mmtt_shake_bar_v10] =2,y,,,,,"The number of minutes it took the participant to consume the test shake and bar, if the total consumption time exceeded 10 minutes. Visit 10."
 ,smoking_amount_v10,visit_10,besgsdag_10_5f76,,text,"Hvis deltageren IKKE har undgået rygning siden i går aftes, hvor meget og hvornår? ",,,,,,,[smoking_v10] = '2',y,,,,,Indicates how much smoking the participant has done and when since last night. Visit 10.
 ,smoking_v10,visit_10,besgsdag_10_5f76,,radio,Har deltageren afholdt sig fra rygning siden i går aftes?,"1, Ja | 2, Nej",Dette er vigtigt for at få så korrekte målinger som muligt,,,,,,y,,,,,Indicates if the participant has avoided smpking since the night before. Visit 10.
@@ -474,11 +474,11 @@ staff_initials_v10_admin,staff_initials_v10,visit_10,besgsdag_10_5f76,,text,Init
 ,survey_answered_v10,visit_10,besgsdag_10_5f76,Spørgeskemaer,radio,Har deltageren svaret på alle spørgeskemaer knyttet til dette besøg?,"1, Ja | 2, Nej",,,,,,,y,,,,,Survey answered. Visit 10.
 ,survey_deviation_adminribe_v10,visit_10,besgsdag_10_5f76,,text,Beskriv afvigelsen under udfyldelse af spørgeskemaer,,,,,,,[survey_deviation_v10] = '1',y,,,,,Description of any deviations regarding the surveys. Visit 10.
 ,survey_deviation_v10,visit_10,besgsdag_10_5f76,,radio,Spørgeskemaer,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v10,,Record any deviations from protocol during surveys/questionnaires. Visit 10.
-,sys_bp_1_v10,visit_10,besgsdag_10_5f76,,text,Systolisk blodtryk 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, first measurement. 
+,sys_bp_1_v10,visit_10,besgsdag_10_5f76,,text,Systolisk blodtryk 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, first measurement.
 Participant sitting, measured after approximately 10 minutes of rest. Visit 10."
-,sys_bp_2_v10,visit_10,besgsdag_10_5f76,,text,Systolisk blodtryk 2,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, second measurement. 
+,sys_bp_2_v10,visit_10,besgsdag_10_5f76,,text,Systolisk blodtryk 2,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 10."
-,sys_bp_3_v10,visit_10,besgsdag_10_5f76,,text,Systolisk blodtryk 3,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, third measurement. 
+,sys_bp_3_v10,visit_10,besgsdag_10_5f76,,text,Systolisk blodtryk 3,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 10."
 ,sys_bp_avg_v10,visit_10,besgsdag_10_5f76,,calc,"Systolisk blodtryk, gennemsnit","if(
   [sys_bp_3_v10]<>'' and [sys_bp_2_v10]<>'',
@@ -503,7 +503,7 @@ tmt_upload_v10_file,tmt_upload_v10,visit_10,besgsdag_10_5f76,,file,"<div class="
 ,urin_sample_v10,visit_10,besgsdag_10_5f76,,radio,Har deltageren lavet og afleveret en urinprøve?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the participant has delivered a urin sample done at the day of the visit. Visit 10.
 ,vas_deviation_adminribe_v10,visit_10,besgsdag_10_5f76,,text,Beskriv afvigelsen i VAS under MMTT,,Noter tid/ tider,,,,,[vas_deviation_v10] = '1',y,,,,,Description of any deviations regarding VAS. Visit 10.
 ,vas_deviation_v10,visit_10,besgsdag_10_5f76,,radio,VAS under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v10,,Record any deviations from protocol during MMTT VAS. Visit 10.
-vas_minus10_v10_dq,vas_minus10_v10,visit_10,besgsdag_10_5f76,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention. 
+vas_minus10_v10_dq,vas_minus10_v10,visit_10,besgsdag_10_5f76,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 10."
 vas_time120_v10_dq,vas_time120_v10,visit_10,besgsdag_10_5f76,,radio,Har deltageren gennemført VAS 5 (tid 120)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 5, performed approximately 120 minutes into the intervention. Visit 10."
 vas_time180_v10_dq,vas_time180_v10,visit_10,besgsdag_10_5f76,,radio,Har deltageren gennemført VAS 6 (tid 180 min)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 6, performed approximately 180 minutes into the intervention. Visit 10."
@@ -564,7 +564,7 @@ bloodsample_time60_v6_dq,bloodsample_time60_v6,visit_06,besgsdag_6,Tid 60,radio,
 ","1, Ja | 2, Nej",,,,,,,y,,,,,Record whether a bloodsample was taken at time 60. Visit 6.
 bloodsample_time90_v6_dq,bloodsample_time90_v6,visit_06,besgsdag_6,Tid 90,radio,Er blodprøve 5 taget (tid 90)?,"1, Ja | 2, Nej",,,,,,,y,,,,,Record whether a bloodsample was taken at time 90. Visit 6.
 ,bmi_v6,visit_06,besgsdag_6,,calc,BMI,"round(([weight_v6])/(([height_v6])^(2)), 1)",,,,,,,y,,,,,"Body Mass Index (BMI) in kg/m², calculated from weight and height. Visit 6."
-bp_chosen_arm_v6_admin,bp_chosen_arm_v6,visit_06,besgsdag_6,"<div class=""rich-text-field-label""><p>Blodtryk og puls<br>Måles siddende efter 5-10 min hvile. Blodtryk og puls måles 3 gange. <br><br>NB: Ved gentaget systolisk blodtryk > 180 mmHg eller diastolisk blodtryk > 120 mmHg, bør deltageren ses af en læge på forsøgsstedet. </p></div>",calc,"Blodtrykket skal måles på 
+bp_chosen_arm_v6_admin,bp_chosen_arm_v6,visit_06,besgsdag_6,"<div class=""rich-text-field-label""><p>Blodtryk og puls<br>Måles siddende efter 5-10 min hvile. Blodtryk og puls måles 3 gange. <br><br>NB: Ved gentaget systolisk blodtryk > 180 mmHg eller diastolisk blodtryk > 120 mmHg, bør deltageren ses af en læge på forsøgsstedet. </p></div>",calc,"Blodtrykket skal måles på
 1: Venstre arm
 2: Højre arm",[besg_2_arm_1][bp_chosen_arm_v2],,,,,,,y,,,,,Arm used for  blood pressure measurements. Visit 6.
 ,bp_deviation_adminribe_v6,visit_06,besgsdag_6,,text,Beskriv afvigelsen i blodtryk og puls,,,,,,,[blood_pressure_deviation_v6] = '1',y,,,,,Description of any deviations regarding the measurements of the blood pressure. Visit 6.
@@ -575,11 +575,11 @@ bp_chosen_arm_v6_admin,bp_chosen_arm_v6,visit_06,besgsdag_6,"<div class=""rich-t
 cognition_tests_filed_office_v6_admin,cognition_tests_filed_office_v6,visit_06,besgsdag_6,,radio,Er SCIP-testen og TMT-testen lagt i mappen på kontoret?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the SCIP test and the TMT test has been filed in the briefcase in the office. Visit 6.
 ,comments_end_v6,visit_06,besgsdag_6,,notes,"<div class=""rich-text-field-label""><p>Her noteres generelle kommentarer til besøg 6.</p> <p><span style=""font-weight: normal;"">Det kan eksempelvis være:</span></p> <p><span style=""font-weight: normal;"">- Kommentarer om deltagerens samarbejde og forståelse</span><br><span style=""font-weight: normal;"">- Eventuelle afvigelser i protokollen eller komplikationer</span><br><span style=""font-weight: normal;"">- Information om udførte prøver og tests (fx hvis noget blev udsat eller aflyst)</span><br><span style=""font-weight: normal;"">- Eventuelle anbefalinger eller opfølgninger til næste besøg</span><br><span style=""font-weight: normal;"">- Logning af særlige hændelser eller observationer under besøget</span><br><span style=""font-weight: normal;"">- Kommentarer til dataindsamlingen, fx om data mangler eller kvaliteten</span><br><span style=""font-weight: normal;"">- Noter om deltagerens spørgsmål eller bekymringer</span></p> <p><span style=""font-weight: normal;""><em>Det er vigtigt at udfylde dette felt, da det bidrager til dokumentationen af besøget og hjælper med at samle vigtig information. Kommentarerne understøtter forståelsen af arbejdsgangene og projektets gennemførlighed, herunder identifikation af eventuelle udfordringer.</em></span></p> <p> </p> <p data-start=""0"" data-end=""184""><span style=""background-color: #bfedd2;"">Hvis der er generel information om deltageren, som er relevant for projektdeltagelsen, noteres den under instrumentet <strong data-start=""118"" data-end=""132"">""Stamdata""</strong> i feltet <strong data-start=""142"" data-end=""181"">""Noter ift. deltagelse i projektet""</strong>.</span></p> <p data-start=""186"" data-end=""373"" data-is-last-node="""" data-is-only-node=""""><span style=""background-color: #bfedd2;"">Det kan fx være oplysninger om, hvem personen bor sammen med, særlige forhold i husstanden eller en akut syg pårørende.</span></p></div>",,,,,,,,,LV,,,,Comment at the end of the visit. Visit 6.
 ,date_v6,visit_06,besgsdag_6,,text,Dato for besøget,,,date_dmy,01.02.2023,31.12.2028,,,y,,,,,Date of visit. Visit 6. @today
-,dia_bp_1_v6,visit_06,besgsdag_6,,text,Diastolisk blodtryk 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, first measurement. 
+,dia_bp_1_v6,visit_06,besgsdag_6,,text,Diastolisk blodtryk 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, first measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 6."
-,dia_bp_2_v6,visit_06,besgsdag_6,,text,Diastolisk blodtryk 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, second measurement. 
+,dia_bp_2_v6,visit_06,besgsdag_6,,text,Diastolisk blodtryk 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 6."
-,dia_bp_3_v6,visit_06,besgsdag_6,,text,Diastolisk blodtryk 3,,mmHG,number,30,150,,,y,,,,,"Systolic blood pressure in mmHg, third measurement. 
+,dia_bp_3_v6,visit_06,besgsdag_6,,text,Diastolisk blodtryk 3,,mmHG,number,30,150,,,y,,,,,"Systolic blood pressure in mmHg, third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 6."
 ,dia_bp_avg_v6,visit_06,besgsdag_6,,calc,"Diastolisk blodtryk, gennemsnit ","if(
   [dia_bp_3_v6]<>'' and [dia_bp_2_v6]<>'',
@@ -613,26 +613,26 @@ fibro_upload_v6_file,fibro_upload_v6,visit_06,besgsdag_6,,file,"<div class=""ric
 finapres_arm_cuff_size_v6_admin,finapres_arm_cuff_size_v6,visit_06,besgsdag_6,Før Finapres,calc,"<div class=""rich-text-field-label""><p>Hvilken størrelse armmanchet bruges til Finapres-målingen? <br><br>1, Small<br>2, Medium<br>3, Large<br><br><span style=""font-weight: normal;""><em>Armmanchetten placeres på den samme arm, som blodtrykket er målt på.</em></span></p></div>",[besg_2_arm_1][finapres_arm_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.  ,,,,,,y,,,,,"Finapres measurement: Size of arm cuff (S, M or L) at visit 2. Visit 6."
 ,finapres_deviation_adminribe_v6,visit_06,besgsdag_6,,text,Beskriv afvigelsen under finapres under MMTT,,Noter tid/ tider,,,,,[finapres_deviation_v6] = '1',y,,,,,Description of any deviations regarding finapres during MMTT. Visit 6.
 ,finapres_deviation_v6,visit_06,besgsdag_6,,radio,Finapres under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v6,,Record any deviations from protocol during MMTT finapres. Visit 6.
-finapres_finger_cuff_size_v6_admin,finapres_finger_cuff_size_v6,visit_06,besgsdag_6,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen? 
+finapres_finger_cuff_size_v6_admin,finapres_finger_cuff_size_v6,visit_06,besgsdag_6,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen?
 
 1, Small
 2, Medium
 3, Large",[besg_2_arm_1][finapres_finger_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.  ,,,,,,y,,,,,"Finapres measurement: Size of finger cuff (S, M or L) at visit 2. Visit 6."
-finapres_minus20_v6_dq,finapres_minus20_v6,visit_06,besgsdag_6,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention. 
+finapres_minus20_v6_dq,finapres_minus20_v6,visit_06,besgsdag_6,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
-finapres_time105_v6_dq,finapres_time105_v6,visit_06,besgsdag_6,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention. 
+finapres_time105_v6_dq,finapres_time105_v6,visit_06,besgsdag_6,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
-finapres_time135_v6_dq,finapres_time135_v6,visit_06,besgsdag_6,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention. 
+finapres_time135_v6_dq,finapres_time135_v6,visit_06,besgsdag_6,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
-finapres_time15_v6_dq,finapres_time15_v6,visit_06,besgsdag_6,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention. 
+finapres_time15_v6_dq,finapres_time15_v6,visit_06,besgsdag_6,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
-finapres_time195_v6_dq,finapres_time195_v6,visit_06,besgsdag_6,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention. 
+finapres_time195_v6_dq,finapres_time195_v6,visit_06,besgsdag_6,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
-finapres_time255_v6_dq,finapres_time255_v6,visit_06,besgsdag_6,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention. 
+finapres_time255_v6_dq,finapres_time255_v6,visit_06,besgsdag_6,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
-finapres_time45_v6_dq,finapres_time45_v6,visit_06,besgsdag_6,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention. 
+finapres_time45_v6_dq,finapres_time45_v6,visit_06,besgsdag_6,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
-finapres_time75_v6_dq,finapres_time75_v6,visit_06,besgsdag_6,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention. 
+finapres_time75_v6_dq,finapres_time75_v6,visit_06,besgsdag_6,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
 finapres_upload_ldrive_v6_dq,finapres_upload_ldrive_v6,visit_06,besgsdag_6,Efter Finapres,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #ecf0f1; color: #000000;"">Er Finapres-data indlæst og gemt i mappen på L-drevet?</span></p> <p><span style=""background-color: #e67e23;"">OBS: Der skal gemmes OTTE mapper, der hver indeholder 9 excelfiler. </span></p> <p><span style=""font-weight: normal;""><em>Gemmes som onlimit_ID_visit_nummer af undersøgelse_test_test (eksempel: onlimit_05_v4-3_fp) </em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\6. Finapres,,,,,,y,,,,,Indicates whetner or not the Finapres data is saved on the L-drive. Visit 6.
 ,food_intake_nonfast_v6,visit_06,besgsdag_6,,text,"Hvis deltageren IKKE er fastende, hvad har deltageren så indtaget og hvornår?",,,,,,,[fasting_status_v6] = '2',y,,,,,"Indicates what food and when the participant has eaten it, if the participant has not been fasting from 10 pm the day before the visit. Visit 6."
@@ -647,16 +647,16 @@ food_pref_test_v4_glasses_v6_admin,food_pref_test_v4_glasses_v6,visit_06,besgsda
 ,hba1c_date_for_extra_measurement_planned_staff_v6,visit_06,besgsdag_6,,radio,Er aftale for ny HbA1c-måling skrevet i Caroliens kalender?,"1, Ja | 2, Nej",,,,,,[hba1c_value_v6] > 53,y,,,,,Verify HbA1c follow-up appointment in staff calendar. Visit 6.
 ,hba1c_deviation_adminribe_v6,visit_06,besgsdag_6,,text,Beskriv afvigelsen i HbA1c målingen,,,,,,,[hba1c_deviation_v6] = '1',y,,,,,Description of any deviations regarding the HbA1c sample. Visit 6.
 ,hba1c_deviation_v6,visit_06,besgsdag_6,,radio,HbA1c,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v6,,Record any deviations from protocol during HbA1c blood sample. Visit 6.
-hba1c_elevated_info_v6_admin,hba1c_elevated_info_v6,visit_06,besgsdag_6,,descriptive,"HbA1c er forhøjet. 
-Det skal sikres, at deltageren følger interventionen. 
-Der skal planlægges en ny HbA1c-måling. Denne måling skal foretages om < 4 uger. 
+hba1c_elevated_info_v6_admin,hba1c_elevated_info_v6,visit_06,besgsdag_6,,descriptive,"HbA1c er forhøjet.
+Det skal sikres, at deltageren følger interventionen.
+Der skal planlægges en ny HbA1c-måling. Denne måling skal foretages om < 4 uger.
 
 Hvis HbA1c ≤ 53 ved næste måling, da vurderes diabetes type 2 fortsat at være i remission. Genintroduktion af antidiabetisk medicin er ikke tilladt.
 Hvis HbA1c > 53 ved næste måling, da informeres deltageren og den praktiserende læge om resultatet. Der anbefales genintroduktion af medicinsk behandling for diabetes type 2 (i henhold til retningslinje fra DES og DSAM).",,,,,,,[hba1c_value_v6] > 53,,,,,,Information box. HbA1c is elevated. HbA1c needs to be remeasured. Visit 6.
-hba1c_mildly_elevated_info_v6_admin,hba1c_mildly_elevated_info_v6,visit_06,besgsdag_6,,descriptive,"HbA1c er let forhøjet. 
-Det skal sikres, at deltageren følger interventionen. 
+hba1c_mildly_elevated_info_v6_admin,hba1c_mildly_elevated_info_v6,visit_06,besgsdag_6,,descriptive,"HbA1c er let forhøjet.
+Det skal sikres, at deltageren følger interventionen.
 Genintroduktion af antidiabetisk medicin er ikke tilladt.",,,,,,,[hba1c_value_v6] >= 48 AND [hba1c_value_v6] <= 53,,,,,,Information box. HbA1c is mildly elevated. Reintroduction of antidiabetic medication is not allowed. Visit 6.
-hba1c_normal_info_v6_admin,hba1c_normal_info_v6,visit_06,besgsdag_6,,descriptive,"HbA1c er inden for normalområdet. 
+hba1c_normal_info_v6_admin,hba1c_normal_info_v6,visit_06,besgsdag_6,,descriptive,"HbA1c er inden for normalområdet.
 Genintroduktion af antidiabetisk medicin er ikke tilladt. ",,,,,,,[hba1c_value_v6] < 48,,,,,,Information box. HbA1c is within normal range. Reintroduction of antidiabetic medication is not allowed. Visit 6.
 ,hba1c_v6,visit_06,besgsdag_6,HbA1c ,radio,Har deltageren fået taget HbA1c?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the participant has had HbA1c taken. Visit 6.
 ,hba1c_value_v6,visit_06,besgsdag_6,,text,HbA1c-værdi: ,,mmol/mol,number,,120,,[hba1c_v6]='1',y,,,,,"HbA1c value, mmol/mol. Visit 6."
@@ -665,13 +665,13 @@ height_v6_admin,height_v6,visit_06,besgsdag_6,,calc,Højde,[besg_1__screening_ar
 ,hip_2_v6,visit_06,besgsdag_6,,text,Hoftemål 2,,,number_1dp_comma_decimal,,,,,y,,,,,Hip measurement 2 in cm. Visit 6.
 ,hip_average_v6,visit_06,besgsdag_6,,calc,"Hoftemål, gennemsnit",([hip_1_v6]+[hip_2_v6])/2,,,,,,,y,,,,,The average of the two hip measurements in cm. Visit 6.
 ,homeurin_deviation_adminribe_v6,visit_06,besgsdag_6,,text,Beskriv afvigelsen i indsamling af hjemmeurin,,,,,,,[homeurin_deviation_v6] = '1',y,,,,,Description of any deviations regarding the home urin collection. Visit 6.
-,homeurin_deviation_v6,visit_06,besgsdag_6,"Afvigelser fra forsøgsprotokol: 
+,homeurin_deviation_v6,visit_06,besgsdag_6,"Afvigelser fra forsøgsprotokol:
 Har der været afvigelser ift. forsøgsprotokollen i følgende målinger/tests?",radio,Hjemmeurin,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v6,,"Record any deviations from protocol during home urin sample. Deviations include delay, missed sample, wrong tube, or insufficient volume. Applies to all items in this matrix. Visit 6."
 ,identified_name_cpr_v6,visit_06,besgsdag_6,,radio,Er deltageren identificeret med navn og CPR-nummer?,"1, Ja | 2, Nej",,,,,y,,y,,,,,Indicates whether the participant has been identified by full name and personal identification number (CPR). Visit 6.
 information_adverse_events_v6_admin,information_adverse_events_v6,visit_06,besgsdag_6,,descriptive,"<div class=""rich-text-field-label""><p><span style=""background-color: #ecf0f1;"">Gå til instrumentet ""Adverse events"".</span></p></div>",,,,,,,[adverse_events_v6]='1',,,,,,Information about the instrument adverse events. Visit 6.
-,intervention_challenge_diet_v6,visit_06,besgsdag_6,,radio,"En diætist vil kontakte deltageren i forhold til at følge op på diætinterventionen. 
+,intervention_challenge_diet_v6,visit_06,besgsdag_6,,radio,"En diætist vil kontakte deltageren i forhold til at følge op på diætinterventionen.
 Er diætist kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_v6(1)]='1',y,,,,,States whether the dietitian has been contacted regarding follow up on the diet intervention. Visit 6.
-,intervention_challenge_training_v6,visit_06,besgsdag_6,,radio,"Exercise manager vil kontakte deltageren i forhold til at følge op på træningsinterventionen. 
+,intervention_challenge_training_v6,visit_06,besgsdag_6,,radio,"Exercise manager vil kontakte deltageren i forhold til at følge op på træningsinterventionen.
 Er exercise manager kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_v6(2)]='1',y,,,,,States whether the exercise manager has been contacted regarding follow up on the training intervention. Visit 6.
 ,intervention_challenges_other_v6,visit_06,besgsdag_6,,text,Beskriv 'Andet': ,,,,,,,[intervention_challenges_v6(3)]='1',y,,,,,Describes other reason for not following the intervention. Visit 6.
 ,intervention_challenges_v6,visit_06,besgsdag_6,,checkbox,"<div class=""rich-text-field-label""><p>Hvilken udfordring med at følge interventionen er der tale om?</p> <p><span style=""font-weight: normal;"">Se efter ""røde flag"" i LIVA-appen. </span></p></div>","1, Udfordring i forhold til diæten. | 2, Udfordring i forhold til træningen. | 3, Andet",,,,,,[hba1c_value_v6] >= 48,y,,,,,"Challenges with adherence to the intervention, whether diet or training. Visit 6."
@@ -697,11 +697,11 @@ Hvor meget drak de?",,,,,,,[mmtt_shake_bar_v6] = 3 or [mmtt_shake_bar_v6] = 5,y,
 ,other_deviation_v6,visit_06,besgsdag_6,,radio,Andre afvigelser,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v6,,Record any other deviations from protocol. Visit 6.
 ,pregnancy_test_result_v6,visit_06,besgsdag_6,,radio,Hvad var resultatet af graviditetstesten?,"1, Positiv | 2, Negativ","Hvis positiv, må DXA ikke udføres, og deltageren kan ikke fortsætte i projektet. Gå til 'Stamdata'. ",,,,,[pregnancy_test_v6]='1',y,,,,,Indicates if the pregnancy test was positive or negative. Visit 6.
 ,pregnancy_test_v6,visit_06,besgsdag_6,,radio,Kan deltageren være gravid?,"1, Ja | 2, Nej","Hvis Ja, må der foretages graviditetstest. ",,,,,,y,,,,,Indicates if the participant can be pregnant. Visit 6.
-,pulse_1_v6,visit_06,besgsdag_6,,text,Puls 1,,bpm,number,30,200,,,y,,,,,"Pulse in bpm first measurement. 
+,pulse_1_v6,visit_06,besgsdag_6,,text,Puls 1,,bpm,number,30,200,,,y,,,,,"Pulse in bpm first measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 6."
-,pulse_2_v6,visit_06,besgsdag_6,,text,Puls 2,,bpm,number,30,200,,,y,,,,,"Pulse in bpm second measurement. 
+,pulse_2_v6,visit_06,besgsdag_6,,text,Puls 2,,bpm,number,30,200,,,y,,,,,"Pulse in bpm second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 6."
-,pulse_3_v6,visit_06,besgsdag_6,,text,Puls 3,,bpm,number,30,200,,,y,,,,,"Pulse in bpm third measurement. 
+,pulse_3_v6,visit_06,besgsdag_6,,text,Puls 3,,bpm,number,30,200,,,y,,,,,"Pulse in bpm third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 6."
 ,pulse_avg_v6,visit_06,besgsdag_6,,calc,"Puls, gennemsnit","if(
   [pulse_3_v6]<>'' and [pulse_2_v6]<>'',
@@ -749,7 +749,7 @@ scipd_performed_v6_dq,scipd_performed_v6,visit_06,besgsdag_6,Kognitionstests,rad
 sens_upload_ldrive_v6_dq,sens_upload_ldrive_v6,visit_06,besgsdag_6,,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Er SENS-data indlæst og gemt på L-drevet (CSV-fil)?<br></span></p> <p><span style=""background-color: #f1c40f;"">OBS: ikke afklaret endnu</span></p> <p><span style=""background-color: #f1c40f; font-weight: normal;""><em>Gemmes som onlimit_ID_visit_test (eksempel: onlimit_05_v2_sens)</em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\8. Aktivitetsmåling (SENS),,,,,[sens_returned_v6]= '1',y,,,,,SENS data saved on L-drive. Workflow. Visit 6.
 sens_upload_v6_file,sens_upload_v6,visit_06,besgsdag_6,,file,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Upload SENS-data (CSV-fil)</span></p> <p><span style=""background-color: #f1c40f;"">OBS: ikke afklaret endnu</span></p></div>",,,,,,,[sens_returned_v6]= '1',y,,,,,Upload sens activity file in excel. Visit 6.
 ,sensor_reuse_v6,visit_06,besgsdag_6,,radio,"<div class=""rich-text-field-label""><p>Er den slukkede sensor lagt i den rigtige kasse (klar eller død)?<br><br></p> <p><span style=""font-weight: normal;""><em>Tjek batteritiden når aktivitetsmåler slukkes i SENS webappen. </em></span></p> <p><span style=""font-weight: normal;""><em>Se SOP SENS aftagning.</em></span></p></div>","1, Ja | 2, Nej",Tjek batteritid ved data upload,,,,,[sens_returned_v6]= '1',y,,,,,Is the sensor put in the right reuse box. Workflow. Visit 6.
-,shake_bar_time_min_v6,visit_06,besgsdag_6,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar: 
+,shake_bar_time_min_v6,visit_06,besgsdag_6,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar:
 Hvor mange minutter var deltageren om at indtage shake + bar?",,,,,,,[mmtt_shake_bar_v6] =2,y,,,,,"The number of minutes it took the participant to consume the test shake and bar, if the total consumption time exceeded 10 minutes. Visit 6."
 ,smoking_amount_v6,visit_06,besgsdag_6,,text,"Hvis deltageren IKKE har undgået rygning siden i går aftes, hvor meget og hvornår? ",,,,,,,[smoking_v6] = '2',y,,,,,Indicates how much smoking the participant has done and when since last night. Visit 6.
 ,smoking_v6,visit_06,besgsdag_6,,radio,Har deltageren afholdt sig fra rygning siden i går aftes?,"1, Ja | 2, Nej",Dette er vigtigt for at få så korrekte målinger som muligt,,,,,,y,,,,,Indicates if the participant has avoided smoking since the night before. Visit 6.
@@ -766,11 +766,11 @@ staff_initials_v6_admin,staff_initials_v6,visit_06,besgsdag_6,,text,Initialer p�
 ,survey_answered_v6,visit_06,besgsdag_6,Spørgeskemaer,radio,Har deltageren svaret på alle spørgeskemaer knyttet til dette besøg?,"1, Ja | 2, Nej",,,,,,,y,,,,,Survey answered. Visit 6.
 ,survey_deviation_adminribe_v6,visit_06,besgsdag_6,,text,Beskriv afvigelsen under udfyldelse af spørgeskemaer,,,,,,,[survey_deviation_v6] = '1',y,,,,,Description of any deviations regarding the surveys. Visit 6.
 ,survey_deviation_v6,visit_06,besgsdag_6,,radio,Spørgeskemaer,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v6,,Record any deviations from protocol during surveys/questionnaires. Visit 6.
-,sys_bp_1_v6,visit_06,besgsdag_6,,text,Systolisk blodtryk 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, first measurement. 
+,sys_bp_1_v6,visit_06,besgsdag_6,,text,Systolisk blodtryk 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, first measurement.
 Participant sitting, measured after approximately 10 minutes of rest. Visit 6."
-,sys_bp_2_v6,visit_06,besgsdag_6,,text,Systolisk blodtryk 2,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, second measurement. 
+,sys_bp_2_v6,visit_06,besgsdag_6,,text,Systolisk blodtryk 2,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 6."
-,sys_bp_3_v6,visit_06,besgsdag_6,,text,Systolisk blodtryk 3,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, third measurement. 
+,sys_bp_3_v6,visit_06,besgsdag_6,,text,Systolisk blodtryk 3,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 6."
 ,sys_bp_avg_v6,visit_06,besgsdag_6,,calc,"Systolisk blodtryk, gennemsnit ","if(
   [sys_bp_3_v6]<>'' and [sys_bp_2_v6]<>'',
@@ -795,7 +795,7 @@ tmt_upload_v6_file,tmt_upload_v6,visit_06,besgsdag_6,,file,"<div class=""rich-te
 ,urin_sample_v6,visit_06,besgsdag_6,,radio,Har deltageren lavet og afleveret en urinprøve?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the participant has delivered a urin sample done at the day of the visit. Visit 6.
 ,vas_deviation_adminribe_v6,visit_06,besgsdag_6,,text,Beskriv afvigelsen i VAS under MMTT,,Noter tid/ tider,,,,,[vas_deviation_v6] = '1',y,,,,,Description of any deviations regarding VAS. Visit 6.
 ,vas_deviation_v6,visit_06,besgsdag_6,,radio,VAS under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v6,,Record any deviations from protocol during MMTT VAS. Visit 6.
-vas_minus10_v6_dq,vas_minus10_v6,visit_06,besgsdag_6,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention. 
+vas_minus10_v6_dq,vas_minus10_v6,visit_06,besgsdag_6,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 6."
 vas_time120_v6_dq,vas_time120_v6,visit_06,besgsdag_6,,radio,Har deltageren gennemført VAS 5 (tid 120)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 5, performed approximately 120 minutes into the intervention. Visit 6."
 vas_time180_v6_dq,vas_time180_v6,visit_06,besgsdag_6,,radio,Har deltageren gennemført VAS 6 (tid 180 min)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 6, performed approximately 180 minutes into the intervention. Visit 6."
@@ -858,7 +858,7 @@ bloodsample_time60_v8_dq,bloodsample_time60_v8,visit_08,besgsdag_8,Tid 60,radio,
 ","1, Ja | 2, Nej",,,,,,,y,,,,,Record whether a bloodsample was taken at time 60. Visit 8.
 bloodsample_time90_v8_dq,bloodsample_time90_v8,visit_08,besgsdag_8,Tid 90,radio,Er blodprøve 5 taget (tid 90)?,"1, Ja | 2, Nej",,,,,,,y,,,,,Record whether a bloodsample was taken at time 90. Visit 8.
 ,bmi_v8,visit_08,besgsdag_8,,calc,BMI,"round(([weight_v8])/(([height_v8])^(2)), 1)",,,,,,,y,,,,,"Body Mass Index (BMI) in kg/m², calculated from weight and height. Visit 8."
-bp_chosen_arm_v8_admin,bp_chosen_arm_v8,visit_08,besgsdag_8,"<div class=""rich-text-field-label""><p>Blodtryk og puls<br>Måles siddende efter 5-10 min hvile.<br><br>NB: Ved gentaget systolisk blodtryk > 180 mmHg eller diastolisk blodtryk > 120 mmHg, bør deltageren ses af en læge på forsøgsstedet. </p></div>",calc,"Blodtrykket skal måles på 
+bp_chosen_arm_v8_admin,bp_chosen_arm_v8,visit_08,besgsdag_8,"<div class=""rich-text-field-label""><p>Blodtryk og puls<br>Måles siddende efter 5-10 min hvile.<br><br>NB: Ved gentaget systolisk blodtryk > 180 mmHg eller diastolisk blodtryk > 120 mmHg, bør deltageren ses af en læge på forsøgsstedet. </p></div>",calc,"Blodtrykket skal måles på
 1: Venstre arm
 2: Højre arm",[besg_2_arm_1][bp_chosen_arm_v2],,,,,,,y,,,,,Arm used for  blood pressure measurements. Visit 8.
 ,bp_deviation_adminribe_v8,visit_08,besgsdag_8,,text,Beskriv afvigelsen i blodtryk og puls,,,,,,,[blood_pressure_deviation_v8] = '1',y,,,,,Description of any deviations regarding the measurements of the blood pressure. Visit 8.
@@ -868,11 +868,11 @@ bp_chosen_arm_v8_admin,bp_chosen_arm_v8,visit_08,besgsdag_8,"<div class=""rich-t
 ,cognition_deviation_v8,visit_08,besgsdag_8,,radio,Kognitionstest,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v8,,Record any deviations from protocol during cognition test. Visit 8.
 ,comments_end_v8,visit_08,besgsdag_8,,notes,"<div class=""rich-text-field-label""><p>Her noteres generelle kommentarer til besøg 8.</p> <p><span style=""font-weight: normal;"">Det kan eksempelvis være:</span></p> <p><span style=""font-weight: normal;"">- Kommentarer om deltagerens samarbejde og forståelse</span><br><span style=""font-weight: normal;"">- Eventuelle afvigelser i protokollen eller komplikationer</span><br><span style=""font-weight: normal;"">- Information om udførte prøver og tests (fx hvis noget blev udsat eller aflyst)</span><br><span style=""font-weight: normal;"">- Eventuelle anbefalinger eller opfølgninger til næste besøg</span><br><span style=""font-weight: normal;"">- Logning af særlige hændelser eller observationer under besøget</span><br><span style=""font-weight: normal;"">- Kommentarer til dataindsamlingen, fx om data mangler eller kvaliteten</span><br><span style=""font-weight: normal;"">- Noter om deltagerens spørgsmål eller bekymringer</span></p> <p><span style=""font-weight: normal;""><em>Det er vigtigt at udfylde dette felt, da det bidrager til dokumentationen af besøget og hjælper med at samle vigtig information. Kommentarerne understøtter forståelsen af arbejdsgangene og projektets gennemførlighed, herunder identifikation af eventuelle udfordringer.</em></span></p> <p> </p> <p data-start=""0"" data-end=""184""><span style=""background-color: #bfedd2;"">Hvis der er generel information om deltageren, som er relevant for projektdeltagelsen, noteres den under instrumentet <strong data-start=""118"" data-end=""132"">""Stamdata""</strong> i feltet <strong data-start=""142"" data-end=""181"">""Noter ift. deltagelse i projektet""</strong>.</span></p> <p data-start=""186"" data-end=""373"" data-is-last-node="""" data-is-only-node=""""><span style=""background-color: #bfedd2;"">Det kan fx være oplysninger om, hvem personen bor sammen med, særlige forhold i husstanden eller en akut syg pårørende.</span></p></div>",,,,,,,,,LV,,,,Comment at the end of the visit. Visit 8.
 ,date_v8,visit_08,besgsdag_8,,text,Dato for besøget,,,date_dmy,01.02.2023,31.12.2028,,,y,,,,,Date of visit. Visit 8. @today
-,dia_bp_1_v8,visit_08,besgsdag_8,,text,Diastolisk blodtryk 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, first measurement. 
+,dia_bp_1_v8,visit_08,besgsdag_8,,text,Diastolisk blodtryk 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, first measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 8."
-,dia_bp_2_v8,visit_08,besgsdag_8,,text,Diastolisk blodtryk 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, second measurement. 
+,dia_bp_2_v8,visit_08,besgsdag_8,,text,Diastolisk blodtryk 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 8."
-,dia_bp_3_v8,visit_08,besgsdag_8,,text,Diastolisk blodtryk 3,,mmHG,number,30,150,,,y,,,,,"Systolic blood pressure in mmHg, third measurement. 
+,dia_bp_3_v8,visit_08,besgsdag_8,,text,Diastolisk blodtryk 3,,mmHG,number,30,150,,,y,,,,,"Systolic blood pressure in mmHg, third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 8."
 ,dia_bp_avg_v8,visit_08,besgsdag_8,,calc,"Diastolisk blodtryk, gennemsnit","if(
   [dia_bp_3_v8]<>'' and [dia_bp_2_v8]<>'',
@@ -906,26 +906,26 @@ fibro_upload_v8_file,fibro_upload_v8,visit_08,besgsdag_8,,file,"<div class=""ric
 finapres_arm_cuff_size_v8_admin,finapres_arm_cuff_size_v8,visit_08,besgsdag_8,Før Finapres,calc,"<div class=""rich-text-field-label""><p>Hvilken størrelse armmanchet bruges til Finapres-målingen? <br><br>1, Small<br>2, Medium<br>3, Large<br><br><span style=""font-weight: normal;""><em>Armmanchetten placeres på den samme arm, som blodtrykket er målt på.</em></span></p></div>",[besg_2_arm_1][finapres_arm_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.  ,,,,,,y,,,,,"Finapres measurement: Size of arm cuff (S, M or L) at visit 2. Visit 8."
 ,finapres_deviation_adminribe_v8,visit_08,besgsdag_8,,text,Beskriv afvigelsen under finapres under MMTT,,Noter tid/ tider,,,,,[finapres_deviation_v8] = '1',y,,,,,Description of any deviations regarding finapres during MMTT. Visit 8.
 ,finapres_deviation_v8,visit_08,besgsdag_8,,radio,Finapres under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v8,,Record any deviations from protocol during MMTT finapres. Visit 8.
-finapres_finger_cuff_size_v8_admin,finapres_finger_cuff_size_v8,visit_08,besgsdag_8,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen? 
+finapres_finger_cuff_size_v8_admin,finapres_finger_cuff_size_v8,visit_08,besgsdag_8,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen?
 
 1, Small
 2, Medium
 3, Large",[besg_2_arm_1][finapres_finger_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.  ,,,,,,y,,,,,"Finapres measurement: Size of finger cuff (S, M or L) at visit 2. Visit 8."
-finapres_minus20_v8_dq,finapres_minus20_v8,visit_08,besgsdag_8,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention. 
+finapres_minus20_v8_dq,finapres_minus20_v8,visit_08,besgsdag_8,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
-finapres_time105_v8_dq,finapres_time105_v8,visit_08,besgsdag_8,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention. 
+finapres_time105_v8_dq,finapres_time105_v8,visit_08,besgsdag_8,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
-finapres_time135_v8_dq,finapres_time135_v8,visit_08,besgsdag_8,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention. 
+finapres_time135_v8_dq,finapres_time135_v8,visit_08,besgsdag_8,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
-finapres_time15_v8_dq,finapres_time15_v8,visit_08,besgsdag_8,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention. 
+finapres_time15_v8_dq,finapres_time15_v8,visit_08,besgsdag_8,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
-finapres_time195_v8_dq,finapres_time195_v8,visit_08,besgsdag_8,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention. 
+finapres_time195_v8_dq,finapres_time195_v8,visit_08,besgsdag_8,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
-finapres_time255_v8_dq,finapres_time255_v8,visit_08,besgsdag_8,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention. 
+finapres_time255_v8_dq,finapres_time255_v8,visit_08,besgsdag_8,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
-finapres_time45_v8_dq,finapres_time45_v8,visit_08,besgsdag_8,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention. 
+finapres_time45_v8_dq,finapres_time45_v8,visit_08,besgsdag_8,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
-finapres_time75_v8_dq,finapres_time75_v8,visit_08,besgsdag_8,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention. 
+finapres_time75_v8_dq,finapres_time75_v8,visit_08,besgsdag_8,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
 finapres_upload_ldrive_v8_dq,finapres_upload_ldrive_v8,visit_08,besgsdag_8,Efter Finapres,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #ecf0f1; color: #000000;"">Er Finapres-data indlæst og gemt i mappen på L-drevet?<br></span></p> <p><span style=""background-color: #e67e23;"">OBS: Der skal gemmes OTTE mapper, der hver indeholder 9 excelfiler. </span></p> <p><span style=""font-weight: normal;""><em>Gemmes som onlimit_ID_visit_nummer af undersøgelse_test_test (eksempel: onlimit_05_v4-3_fp) </em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\6. Finapres,,,,,,y,,,,,Indicates whetner or not the Finapres data is saved on the L-drive. Visit 8.
 ,food_intake_nonfast_v8,visit_08,besgsdag_8,,text,"Hvis deltageren IKKE er fastende, hvad har deltageren så indtaget og hvornår?",,,,,,,[fasting_status_v8] = '2',y,,,,,"Indicates what food and when the participant has eaten it, if the participant has not been fasting from 10 pm the day before the visit. Visit 8."
@@ -940,16 +940,16 @@ hba1c_date_for_extra_measurement_planned_room_v8_admin,hba1c_date_for_extra_meas
 hba1c_date_for_extra_measurement_planned_staff_v8_admin,hba1c_date_for_extra_measurement_planned_staff_v8,visit_08,besgsdag_8,,radio,Er aftale for ny HbA1c-måling skrevet i Caroliens kalender?,"1, Ja | 2, Nej",,,,,,[hba1c_value_v8] > 53,y,,,,,Verify HbA1c follow-up appointment in staff calendar. Visit 8.
 ,hba1c_deviation_adminribe_v8,visit_08,besgsdag_8,,text,Beskriv afvigelsen i HbA1c målingen,,,,,,,[hba1c_deviation_v8] = '1',y,,,,,Description of any deviations regarding the HbA1c sample. Visit 8.
 ,hba1c_deviation_v8,visit_08,besgsdag_8,,radio,HbA1c,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v8,,Record any deviations from protocol during HbA1c blood sample. Visit 8.
-hba1c_elevated_info_v8_admin,hba1c_elevated_info_v8,visit_08,besgsdag_8,,descriptive,"HbA1c er forhøjet. 
-Det skal sikres, at deltageren følger interventionen. 
-Der skal planlægges en ny HbA1c-måling. Denne måling skal foretages om < 4 uger. 
+hba1c_elevated_info_v8_admin,hba1c_elevated_info_v8,visit_08,besgsdag_8,,descriptive,"HbA1c er forhøjet.
+Det skal sikres, at deltageren følger interventionen.
+Der skal planlægges en ny HbA1c-måling. Denne måling skal foretages om < 4 uger.
 
 Hvis HbA1c ≤ 53 ved næste måling, da vurderes diabetes type 2 fortsat at være i remission. Genintroduktion af antidiabetisk medicin er ikke tilladt.
 Hvis HbA1c > 53 ved næste måling, da informeres deltageren og den praktiserende læge om resultatet. Der anbefales genintroduktion af medicinsk behandling for diabetes type 2 (i henhold til retningslinje fra DES og DSAM).",,,,,,,[hba1c_value_v8] > 53,,,,,,Information box. HbA1c is elevated. HbA1c needs to be remeasured. Visit 8.
-hba1c_mildly_elevated_info_v8_admin,hba1c_mildly_elevated_info_v8,visit_08,besgsdag_8,,descriptive,"HbA1c er let forhøjet. 
-Det skal sikres, at deltageren følger interventionen. 
+hba1c_mildly_elevated_info_v8_admin,hba1c_mildly_elevated_info_v8,visit_08,besgsdag_8,,descriptive,"HbA1c er let forhøjet.
+Det skal sikres, at deltageren følger interventionen.
 Genintroduktion af antidiabetisk medicin er ikke tilladt.",,,,,,,[hba1c_value_v8] >= 48 AND [hba1c_value_v8] <= 53,,,,,,Information box. HbA1c is mildly elevated. Reintroduction of antidiabetic medication is not allowed. Visit 8.
-hba1c_normal_info_v8_admin,hba1c_normal_info_v8,visit_08,besgsdag_8,,descriptive,"HbA1c er inden for normalområdet. 
+hba1c_normal_info_v8_admin,hba1c_normal_info_v8,visit_08,besgsdag_8,,descriptive,"HbA1c er inden for normalområdet.
 Genintroduktion af antidiabetisk medicin er ikke tilladt. ",,,,,,,[hba1c_value_v8] < 48,,,,,,Information box. HbA1c is within normal range. Reintroduction of antidiabetic medication is not allowed. Visit 8.
 ,hba1c_v8,visit_08,besgsdag_8,HbA1c ,radio,Har deltageren fået taget HbA1c?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the participant has had HbA1c taken. Visit 8.
 ,hba1c_value_v8,visit_08,besgsdag_8,,text,HbA1c-værdi: ,,mmol/mol,number,,120,,[hba1c_v8]='1',y,,,,,"HbA1c value, mmol/mol. Visit 8."
@@ -961,13 +961,13 @@ height_v8_admin,height_v8,visit_08,besgsdag_8,,calc,Højde,[besg_1__screening_ar
 ,home_urin_return_v8,visit_08,besgsdag_8,,text,"Hvis 'Nej', aftal med deltageren, hvornår de afleverer urinprøven.",,Aftal tidspunkt og fremgangsmåde.,,,,,[home_urin_received_v8] = '2',y,,,,,Date for return home urin sample. Visit 8.
 ,home_urin_v8,visit_08,besgsdag_8,"<div class=""rich-text-field-label""><p>Hjemmeurin <br><br>OBS! Urin indsamlet samme 3 dage som der er blevet kostregistreret via MyFood24 (uge 17)</p></div>",radio,Har deltageren indsamlet urin hjemme i 3 dage?,"1, Ja | 2, Nej",Skal være fra samme 3 dage som kostregistrering,,,,,,y,,,,,Indicates whether the participant has collected urin 3 days at home like instructed. Visit 8.
 ,homeurin_deviation_adminribe_v8,visit_08,besgsdag_8,,text,Beskriv afvigelsen i indsamling af hjemmeurin,,,,,,,[homeurin_deviation_v8] = '1',y,,,,,Description of any deviations regarding the home urin collection. Visit 8.
-,homeurin_deviation_v8,visit_08,besgsdag_8,"Afvigelser fra forsøgsprotokol: 
+,homeurin_deviation_v8,visit_08,besgsdag_8,"Afvigelser fra forsøgsprotokol:
 Har der været afvigelser ift. forsøgsprotokollen i følgende målinger/tests?",radio,Hjemmeurin,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v8,,"Record any deviations from protocol during homeurin sample. Deviations include delay, missed sample, wrong tube, or insufficient volume. Applies to all items in this matrix. Visit 8."
 ,identified_name_cpr_v8,visit_08,besgsdag_8,,radio,Er deltageren identificeret med navn og CPR-nummer?,"1, Ja | 2, Nej",,,,,y,,y,,,,,Indicates whether the participant has been identified by full name and personal identification number (CPR). Visit 8.
 information_adverse_events_v8_admin,information_adverse_events_v8,visit_08,besgsdag_8,,descriptive,"<div class=""rich-text-field-label""><p><span style=""background-color: #ecf0f1;"">Gå til instrumentet ""Adverse events"".</span></p></div>",,,,,,,[adverse_events_v8]='1',,,,,,Information about the instrument adverse events. Visit 8.
-,intervention_challenge_diet_v8,visit_08,besgsdag_8,,radio,"En diætist vil kontakte deltageren i forhold til at følge op på diætinterventionen. 
+,intervention_challenge_diet_v8,visit_08,besgsdag_8,,radio,"En diætist vil kontakte deltageren i forhold til at følge op på diætinterventionen.
 Er diætist kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_v8(1)]='1',y,,,,,States wether the dietitian has been contacted regarding follow up on the diet intervention. Visit 8.
-,intervention_challenge_training_v8,visit_08,besgsdag_8,,radio,"Exercise manager vil kontakte deltageren i forhold til at følge op på træningsinterventionen. 
+,intervention_challenge_training_v8,visit_08,besgsdag_8,,radio,"Exercise manager vil kontakte deltageren i forhold til at følge op på træningsinterventionen.
 Er exercise manager kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_v8(2)]='1',y,,,,,States wether the exercise manager has been contacted regarding follow up on the training intervention. Visit 8.
 ,intervention_challenges_other_v8,visit_08,besgsdag_8,,text,Beskriv 'Andet': ,,,,,,,[intervention_challenges_v8(3)]='1',y,,,,,Describes other reason for not following the intervention. Visit 8.
 ,intervention_challenges_v8,visit_08,besgsdag_8,,checkbox,"<div class=""rich-text-field-label""><p>Hvilken udfordring med at følge interventionen er der tale om?</p> <p><span style=""font-weight: normal;"">Se efter ""røde flag"" i LIVA-appen. </span></p></div>","1, Udfordring i forhold til diæten. | 2, Udfordring i forhold til træningen. | 3, Andet",,,,,,[hba1c_value_v8] >= 48,y,,,,,"Challenges with adherence to the intervention, whether diet or training. Visit 8."
@@ -993,11 +993,11 @@ Hvor meget drak de?",,,,,,,[mmtt_shake_bar_v8] = 3 or [mmtt_shake_bar_v8] = 5,y,
 ,other_deviation_v8,visit_08,besgsdag_8,,radio,Andre afvigelser,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v8,,Record any other deviations from protocol. Visit 8.
 ,pregnancy_test_result_v8,visit_08,besgsdag_8,,radio,Hvad var resultatet af graviditetstesten?,"1, Positiv | 2, Negativ","Hvis positiv, må DXA ikke udføres, og deltageren kan ikke fortsætte i projektet. Gå til 'Stamdata'. ",,,,,[pregnancy_test_v8]='1',y,,,,,Indicates if the pregnancy test was positive or negative. Visit 8.
 ,pregnancy_test_v8,visit_08,besgsdag_8,,radio,Kan deltageren være gravid?,"1, Ja | 2, Nej","Hvis Ja, må der foretages graviditetstest. ",,,,,,y,,,,,Indicates if the participant can be pregnant. Visit 8.
-,pulse_1_v8,visit_08,besgsdag_8,,text,Puls 1,,bpm,number,30,200,,,y,,,,,"Pulse in bpm first measurement. 
+,pulse_1_v8,visit_08,besgsdag_8,,text,Puls 1,,bpm,number,30,200,,,y,,,,,"Pulse in bpm first measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 8."
-,pulse_2_v8,visit_08,besgsdag_8,,text,Puls 2,,bpm,number,30,200,,,y,,,,,"Pulse in bpm second measurement. 
+,pulse_2_v8,visit_08,besgsdag_8,,text,Puls 2,,bpm,number,30,200,,,y,,,,,"Pulse in bpm second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 8."
-,pulse_3_v8,visit_08,besgsdag_8,,text,Puls 3,,bpm,number,30,200,,,y,,,,,"Pulse in bpm third measurement. 
+,pulse_3_v8,visit_08,besgsdag_8,,text,Puls 3,,bpm,number,30,200,,,y,,,,,"Pulse in bpm third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 8."
 ,pulse_avg_v8,visit_08,besgsdag_8,,calc,"Puls, gennemsnit ","if(
   [pulse_3_v8]<>'' and [pulse_2_v8]<>'',
@@ -1038,7 +1038,7 @@ sens_returned_v8_dq,sens_returned_v8,visit_08,besgsdag_8,"<div class=""rich-text
 sens_upload_ldrive_v8_dq,sens_upload_ldrive_v8,visit_08,besgsdag_8,,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Er SENS-data indlæst og gemt på L-drevet (CSV-fil)?<br></span></p> <p><span style=""background-color: #f1c40f;"">OBS: ikke afklaret endnu</span></p> <p><span style=""background-color: #f1c40f; font-weight: normal;""><em>Gemmes som onlimit_ID_visit_test (eksempel: onlimit_05_v2_sens)</em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\8. Aktivitetsmåling (SENS),,,,,[sens_returned_v8]= '1',y,,,,,SENS data saved on L-drive. Workflow. Visit 8.
 sens_upload_v8_file,sens_upload_v8,visit_08,besgsdag_8,,file,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Upload SENS-data (CSV-fil)</span></p> <p><span style=""background-color: #f1c40f;"">OBS: ikke afklaret endnu</span></p></div>",,,,,,,[sens_returned_v8]= '1',y,,,,,Upload sens activity file in excel. Visit 8.
 sensor_reuse_v8_admin,sensor_reuse_v8,visit_08,besgsdag_8,,radio,"<div class=""rich-text-field-label""><p>Er den slukkede sensor lagt i den rigtige kasse (klar eller død)?<br><br></p> <p><span style=""font-weight: normal;""><em>Tjek batteritiden når aktivitetsmåler slukkes i SENS webappen. </em></span></p> <p><span style=""font-weight: normal;""><em>Se SOP SENS aftagning.</em></span></p></div>","1, Ja | 2, Nej",Tjek batteritid ved data upload,,,,,[sens_returned_v8]= '1',y,,,,,Is the sensor put in the right reuse box. Workflow. Visit 8.
-,shake_bar_time_min_v8,visit_08,besgsdag_8,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar: 
+,shake_bar_time_min_v8,visit_08,besgsdag_8,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar:
 Hvor mange minutter var deltageren om at indtage shake + bar?",,,,,,,[mmtt_shake_bar_v8] =2,y,,,,,"The number of minutes it took the participant to consume the test shake and bar, if the total consumption time exceeded 10 minutes. Visit 8."
 ,smoking_amount_v8,visit_08,besgsdag_8,,text,"Hvis deltageren IKKE har undgået rygning siden i går aftes, hvor meget og hvornår? ",,,,,,,[smoking_v8] = '2',y,,,,,Indicates how much smoking the participant has done and when since last night. Visit 8.
 ,smoking_v8,visit_08,besgsdag_8,,radio,Har deltageren afholdt sig fra rygning siden i går aftes?,"1, Ja | 2, Nej",Dette er vigtigt for at få så korrekte målinger som muligt,,,,,,y,,,,,Indicates if the participant has avoided smpking since the night before. Visit 8.
@@ -1056,11 +1056,11 @@ staff_initials_v8_admin,staff_initials_v8,visit_08,besgsdag_8,,text,Initialer p�
 ,survey_answered_v8,visit_08,besgsdag_8,Spørgeskemaer,radio,Har deltageren svaret på alle spørgeskemaer knyttet til dette besøg?,"1, Ja | 2, Nej",,,,,,,y,,,,,Survey answered. Visit 8.
 ,survey_deviation_adminribe_v8,visit_08,besgsdag_8,,text,Beskriv afvigelsen under udfyldelse af spørgeskemaer,,,,,,,[survey_deviation_v8] = '1',y,,,,,Description of any deviations regarding the surveys. Visit 8.
 ,survey_deviation_v8,visit_08,besgsdag_8,,radio,Spørgeskemaer,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v8,,Record any deviations from protocol during surveys/questionnaires. Visit 8.
-,sys_bp_1_v8,visit_08,besgsdag_8,,text,Systolisk blodtryk 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, first measurement. 
+,sys_bp_1_v8,visit_08,besgsdag_8,,text,Systolisk blodtryk 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, first measurement.
 Participant sitting, measured after approximately 10 minutes of rest. Visit 8."
-,sys_bp_2_v8,visit_08,besgsdag_8,,text,Systolisk blodtryk 2,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, second measurement. 
+,sys_bp_2_v8,visit_08,besgsdag_8,,text,Systolisk blodtryk 2,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 8."
-,sys_bp_3_v8,visit_08,besgsdag_8,,text,Systolisk blodtryk 3,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, third measurement. 
+,sys_bp_3_v8,visit_08,besgsdag_8,,text,Systolisk blodtryk 3,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 8."
 ,sys_bp_avg_v8,visit_08,besgsdag_8,,calc,"Systolisk blodtryk, gennemsnit ","if(
   [sys_bp_3_v8]<>'' and [sys_bp_2_v8]<>'',
@@ -1082,7 +1082,7 @@ test_protocol_previous_visit_v8_admin,test_protocol_previous_visit_v8,visit_08,b
 ,urin_sample_v8,visit_08,besgsdag_8,,radio,Har deltageren lavet og afleveret en urinprøve?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the participant has delivered a urin sample done at the day of the visit. Visit 8.
 ,vas_deviation_adminribe_v8,visit_08,besgsdag_8,,text,Beskriv afvigelsen i VAS under MMTT,,Noter tid/ tider,,,,,[vas_deviation_v8] = '1',y,,,,,Description of any deviations regarding VAS. Visit 8.
 ,vas_deviation_v8,visit_08,besgsdag_8,,radio,VAS under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v8,,Record any deviations from protocol duringMMTT VAS. Visit 8.
-vas_minus10_v8_dq,vas_minus10_v8,visit_08,besgsdag_8,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention. 
+vas_minus10_v8_dq,vas_minus10_v8,visit_08,besgsdag_8,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 8."
 vas_time120_v8_dq,vas_time120_v8,visit_08,besgsdag_8,,radio,Har deltageren gennemført VAS 5 (tid 120)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 5, performed approximately 120 minutes into the intervention. Visit 8."
 vas_time180_v8_dq,vas_time180_v8,visit_08,besgsdag_8,,radio,Har deltageren gennemført VAS 6 (tid 180 min)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 6, performed approximately 180 minutes into the intervention. Visit 8."
@@ -1138,24 +1138,24 @@ cgm_glucosedata_upload_v2_file,cgm_glucosedata_upload_v2,visit_02,besoegsdag_2,,
 ,cgm_pdfsaved_ldrive_v2,visit_02,besoegsdag_2,,radio,"<div class=""rich-text-field-label""><p>Er AGP-rapporten (PDF-fil) indlæst og gemt på L-drevet?<br><br><em><span style=""font-weight: normal;"">Gemmes som onlimit_ID_visit_test.pdf (eksempel: onlimit_05_v2_cgm.pdf)</span></em></p></div>","1, Ja | 2, Nej",Gemmes her: L:\AuditData\ON LiMiT\2. Feasibility studie\9. Data\3. CGM\PDF filer (AGP rapport),,,,,[cgm_returned_v2] = '1',y,,,,,AGP rapport with cmg data saved on L-drive. Visit 2.
 cgm_reader_v2_admin,cgm_reader_v2,visit_02,besoegsdag_2,,calc,"Aflæs CGM-sensor med SAMME CGM-reader som brugt ved påsættelse ved besøg 1 (CGM-reader 1, 2 eller 3).",[besg_1__screening_arm_1][cgmreader_v1],"Ved manglende reader nummer, findes reader nummeret under besøg 1",,,,,,,,,,,The same reader as at visit 1 has to be used. Visit 2.
 ,cgm_returned_v2,visit_02,besoegsdag_2,"<div class=""rich-text-field-label""><p>CGM<br><br><span style=""font-weight: normal;"">Se SOP CGM - Påsætning, afmontering og aflæsning her: L:\AuditData\ON LiMiT\2. Feasibility studie\7. SOPs\SOPs forsøgsdage</span></p></div>",radio,Er CGM-sensor kommet retur?,"1, Ja | 2, Nej | 3, Nej, faldet af og ikke fundet",,,,,,,y,,,,,Whether the CGM has been returned. Visit 2.
-,cgm_when_info_v2,visit_02,besoegsdag_2,,radio,"Skriv til Carolien, hvornår CGM-sensor modtages og aflæses. 
+,cgm_when_info_v2,visit_02,besoegsdag_2,,radio,"Skriv til Carolien, hvornår CGM-sensor modtages og aflæses.
 
 Er det gjort?","1, Ja | 2, Nej",,,,,,[cgm_returned_v2] = '2',y,,,,,Write to Carolien when the CGM device will be received. Visit 2.
 ,cgm_when_v2,visit_02,besoegsdag_2,,text,"Hvis nej, hvornår får vi den retur? ",,Aftal tidspunkt og fremgangsmåde.,,,,,[cgm_returned_v2] = '2',y,,,,,"If not, note the date that it will be returned. Visit 2."
 ,comments_end_v2,visit_02,besoegsdag_2,,notes,"<div class=""rich-text-field-label""><p>Her noteres generelle kommentarer til besøg 2.</p> <p><span style=""font-weight: normal;"">Det kan eksempelvis være:</span></p> <p><span style=""font-weight: normal;"">- Kommentarer om deltagerens samarbejde og forståelse</span><br><span style=""font-weight: normal;"">- Eventuelle afvigelser i protokollen eller komplikationer</span><br><span style=""font-weight: normal;"">- Information om udførte prøver og tests (fx hvis noget blev udsat eller aflyst)</span><br><span style=""font-weight: normal;"">- Eventuelle anbefalinger eller opfølgninger til næste besøg</span><br><span style=""font-weight: normal;"">- Logning af særlige hændelser eller observationer under besøget</span><br><span style=""font-weight: normal;"">- Kommentarer til dataindsamlingen, fx om data mangler eller kvaliteten</span><br><span style=""font-weight: normal;"">- Noter om deltagerens spørgsmål eller bekymringer</span></p> <p><span style=""font-weight: normal;""><em>Det er vigtigt at udfylde dette felt, da det bidrager til dokumentationen af besøget og hjælper med at samle vigtig information. Kommentarerne understøtter forståelsen af arbejdsgangene og projektets gennemførlighed, herunder identifikation af eventuelle udfordringer.</em></span></p> <p> </p> <p data-start=""0"" data-end=""184""><span style=""background-color: #bfedd2;"">Hvis der er generel information om deltageren, som er relevant for projektdeltagelsen, noteres den under instrumentet <strong data-start=""118"" data-end=""132"">""Stamdata""</strong> i feltet <strong data-start=""142"" data-end=""181"">""Noter ift. deltagelse i projektet""</strong>.</span></p> <p data-start=""186"" data-end=""373"" data-is-last-node="""" data-is-only-node=""""><span style=""background-color: #bfedd2;"">Det kan fx være oplysninger om, hvem personen bor sammen med, særlige forhold i husstanden eller en akut syg pårørende.</span></p></div>",,,,,,,,,LV,,,,Comment at the end of the visit. Visit 2.
 ,consent_share_info_gp_v2,visit_02,besoegsdag_2,,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Giver deltageren samtykke til videregivelse af relevante helbredsoplysninger fra projektet til egen læge?</span><br><br>Samtykket kan til enhver tid trækkes tilbage.</p></div>","1, Ja | 2, Nej",,,,,,,y,,,,,Consent for sharing relevant health information from the study with the participant's general practitioner for purposes of treatment and safety. Consent can be withdrawn at any time. Visit 2.
 ,date_v2,visit_02,besoegsdag_2,,text,Dato for besøget:,,Format: DD-MM-YYYY,date_dmy,01.02.2023,31.12.2027,,,y,,,,,Date of visit. Visit 2. @today
-,dia_bp_left_1_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk venstre arm 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, left arm, first measurement. 
+,dia_bp_left_1_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk venstre arm 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, left arm, first measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,dia_bp_left_2_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk venstre arm 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, left arm, second measurement. 
+,dia_bp_left_2_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk venstre arm 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, left arm, second measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,dia_bp_left_3_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk venstre arm 3,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, left arm, third measurement. 
+,dia_bp_left_3_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk venstre arm 3,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, left arm, third measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,dia_bp_right_1_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk højre arm 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, right arm, first measurement. 
+,dia_bp_right_1_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk højre arm 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, right arm, first measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,dia_bp_right_2_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk højre arm 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, right arm, second measurement. 
+,dia_bp_right_2_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk højre arm 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, right arm, second measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,dia_bp_right_3_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk højre arm 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, right arm, third measurement. 
+,dia_bp_right_3_v2,visit_02,besoegsdag_2,,text,Diastolisk blodtryk højre arm 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, right arm, third measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
 ,exercise_24h_v2,visit_02,besoegsdag_2,,text,"Hvis deltageren IKKE har undladt at være fysisk aktiv inden for de sidste 24 timer, hvor meget har deltageren så bevæget sig og hvornår? ",,,,,,,[no_exercise_24h_v2] = '2',y,,,,,Indicates how much intense activity or exercise the participant did and when the past 24 hours. Visit 2.
 ,fasting_status_v2,visit_02,besoegsdag_2,Standardisering,radio,Er deltageren fastende?,"1, Ja | 2, Nej","Skal være fastende fra kl. 22 dagen forinden (inkl. kaffe, te, kosttilskud og tobak) Må gerne have drukket vand.",,,,,,y,,,,,Indicates if the participant has been fasting since 10 pm the night before. Visit 2.
@@ -1163,21 +1163,21 @@ Participant sitting after approximately 5-10 minutes of rest. Visit 2."
 ,finapres_deviation_adminribe_v2,visit_02,besoegsdag_2,,text,Beskriv afvigelsen ved Finapres under MMTT:,,,,,,,[finapres_deviation_v2] = '1',y,,,,,Description of any deviations regarding finapres during MMTT. Visit 2.
 ,finapres_deviation_v2,visit_02,besoegsdag_2,,radio,Finapres under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,,,Deviations related to finappres procedure. Visit 2.
 ,finapres_finger_cuff_size_v2,visit_02,besoegsdag_2,Før Finapres,radio,Hvilken størrelse fingermanchet bruges til Finapres-målingen? ,"1, Small | 2, Medium | 3, Large",Ofte bruges størrelse medium.  ,,,,,,y,,,,,"Finapres measurement: Size of finger cuff (S, M or L). Visit 2."
-finapres_minus20_v2_dq,finapres_minus20_v2,visit_02,besoegsdag_2,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention. 
+finapres_minus20_v2_dq,finapres_minus20_v2,visit_02,besoegsdag_2,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 2"
-finapres_time105_v2_dq,finapres_time105_v2,visit_02,besoegsdag_2,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention. 
+finapres_time105_v2_dq,finapres_time105_v2,visit_02,besoegsdag_2,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 2."
-finapres_time135_v2_dq,finapres_time135_v2,visit_02,besoegsdag_2,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention. 
+finapres_time135_v2_dq,finapres_time135_v2,visit_02,besoegsdag_2,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention.
 Response options: 1=Yes, 2=No. visit 2"
-finapres_time15_v2_dq,finapres_time15_v2,visit_02,besoegsdag_2,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention. 
+finapres_time15_v2_dq,finapres_time15_v2,visit_02,besoegsdag_2,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention.
 Response options: 1=Yes, 2=No. visit 2"
-finapres_time195_v2_dq,finapres_time195_v2,visit_02,besoegsdag_2,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention. 
+finapres_time195_v2_dq,finapres_time195_v2,visit_02,besoegsdag_2,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 2."
-finapres_time255_v2_dq,finapres_time255_v2,visit_02,besoegsdag_2,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention. 
+finapres_time255_v2_dq,finapres_time255_v2,visit_02,besoegsdag_2,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 2."
-finapres_time45_v2_dq,finapres_time45_v2,visit_02,besoegsdag_2,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention. 
+finapres_time45_v2_dq,finapres_time45_v2,visit_02,besoegsdag_2,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 2"
-finapres_time75_v2_dq,finapres_time75_v2,visit_02,besoegsdag_2,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention. 
+finapres_time75_v2_dq,finapres_time75_v2,visit_02,besoegsdag_2,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 2"
 finapres_upload_ldrive_v2_dq,finapres_upload_ldrive_v2,visit_02,besoegsdag_2,Efter Finapres,radio,"<div class=""rich-text-field-label""><p>Er Finapres-data indlæst og gemt i mappen på L-drevet?</p> <p><span style=""background-color: #e67e23;"">OBS: Der skal gemmes OTTE mapper, der hver indeholder 9 excelfiler. </span></p> <p><span style=""font-weight: normal;""><em>Gemmes som onlimit_ID_visit_nummer af undersøgelse_test_test (eksempel: onlimit_5_v4-3_fp) </em></span></p> <p><span style=""background-color: #f1c40f;""><br><br></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\6. Finapres,,,,,,y,,,,,Indicates whetner or not the Finapres data is saved on the L-drive. Visit 2.
 ,food_intake_nonfast_v2,visit_02,besoegsdag_2,,text,"Hvis deltageren IKKE er fastende, hvad har deltageren så indtaget og hvornår?",,,,,,,[fasting_status_v2] = '2',y,,,,,"Indicates what food and when the participant has eaten it, if the participant has not been fasting from 10 pm the day before the visit. Visit 2."
@@ -1213,7 +1213,7 @@ Har der været afvigelser ift. forsøgsprotokollen i følgende målinger/tests?"
 sens_upload_ldrive_v2_dq,sens_upload_ldrive_v2,visit_02,besoegsdag_2,,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Er SENS-data indlæst og gemt på L-drevet (CSV-fil)?<br></span></p> <p><span style=""background-color: #f1c40f;"">OBS: ikke afklaret endnu</span></p> <p><span style=""background-color: #f1c40f; font-weight: normal;""><em>Gemmes som onlimit_ID_visit_test (eksempel: onlimit_05_v2_sens)</em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\8. Aktivitetsmåling (SENS),,,,,[sens_returned_v2]= '1',y,,,,,SENS data saved on L-drive. Workflow. Visit 2.
 sens_upload_v2_file,sens_upload_v2,visit_02,besoegsdag_2,,file,"<div class=""rich-text-field-label""><p><span style=""background-color: #f1c40f;"">Upload SENS-data (CSV-fil)</span></p> <p><span style=""background-color: #f1c40f;"">OBS: ikke afklaret endnu</span></p></div>",,,,,,,[sens_returned_v2]= '1',y,,,,,Upload sens activity file in excel. Visit 2.
 ,sensor_reuse_v2,visit_02,besoegsdag_2,,radio,"<div class=""rich-text-field-label""><p>Er den slukkede sensor lagt i den rigtige kasse (klar eller død)?<br><br></p> <p><span style=""font-weight: normal;""><em>Tjek batteritiden når aktivitetsmåler slukkes i SENS webappen. </em></span></p> <p><span style=""font-weight: normal;""><em>Se SOP SENS aftagning.</em></span></p></div>","1, Ja | 2, Nej",Tjek batteritid ved data upload,,,,,[sens_returned_v2]= '1',y,,,,,Whether the sensor is put in the right reuse box. Visit 2.
-,shake_bar_time_min_v2,visit_02,besoegsdag_2,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar: 
+,shake_bar_time_min_v2,visit_02,besoegsdag_2,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar:
 Hvor mange minutter var deltageren om at indtage shake + bar?",,,,,,,[mmtt_shake_bar_v2] =2,y,,,,,"The number of minutes it took the participant to consume the test shake and bar, if the total consumption time exceeded 10 minutes. Visit 2."
 ,smoking_amount_v2,visit_02,besoegsdag_2,,text,"Hvis deltageren IKKE har undgået rygning siden i går aftes, hvor meget og hvornår? ",,,,,,,[smoking_v2] = '2',y,,,,,Indicates how much smoking the participant has done and when since last night. Visit 2.
 ,smoking_v2,visit_02,besoegsdag_2,,radio,Har deltageren afholdt sig fra rygning siden i går aftes?,"1, Ja | 2, Nej",Dette er vigtigt for at få så korrekte målinger som muligt,,,,,,y,,,,,Indicates if the participant has avoided smpking since the night before. Visit 2.
@@ -1221,11 +1221,11 @@ Hvor mange minutter var deltageren om at indtage shake + bar?",,,,,,,[mmtt_shake
 staff_initials_v2_admin,staff_initials_v2,visit_02,besoegsdag_2,,text,Initialer på projektpersonale:,,,,,,y,,y,,,,,Initials of the study staff member responsible for conducting the screening. Visit 2.
 ,stool_sample_return_v2,visit_02,besoegsdag_2,,text,"Hvis 'Nej', aftal med deltageren, hvornår de afleverer afføringsprøven.",,Aftal tidspunkt og fremgangsmåde.,,,,,[stool_sample_v2] = '2',y,,,,,Date for return of the stool sample. Visit 2.
 ,stool_sample_v2,visit_02,besoegsdag_2,Afføringsprøve,radio,Har deltageren afleveret en afføringsprøve? ,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates whether the participant brought a stool sample like instructed. Visit 2.
-,sys_bp_left_1_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk venstre arm 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, left arm, first measurement. 
+,sys_bp_left_1_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk venstre arm 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, left arm, first measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,sys_bp_left_2_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk venstre arm 2,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, left arm, second measurement. 
+,sys_bp_left_2_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk venstre arm 2,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, left arm, second measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,sys_bp_left_3_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk venstre arm 3,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, left arm, third measurement. 
+,sys_bp_left_3_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk venstre arm 3,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, left arm, third measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
 ,sys_bp_left_mean_v2,visit_02,besoegsdag_2,,calc,"Gennemsnit systolisk blodtryk, venstre arm","if(
   [sys_bp_left_3_v2]<>'' and [sys_bp_left_2_v2]<>'',
@@ -1237,11 +1237,11 @@ Participant sitting after approximately 5-10 minutes of rest. Visit 2."
       [sys_bp_left_3_v2]='' and [sys_bp_left_2_v2]<>'',
       [sys_bp_left_2_v2],
       '')))",mmH,,,,,,y,,,,,Automatically calculated as the mean of two systolic BP measurements on left arm. Visit 2.
-,sys_bp_right_1_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk højre arm 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, right arm, first measurement. 
+,sys_bp_right_1_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk højre arm 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, right arm, first measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,sys_bp_right_2_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk højre arm 2,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, right arm, second measurement. 
+,sys_bp_right_2_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk højre arm 2,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, right arm, second measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
-,sys_bp_right_3_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk højre arm 3,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, right arm, third measurement. 
+,sys_bp_right_3_v2,visit_02,besoegsdag_2,,text,Systolisk blodtryk højre arm 3,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, right arm, third measurement.
 Participant sitting after approximately 5-10 minutes of rest. Visit 2."
 ,sys_bp_right_mean_v2,visit_02,besoegsdag_2,,calc,"Gennemsnit systolisk blodtryk, højre arm","if(
   [sys_bp_right_3_v2]<>'' and [sys_bp_right_2_v2]<>'',
@@ -1259,7 +1259,7 @@ Participant sitting after approximately 5-10 minutes of rest. Visit 2."
 ,transportation_v2,visit_02,besoegsdag_2,,text,"Hvilket form for transport har deltageren gjort brug af, og hvor langt har deltageren transporteret sig? ",,,,,,,[not_active_transportation_v2]='2',y,,,,,Description of the active transportation before the visit. Visit 2.
 ,vas_deviation_adminribe_v2,visit_02,besoegsdag_2,,text,Beskriv afvigelsen ved VAS under MMTT:,,,,,,,[vas_deviation_v2] = '1',y,,,,,Description of any deviations regarding VAS during MMTT. Visit 2.
 ,vas_deviation_v2,visit_02,besoegsdag_2,,radio,VAS under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,,,Deviations related to VAS procedure. Visit 2.
-vas_minus10_v2_dq,vas_minus10_v2,visit_02,besoegsdag_2,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention. 
+vas_minus10_v2_dq,vas_minus10_v2,visit_02,besoegsdag_2,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 2."
 vas_time120_v2_dq,vas_time120_v2,visit_02,besoegsdag_2,,radio,Har deltageren gennemført VAS 5 (tid 120)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 5, performed approximately 120 minutes into the intervention. Visit 2."
 vas_time180_v2_dq,vas_time180_v2,visit_02,besoegsdag_2,,radio,Har deltageren gennemført VAS 6 (tid 180 min)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 6, performed approximately 180 minutes into the intervention. Visit 2."
@@ -1286,33 +1286,33 @@ bp_chosen_arm_v3_admin,bp_chosen_arm_v3,visit_03,besoegsdag_3,Før Finapres,calc
 ,date_v3,visit_03,besoegsdag_3,,text,Dato for besøget,,,date_dmy,01.02.2023,31.12.2028,,,y,,,,,Date of visit. Visit 3. @today
 ,exercise_24h_v3,visit_03,besoegsdag_3,,text,"Hvis deltageren IKKE har undladt at være fysisk aktiv inden for de sidste 24 timer, hvor meget har deltageren så bevæget sig og hvornår? ",,,,,,,[no_exercise_24h_v3] = '2',y,,,,,Indicates how much intense activity or exercise the participant did and when the past 24 hours. Visit 3.
 ,fasting_status_v3,visit_03,besoegsdag_3,Standardisering,radio,Er deltageren fastende?,"1, Ja | 2, Nej","Skal være fastende fra kl. 22 dagen forinden (inkl. kaffe, te, kosttilskud og tobak) Må gerne have drukket vand.",,,,,,y,,,,,Indicates if the participant has been fasting since 10 pm the night before. Visit 3.
-finapres_arm_cuff_size_v3_admin,finapres_arm_cuff_size_v3,visit_03,besoegsdag_3,,calc,"Hvilken størrelse armmanchet bruges til Finapres-målingen? 
+finapres_arm_cuff_size_v3_admin,finapres_arm_cuff_size_v3,visit_03,besoegsdag_3,,calc,"Hvilken størrelse armmanchet bruges til Finapres-målingen?
 
 1, Small
 2, Medium
 3, Large",[besg_2_arm_1][finapres_arm_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.  ,,,,,,y,,,,,"Finapres measurement: Size of arm cuff (S, M or L) at visit 2. Visit 3."
 ,finapres_deviation_adminribe_v3,visit_03,besoegsdag_3,,text,Beskriv afvigelsen ved Finapres under MMTT:,,,,,,,[finapres_deviation_v3] = '1',y,,,,,Description of any deviations regarding finapres during MMTT. Visit 3.
 ,finapres_deviation_v3,visit_03,besoegsdag_3,,radio,Finapres under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,,,Deviations related to finappres procedure. Visit 3.
-finapres_finger_cuff_size_v3_admin,finapres_finger_cuff_size_v3,visit_03,besoegsdag_3,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen? 
+finapres_finger_cuff_size_v3_admin,finapres_finger_cuff_size_v3,visit_03,besoegsdag_3,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen?
 
 1, Small
 2, Medium
 3, Large",[besg_2_arm_1][finapres_finger_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.   ,,,,,,y,,,,,"Finapres measurement: Size of finger cuff (S, M or L) at visit 2. Visit 3."
-finapres_minus20_v3_dq,finapres_minus20_v3,visit_03,besoegsdag_3,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention. 
+finapres_minus20_v3_dq,finapres_minus20_v3,visit_03,besoegsdag_3,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. visit 3"
-finapres_time105_v3_dq,finapres_time105_v3,visit_03,besoegsdag_3,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention. 
+finapres_time105_v3_dq,finapres_time105_v3,visit_03,besoegsdag_3,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 3."
-finapres_time135_v3_dq,finapres_time135_v3,visit_03,besoegsdag_3,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention. 
+finapres_time135_v3_dq,finapres_time135_v3,visit_03,besoegsdag_3,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention.
 Response options: 1=Yes, 2=No. visit 3."
-finapres_time15_v3_dq,finapres_time15_v3,visit_03,besoegsdag_3,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention. 
+finapres_time15_v3_dq,finapres_time15_v3,visit_03,besoegsdag_3,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention.
 Response options: 1=Yes, 2=No. visit 3."
-finapres_time195_v3_dq,finapres_time195_v3,visit_03,besoegsdag_3,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention. 
+finapres_time195_v3_dq,finapres_time195_v3,visit_03,besoegsdag_3,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 3."
-finapres_time255_v3_dq,finapres_time255_v3,visit_03,besoegsdag_3,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention. 
+finapres_time255_v3_dq,finapres_time255_v3,visit_03,besoegsdag_3,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 3."
-finapres_time45_v3_dq,finapres_time45_v3,visit_03,besoegsdag_3,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention. 
+finapres_time45_v3_dq,finapres_time45_v3,visit_03,besoegsdag_3,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 3."
-finapres_time75_v3_dq,finapres_time75_v3,visit_03,besoegsdag_3,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention. 
+finapres_time75_v3_dq,finapres_time75_v3,visit_03,besoegsdag_3,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 3."
 finapres_upload_ldrive_v3_dq,finapres_upload_ldrive_v3,visit_03,besoegsdag_3,Efter Finapres,radio,"<div class=""rich-text-field-label""><p>Er Finapres-data indlæst og gemt i mappen på L-drevet?</p> <p><span style=""background-color: #e67e23;"">OBS: Der skal gemmes OTTE mapper, der hver indeholder 9 excelfiler. </span></p> <p><span style=""font-weight: normal;""><em>Gemmes som onlimit_ID_visit_nummer af undersøgelse_test_test (eksempel: onlimit_5_v4-3_fp) </em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\6. Finapres,,,,,,y,,,,,Indicates whetner or not the Finapres data is saved on the L-drive. Visit 3.
 ,food_intake_nonfast_v3,visit_03,besoegsdag_3,,text,"Hvis deltageren IKKE er fastende, hvad har deltageren så indtaget og hvornår?",,,,,,,[fasting_status_v3] = '2',y,,,,,"Indicates what food and when the participant has eaten it, if the participant has not been fasting from 10 pm the day before the visit. Visit 3."
@@ -1335,7 +1335,7 @@ Hvor meget drak de?",,,,,,,[mmtt_shake_bar_v3] = 3 or [mmtt_shake_bar_v3] = 5,y,
 ,other_deviations_v3,visit_03,besoegsdag_3,,radio,Andre afvigelser,"1, Ja | 2, Nej",,,,,,,y,,,,,Other deviations. Visit 3.
 relative_name_v3_admin,relative_name_v3,visit_03,besoegsdag_3,,text,Hvem?,,,,,,,[relative_v3] = '1',y,,,,,The name of the relative attending the visit. Visit 3.
 relative_v3_admin,relative_v3,visit_03,besoegsdag_3,,radio,Er der pårørende med til besøget?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates whether a relative or accompanying person is present at the visit. Visit 3.
-,shake_bar_time_min_v3,visit_03,besoegsdag_3,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar: 
+,shake_bar_time_min_v3,visit_03,besoegsdag_3,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar:
 Hvor mange minutter var deltageren om at indtage shake + bar?",,,,,,,[mmtt_shake_bar_v3] =2,y,,,,,"The number of minutes it took the participant to consume the test shake and bar, if the total consumption time exceeded 10 minutes. Visit 3"
 ,smoking_amount_v3,visit_03,besoegsdag_3,,text,"Hvis deltageren IKKE har undgået rygning siden i går aftes, hvor meget og hvornår? ",,,,,,,[smoking_v3] = '2',y,,,,,Indicates how much smoking the participant has done and when since last night. Visit 3.
 ,smoking_v3,visit_03,besoegsdag_3,,radio,Har deltageren afholdt sig fra rygning siden i går aftes?,"1, Ja | 2, Nej",Dette er vigtigt for at få så korrekte målinger som muligt,,,,,,y,,,,,Indicates if the participant has avoided smpking since the night before. Visit 3.
@@ -1345,7 +1345,7 @@ staff_initials_v3_admin,staff_initials_v3,visit_03,besoegsdag_3,,text,Initialer 
 ,transportation_v3,visit_03,besoegsdag_3,,text,"Hvilket form for transport har deltageren gjort brug af, og hvor langt har deltageren transporteret sig? ",,,,,,,[not_active_transportation_v3]='2',y,,,,,Description of the active transportation before the visit. Visit 3.
 ,vas_deviation_adminribe_v3,visit_03,besoegsdag_3,,text,Beskriv afvigelsen ved VAS under MMTT:,,,,,,,[vas_deviation_v3] = '1',y,,,,,Description of any deviations regarding VAS during MMTT. Visit 3.
 ,vas_deviation_v3,visit_03,besoegsdag_3,,radio,VAS under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,,,Deviations related to VAS procedure. Visit 3.
-vas_minus10_v3_dq,vas_minus10_v3,visit_03,besoegsdag_3,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention. 
+vas_minus10_v3_dq,vas_minus10_v3,visit_03,besoegsdag_3,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 3."
 vas_time120_v3_dq,vas_time120_v3,visit_03,besoegsdag_3,,radio,Har deltageren gennemført VAS 5 (tid 120)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 5, performed approximately 120 minutes into the intervention. Visit 3."
 vas_time180_v3_dq,vas_time180_v3,visit_03,besoegsdag_3,,radio,Har deltageren gennemført VAS 6 (tid 180 min)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 6, performed approximately 180 minutes into the intervention. Visit 3."
@@ -1376,11 +1376,11 @@ bp_chosen_arm_v4_admin,bp_chosen_arm_v4,visit_04,besoegsdag_4,"<div class=""rich
 ,cognition_tests_filed_office_v4,visit_04,besoegsdag_4,,radio,Er SCIP-testen og TMT-testen lagt i mappen på kontoret?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the SCIP test and the TMT test has been filed in the briefcase in the office. Visit 4.
 ,comments_end_v4,visit_04,besoegsdag_4,,notes,"<div class=""rich-text-field-label""><p>Her noteres generelle kommentarer til besøg 4.</p> <p><span style=""font-weight: normal;"">Det kan eksempelvis være:</span></p> <p><span style=""font-weight: normal;"">- Kommentarer om deltagerens samarbejde og forståelse</span><br><span style=""font-weight: normal;"">- Eventuelle afvigelser i protokollen eller komplikationer</span><br><span style=""font-weight: normal;"">- Information om udførte prøver og tests (fx hvis noget blev udsat eller aflyst)</span><br><span style=""font-weight: normal;"">- Eventuelle anbefalinger eller opfølgninger til næste besøg</span><br><span style=""font-weight: normal;"">- Logning af særlige hændelser eller observationer under besøget</span><br><span style=""font-weight: normal;"">- Kommentarer til dataindsamlingen, fx om data mangler eller kvaliteten</span><br><span style=""font-weight: normal;"">- Noter om deltagerens spørgsmål eller bekymringer</span></p> <p><span style=""font-weight: normal;""><em>Det er vigtigt at udfylde dette felt, da det bidrager til dokumentationen af besøget og hjælper med at samle vigtig information. Kommentarerne understøtter forståelsen af arbejdsgangene og projektets gennemførlighed, herunder identifikation af eventuelle udfordringer.</em></span></p> <p> </p> <p data-start=""0"" data-end=""184""><span style=""background-color: #bfedd2;"">Hvis der er generel information om deltageren, som er relevant for projektdeltagelsen, noteres den under instrumentet <strong data-start=""118"" data-end=""132"">""Stamdata""</strong> i feltet <strong data-start=""142"" data-end=""181"">""Noter ift. deltagelse i projektet""</strong>.</span></p> <p data-start=""186"" data-end=""373"" data-is-last-node="""" data-is-only-node=""""><span style=""background-color: #bfedd2;"">Det kan fx være oplysninger om, hvem personen bor sammen med, særlige forhold i husstanden eller en akut syg pårørende.</span></p></div>",,,,,,,,,LV,,,,Comment at the end of the visit. Visit 4.
 ,date_v4,visit_04,besoegsdag_4,,text,Dato for besøget,,,date_dmy,01.02.2023,31.12.2028,,,y,,,,,Date of visit. Visit 4. @today
-,dia_bp_1_v4,visit_04,besoegsdag_4,,text,Diastolisk blodtryk 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, first measurement. 
+,dia_bp_1_v4,visit_04,besoegsdag_4,,text,Diastolisk blodtryk 1,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, first measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 4."
-,dia_bp_2_v4,visit_04,besoegsdag_4,,text,Diastolisk blodtryk 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, second measurement. 
+,dia_bp_2_v4,visit_04,besoegsdag_4,,text,Diastolisk blodtryk 2,,mmHg,number,30,150,,,y,,,,,"Diastolic blood pressure in mmHg, second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 4."
-,dia_bp_3_v4,visit_04,besoegsdag_4,,text,Diastolisk blodtryk 3,,mmHG,number,30,150,,,y,,,,,"Systolic blood pressure in mmHg, third measurement. 
+,dia_bp_3_v4,visit_04,besoegsdag_4,,text,Diastolisk blodtryk 3,,mmHG,number,30,150,,,y,,,,,"Systolic blood pressure in mmHg, third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 4."
 ,dia_bp_avg_v4,visit_04,besoegsdag_4,,calc,"Diastolisk blodtryk, gennemsnit ","if(
   [dia_bp_3_v4]<>'' and [dia_bp_2_v4]<>'',
@@ -1414,26 +1414,26 @@ fibro_upload_v4_file,fibro_upload_v4,visit_04,besoegsdag_4,,file,"<div class=""r
 finapres_arm_cuff_size_v4_admin,finapres_arm_cuff_size_v4,visit_04,besoegsdag_4,Før Finapres,calc,"<div class=""rich-text-field-label""><p>Hvilken størrelse armmanchet bruges til Finapres-målingen? <br><br>1, Small<br>2, Medium<br>3, Large<br><br><span style=""font-weight: normal;""><em>Armmanchetten placeres på den samme arm, som blodtrykket er målt på.</em></span></p></div>",[besg_2_arm_1][finapres_arm_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.  ,,,,,,y,,,,,"Finapres measurement: Size of arm cuff (S, M or L) at visit 2. Visit 4."
 ,finapres_deviation_adminribe_v4,visit_04,besoegsdag_4,,text,Beskriv afvigelsen under finapres under MMTT,,Noter tid/ tider,,,,,[finapres_deviation_v4] = '1',y,,,,,Description of any deviations regarding finapres during MMTT. Visit 4.
 ,finapres_deviation_v4,visit_04,besoegsdag_4,,radio,Finapres under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v4,,Record any deviations from protocol during the Finapres during MMTT. Visit 4.
-finapres_finger_cuff_size_v4_admin,finapres_finger_cuff_size_v4,visit_04,besoegsdag_4,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen? 
+finapres_finger_cuff_size_v4_admin,finapres_finger_cuff_size_v4,visit_04,besoegsdag_4,,calc,"Hvilken størrelse fingermanchet bruges til Finapres-målingen?
 
 1, Small
 2, Medium
 3, Large",[besg_2_arm_1][finapres_finger_cuff_size_v2],Ofte bruges størrelse medium. Brug samme størrelse som ved V2.   ,,,,,,y,,,,,"Finapres measurement: Size of finger cuff (S, M or L) at visit 2. Visit 4."
-finapres_minus20_v4_dq,finapres_minus20_v4,visit_04,besoegsdag_4,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention. 
+finapres_minus20_v4_dq,finapres_minus20_v4,visit_04,besoegsdag_4,Før MMTT,radio,Har deltageren gennemført Finapres 1 (tid -20)?,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 1, performed approximately 20 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 4."
-finapres_time105_v4_dq,finapres_time105_v4,visit_04,besoegsdag_4,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention. 
+finapres_time105_v4_dq,finapres_time105_v4,visit_04,besoegsdag_4,Tid 105,radio,Har deltageren gennemført Finapres 5 (tid 105)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 5, performed approximately 105 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 4."
-finapres_time135_v4_dq,finapres_time135_v4,visit_04,besoegsdag_4,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention. 
+finapres_time135_v4_dq,finapres_time135_v4,visit_04,besoegsdag_4,Tid 135,radio,Har deltageren gennemført Finapres 6 (tid 135)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 6, performed approximately 135 minutes after the intervention.
 Response options: 1=Yes, 2=No. visit 4."
-finapres_time15_v4_dq,finapres_time15_v4,visit_04,besoegsdag_4,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention. 
+finapres_time15_v4_dq,finapres_time15_v4,visit_04,besoegsdag_4,Tid 15,radio,Har deltageren gennemført Finapres 2 (tid 15)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 2, performed approximately 15 minutes after the intervention.
 Response options: 1=Yes, 2=No. visit 4."
-finapres_time195_v4_dq,finapres_time195_v4,visit_04,besoegsdag_4,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention. 
+finapres_time195_v4_dq,finapres_time195_v4,visit_04,besoegsdag_4,Tid 195,radio,Har deltageren gennemført Finapres 7 (tid 195)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 7, performed approximately 195 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 4."
-finapres_time255_v4_dq,finapres_time255_v4,visit_04,besoegsdag_4,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention. 
+finapres_time255_v4_dq,finapres_time255_v4,visit_04,besoegsdag_4,Tid 255,radio,Har deltageren gennemført Finapres 8 (tid 255)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 8, performed approximately 255 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 4."
-finapres_time45_v4_dq,finapres_time45_v4,visit_04,besoegsdag_4,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention. 
+finapres_time45_v4_dq,finapres_time45_v4,visit_04,besoegsdag_4,Tid 45,radio,Har deltageren gennemført Finapres 3 (tid 45)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 3, performed approximately 45 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 4."
-finapres_time75_v4_dq,finapres_time75_v4,visit_04,besoegsdag_4,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention. 
+finapres_time75_v4_dq,finapres_time75_v4,visit_04,besoegsdag_4,Tid 75,radio,Har deltageren gennemført Finapres 4 (tid 75)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed Finapress measurement 4, performed approximately 75 minutes after the intervention.
 Response options: 1=Yes, 2=No. Visit 4"
 finapres_upload_ldrive_v4_dq,finapres_upload_ldrive_v4,visit_04,besoegsdag_4,Efter Finapres,radio,"<div class=""rich-text-field-label""><p><span style=""background-color: #ecf0f1; color: #000000;"">Er Finapres-data indlæst og gemt i mappen på L-drevet?<br></span></p> <p><span style=""background-color: #e67e23; color: #000000;"">OBS: Der skal gemmes OTTE mapper, der hver indeholder 9 excelfiler. </span></p> <p><span style=""font-weight: normal;""><em>Gemmes som onlimit_ID_visit_nummer af undersøgelse_test_test (eksempel: onlimit_05_v4-3_fp) </em></span></p></div>","1, Ja | 2, Nej",L:\AuditData\ON LiMiT\2. Feasibility studie\10. Data\6. Finapres,,,,,,y,,,,,Indicates whetner or not the Finapres data is saved on the L-drive. Visit 4.
 ,food_intake_nonfast_v4,visit_04,besoegsdag_4,,text,"Hvis deltageren IKKE er fastende, hvad har deltageren så indtaget og hvornår?",,,,,,,[fasting_status_v4] = '2',y,,,,,"Indicates what food and when the participant has eaten it, if the participant has not been fasting from 10 pm the day before the visit. Visit 4."
@@ -1476,11 +1476,11 @@ nupo_tasting_box_v4_admin,nupo_tasting_box_v4,visit_04,besoegsdag_4,,radio,Har d
 ,other_deviation_v4,visit_04,besoegsdag_4,,radio,Andre afvigelser,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v4,,Record any other deviations from protocol. Visit 4.
 ,pregnancy_test_result_v4,visit_04,besoegsdag_4,,radio,Hvad var resultatet af graviditetstesten?,"1, Positiv | 2, Negativ","Hvis positiv, må DXA ikke udføres, og deltageren kan ikke fortsætte i projektet. Gå til 'Stamdata'. ",,,,,[pregnancy_test_v4]='1',y,,,,,Indicates if the pregnancy test was positive or negative. Visit 4.
 ,pregnancy_test_v4,visit_04,besoegsdag_4,,radio,Kan deltageren være gravid?,"1, Ja | 2, Nej","Hvis Ja, må der foretages graviditetstest. ",,,,,,y,,,,,Indicates if the participant can be pregnant. Visit 4.
-,pulse_1_v4,visit_04,besoegsdag_4,,text,Puls 1,,bpm,number,30,200,,,y,,,,,"Pulse in bpm first measurement. 
+,pulse_1_v4,visit_04,besoegsdag_4,,text,Puls 1,,bpm,number,30,200,,,y,,,,,"Pulse in bpm first measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 4."
-,pulse_2_v4,visit_04,besoegsdag_4,,text,Puls 2,,bpm,number,30,200,,,y,,,,,"Pulse in bpm second measurement. 
+,pulse_2_v4,visit_04,besoegsdag_4,,text,Puls 2,,bpm,number,30,200,,,y,,,,,"Pulse in bpm second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 4."
-,pulse_3_v4,visit_04,besoegsdag_4,,text,Puls 3,,bpm,number,30,200,,,y,,,,,"Pulse in bpm third measurement. 
+,pulse_3_v4,visit_04,besoegsdag_4,,text,Puls 3,,bpm,number,30,200,,,y,,,,,"Pulse in bpm third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 4."
 ,pulse_avg_v4,visit_04,besoegsdag_4,,calc,"Puls, gennemsnit ","if(
   [pulse_3_v4]<>'' and [pulse_2_v4]<>'',
@@ -1519,12 +1519,12 @@ scip_upload_v4_file,scip_upload_v4,visit_04,besoegsdag_4,,file,"<div class=""ric
 ,scip_visuomotor_v4,visit_04,besoegsdag_4,,text,5. Visuomotor opgave,,,number,0,30,,[scipd_performed_v4]='1',y,,,,,Whether the participant completed the visomotor test. Visit 4
 ,scip_word_mobilizing_v4,visit_04,besoegsdag_4,,text,3. Ordmobilisering,,,number,0,100,,[scipd_performed_v4]='1',y,,,,,Whether the participant completed the word mobilizing test. Visit 4
 scipd_performed_v4_dq,scipd_performed_v4,visit_04,besoegsdag_4,Kognitionstests,radio,Har deltageren gennemført SCIP-D?,"1, Ja | 2, Nej",,,,,,,y,,,,,Whether the participant completed SCIP-D. Visit 4.
-,shake_bar_time_min_v4,visit_04,besoegsdag_4,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar: 
+,shake_bar_time_min_v4,visit_04,besoegsdag_4,,text,"Hvis det tog mere end 10 minutter for deltageren at indtage shake + bar:
 Hvor mange minutter var deltageren om at indtage shake + bar?",,,,,,,[mmtt_shake_bar_v4] =2,y,,,,,"The number of minutes it took the participant to consume the test shake and bar, if the total consumption time exceeded 10 minutes. Visit 4."
 ,smoking_amount_v4,visit_04,besoegsdag_4,,text,"Hvis deltageren IKKE har undgået rygning siden i går aftes, hvor meget og hvornår? ",,,,,,,[smoking_v4] = '2',y,,,,,Indicates how much smoking the participant has done and when since last night. Visit 4.
 ,smoking_v4,visit_04,besoegsdag_4,,radio,Har deltageren afholdt sig fra rygning siden i går aftes?,"1, Ja | 2, Nej",Dette er vigtigt for at få så korrekte målinger som muligt,,,,,,y,,,,,Indicates if the participant has avoided smoking since the night before. Visit 4.
 ,sp_note_visit_v4,visit_04,besoegsdag_4,SP,radio,Er der skrevet notat for besøget i SP?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates whether a note for the visit is documented in SP. Visit 4. Not added for ID 03.
-,spit_sample_deviation_v4,visit_04,besoegsdag_4,"Afvigelser fra forsøgsprotokol: 
+,spit_sample_deviation_v4,visit_04,besoegsdag_4,"Afvigelser fra forsøgsprotokol:
 Har der været afvigelser ift. forsøgsprotokollen i følgende målinger/tests?",radio,Spytprøve,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v4,,Record any deviations from protocol fot the spit sample. Visit 4.
 ,spitsample_deviation_adminribe_v4,visit_04,besoegsdag_4,,text,Beskriv afvigelsen i indsamling af spytprøve,,,,,,,[spit_sample_deviation_v4] = '1',y,,,,,Description of any deviations regarding the spit sample. Visit 4.
 staff_initials_dxa_v4_admin,staff_initials_dxa_v4,visit_04,besoegsdag_4,,text,DXA udført af,,Skriv initialer.,,,,,[dxa_performed_v4]='1',y,,,,,Initials of the study staff member responsible for conducting the DXA scan. Visit 4.
@@ -1537,11 +1537,11 @@ staff_initials_v4_admin,staff_initials_v4,visit_04,besoegsdag_4,,text,Initialer 
 ,survey_answered_v4,visit_04,besoegsdag_4,Spørgeskemaer,radio,Har deltageren svaret på alle spørgeskemaer knyttet til dette besøg?,"1, Ja | 2, Nej",,,,,,,y,,,,,Survey answered. Visit 4.
 ,survey_deviation_adminribe_v4,visit_04,besoegsdag_4,,text,Beskriv afvigelsen under udfyldelse af spørgeskemaer,,,,,,,[survey_deviation_v4] = '1',y,,,,,Description of any deviations regarding the surveys. Visit 4.
 ,survey_deviation_v4,visit_04,besoegsdag_4,,radio,Spørgeskemaer,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v4,,Record any deviations from protocol during the surveys/questinaries. Visit 4.
-,sys_bp_1_v4,visit_04,besoegsdag_4,,text,Systolisk blodtryk 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, first measurement. 
+,sys_bp_1_v4,visit_04,besoegsdag_4,,text,Systolisk blodtryk 1,,mmHg,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, first measurement.
 Participant sitting, measured after approximately 10 minutes of rest. Visit 4."
-,sys_bp_2_v4,visit_04,besoegsdag_4,,text,Systolisk blodtryk 2,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, second measurement. 
+,sys_bp_2_v4,visit_04,besoegsdag_4,,text,Systolisk blodtryk 2,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, second measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 4."
-,sys_bp_3_v4,visit_04,besoegsdag_4,,text,Systolisk blodtryk 3,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, third measurement. 
+,sys_bp_3_v4,visit_04,besoegsdag_4,,text,Systolisk blodtryk 3,,mmHG,number,60,260,,,y,,,,,"Systolic blood pressure in mmHg, third measurement.
 Participant sitting, measured after approximately 5-10 minutes of rest. Visit 4."
 ,sys_bp_avg_v4,visit_04,besoegsdag_4,,calc,"Systolisk blodtryk, gennemsnit ","if(
   [sys_bp_3_v4]<>'' and [sys_bp_2_v4]<>'',
@@ -1565,7 +1565,7 @@ tmt_upload_v4_file,tmt_upload_v4,visit_04,besoegsdag_4,,file,"<div class=""rich-
 ,urin_sample_v4,visit_04,besoegsdag_4,,radio,Har deltageren lavet og afleveret en urinprøve?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the participant has delivered a urin sample done at the day of the visit. Visit 4.
 ,vas_deviation_adminribe_v4,visit_04,besoegsdag_4,,text,Beskriv afvigelsen i VAS under MMTT,,Noter tid/ tider,,,,,[vas_deviation_v4] = '1',y,,,,,Description of any deviations regarding VAS. Visit 4.
 ,vas_deviation_v4,visit_04,besoegsdag_4,,radio,VAS under MMTT,"1, Ja | 2, Nej",,,,,,,y,,,deviations_v4,,Record any deviations from protocol during the VAS. Visit 4.
-vas_minus10_v4_dq,vas_minus10_v4,visit_04,besoegsdag_4,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention. 
+vas_minus10_v4_dq,vas_minus10_v4,visit_04,besoegsdag_4,,radio,Har deltageren gennemført VAS 1 (tid -10)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 1, performed approximately 10 minutes prior to the intervention.
 Response options: 1=Yes, 2=No. Visit 4."
 vas_time120_v4_dq,vas_time120_v4,visit_04,besoegsdag_4,,radio,Har deltageren gennemført VAS 5 (tid 120)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 5, performed approximately 120 minutes into the intervention. Visit 4."
 vas_time180_v4_dq,vas_time180_v4,visit_04,besoegsdag_4,,radio,Har deltageren gennemført VAS 6 (tid 180 min)? ,"1, Ja | 2, Nej",,,,,,,y,,,,,"Record whether the participant completed VAS 6, performed approximately 180 minutes into the intervention. Visit 4."
@@ -1629,8 +1629,8 @@ stool_kit_v9_dq,stool_kit_v9,visit_09,besoegsdag_9,Kits til hjemmeprøver (affø
 ,book_v8,booking_admin,bookinger,,text,"<div class=""rich-text-field-label""><p>Besøg 8<br><span style=""font-weight: normal;""><em>Testdag.</em></span><br><span style=""font-weight: normal;""><em>Varighed: 6,5 timer.</em></span><br><span style=""font-weight: normal;""><em>Tid (i uger) fra baseline: 18</em></span><br><span style=""font-weight: normal;""><em>Dage mellem besøg: SKAL ligge mindst 10 dage efter besøg 7.</em></span></p> <p><em>Husk at booke følgende ressourcer i SP: lokale, DXA, fibro, fødevarepræferencetest. </em></p></div>",,,datetime_dmy,,,,,y,,,,,Booking of visit 8. Workflow.
 ,book_v9,booking_admin,bookinger,,text,"<div class=""rich-text-field-label""><p>Besøg 9<br><em><span style=""font-weight: normal;"">Klargøring til besøg 10.</span></em><br><em><span style=""font-weight: normal;"">Varighed: 30 minutter.</span></em><br><em><span style=""font-weight: normal;"">Tid (i uger) fra baseline: 51</span></em></p> <p><em>Husk at booke følgende ressourcer i SP: lokale.</em></p></div>",,,datetime_dmy,,,,,y,,,,,Booking of visit 9. Workflow.
 ,remarks_booking,booking_admin,bookinger,,notes,Bemærkninger,,,,,,,,,,,,,Remarks regarding bookings.
-,visits_calendar_updates,booking_admin,bookinger,,radio,"Er datoer for besøg indført i 
-1. ON LiMiT-kalenderen 
+,visits_calendar_updates,booking_admin,bookinger,,radio,"Er datoer for besøg indført i
+1. ON LiMiT-kalenderen
 2. Deltagerens projektapp
 3. Projektmedarbejdernes Outlook-kalendere","1, Ja | 2, Nej",,,,,,,y,,,,,Whether the visit dates are entered in the ON LiMiT calendar and in project staff Outlook calendars.
 ,paid5_depressed,,diabetes_distress_paid5_scale,,radio,At du føler dig nedtrykt ved tanken om at leve med diabetes,"1, Ikke et problem | 2, Mindre problem | 3, Moderat problem | 4, Forholdvis alvorligt problem | 5, Alvorligt problem",,,,,,,y,,,diabetes_problems,,"Participant's report of feeling depressed at the thought of living with diabetes. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10)."
@@ -1697,7 +1697,7 @@ staff_initials_dietary_deviation_3_admin,staff_initials_dietary_deviation_3,phas
 upload_dietary_deviation_3_file,upload_dietary_deviation_3,phase_3_dietary_deviation,fase_3_ditetiske_afvigelser,,file,"Upload plan vha. formen ""Diætetiske afvigelser""",,,,,,,,y,,,,,Document with plan for planned deviation during phase 3. Repeated instrument.
 ,book_bloodsample_admin2,pre_visit_02_admin,foer_besoegsdag_2,,radio,"<div class=""rich-text-field-label""><p>Er der bestilt blodprøver i SP (SCF00635)?</p></div>","1, Ja | 2, Nej",Koden: SCF00635 kopieres over i best./ord.,,,,,,y,,,,,Blood sample booking prior to visit. Workflow. Visit 2.
 ,cgm_reader_ready_admin2,pre_visit_02_admin,foer_besoegsdag_2,,radio,"<div class=""rich-text-field-label""><p>Er CGM-reader brugt ved påsætning lagt klar?</p></div>","1, Ja | 2, Nej",,,,,,,y,,,,,CGM reader ready. Workflow. Visit 2.
-cgm_reader_admin2_admin,cgm_reader_wfv2,pre_visit_02_admin,foer_besoegsdag_2,"<div class=""rich-text-field-label""><p>Klargøring til afmontering af CGM</p></div>",calc,"CGM-reader, der skal bruges til aflæsning: 
+cgm_reader_admin2_admin,cgm_reader_wfv2,pre_visit_02_admin,foer_besoegsdag_2,"<div class=""rich-text-field-label""><p>Klargøring til afmontering af CGM</p></div>",calc,"CGM-reader, der skal bruges til aflæsning:
 
 (Den reader, der blev brugt til at indlæse sensoren ved besøg 1)",[besg_1__screening_arm_1][cgmreader_v1],"Ved manglende reader nummer, findes reader nummeret under besøg 1",,,,,,y,,,,,Reader to be prepared for the visit. The same reader used to initialise the sensor at Visit 1. Wfv2.
 ,book_bloodsample_admin3,pre_visit_03_admin,foer_besoegsdag_3,,radio,"<div class=""rich-text-field-label""><p>Er der bestilt blodprøver i SP (SCF00635)?</p></div>","1, Ja | 2, Nej",Koden: SCF00635 kopieres over i best./ord.,,,,,,y,,,,,Blood sample booking prior to visit. Workflow. Visit 3.
@@ -1713,7 +1713,7 @@ cgm_reader_admin2_admin,cgm_reader_wfv2,pre_visit_02_admin,foer_besoegsdag_2,"<d
 ,sens_sign_in_admin5,pre_visit_05_admin,fr_besgsdag_5,,radio,"<div class=""rich-text-field-label""><p>Er deltager oprettet i SENS webappen?<br><br></p> <p><em><span style=""font-weight: normal;"">Se ID-nummer på aktivitetsmåler i zipposen (skal bruges til oprettelsen).</span></em></p></div>","1, Ja | 2, Nej",,,,,,,y,,,,,Indicates if the participant with is signed in in the SENS webapp. Workflow. Visit 5.
 ,book_bloodsample_admin10,pre_visit_05_admin,fr_besgsdag_5_9bba,,radio,"<div class=""rich-text-field-label""><p>Er der bestilt blodprøver i SP (SCF00634 og SCF00635)?</p></div>","1, Ja | 2, Nej",Koderne SCF00634 og SCF00635 kopieres over i best./ord.,,,,,,y,,,,,Blood sample booking prior to visit. Workflow. Visit 10.
 ,cgm_reader_ready_admin10,pre_visit_05_admin,fr_besgsdag_5_9bba,,radio,"<div class=""rich-text-field-label""><p>Er CGM-reader brugt ved påsætning lagt klar?</p></div>","1, Ja | 2, Nej",,,,,,,y,,,,,CGM reader ready. Workflow. Visit 10.
-cgm_reader_admin10_admin,cgm_reader_wfv10,pre_visit_05_admin,fr_besgsdag_5_9bba,"<div class=""rich-text-field-label""><p>Klargøring til afmontering af CGM</p></div>",calc,"CGM-reader, der skal bruges til aflæsning: 
+cgm_reader_admin10_admin,cgm_reader_wfv10,pre_visit_05_admin,fr_besgsdag_5_9bba,"<div class=""rich-text-field-label""><p>Klargøring til afmontering af CGM</p></div>",calc,"CGM-reader, der skal bruges til aflæsning:
 
 (Den reader, der blev brugt til at indlæse sensoren ved besøg 9)",[besg_9_arm_1][cgmreader_v9],"Ved manglende reader nummer, findes reader nummeret under besøg 9",,,,,,y,,,,,Reader to be prepared for the visit. The same reader used to initialise the sensor at Visit 9. Wfv10.
 ,book_bloodsample_admin5,pre_visit_06_admin,fr_besgsdag_6,,radio,"<div class=""rich-text-field-label""><p>Er der bestilt blodprøver i SP (SCF00634 og SCF00635)?</p></div>","1, Ja | 2, Nej",Koderne SCF00634 og SCF00635 kopieres over i best./ord.,,,,,,y,,,,,Indicates if bloodsamples have been ordered for the participant. Workflow. Visit 4.
@@ -1782,7 +1782,7 @@ cgm_plan_not_attended_group_meeting_3_admin,cgm_plan_not_attended_group_meeting_
 ,cgm_reader_group_meeting_3,group_meet_week_03,gruppemde_uge_3,,calc,"Aflæs CGM-sensor med SAMME CGM-reader som brugt ved påsættelse ved gruppemøde - Uge 1 (CGM-reader 1, 2 eller 3).",[fase_1_arm_1][cgmreader_group_meeting_1],"Ved manglende reader nummer, findes reader nummeret under gruppemøde - Uge 1",,,,,,,,,,,Use the same reader as used at group meeting 1. Group meeting 3.
 ,cgm_returned_group_meeting_3,group_meet_week_03,gruppemde_uge_3,,radio,Er CGM-sensor kommet retur?,"1, Ja | 2, Nej",,,,,,[attended_group_meeting_3] = '1' and [alternative_attendance_group_meeting_3] = '',y,,,,,Whether the CGM has been returned. Group meeting week 3.
 ,cgm_when_group_meeting_3,group_meet_week_03,gruppemde_uge_3,,text,"Hvis nej, hvornår får vi den retur? ",,Aftal tidspunkt og fremgangsmåde.,,,,,[cgm_returned_group_meeting_3] = '2',y,,,,,"If not, note the date that it will be returned. Group meeting 3."
-cgm_when_info_group_meeting_3_admin,cgm_when_info_group_meeting_3,group_meet_week_03,gruppemde_uge_3,,radio,"Skriv til forsøgsansvarlige læge (Carolien), hvornår CGM-sensor modtages og aflæses. 
+cgm_when_info_group_meeting_3_admin,cgm_when_info_group_meeting_3,group_meet_week_03,gruppemde_uge_3,,radio,"Skriv til forsøgsansvarlige læge (Carolien), hvornår CGM-sensor modtages og aflæses.
 
 Er det gjort?","1, Ja | 2, Nej",,,,,,[cgm_returned_group_meeting_3] = '2',y,,,,,Write to the responsible trial physician when the CGM device will be received. Group meeting 3.
 ,date_group_meeting_3,group_meet_week_03,gruppemde_uge_3,,text,Dato:,,,date_dmy,,,,,y,,,,,Date for group meeting. Group meeting week 3.
@@ -1810,9 +1810,9 @@ staff_initials_group_meeting_7_admin,staff_initials_group_meeting_7,group_meet_w
 staff_initials_group_meeting_9_admin,staff_initials_group_meeting_9,group_meet_week_09,gruppemde_uge_9,,text,Initialer på diætist:,,,alpha_only,,,,,,,,,,Initials of the dietitian responsible for conducting the group meeting. Group meeting week 9.
 ,weight_group_meeting_9,group_meet_week_09,gruppemde_uge_9,,text,Vægt:,,"Deltagerne vejes en af gangen i rum 1.15 på den vægt, der også kan måle højde",number,,,,[attended_group_meeting_9] = '1' and [attended_group_meeting_9] = '3',y,,,,,"Participant's weight in kilograms, measured with light clothing using the BMI scale in room 1.15. Measured to the nearest 0.1 kg. Group meeting week 9."
 ,date_hba1c_measurement_extra,,hba1c_follow_up,,text,"Dato for HbA1c-måling, ekstra",,,date_dmy,01.01.2025,31.12.2028,,,y,,,,,Date of HbA1c measurement. HbA1c extra. Repeated instrument.
-hba1c_elevated_info_extra_admin,hba1c_elevated_info_extra,,hba1c_follow_up,,descriptive,"HbA1c er fortsat forhøjet. 
-Deltager skal informeres om dette og bedes tage kontakt til den behandlingsansvarlige læge. 
-Der gives besked til den behandlingsansvarlige læge (korrespondance hvis til praktiserende læge). 
+hba1c_elevated_info_extra_admin,hba1c_elevated_info_extra,,hba1c_follow_up,,descriptive,"HbA1c er fortsat forhøjet.
+Deltager skal informeres om dette og bedes tage kontakt til den behandlingsansvarlige læge.
+Der gives besked til den behandlingsansvarlige læge (korrespondance hvis til praktiserende læge).
 Der anbefales genintroduktion af medicinsk behandling for diabetes type 2 (i henhold til retningslinje fra DES og DSAM).
 Deltager får målt HbA1c igen efter prædefinerede retningslinjer. ",,,,,,,[hba1c_value_extra] > 53,,,,,,Information box. HbA1c is elevated. Participant and responsible physician will be notified. HbA1c extra. Repeated instrument.
 ,hba1c_extra_reason_cgm_extra,,hba1c_follow_up,,radio,Hvilken CGM-måling var gennemsnitlig daglig glukose for høj? ,"1, Uge 1-2 | 2, Uge 50-51 | 3, Andet",,,,,,[hba1c_extra_reason_extra]='3',y,,,,,Records the visit/week where the glucose level by CGM measurement was to high. HbA1c extra. Repeated instrument.
@@ -1822,10 +1822,10 @@ Deltager får målt HbA1c igen efter prædefinerede retningslinjer. ",,,,,,,[hba
 ,hba1c_extra_reason_fingerstick_other_extra,,hba1c_follow_up,,text,Beskriv: ,,,,,,,[hba1c_extra_reason_fingerstick_extra]='14',y,,,,,Description of other week of fingerstick blood sugar measurement. Field completion dependent on chosing option 2 or 3 in hba1c_extra_reason_extra. HbA1c extra. Repeated instrument.
 ,hba1c_extra_reason_hba1c_extra,,hba1c_follow_up,,radio,Hvilken HbA1c-måling var > 53 mmol/mol? ,"1, V6 (uge 12) | 2, V8 (uge 18) | 3, Uge 30 | 4, Uge 42 | 5, V10 (uge 52) | 6, Andet",,,,,,[hba1c_extra_reason_extra]='1',y,,,,,Records the visit/week where the HbA1c value was above 53 mmol/mol. HbA1c extra. Repeated instrument.
 ,hba1c_extra_reason_other_extra,,hba1c_follow_up,,text,Beskriv: ,,,,,,,[hba1c_extra_reason_hba1c_extra]='6',y,,,,,Other reason for extra HbA1c taken. HbA1c extra. Repeated instrument.
-hba1c_mildly_elevated_info_extra_admin,hba1c_mildly_elevated_info_extra,,hba1c_follow_up,,descriptive,"HbA1c er fortsat let forhøjet. 
-Det vurderes, at diabetes type 2 fortsat er i remission. 
-Genintroduktion af antidiabetisk medicin er ikke tilladt. 
-Deltager får målt HbA1c igen efter prædefinerede retningslinjer. 
+hba1c_mildly_elevated_info_extra_admin,hba1c_mildly_elevated_info_extra,,hba1c_follow_up,,descriptive,"HbA1c er fortsat let forhøjet.
+Det vurderes, at diabetes type 2 fortsat er i remission.
+Genintroduktion af antidiabetisk medicin er ikke tilladt.
+Deltager får målt HbA1c igen efter prædefinerede retningslinjer.
 ",,,,,,,[hba1c_value_extra] >= 48 AND [hba1c_value_extra] <= 53,,,,,,Information box. HbA1c is mildly elevated. Reintroduction of antidiabetic medication is not allowed. HbA1c extra. Repeated instrument.
 hba1c_normal_info_extra_admin,hba1c_normal_info_extra,,hba1c_follow_up,,descriptive,"HbA1c er inden for normalområdet.
 Genintroduktion af antidiabetisk medicin er ikke tilladt.
@@ -1838,22 +1838,22 @@ Deltager får målt HbA1c igen efter prædefinerede retningslinjer. ",,,,,,,[hba
 ,hba1c_date_for_extra_measurement_planned_participant_week_30,,hba1c_uge_30,,radio,Er aftale for ny HbA1c-måling skrevet i deltagers kalender? ,"1, Ja | 2, Nej",,,,,,[hba1c_value_week_30] > 53,y,,,,,Verify HbA1c follow-up appointment in participants calendar. Week 30.
 ,hba1c_date_for_extra_measurement_planned_room_week_30,,hba1c_uge_30,,radio,Er der booket et lokale til ny HbA1c-måling? ,"1, Ja | 2, Nej",,,,,,[hba1c_value_week_30] > 53,,,,,,Confirms if a room has been booked for the next HbA1c meausurement. Week 30.
 ,hba1c_date_for_extra_measurement_planned_staff_week_30,,hba1c_uge_30,,radio,Er aftale for ny HbA1c-måling skrevet i Caroliens kalender?,"1, Ja | 2, Nej",,,,,,[hba1c_value_week_30] > 53,y,,,,,Verify HbA1c follow-up appointment in staff calendar. Week 30.
-hba1c_elevated_info_week_30_admin,hba1c_elevated_info_week_30,,hba1c_uge_30,,descriptive,"HbA1c er forhøjet. 
-Det skal sikres, at deltageren følger interventionen. 
-Der skal planlægges en ny HbA1c-måling. Denne måling skal foretages om < 4 uger. 
+hba1c_elevated_info_week_30_admin,hba1c_elevated_info_week_30,,hba1c_uge_30,,descriptive,"HbA1c er forhøjet.
+Det skal sikres, at deltageren følger interventionen.
+Der skal planlægges en ny HbA1c-måling. Denne måling skal foretages om < 4 uger.
 
 Hvis HbA1c ≤ 53 ved næste måling, da vurderes diabetes type 2 fortsat at være i remission. Genintroduktion af antidiabetisk medicin er ikke tilladt.
 Hvis HbA1c > 53 ved næste måling, da informeres deltageren og den praktiserende læge om resultatet. Der anbefales genintroduktion af medicinsk behandling for diabetes type 2 (i henhold til retningslinje fra DES og DSAM).",,,,,,,[hba1c_value_week_30] > 53,,,,,,Information box. HbA1c is elevated. HbA1c needs to be remeasured. Week 30.
-hba1c_mildly_elevated_info_week_30_admin,hba1c_mildly_elevated_info_week_30,,hba1c_uge_30,,descriptive,"HbA1c er let forhøjet. 
-Det skal sikres, at deltageren følger interventionen. 
+hba1c_mildly_elevated_info_week_30_admin,hba1c_mildly_elevated_info_week_30,,hba1c_uge_30,,descriptive,"HbA1c er let forhøjet.
+Det skal sikres, at deltageren følger interventionen.
 Genintroduktion af antidiabetisk medicin er ikke tilladt.",,,,,,,[hba1c_value_week_30] >= 48 AND [hba1c_value_week_30] <= 53,,,,,,Information box. HbA1c is mildly elevated. Reintroduction of antidiabetic medication is not allowed. Week 30.
-hba1c_normal_info_week_30_admin,hba1c_normal_info_week_30,,hba1c_uge_30,,descriptive,"HbA1c er inden for normalområdet. 
+hba1c_normal_info_week_30_admin,hba1c_normal_info_week_30,,hba1c_uge_30,,descriptive,"HbA1c er inden for normalområdet.
 Genintroduktion af antidiabetisk medicin er ikke tilladt. ",,,,,,,[hba1c_value_week_30] < 48,,,,,,Information box. HbA1c is within normal range. Reintroduction of antidiabetic medication is not allowed. Week 30.
 ,hba1c_notes_week_30,,hba1c_uge_30,,text,Noter ift. HbA1c,,,,,,,,,,,,,Notes regarding the HbA1c. Week 30.
 ,hba1c_value_week_30,,hba1c_uge_30,,text,HbA1c-værdi: ,,mmol/mol,number,,120,,,y,,,,,"HbA1c value, mmol/mol, week 30."
-,intervention_challenge_diet_week_30,,hba1c_uge_30,,radio,"En diætist vil kontakte deltageren i forhold til at følge op på diætinterventionen. 
+,intervention_challenge_diet_week_30,,hba1c_uge_30,,radio,"En diætist vil kontakte deltageren i forhold til at følge op på diætinterventionen.
 Er diætist kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_week_30(1)] = '1',y,,,,,States whether the dietitian has been contacted regarding follow up on the diet intervention. Week 30.
-,intervention_challenge_training_week_30,,hba1c_uge_30,,radio,"Exercise manager vil kontakte deltageren i forhold til at følge op på træningsinterventionen. 
+,intervention_challenge_training_week_30,,hba1c_uge_30,,radio,"Exercise manager vil kontakte deltageren i forhold til at følge op på træningsinterventionen.
 Er exercise manager kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_week_30(2)]='1',y,,,,,States whether the exercise manager has been contacted regarding follow up on the training intervention. Week 30.
 ,intervention_challenges_other_week_30,,hba1c_uge_30,,text,Beskriv 'Andet': ,,,,,,,[intervention_challenges_week_30(3)]='1',y,,,,,Describes other reason for not following the intervention. Week 30.
 ,intervention_challenges_week_30,,hba1c_uge_30,,checkbox,"<div class=""rich-text-field-label""><p>Hvilken udfordring med at følge interventionen er der tale om?</p> <p><span style=""font-weight: normal;"">Se efter ""røde flag"" i LIVA-appen. </span></p></div>","1, Udfordring i forhold til diæten. | 2, Udfordring i forhold til træningen. | 3, Andet",,,,,,[hba1c_value_week_30] >= 48,y,,,,,"Challenges with adherence to the intervention, whether diet or training. Week 30."
@@ -1862,22 +1862,22 @@ Er exercise manager kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_
 ,hba1c_date_for_extra_measurement_planned_participant_week_42,,hba1c_uge_42,,radio,Er aftale for ny HbA1c-måling skrevet i deltagers kalender? ,"1, Ja | 2, Nej",,,,,,[hba1c_value_week_42] > 53,y,,,,,Verify HbA1c follow-up appointment in participants calendar. Week 42.
 ,hba1c_date_for_extra_measurement_planned_room_week_42,,hba1c_uge_42,,radio,Er der booket et lokale til ny HbA1c-måling? ,"1, Ja | 2, Nej",,,,,,[hba1c_value_week_42] > 53,,,,,,Confirms if a room has been booked for the next HbA1c meausurement. Week 42.
 ,hba1c_date_for_extra_measurement_planned_staff_week_42,,hba1c_uge_42,,radio,Er aftale for ny HbA1c-måling skrevet i Caroliens kalender?,"1, Ja | 2, Nej",,,,,,[hba1c_value_week_42] > 53,y,,,,,Verify HbA1c follow-up appointment in staff calendar. Week 42.
-hba1c_elevated_info_week_42_admin,hba1c_elevated_info_week_42,,hba1c_uge_42,,descriptive,"HbA1c er forhøjet. 
-Det skal sikres, at deltageren følger interventionen. 
-Der skal planlægges en ny HbA1c-måling. Denne måling skal foretages om < 4 uger. 
+hba1c_elevated_info_week_42_admin,hba1c_elevated_info_week_42,,hba1c_uge_42,,descriptive,"HbA1c er forhøjet.
+Det skal sikres, at deltageren følger interventionen.
+Der skal planlægges en ny HbA1c-måling. Denne måling skal foretages om < 4 uger.
 
 Hvis HbA1c ≤ 53 ved næste måling, da vurderes diabetes type 2 fortsat at være i remission. Genintroduktion af antidiabetisk medicin er ikke tilladt.
 Hvis HbA1c > 53 ved næste måling, da informeres deltageren og den praktiserende læge om resultatet. Der anbefales genintroduktion af medicinsk behandling for diabetes type 2 (i henhold til retningslinje fra DES og DSAM).",,,,,,,[hba1c_value_week_42] > 53,,,,,,Information box. HbA1c is elevated. HbA1c needs to be remeasured. Week 42.
-hba1c_mildly_elevated_info_week_42_admin,hba1c_mildly_elevated_info_week_42,,hba1c_uge_42,,descriptive,"HbA1c er let forhøjet. 
-Det skal sikres, at deltageren følger interventionen. 
+hba1c_mildly_elevated_info_week_42_admin,hba1c_mildly_elevated_info_week_42,,hba1c_uge_42,,descriptive,"HbA1c er let forhøjet.
+Det skal sikres, at deltageren følger interventionen.
 Genintroduktion af antidiabetisk medicin er ikke tilladt.",,,,,,,[hba1c_value_week_42] >= 48 AND [hba1c_value_week_42] <= 53,,,,,,Information box. HbA1c is mildly elevated. Reintroduction of antidiabetic medication is not allowed. Week 42.
-hba1c_normal_info_week_42_admin,hba1c_normal_info_week_42,,hba1c_uge_42,,descriptive,"HbA1c er inden for normalområdet. 
+hba1c_normal_info_week_42_admin,hba1c_normal_info_week_42,,hba1c_uge_42,,descriptive,"HbA1c er inden for normalområdet.
 Genintroduktion af antidiabetisk medicin er ikke tilladt. ",,,,,,,[hba1c_value_week_42] < 48,,,,,,Information box. HbA1c is within normal range. Reintroduction of antidiabetic medication is not allowed. Week 42.
 ,hba1c_notes_week_42,,hba1c_uge_42,,text,Noter ift. HbA1c,,,,,,,,,,,,,Notes regarding the HbA1c. Week 42.
 ,hba1c_value_week_42,,hba1c_uge_42,,text,HbA1c-værdi: ,,mmol/mol,number,,120,,,y,,,,,"HbA1c value, mmol/mol, week 42."
-,intervention_challenge_diet_week_42,,hba1c_uge_42,,radio,"En diætist vil kontakte deltageren i forhold til at følge op på diætinterventionen. 
+,intervention_challenge_diet_week_42,,hba1c_uge_42,,radio,"En diætist vil kontakte deltageren i forhold til at følge op på diætinterventionen.
 Er diætist kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_week_42(1)]='1',y,,,,,States whether the dietitian has been contacted regarding follow up on the diet intervention. Week 42.
-,intervention_challenge_training_week_42,,hba1c_uge_42,,radio,"Exercise manager vil kontakte deltageren i forhold til at følge op på træningsinterventionen. 
+,intervention_challenge_training_week_42,,hba1c_uge_42,,radio,"Exercise manager vil kontakte deltageren i forhold til at følge op på træningsinterventionen.
 Er exercise manager kontaktet? ","1, Ja | 2, Nej",,,,,,[intervention_challenges_week_42(2)]='1',y,,,,,States whether the exercise manager has been contacted regarding follow up on the training intervention. Week 42.
 ,intervention_challenges_other_week_42,,hba1c_uge_42,,text,Beskriv 'Andet': ,,,,,,,[intervention_challenges_week_42(3)]='1',y,,,,,Describes other reason for not following the intervention. Week 42.
 ,intervention_challenges_week_42,,hba1c_uge_42,,checkbox,"<div class=""rich-text-field-label""><p>Hvilken udfordring med at følge interventionen er der tale om?</p> <p><span style=""font-weight: normal;"">Se efter ""røde flag"" i LIVA-appen. </span></p></div>","1, Udfordring i forhold til diæten. | 2, Udfordring i forhold til træningen. | 3, Andet",,,,,,[hba1c_value_week_42] >= 48,y,,,,,"Challenges with adherence to the intervention, whether diet or training. Week 42."
@@ -2008,7 +2008,7 @@ bds_questionnaire_intro_admin,bds_questionnaire_intro,,item_bodily_distress_synd
 ,sf12_downhearted,,physical_and_mental_health_sf12,,radio,Jeg har følt mig trist til mode,"1, Hele tiden | 2, Det meste af tiden | 3, Noget af tiden | 4, Lidt af tiden | 5, På intet tidspunkt",,,,,,,y,,,,,"Participant's self-assessed frequency of feeling downhearted or depressed during the past 4 weeks. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10)."
 ,sf12_full_of_energy,,physical_and_mental_health_sf12,,radio,Jeg har følt mig fuld af energi,"1, Hele tiden | 2, Det meste af tiden | 3, Noget af tiden | 4, Lidt af tiden | 5, På intet tidspunkt",,,,,,,y,,,,,"Participant's self-assessed frequency of feeling full of energy during the past 4 weeks. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10)."
 ,sf12_less_careful,,physical_and_mental_health_sf12,,radio,"Jeg har udført mit arbejde eller andre aktiviteter mindre omhyggeligt, end jeg plejer","1, Hele tiden | 2, Det meste af tiden | 3, Noget af tiden | 4, Lidt af tiden | 5, På intet tidspunkt",,,,,,,y,,,,,"Participant's self-assessed experience of performing work or other activities less carefully than usual. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10)."
-,sf12_light_activities,,physical_and_mental_health_sf12,"De følgende spørgsmål handler om aktiviteter i dagligdagen. 
+,sf12_light_activities,,physical_and_mental_health_sf12,"De følgende spørgsmål handler om aktiviteter i dagligdagen.
 Er du på grund af dit helbred begrænset i disse aktiviteter? Og i så fald, hvor meget? ",radio,"Lettere aktiviteter, såsom at flytte et bord, støvsuge eller cykle ","1, Ja - meget begrænset | 2, Ja - lidt begrænset | 3, Nej - slet ikke begrænset",,,,,,,y,,,,,"Participant's self-assessed ability to perform light activities such as moving a table, vacuuming, or cycling. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10)."
 ,sf12_limited_activities,,physical_and_mental_health_sf12,,radio,"Jeg har været begrænset i, hvilken slags arbejde eller andre aktiviteter jeg har kunne udføre","1, Hele tiden | 2, Det meste af tiden | 3, Noget af tiden | 4, Lidt af tiden | 5, På intet tidspunkt",,,,,,,y,,,,,"Participant's self-assessed limitation in the type of work or other activities they could perform. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10)."
 ,sf12_overall_health,,physical_and_mental_health_sf12,<p>Vurdering af dit helbred</p>,radio,"Hvordan synes du, dit helbred er alt i alt?","1, Fremragende | 2, Vældig godt | 3, Godt | 4, Mindre godt | 5, Dårligt",,,,,,,y,,,,,"Participant's self-rated overall health. Self-reported by participant. Repeated at baseline (V4), week 12 (V6) and week 52 (V10)."
@@ -2040,7 +2040,7 @@ psqi_questionnaire_admin,psqi_questionnaire,,pittsburgh_sleep_quality_index_psqi
 ,antabus_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,radio,8. Har deltageren et aktuelt alkohol- eller stofmisbrug eller modtager behandling for alkoholafhængighed (fx medicinsk behandling)?,"1, Ja | 2, Nej",Eksklusion hvis Ja,,,,,,y,,,,,"Participant's history of alcohol or substance abuse, or current treatment for alcohol dependence (including pharmacological treatment). Self-reported by participant. Visit 0."
 ,binge_eating_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,radio,"<div class=""rich-text-field-label""><p>10. Er deltageren diagnosticeret med overspisningslidelse (binge eating disorder)?</p> <p> </p> <p><span style=""font-weight: normal;""><em>Som projektmedarbejder kan du sige:</em></span></p> <p><span style=""font-weight: normal;""><em>Har en læge eller psykolog nogensinde nævnt, at du har en overspisningslidelse (binge eating disorder)?</em></span></p></div>","1, Ja | 2, Nej",Eksklusion hvis Ja,,,,,,y,,,,,Diagnosis status of binge eating disorder. Self-reported by participant. Visit 0.
 ,bmi_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,calc,BMI (skøn),"round(([weight_v0])/(([height_v0])^(2)), 1)",Inklusionskriterium: BMI ≥27 kg/m2 ,,,,,,y,,,,,"Body Mass Index (BMI) in kg/m², calculated from estimated participant's self-reported weight and height. Visit 0."
-,book_online_meeting_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,radio,"Er der booket online informationsmøde med deltageren? 
+,book_online_meeting_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,radio,"Er der booket online informationsmøde med deltageren?
 Husk at booke i SP-kalender, Outlook-kalender og deltagerens kalender. ","1, Ja | 2, Nej",,,,,,[visit1_booking_type_v0] = '2',,,,,,Booking of online information meeting. Visit 0. Field introduced from i1021.
 ,book_outlook_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,radio,"<div class=""rich-text-field-label""><p>Er deltageren blevet booket til besøg 1 i Outlook-kalender?</p></div>","1, Ja | 2, Nej",,,,,,[visit1_booking_type_v0] = '1',y,,,,,Booking of V1 in outlook. Visit 0. Field introduced from i1021.
 ,book_sp_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,radio,Er deltageren blevet booket til besøg 1 i SP-kalender?,"1, Ja | 2, Nej",,,,,,[visit1_booking_type_v0] = '1',y,,,,,Booking of V1 in SP. Visit 0. Field introduced from i1021.
@@ -2052,7 +2052,7 @@ Husk at booke i SP-kalender, Outlook-kalender og deltagerens kalender. ","1, Ja 
 ,date_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,text,Dato for præscreening,,,date_dmy,,,,,y,,,,,Date of visit. Visit 0.
 ,eligible_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,Opsummering,radio,Kan deltageren efter præscreening stadig deltage i projektet?,"1, Ja | 2, Nej - opfylder ikke inklusionskriterier | 3, Nej - opfylder eksklusionskriterier",,,,,,,y,,,,,Assessment of whether the participant remains eligible to participate in the study after prescreening. Recorded by study staff. Visit 0.
 excluded_note_v0_admin,excluded_note_wfv0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,descriptive,"<div class=""rich-text-field-label""><h6>HUSK: Hvis deltageren udgår ved præscreening, skal dette noteres under STAMDATA-instrumentet. REDCap-instrumenter låses (gå til ""Record Home Page"", tryk ""Choose Action for Record"", tryk ""Lock entire record""). </h6></div>",,,,,,,,,,,,,"Notes regarding exclution at pre-screen, recorded by project staff. Workflow. Visit 0."
-exclusion_reason_v0_admin,exclusion_reason_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,descriptive,"<div class=""rich-text-field-label""><h6><span style=""color: #e03e2d;"">Hvis deltager udgår ved præscreeningen, gå til stamdata og uddyb hvorfor.</span></h6></div>",,,,,,,[eligible_v0] = '2' or [eligible_v0] = '3' or [continue_v0] = '2',,,,,,Instructions for study staff to go to standata and register withdrawal during prescreening. Visit 0. 
+exclusion_reason_v0_admin,exclusion_reason_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,descriptive,"<div class=""rich-text-field-label""><h6><span style=""color: #e03e2d;"">Hvis deltager udgår ved præscreeningen, gå til stamdata og uddyb hvorfor.</span></h6></div>",,,,,,,[eligible_v0] = '2' or [eligible_v0] = '3' or [continue_v0] = '2',,,,,,Instructions for study staff to go to standata and register withdrawal during prescreening. Visit 0.
 ,food_allergies_example_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,text,"6a. Hvilke kostrestriktioner eller fødevareallergier har deltageren, der forhindrer vedkommende i at kunne følge den planlagte diæt?",,,,,,,[food_allergies_v0] = '1',y,,,,,Description of dietary restrictions or food allergies preventing adherence to the planned diet. Self-reported by participant. Visit 0.
 ,food_allergies_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,radio,"6. Har deltageren kostrestriktioner eller allergier, der forhindrer overholdelse af den planlagte kostintervention?","1, Ja | 2, Nej","Vær opmærksom på, at mælkeallergi kan gøre det vanskeligt for deltageren at gennemføre NUPO-fasen. Drøft eventuelle allergier og fødevaretolerancer med projektdiætisten for at vurdere deltagelse i interventionen.",,,,,,y,,,,,Presence of dietary restrictions or allergies that prevent adherence to the planned dietary intervention. Self-reported by participant. Visit 0.
 ,hba1c_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,text,"<div class=""rich-text-field-label""><p>Seneste HbA1c:<br><br><em><span style=""font-weight: normal;"">Se i Sundhedsplatformen under ""Laboratoriesvar"". </span></em><br><em><span style=""font-weight: normal;"">OBS: Husk at skrive notat i SP.</span></em></p></div>",,HbA1c skal være mellem 36-86 mmmol/mol for at deltage i studiet. ,,,,,,y,,,,,Recent HbA1c value in mmol/mol. Visit 0.
@@ -2083,7 +2083,7 @@ relative_v1_v0_admin,relative_v1_v0,prescreening_phone,prscreening_telefoninterv
 ,sp_note_visit_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,SP,radio,Er der skrevet notat for besøget i SP?,"1, Ja | 2, Nej",,,,,,,y,,,,,Indicates whether a note for the visit is documented in SP. Visit 0. Added from ID i1104.
 staff_initials_v0_admin,staff_initials_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,text,"<div class=""rich-text-field-label""><p>Initialer for projektpersonale</p></div>",,,,,,,,y,,,,,Initials of the study staff member responsible for conducting the visit. Visit 0.
 ,t2d_diagnose_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,radio,Er deltageren blevet diagnosticeret med type 2-diabetes?,"1, Ja | 2, Nej",,,,,,,y,,,,,Diagnosis status of type 2 diabetes. Self-reported by participant. Visit 0.
-,t2d_duration_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,text,"<div class=""rich-text-field-label""><p><span style=""background-color: #e03e2d;"">UDFYLDES IKKE</span><br><br>Hvor mange år har deltageren haft type 2-diabetes?</p></div>",,Inklusionskriterium: T2D-varighed på ≤6 år,number,,,,[t2d_diagnose_v0] = '1',y,,,,," @HIDDEN 
+,t2d_duration_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,text,"<div class=""rich-text-field-label""><p><span style=""background-color: #e03e2d;"">UDFYLDES IKKE</span><br><br>Hvor mange år har deltageren haft type 2-diabetes?</p></div>",,Inklusionskriterium: T2D-varighed på ≤6 år,number,,,,[t2d_diagnose_v0] = '1',y,,,,," @HIDDEN
 Number of years since participant was diagnosed with type 2 diabetes. Self-reported by participant. Visit 0. Not filled out from i1050."
 ,t2d_duration_v01,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,calc,"<div class=""rich-text-field-label""><p>Hvor mange år har deltageren haft type 2-diabetes? <br><br><span style=""background-color: #2dc26b;"">OBS: Først indtastes information om 1. HbA1c ≥ 48 mmol/mol i ""Stamdata"".</span> <br><br><span style=""font-weight: normal;""><em>Vi definerer diagnosen som</em></span><br><span style=""font-weight: normal;""><em>- 1 HbA1c-måling på 48 mmol/mol eller derover OG på den baggrund startet op i diabetesmedicin. </em></span><br><span style=""font-weight: normal;""><em>- HbA1c på 48 mmol/mol eller derover målt 2 gange </em></span><br><span style=""font-weight: normal;""><em>- Der kan være enkelte andre scenarier, hvor diagnosen er stillet på en anden måde. Spørg da Carolien.</em></span></p></div>",[stamdata_arm_1][t2d_duration_stamdata],"Inskusionskriterium: T2D-varighed ≤ 6 år. Tiden tæller fra den første HbA1c-måling. Eksempel: En person har fået målt en HbA1c på 50 i september 2019 og siden først en bekræftende høj HbA1c i maj 20. Personen ekskluderes, da varigheden tæller fra sep. 2019 og derfor er over 6 år. ",,,,,,y,,,,,Number of years since participant was diagnosed with type 2 diabetes. Self-reported by participant. Visit 0. Filled out from i1050.
 ,treatment_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,checkbox,"<div class=""rich-text-field-label""><p>Får deltageren én eller flere af følgende behandlinger?<br><span style=""font-weight: normal;""><em>Hvis deltageren kan svare ja til én eller flere af behandlingerne, kan deltageren inkluderes i studiet.</em></span><br><br></p></div>","1, Livstilbehandling (f.eks. forløb hos diætist, træningsforløb eller andet) | 2, Oral antidiabetisk medicin | 3, GLP-1 RA",For at blive inkluderet skal der sættes kryds ved mindst én mulighed.,,,,,[t2d_diagnose_v0] = '1',y,,,,,Current treatment approach for type 2 diabetes - lifestyle changes and/or oral antidiabetic medication and/or GLP-1 receptor agonist. Self-reported by participant. Visit 0.
@@ -2092,14 +2092,14 @@ Number of years since participant was diagnosed with type 2 diabetes. Self-repor
 ,weight_difference_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,text,"Hvor meget har deltagerens vægt ændret sig i løbet af de sidste 3 måneder?
 ",,Eksklusionskriterium: Ændringer i kropsvægt over 3 måneder >3 kg. Angiv i hele tal.  ,number,0,100,,[weight_change_v0] = '2',y,,,,,"Participant's self-reported weight change over the past 3 months, stated in kilograms (gain or loss). Visit 0."
 ,weight_v0,prescreening_phone,prscreening_telefoninterview_frste_kontakt,,text,Vægt (skøn),,"Hvis deltager ikke har en vægt, må deltageren give et skøn. Angives med 1 decimal",number_1dp_comma_decimal,49.9,200.1,,,y,,,,,Participant's estimated weight in kilograms. Self-reported by participant. Visit 0.
-is_randomised_admin,is_randomised,,randomisering,,descriptive,"Denne deltager er randomiseret, randomiseringen er skjult indtil den {rand_datetime77}",,,,,,,"[randomisation_yn] = '1' and 
+is_randomised_admin,is_randomised,,randomisering,,descriptive,"Denne deltager er randomiseret, randomiseringen er skjult indtil den {rand_datetime77}",,,,,,,"[randomisation_yn] = '1' and
 [randomisation] <> ''",,,,,,
 isnot_randomised_admin,isnot_randomised,,randomisering,,descriptive,Denne deltager er ikke blevet randomiseret.,,,,,,,[randomisation] = '',,,,,,
-,rand_datetime,,randomisering,,text,Randomiseringsdato:,,,date_ymd,,,,"[randomisation_yn] = '1' and 
+,rand_datetime,,randomisering,,text,Randomiseringsdato:,,,date_ymd,,,,"[randomisation_yn] = '1' and
 [randomisation] <> ''",,,,,," @CALCDATE([rand-time], 0, 'd') @READ-ONLY"
-,rand_datetime77,,randomisering,,text,Randomisering vises efter:,,,date_ymd,,,,"[randomisation_yn] = '1' and 
+,rand_datetime77,,randomisering,,text,Randomisering vises efter:,,,date_ymd,,,,"[randomisation_yn] = '1' and
 [randomisation] <> ''",,,,,," @CALCDATE([rand-time], 62, 'd')"
-,randomisation,,randomisering,,radio,Randomisering:,"1, HighCarb | 2, LowCarb",,,,,,,,,,,," @IF([rand_datetime77] = '', @HIDDEN, 
+,randomisation,,randomisering,,radio,Randomisering:,"1, HighCarb | 2, LowCarb",,,,,,,,,,,," @IF([rand_datetime77] = '', @HIDDEN,
 @IF(datediff([rand_datetime77],'today','d', true) < 0, @HIDDEN, ''))"
 ,randomisation_yn,,randomisering,,radio,Skal deltageren randomiseres?,"1, Ja | 2, Nej",klik på 'Save' efter valg af værdi,,,,,,y,,,,,
 ,sefnc_busy_schedule,selfefficacy_for_nutrition_change_week_04,sefnc_baseline_v4,,radio,"Hvor sikker er du på, at du kan følge din kost, når dit skema er hektisk (er ressource- og/eller tidskrævende)?","1, 0% | 2, 10% | 3, 20% | 4, 30% | 5, 40% | 6, 50% | 7, 60% | 8, 70% | 9, 80% | 10, 90% | 11, 100%",,,,,,,y,,9,sefnc_9,,Participant's confidence in following their diet when their schedule is busy or resource- and/or time-demanding. Self-reported by participant. Baseline (V4).
@@ -2203,7 +2203,7 @@ This year, value used for calculation. Master data. Not filled in from i1050."
 ,dropout_criteria_prescreen,,stamdata,,notes,Hvilket/hvilke inklusionskriterier/eksklusionskriterier,,,,,,,[dropout_prescreen] = '3' or [dropout_prescreen] = '4',y,,,,,Record the in- or exclusion criteria the participant failed on. Master data.
 ,dropout_criteria_v1,,stamdata,,notes,Hvilket/hvilke inklusionskriterier/eksklusionskriterier,,,,,,,[dropout_v1] = '3' or [dropout_v1] = '4',y,,,,,Record the in- or exclusion criteria the participant failed on. Master data.
 ,dropout_intervention,,stamdata,,radio,Er personen udgået under interventionsperioden?,"1, Ja | 2, Nej",,,,,,,y,,,,,Whether the participant dropped out during the intervention period. Master data.
-,dropout_other_before_v1,,stamdata,,notes,"Hvis ""andet"" beskriv om muligt hvorfor",,,,,,,[dropout_before_v1] = '5',,,,,,Additional notes regarding dropout. Master data. 
+,dropout_other_before_v1,,stamdata,,notes,"Hvis ""andet"" beskriv om muligt hvorfor",,,,,,,[dropout_before_v1] = '5',,,,,,Additional notes regarding dropout. Master data.
 ,dropout_other_prescreen,,stamdata,,notes,"Hvis ""andet"" beskriv om muligt hvorfor",,,,,,,[dropout_prescreen] = '5',y,,,,,Additional notes regarding dropout. Master data.
 ,dropout_other_v1,,stamdata,,notes,"Hvis ""andet"" beskriv om muligt hvorfor",,,,,,,[dropout_v1] = '5',,,,,,Additional notes regarding dropout. Master data.
 ,dropout_prescreen,,stamdata,,radio,Udgået til præscreening,"1, Ja - Afsluttet efter manglende tilbagemelding efter rykker | 2, Ja - Var ikke interesseret efter skriftlig deltagerinformation | 3, Ja - Opfylder ikke inklusionskriterierne | 4, Ja - Opfylder et eller flere af eksklusionskriterierne | 5, Ja - Andet",,,,,,,,,,,,Reason for dropout at prescreening. Master data.
@@ -2233,7 +2233,7 @@ This year, value used for calculation. Master data. Not filled in from i1050."
 ,record_id_s,,stamdata,,text,Record ID,,,,,,,,,,,,,Record ID. Master data.
 ,recruitment_source_other_master_data,,stamdata,,text,"Hvis Andet, beskriv",,,,,,,[recruitment_source_v1]='9',y,,,,,"Specifikation, if the recruitment source selected was ""Other"". Master data."
 ,recruitment_source_v1,,stamdata,"<div class=""rich-text-field-label""><p><span style=""font-size: 14pt;"">Status på deltagelse i interventionen</span></p> <p><span style=""font-size: 10pt; font-weight: normal;"">Nedenfor gives en status på forsøgsdeltagerens deltagelse i interventionen. </span></p></div>",radio,Hvordan blev deltageren rekrutteret til studiet?,"1, Via ON LiMiT's hjemmeside | 2, Via anden hjemmeside | 3, Via rekrutteringsfirmaet Trial Tree | 5, Via egen læge | 6, Via Diabetesforeningen | 7, Via opslag på sociale medier (fx Facebook, Instagram, LinkedIn) | 8, Via fysisk opslag (fx sundhedscenter, bibliotek, lægehus) | 9, Andet | 10, Kan ikke huske",,,,,,,y,,,,,"States recruitment source: ON LiMiT website; Other website; Recruitment agency (TrialTree); General practitioner; Danish Diabetes Association; Social media (e.g. Facebook, Instagram, LinkedIn); Physical poster (e.g. health centre, library, GP practice); Other; Cannot recall. Master data."
-,sex_stamdata,,stamdata,,radio,Køn,"1, Mand | 2, Kvinde",,,,,,,y,,,,,Sex of the participant. Master data. 
+,sex_stamdata,,stamdata,,radio,Køn,"1, Mand | 2, Kvinde",,,,,,,y,,,,,Sex of the participant. Master data.
 ,t2_debut_stamdata,,stamdata,,text,"<div class=""rich-text-field-label""><p><span style=""background-color: #e03e2d;"">UDFYLDES IKKE</span><br><br>Debutår, type 2-diabetes</p></div>",,"Notér det debutår, der er angivet i SP. Alternativt kan ses i Sundhedsplatformen under ""laboratoriesvar"", hvornår deltageren første gang har haft HbA1c > 48 mmol/mol. Hvis intet angivet, spørg deltager (angiv hele årstal, eksempelvis 2005).",,,,,,y,,,,," @HIDDEN
 Debut year of T2D. Master data. Not filled in from i1050."
 ,t2_duration_stamdata,,stamdata,,calc,"<div class=""rich-text-field-label""><p><span style=""background-color: #e03e2d;"">UDFYLDES IKKE</span><br><br>Hvor mange år har deltageren haft type 2-diabetes?</p></div>",([current_year_stamdata]-[t2_debut_stamdata]),Eksklusion hvis > 6 år.,,,,,,y,,,,," @HIDDEN
