@@ -214,7 +214,14 @@ There are specific things to note about the REDCap data:
 When processing the data, each resource should (almost always) contain a
 `participant_id` and a `study_week_id` field.
 
-The concept of 'baseline' in the feasibility study is not being used entirely consistently. The baseline 'week' contains several visits, which are all before what in the protocol is referred to as week 0. Therefore the baseline visits are running from week -4 to week -1 (visit 4). The only activity in week 0 is the first group session with the dieticians, this is also the point where randomisation takes place. The study team has advised that for the purpose of calculating the study week we should use the date of this session as the point of reference.
+The concept of 'baseline' in the feasibility study is not being used entirely
+consistently. The baseline 'week' contains several visits, which are all before
+what in the protocol is referred to as week 0. Therefore the baseline visits are
+running from week -4 to week -1 (visit 4). The only activity in week 0 is the
+first group session with the dieticians, this is also the point where
+randomisation takes place. The study team has advised that for the purpose of
+calculating the study week we should use the date of this session as the point
+of reference.
 
 #### REDCap metadata files
 
