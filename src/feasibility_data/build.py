@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Annotated
 
 import polars as pl
+import pytask
 from pytask import DirectoryNode, Product
 
 from feasibility_data import common, data, metadata
@@ -64,6 +65,7 @@ def task_download_raw_redcap_data(
         data.redcap.raw.write(csv_data, raw_data_dir)
 
 
+@pytask.mark.metadata
 def task_create_form_metadata(
     form_metadata_path: Annotated[Path, Product] = FORM_METADATA_PATH,
     field_metadata_path: Path = FIELD_METADATA_PATH,
