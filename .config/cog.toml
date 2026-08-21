@@ -10,7 +10,7 @@ pre_bump_hooks = [
   "sed -i 's/version=.*,/version=\"{{version}}\",/' src/feasibility_data/metadata/core.py",
   "sed -i 's/\"version\": .*,/\"version\": \"{{version}}\",/' datapackage.json",
   "just build-package {{version}}",
-  "git commit CHANGELOG.md pyproject.toml uv.lock -m 'build: 🔖 update version to {{version}} [skip ci]'",
+  "git commit CHANGELOG.md pyproject.toml datapackage.json src/feasibility_data/metadata/core.py uv.lock -m 'build: 🔖 update version to {{version}} [skip ci]'",
 ]
 post_bump_hooks = ["git push", "git push --tags"]
 
