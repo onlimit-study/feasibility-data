@@ -55,7 +55,9 @@ input. We first need to build the actual data package by running using the set
 of justfile recipes. We have one main recipe called and several helper recipes:
 
 - `just build-package` builds the data package into `.tar` and `.zip` files in
-  the `releases/` folder.
+  the `releases/` folder. Run this on it's own to test how or whether the final
+  build process works. During the release process, this command is run in order
+  to build the final package before creating a new version.
 - `just build-metadata` is a helper to rebuild the metadata files if, e.g. you
   want to test out how the metadata will look like in the website.
 - `just build-raw` is a helper to download the raw data from the source
@@ -83,7 +85,8 @@ Some things to note that during the build process:
 During development, saving raw data in `raw/` into the Git LFS store should be
 intentional and should only be done within an explicit and atomic pull request.
 That way we can control what commit type is used based on what actually happens
-in the data (e.g. a fix or new data).
+in the data (e.g. a fix or new data). Use `just build-raw` to help with this
+intentional commit.
 
 ## Release process
 
