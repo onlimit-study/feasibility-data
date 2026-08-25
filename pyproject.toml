@@ -45,9 +45,14 @@ extend = ".config/ruff.toml"
 python_version = "3.12"
 strict = true
 
+[[tool.mypy.overrides]]
+module = "feasibility_data.build"
+disallow_untyped_decorators = false
+
 [tool.pytask.ini_options]
 paths = ["src/feasibility_data"]
 task_files = ["task_*.py", "build.py"]
+markers = ["metadata"]
 
 [dependency-groups]
 dev = [

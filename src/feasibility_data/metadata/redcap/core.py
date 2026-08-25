@@ -1,7 +1,46 @@
 import re
-from typing import cast
+from dataclasses import dataclass
+from typing import Any, cast
 
+import polars as pl
 import seedcase_soil as so
+
+
+@dataclass(frozen=True)
+class FormMetadata:
+    """Class to hold the metadata of a form."""
+
+    name: str
+    fields: list[str]
+    events: list[str]
+    repeats: bool
+
+
+def create_form_metadata(
+    field_df: pl.DataFrame,
+    event_df: pl.DataFrame,
+    repeating_forms_df: pl.DataFrame,
+) -> list[dict[str, Any]]:
+    """Create the metadata for each form."""
+    field_df = field_df.group_by("form_name", maintain_order=True).agg(
+        pl.col("field_name").alias("fields")
+    )
+    event_df = (
+        event_df.group_by("form", maintain_order=True)
+        .agg(pl.col("unique_event_name").alias("events"))
+        .rename({"form": "form_name"})
+    )
+    repeating_form_names = repeating_forms_df.get_column("form_name").unique()
+    form_df = field_df.join(event_df, on="form_name", how="left").with_columns(
+        pl.col("form_name").is_in(repeating_form_names).alias("repeats"),
+        pl.col("events").fill_null([]),
+    )
+    return form_df.select(
+        pl.col("form_name").alias("name"),
+        pl.col("fields"),
+        pl.col("events"),
+        pl.col("repeats"),
+    ).to_dicts()
 
 
 def expand_checkbox_fields(
