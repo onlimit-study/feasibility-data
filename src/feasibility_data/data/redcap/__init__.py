@@ -1,5 +1,5 @@
 """REDCap data functions."""
 
-from . import raw
+from . import core, raw
 
-__all__ = ["raw"]
+__all__ = ["core", "raw"]

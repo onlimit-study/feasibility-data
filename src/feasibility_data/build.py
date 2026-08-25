@@ -4,6 +4,7 @@ from typing import Annotated
 
 import polars as pl
 import pytask
+import seedcase_soil as so
 from pytask import DirectoryNode, Product
 
 from feasibility_data import common, data, metadata
@@ -16,6 +17,7 @@ RAW = SRC.joinpath("..", "raw").resolve()
 
 BLD_REDCAP = BLD / "redcap"
 RAW_REDCAP = RAW / "redcap"
+RAW_REDCAP_DATA = DirectoryNode(root_dir=RAW_REDCAP, pattern="*.csv.gz")
 
 RAW_MYFOOD24 = RAW / "myfood24"
 
@@ -23,6 +25,7 @@ FIELD_METADATA_PATH = BLD_REDCAP / "field_metadata.json"
 EVENT_METADATA_PATH = BLD_REDCAP / "event_metadata.json"
 REPEATING_FORMS_METADATA_PATH = BLD_REDCAP / "repeating_forms_metadata.json"
 FORM_METADATA_PATH = BLD_REDCAP / "form_metadata.json"
+FORMS = BLD_REDCAP / "forms"
 
 
 def task_download_field_metadata(
@@ -52,11 +55,7 @@ def task_download_repeating_forms_metadata(
 
 
 def task_download_raw_redcap_data(
-    raw_data_dir: Annotated[
-        Path,
-        DirectoryNode(root_dir=RAW_REDCAP, pattern="*.csv.gz"),
-        Product,
-    ],
+    raw_data_dir: Annotated[Path, RAW_REDCAP_DATA, Product],
 ) -> None:
     """Download the latest data from all centers to `RAW_REDCAP/<timestamp>.csv.gz`."""
     # TODO: Handle all centers
@@ -85,6 +84,31 @@ def task_create_form_metadata(
     )
 
     common.json.write(form_metadata_path, form_metadata)
+
+
+def task_split_forms(
+    forms_dir: Annotated[
+        Path,
+        DirectoryNode(root_dir=FORMS, pattern="**/*.parquet"),
+        Product,
+    ],
+    raw_data_paths: Annotated[list[Path], RAW_REDCAP_DATA],
+    form_metadata_path: Path = FORM_METADATA_PATH,
+) -> None:
+    """Split each batch of raw data into one Parquet file per form.
+
+    Written to `FORMS/<timestamp>/<form_name>.parquet`.
+    """
+    forms_metadata = so.fmap(
+        common.json.read(form_metadata_path),
+        lambda item: metadata.redcap.core.FormMetadata(**item),
+    )
+    for raw_data_path in raw_data_paths:
+        raw_data = data.redcap.core.read_raw(raw_data_path, forms_metadata)
+        forms = data.redcap.core.split_forms(raw_data, forms_metadata)
+
+        for form in forms:
+            data.redcap.core.write_form(form, forms_dir, raw_data_path)
 
 
 def task_download_myfood24_data(
