@@ -48,6 +48,7 @@ strict = true
 [tool.pytask.ini_options]
 paths = ["src/feasibility_data"]
 task_files = ["task_*.py", "build.py"]
+markers = ["metadata"]
 
 [dependency-groups]
 dev = [

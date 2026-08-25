@@ -107,3 +107,30 @@ update-from-template:
 # Reset repo changes to match the template
 reset-from-template:
   uvx copier recopy --defaults
+
+# Build data package and create a new release
+[confirm("Are you sure you want to run the release process? (yes/no)")]
+release: run-all
+  #!/bin/sh
+  # TODO: Remove once ready to release.
+  echo "Release process not ready, cancelling."
+  exit 0
+  # TODO: Uncomment when ready.
+  # if [[ $(cog --config .config/cog.toml bump --auto --dry-run) != No* ]]; then
+  #   echo "Found releasable changes, starting build and local release process."
+  #   cog --config .config/cog.toml bump --auto
+  #   version=$(cog get-version)
+  #   # Remove logging from git-cliff.
+  #   echo "Starting GitHub release process."
+  #   RUST_LOG='none' uvx git-cliff --latest --output RELEASE_NOTES.md --strip all
+  #   # Needs correct authentication.
+  #   gh release create "${version}" \
+  #     --title "Release ${version}" \
+  #     --notes-file RELEASE_NOTES.md \
+  #     releases/latest/feasibility-data.zip
+  #   # Clean up
+  #   rm RELEASE_NOTES.md
+  #   echo "Finished releasing ${version} to GitHub."
+  # else
+  #   echo "No releasable changes detected."
+  # fi

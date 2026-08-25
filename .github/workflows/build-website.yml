@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-# To force read only on all permissions at workflow level.
+# Limit token permissions for security
 permissions: read-all
 
 jobs:
@@ -17,6 +17,8 @@ jobs:
     concurrency:
       group: build-website-group
       cancel-in-progress: true
+    env:
+      QUARTO_PYTHON: ".venv/bin/python3"
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
@@ -29,13 +31,32 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
+          # Install a specific version of uv.
+          # uv recommends to set the version for best practice.
+          version: "0.11.15"
+          # To have a faster CI time, enable cache between runs.
           enable-cache: true
+          # Reset the cache if the lock file changes.
+          cache-dependency-glob: "uv.lock"
+
+      - name: "Set up Python"
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install the project and it's dependencies
+        run: |
+          uv sync --all-extras --dev
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
 
-      - name: Build metadata docs
-        run: uv run seedcase-flower build
+      - name: Spell check repo
+        uses: crate-ci/typos@aca895bf05aec0cb7dffa6f94495e923224d9f17 # v1.46.2
+
+      - name: Build function reference docs
+        run: uv run quartodoc build
 
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
