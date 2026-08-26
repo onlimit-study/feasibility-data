@@ -64,3 +64,5 @@ into multiple resources, we need to do some specific processing.
   `visit_id` during processing, regardless of if those columns will be
   completely missing or not. This is to make sure that during joining with other
   forms that no data is overwritten.
+- After renaming the old column names with the new column names, drop all
+  columns ending in either `_admin` or `_qc` (quality control).
