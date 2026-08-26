@@ -28,7 +28,7 @@ def task_download_field_metadata(
 ) -> None:
     """Download field metadata to `BLD_REDCAP`."""
     metadata = common.redcap.get_json("metadata")
-    common.json.write(field_metadata_path, metadata)
+    common.json.write(metadata, field_metadata_path)
 
 
 def task_download_event_metadata(
@@ -36,7 +36,7 @@ def task_download_event_metadata(
 ) -> None:
     """Download event metadata to `BLD_REDCAP`."""
     metadata = common.redcap.get_json("formEventMapping")
-    common.json.write(event_metadata_path, metadata)
+    common.json.write(metadata, event_metadata_path)
 
 
 def task_download_repeating_forms_metadata(
@@ -46,7 +46,7 @@ def task_download_repeating_forms_metadata(
 ) -> None:
     """Download repeating forms metadata to `BLD_REDCAP`."""
     metadata = common.redcap.get_json("repeatingFormsEvents")
-    common.json.write(repeating_forms_metadata_path, metadata)
+    common.json.write(metadata, repeating_forms_metadata_path)
 
 
 def task_download_raw_redcap_data(
@@ -74,7 +74,7 @@ def task_preprocess_field_metadata(
     field_metadata_preprocessed = metadata.redcap.core.expand_checkbox_fields(
         field_metadata
     )
-    common.json.write(field_metadata_preprocessed_path, field_metadata_preprocessed)
+    common.json.write(field_metadata_preprocessed, field_metadata_preprocessed_path)
 
 
 def task_download_myfood24_data(
