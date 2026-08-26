@@ -60,3 +60,7 @@ into multiple resources, we need to do some specific processing.
   `vas_<time>` form names.
 - Some fields have `_v*` suffix, which require them to be pivoted longer and add
   a `visit_id` column to identify the pivot.
+- All staged resources will need a `participant_id`, `study_week_id`, and
+  `visit_id` during processing, regardless of if those columns will be
+  completely missing or not. This is to make sure that during joining with other
+  forms that no data is overwritten.
