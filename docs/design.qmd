@@ -66,3 +66,6 @@ into multiple resources, we need to do some specific processing.
   forms that no data is overwritten.
 - After renaming the old column names with the new column names, drop all
   columns ending in either `_admin` or `_qc` (quality control).
+- Any form prefix or suffix will be removed from the column name during the
+  renaming process (after first applying the map between old and new column
+  names from the CSV file).
