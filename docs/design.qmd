@@ -58,3 +58,5 @@ into multiple resources, we need to do some specific processing.
   (e.g. the `vas_*` forms). These types of forms need to include an additional
   `*_id`, for example, creating a `vas_time_id` that has the time value from the
   `vas_<time>` form names.
+- Some fields have `_v*` suffix, which require them to be pivoted longer and add
+  a `visit_id` column to identify the pivot.
