@@ -9,7 +9,7 @@ def read(path: Path) -> Any:
         return json.load(f)
 
 
-def write(path: Path, data: Any) -> None:
+def write(data: Any, path: Path) -> None:
     """Write data to a JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:
