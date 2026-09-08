@@ -1,0 +1,100 @@
+---
+title: "Design"
+---
+
+This document describes some high-level details about where the data is coming
+from and how it is flowing through the build process. It also describes some
+specific things that need to be done to some types of data that aren't in the
+source data. REDCap data in particular requires a fair amount of processing to
+get into the right resource shape. @fig-build-flow below shows a visual of the
+flow.
+
+```{mermaid}
+%%| label: fig-build-flow
+%%| fig-cap: "Flow of data and metadata from source locations to final `.tar` file."
+%%| fig-alt: >-
+%%|   A flowchart with nodes for the different places that data and metadata are
+%%|   saved at, with arrows between indicating which places are connect and what
+%%|   tool gets them there.
+
+flowchart TB
+  tar["feasibility-data_VERSION.tar"]
+  md_json["datapackage.json"]
+  resources["resources/*.parquet"]
+  staging["staging/**/*.parquet"]
+  md_py["metadata/core.py<br>metadata/RESOURCES.py"]
+  raw["raw/**/*"]
+  liva_d["Liva<br>(data)"]
+  liva_md["Liva<br>(metadata)"]
+  rc_d["REDCap<br>(data)"]
+  rc_md["REDCap<br>(metadata)"]
+  myfood_d["MyFood24<br>(data)"]
+  myfood_md["MyFood24<br>(metadata)"]
+
+  md_json & resources --> tar
+  staging -->|Sprout| resources
+  md_py -->|Sprout?| md_json
+  raw -->|"pytask<br>(staging)"| staging
+
+  rc_d & liva_d & myfood_d -->|"pytask<br>(raw)"| raw
+
+  staging -->|Sprout<br>extract| md_py
+  rc_md -->|pytask<br>merge| md_py
+  liva_md & myfood_md -->|?| md_py
+```
+
+## REDCap: Raw to staging
+
+Downloading from REDCap via the web API outputs a CSV file that contains all
+fields and all forms together in one file. This isn't very usable for analysis
+purposes, nor is it friendly to work with. In order to get it from this format
+into multiple resources, we need to do some specific processing.
+
+- Have a mapping of original field (column) names and their form to the new
+  column names and the resource they are kept in.
+- Each resource must have at least the `participant_id` column and most should
+  contain the `study_week_id` column as connecting keys between resources.
+- Some forms need to be combined and pivoted longer (stacked) into one resource
+  (e.g. the `vas_*` forms). These types of forms need to include an additional
+  `*_id`. See below for more details.
+- Some fields have `_v*` suffix, which require them to be pivoted longer and add
+  a `visit_id` column to identify the pivot. Afterwards, the `_v*` suffix is
+  removed.
+- All staged resources will need a `participant_id`, `study_week_id`, and
+  `visit_id` during processing, regardless of if those columns will be
+  completely missing or not. This is to make sure that during joining with other
+  forms that no data is overwritten.
+- Any variable ending in `_admin` or `_qc` is not processed at all.
+- Variables assigned to `admin` or `qc` resources won't be included in this data
+  package, as both those resources will not be stored in `staging/`.
+- After renaming the old column names with the new column names, drop all
+  columns ending in either `_admin` or `_qc` (quality control).
+- Any form prefix or suffix will be removed from the column name during the
+  renaming process (after first applying the map between old and new column
+  names from the CSV file). Form prefixes or suffixes are indicated by name in
+  the column `form_abbrev` of the `raw-to-resource.csv` mapping file. If that
+  row is empty, than the name is kept in the `new_form_name` column.
+- Any `date_*` that records collection date or other types of dates related to
+  the participant within a form are included in all resources generated from
+  that form. They have the resource `*` in the mapping CSV.
+
+<!-- TODO: Not sure if `*` is the right thing to use here...? -->
+
+There are some forms that require some particular processing:
+
+- `sefnc` has suffices with `_week_*`. So these all need to be pivoted longer
+  and extract the study week number from the suffix to add to a new column
+  `study_week_id`.
+- `vas_*` forms end in the time point that the measure was taken. So each form
+  needs to be pivoted longer, a new column called `time_minute_id` is added, and
+  the value of the time point is used in that column (e.g. `"240min"`). The time
+  needs to be then converted to integers, though there is a value `"minus10"`,
+  which needs to be converted to `-10`.
+- `medicine_changes` fields end in `_rep`, which need to be removed during
+  renaming.
+- `gruppemde_*` (`group_meetings_*`) end in
+- `hba1c_*` has some forms that end in `_week_*` that need to be pivoted longer
+  and a `study_week_id` column added with the value from the form name. The
+  `*_follow_up` form will have the `study_week_id` added to it (it doesn't have
+  it in the database). The fields in these forms also have a `week` suffix that
+  can be removed.
