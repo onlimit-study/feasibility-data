@@ -215,7 +215,7 @@ When processing the data, each resource should (almost always) contain a
 `participant_id` and a `study_week_id` field.
 
 The concept of 'baseline' in the feasibility study is not being used entirely
-consistently. The baseline 'week' contains several visits, which are all before
+consistently. The baseline period contains several visits, which are all before
 what in the protocol is referred to as week 0. Therefore the baseline visits are
 running from week -4 to week -1 (visit 4). The only activity in week 0 is the
 first group session with the dieticians, this is also the point where
