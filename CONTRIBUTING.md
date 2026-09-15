@@ -55,7 +55,7 @@ input. We first need to build the actual data package by running using the set
 of justfile recipes. We have one main recipe called and several helper recipes:
 
 - `just build-package` builds the data package into `.tar` and `.zip` files in
-  the `releases/` folder. Run this on it's own to test how or whether the final
+  the `releases/` folder. Run this on its own to test how or whether the final
   build process works. During the release process, this command is run in order
   to build the final package before creating a new version.
 - `just build-metadata` is a helper to rebuild the metadata files if, e.g. you
