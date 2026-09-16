@@ -72,8 +72,8 @@ into multiple resources, we need to do some specific processing.
 - Any form prefix or suffix will be removed from the column name during the
   renaming process (after first applying the map between old and new column
   names from the CSV file). Form prefixes or suffixes are indicated by name in
-  the column `form_abbrev` of the `raw-to-resource-map.csv` mapping file. If that
-  row is empty, than the name is kept in the `new_form_name` column.
+  the column `form_abbrev` of the `raw-to-resource-map.csv` mapping file. If
+  that row is empty, than the name is kept in the `new_form_name` column.
 - Any `date_*` that records collection date or other types of dates related to
   the participant within a form are included in all resources generated from
   that form. They have the resource `*` in the mapping CSV.
