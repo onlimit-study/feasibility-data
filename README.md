@@ -30,8 +30,8 @@ University](https://au.dk), Denmark.
 Check out our
 [website](https://onlimit-study.github.io/feasibility-data) for more
 information, such as the
-[metadata](https://onlimit-study.github.io/feasibility-data/docs/) on
-the data package and its contents.
+[metadata](https://onlimit-study.github.io/feasibility-data/docs/metadata/)
+on the data package and its contents.
 
 > [!TIP]
 >

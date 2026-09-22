@@ -6,6 +6,7 @@ pre_bump_hooks = [
   # Quiet the log output of git-cliff, it is noisy.
   "RUST_LOG='none' uvx git-cliff --tag {{version}}",
   "uvx --from panache-cli panache format CHANGELOG.md --quiet",
+  # The `datapackage.json` version comes from `pyproject.toml`.
   "uv version {{version}}",
   "sed -i 's/version=.*,/version=\"{{version}}\",/' src/feasibility_data/metadata/core.py",
   "sed -i 's/\"version\": .*,/\"version\": \"{{version}}\",/' datapackage.json",

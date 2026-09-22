@@ -2,7 +2,7 @@
     just --list --unsorted
 
 # Run all build-related recipes in the justfile
-run-all: install-deps update-quarto-theme format-python format-md check-all build-all
+run-all: install-deps update-quarto-theme format-all check-all build-all
 
 # Run all format-related recipes
 format-all: format-md format-python
@@ -16,11 +16,17 @@ build-all: build-contributors build-website build-readme
 # List all TODO items in the repository
 list-todos:
   grep -R -n \
-    --exclude="*.code-snippets" \
+    --exclude-dir=*_cache \
+    --exclude-dir=.git \
     --exclude-dir=.quarto \
+    --exclude-dir=.venv \
     --exclude-dir=_site \
+    --exclude-dir=_temp \
+    --exclude-dir=template \
+    --exclude=copier.yaml \
+    --exclude=json.code-snippets \
     --exclude=justfile \
-    "TODO" *
+    "TODO" .
 
 # Install the pre-commit hooks
 install-precommit:
@@ -83,7 +89,7 @@ check-unused:
 build-metadata:
   uv run pytask build -m metadata
 
-# Run the 'raw' tasks to build the raw data, e.g. by downloading from the source locations into `raw/`
+# Run the 'raw' tasks to build the raw data and/or metadata, e.g. by downloading from the source locations into `raw/`
 build-raw:
   uv run pytask build -m raw
 
@@ -111,20 +117,20 @@ build-package version="0.0.0": build-staging build-metadata build-resources buil
     README.md \
     CHANGELOG.md \
     resources/**/*.parquet
-  repo="feasibility-data"
+  repo=$(basename $(pwd))
   (
     cd releases/latest/ && \
-      tar --create --file=${repo}.tar * && \
-      zip ${repo}.zip \
+      tar --create --file=$repo.tar * && \
+      zip $repo.zip \
         datapackage.json \
         LICENSE.md \
         README.md \
         CHANGELOG.md
   )
-  cp releases/latest/${repo}.tar \
-    releases/${repo}_{{version}}.tar
-  cp releases/latest/${repo}.zip \
-    releases/${repo}_{{version}}.zip
+  cp releases/latest/$repo.tar \
+    releases/$repo_{{version}}.tar
+  cp releases/latest/$repo.zip \
+    releases/$repo_{{version}}.zip
 
 # Generate a Quarto include file with the contributors
 build-contributors:
@@ -143,17 +149,8 @@ build-website: build-metadata-docs
   uv run quarto render
 
 # Preview the documentation website with automatic reload on changes
-preview-website:
-  uv run quarto preview
-
-# Check for and apply updates from the template
-update-from-template:
-  # Do not update existing source files
-  uvx copier update --defaults $(find src/feasibility_data -type f -printf "--exclude %p ")
-
-# Reset repo changes to match the template
-reset-from-template:
-  uvx copier recopy --defaults
+preview-website: build-metadata-docs
+  uv run quarto quarto preview --execute
 
 # Build data package and create a new release
 [confirm("Are you sure you want to run the release process? (yes/no)")]
@@ -183,3 +180,12 @@ release: run-all
   # else
   #   echo "No releasable changes detected."
   # fi
+
+# Check for and apply updates from the template
+update-from-template:
+  # Do not update existing source files
+  uvx copier update --defaults $(find src/feasibility_data -type f -printf "--exclude %p ")
+
+# Reset repo changes to match the template
+reset-from-template:
+  uvx copier recopy --defaults
