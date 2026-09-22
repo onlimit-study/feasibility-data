@@ -8,7 +8,7 @@ University, Denmark but is not publicly accessible. The publicly accessible
 content of this Data Package is the documentation and metadata associated with
 the data.
 
-You can browse the metadata on the [Data Package page](docs/index.qmd).
+You can browse the metadata on the [Data Package page](docs/metadata/index.qmd).
 
 ## Licensing
 

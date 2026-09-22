@@ -22,7 +22,7 @@ website:
     - id: overview
       style: "docked"
       contents:
-        - index.md
+        - index.qmd
         - CONTRIBUTING.md
         - CHANGELOG.md
     - id: package
