@@ -1,0 +1,14 @@
+# Uncomment if needing more details
+# verbose = "info"
+require_https = true
+exclude = ["github\\.com", "pre-commit\\.ci"]
+extensions = ["md", "qmd", "py"]
+exclude_path = [
+  "_badges.qmd",
+  "CHANGELOG.md",
+  # Has URLs to private redcap servers, so will always fail.
+  "src/feasibility_data/common/redcap.py",
+  # Has API URL to MyFood24, which will always fail
+  "src/feasibility_data/data/myfood24/raw.py",
+
+]
