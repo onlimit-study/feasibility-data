@@ -83,9 +83,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-6a537fba8eaf0f87500e2e8a30aa56d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-09105b4b80c3f7cc48e1378baa286a5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-95d7fb852a3f174b7d286ed098712f48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-09105b4b80c3f7cc48e1378baa286a5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cc5d30976b748af6383c7f52bdf0dee8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-cc5d30976b748af6383c7f52bdf0dee8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cc5d30976b748af6383c7f52bdf0dee8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./docs/index.html"> 
+    <a class="nav-link" href="./docs/metadata/index.html"> 
 <span class="menu-text">Data Package</span></a>
   </li>  
 </ul>
@@ -215,34 +215,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="build-process" class="level2">
 <h2 class="anchored" data-anchor-id="build-process">Build process</h2>
-<p>Like other types of packages (e.g.&nbsp;Rust, Python, R), the contents of the repository <em>build</em> the final data package, but aren’t the data package itself. The repository contains the source code and raw data input, but isn’t the package itself. We need to first “compile” the code and the raw data input into the final data package.</p>
-<p>Here are some of the steps involved in the build process:</p>
+<p>We primarily follow the build process described in our <a href="https://data-pkg-guide.seedcase-project.org/">Building Data Packages</a> guide, in the chapter on the <a href="https://data-pkg-guide.seedcase-project.org/docs/build/">build process</a>.</p>
+<p>The contents of this repository <em>build</em> the final data package, but aren’t the data package itself. The repository only contains the source code and raw data input. We first need to build the actual data package by running using the set of justfile recipes. We have one main recipe called and several helper recipes:</p>
 <ul>
-<li>The raw data is pulled from the source locations during the build and release (described below) process, saved into <code>raw/</code> and processed into <code>staging/</code>. We use <a href="https://pytask-dev.readthedocs.io/en/stable/">pytask</a> to manage this phase of the build process.</li>
-<li>The <code>raw/</code> data files are saved into Git LFS during the build and release (described below) process, but no other data artifact is kept in the Git history.</li>
-<li>The metadata file is generated from the Python code into <code>datapackage.json</code> and the resource files are generated from the <code>staging/</code> data. The metadata file is the only file saved in the Git history during the build and release phase. We use <a href="https://sprout.seedcase-project.org/">Sprout</a> along with <a href="https://pytask-dev.readthedocs.io/en/stable/">pytask</a> to handle this section of the build process.</li>
-<li>The data package is built into one <code>.tar</code> file that contains the metadata file (<code>datapackage.json</code>), <code>LICENSE.md</code>, <code>README.md</code>, and the resource files. It is also built into a <code>.zip</code> file with the same files except for the data. This <code>.zip</code> file will be what is uploaded to public archives, while the <code>.tar</code> file remains on the server. The <code>.tar</code> and <code>.zip</code> files are saved into a Git ignored <code>releases/</code> directory, with the filename being the name of the data package and the version number (e.g.&nbsp;<code>feasibility-data_0.1.0.tar</code>).</li>
+<li><code>just build-package</code> builds the data package into <code>.tar</code> and <code>.zip</code> files in the <code>releases/</code> folder. Run this on its own to test how or whether the final build process works. During the release process, this command is run in order to build the final package before creating a new version.</li>
+<li><code>just build-metadata</code> is a helper to rebuild the metadata files if, e.g.&nbsp;you want to test out how the metadata will look like in the website.</li>
+<li><code>just build-raw</code> is a helper to download the raw data from the source locations, e.g.&nbsp;REDCap. We use this in order to create PRs that update the data in <code>raw/</code>, since that is the only data we store in the Git LFS (<code>staging/</code> and <code>resources/</code> are not saved, as described in the guide). This runs the <a href="https://pytask-dev.readthedocs.io/en/stable/">pytask</a> ‘raw’ tasks.</li>
+<li><code>just build-staging</code> is a helper to process the raw data into <code>staging/</code>. This runs the <a href="https://pytask-dev.readthedocs.io/en/stable/">pytask</a> ‘staging’ tasks.</li>
+<li><code>just build-resources</code> is a helper to process <code>staging/</code> into the final <code>resources/</code>.</li>
 </ul>
-<!-- TODO: Do we want to store other files in the `.tar` and `.zip` files?  -->
-<p>What this means during development is that:</p>
+<p>Some things to note that during the build process:</p>
 <ul>
-<li>No data is saved or stored in Git LFS. Outside of the build and release (described below) process, we treat any data pulled from sources or processed into staging or resources as temporary.</li>
-<li>Pull requests should <em>not</em> contain any changes to the <code>datapackage.json</code> file nor any additions of data in <code>raw/</code>, <code>staging/</code>, or <code>resources/</code>. These files are generated during the build process and should not be modified or added directly.</li>
-<li>Commit messages should still be written in the Conventional Commits format, though the specific commit types used are a bit different considering no data or metadata files are being modified directly. See the <a href="#release-process">release process</a> section below for more details on commit messages to use.</li>
+<li>No data is saved or stored in Git LFS. We treat any data pulled from sources or processed into staging or resources as temporary.</li>
+<li>Pull requests should <em>not</em> contain any changes to the <code>datapackage.json</code> file or any additions of data in <code>raw/</code>, <code>staging/</code>, or <code>resources/</code>.</li>
+<li>Commit messages should still be written in the Conventional Commits format. See the <a href="https://data-pkg-guide.seedcase-project.org/docs/release#commits">commits section</a> of the guide for details.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The build process is simply an automated sequence of steps that uses the code to pull raw data (and potentially metadata), process it, and save it into the final data package. It does not do anything to the Git history, e.g.&nbsp;committing files. However, the release process is where files generated from the build process are committed to Git and saved into Git LFS. The release process is described in more detail below.</p>
-</div>
-</div>
+<p>During development, saving raw data in <code>raw/</code> into the Git LFS store should be intentional and should only be done within an explicit and atomic pull request. That way we can control what commit type is used based on what actually happens in the data (e.g.&nbsp;a fix or new data). Use <code>just build-raw</code> to help with this intentional commit.</p>
 </section>
 <section id="release-process" class="level2">
 <h2 class="anchored" data-anchor-id="release-process">Release process</h2>
@@ -298,7 +286,8 @@ Note
 <li>Fields ending in <code>_id</code> are primary/foreign keys.</li>
 <li>Fields that contain <code>admin</code> are excluded from the data package.</li>
 </ul>
-<p>When processing the data, each resource should (almost always) contain a <code>participant_id</code> and a <code>visit_id</code> field.</p>
+<p>When processing the data, each resource should (almost always) contain a <code>participant_id</code> and a <code>study_week_id</code> field.</p>
+<p>The concept of ‘baseline’ in the feasibility study is not being used entirely consistently. The baseline period contains several visits, which are all before what in the protocol is referred to as week 0. Therefore the baseline visits are running from week -4 to week -1 (visit 4). The only activity in week 0 is the first group session with the dieticians, this is also the point where randomisation takes place. The study team has advised that for the purpose of calculating the study week we should use the date of this session as the point of reference.</p>
 <section id="redcap-metadata-files" class="level4">
 <h4 class="anchored" data-anchor-id="redcap-metadata-files">REDCap metadata files</h4>
 <p>Before we can extract properties from the data downloaded from REDCap, we have to tidy the data and split it into separate files by resource. To do this, we use the following metadata files downloaded from REDCap:</p>
