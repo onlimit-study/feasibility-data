@@ -38,10 +38,6 @@ repository = "https://github.com/onlimit-study/feasibility-data"
 issues = "https://github.com/onlimit-study/feasibility-data/issues"
 changelog = "https://github.com/onlimit-study/feasibility-data/blob/main/CHANGELOG.md"
 
-[tool.mypy]
-python_version = "3.12"
-strict = true
-
 [dependency-groups]
 dev = [
   "jupyter>=1.1.1",
@@ -70,3 +66,12 @@ task_files = ["task_*.py", "build.py"]
 metadata = "Tasks to process and build the metadata for the data package."
 raw = "Tasks to download and save data (and maybe metadata) from different source locations into 'raw/'."
 staging = "Tasks to process data from 'raw/' to 'staging/'."
+
+[tool.pyrefly]
+project-includes = ["src/"]
+min-severity = "warn"
+python-version = "3.12.0"
+preset = "strict"
+python-interpreter-path = ".venv/bin/python"
+# Use inline `# type: ignore` comments, which can be useful.
+permissive-ignores = true
