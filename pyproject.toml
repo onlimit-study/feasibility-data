@@ -38,16 +38,9 @@ repository = "https://github.com/onlimit-study/feasibility-data"
 issues = "https://github.com/onlimit-study/feasibility-data/issues"
 changelog = "https://github.com/onlimit-study/feasibility-data/blob/main/CHANGELOG.md"
 
-[tool.ruff]
-extend = ".config/ruff.toml"
-
 [tool.mypy]
 python_version = "3.12"
 strict = true
-
-[tool.pytask.ini_options]
-paths = ["src/feasibility_data"]
-task_files = ["task_*.py", "build.py"]
 
 [dependency-groups]
 dev = [
@@ -58,5 +51,22 @@ dev = [
 ]
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.12.17,<0.13"]
+build-backend = "uv_build"
+
+[tool.ruff]
+extend = ".config/ruff.toml"
+
+[tool.seedcase-flower]
+style = "quarto-resource-tables"
+output-dir = "docs/metadata"
+
+[tool.pytask.ini_options]
+paths = ["src/feasibility_data"]
+task_files = ["task_*.py", "build.py"]
+
+# Setting up markers for phases of a build pipeline
+[tool.pytask.ini_options.markers]
+metadata = "Tasks to process and build the metadata for the data package."
+raw = "Tasks to download and save data (and maybe metadata) from different source locations into 'raw/'."
+staging = "Tasks to process data from 'raw/' to 'staging/'."

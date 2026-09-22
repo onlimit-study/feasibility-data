@@ -17,8 +17,8 @@ data is stored on the [GenomeDK](https://genome.au.dk) server at [Aarhus
 University](https://au.dk), Denmark.
 
 Check out our [website]({{< meta links.site >}}) for more information, such as
-the [metadata]({{< meta links.site >}}/docs/) on the data package and its
-contents.
+the [metadata]({{< meta links.site >}}/docs/metadata/) on the data package and
+its contents.
 
 ::: callout-tip
 This data package was generated from the [Template Data

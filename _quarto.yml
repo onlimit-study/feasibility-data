@@ -13,7 +13,7 @@ website:
       - text: "Overview"
         href: index.qmd
       - text: "Data Package"
-        href: docs/index.qmd
+        href: docs/metadata/index.qmd
     tools:
       - icon: github
         href: "https://github.com/onlimit-study/feasibility-data"
@@ -26,17 +26,11 @@ website:
         - CONTRIBUTING.md
         - CHANGELOG.md
     - id: package
-      style: "docked"
       contents:
         - text: "Package"
-          href: docs/index.qmd
-        - auto: docs/resources/
+          href: docs/metadata/index.qmd
+        - auto: docs/metadata/resources/
 
 format:
   onlimit-theme-html:
     toc: false
-    theme:
-      - brand
-    # TODO: Uncomment if using the goatcounter website visitor counter
-    # include-before-body:
-      # - "includes/site-counter.html"

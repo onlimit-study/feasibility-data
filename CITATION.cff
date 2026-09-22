@@ -25,7 +25,10 @@ authors:
     given-names: Joel
     orcid: "https://orcid.org/0000-0003-0051-3239"
 cff-version: 1.2.0
+# TODO: Add DOI when finally published.
 # doi:
+# TODO: Add date of first published DOI.
+# date-published:
 keywords:
   - "data package"
   - "frictionless data"

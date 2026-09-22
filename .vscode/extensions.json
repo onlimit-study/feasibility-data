@@ -16,8 +16,8 @@
     "pshaddel.conventional-branch",
     "tekumara.typos-vscode",
     "EditorConfig.EditorConfig",
-    "rvben.rumdl"
+    "rvben.rumdl",
+    "jolars.panache"
   ],
-  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": []
 }
