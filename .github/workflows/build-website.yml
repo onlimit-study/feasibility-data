@@ -52,11 +52,8 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
 
-      - name: Spell check repo
-        uses: crate-ci/typos@4d9c206a77c041268485162b8e2579ad7a5cb9a3 # v1.50.0
-
-      - name: Build function reference docs
-        run: uv run quartodoc build
+      - name: Build metadata docs
+        run: uvx seedcase-flower build
 
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
