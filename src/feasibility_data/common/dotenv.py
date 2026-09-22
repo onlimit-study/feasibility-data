@@ -9,3 +9,4 @@ def load_env_vars() -> None:
     """
     load_dotenv("/faststorage/project/sdca-onlimit-study/env/.feasibility-env")
     load_dotenv(".env", override=True)
+    load_dotenv(".env.example", override=True)
