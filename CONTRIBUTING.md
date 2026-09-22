@@ -35,13 +35,165 @@ to see what commands are available. To see a list of commands available, run:
 just
 ```
 
-As you contribute, make sure your changes will pass our tests by opening a
+You can run a recipe by typing:
+
+```bash
+just <recipe-name>
+```
+
+As you contribute, make sure your changes will pass our checks by opening a
 terminal so that the working directory is the root of this project
-(`feasibility-data/`) and running:
+(`feasibility-data/`) and running our recipes. Some recipes to run regularly
+are:
+
+```bash
+just check-all
+just build-package
+```
+
+Which runs some checks (like formatting and code checks) and builds the data
+package (like regenerating the `datapackage.json` file). And once you're ready
+to create a pull request, you run:
 
 ```bash
 just run-all
 ```
+
+When committing changes, please try to follow [Conventional
+Commits](https://decisions.seedcase-project.org/why-conventional-commits/) as
+Git messages. Using this convention allows us to be able to automatically create
+a release based on the commit message by using
+[Cocogitto](https://decisions.seedcase-project.org/why-semantic-release-with-cocogitto/).
+If you don't use Conventional Commits when making a commit, we will revise the
+pull request title to follow that format. That's because we use squash merges
+when merging pull requests, so all other commits in the pull request will be
+squashed into one commit.
+
+## :file_folder: Explanation of files and folders
+
+This is a brief description of some of the files in this repository.
+
+### Data package content
+
+- `src/`: The folder you should put all your Python files in, as this data
+  package is structured like a Python package. The organization of the folder is
+  up to you, but we recommend following a structure commonly found in data
+  engineering projects, e.g. in
+  [dbt](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview?version=2)
+  projects. We recommend that Python files only contain functions and classes
+  for data processing, while the actual data processing is done in `main.py` to
+  keep all the processing steps in one place.
+- `raw/`: The folder for all your raw data files. These data files should come
+  directly from their source locations (e.g. a database, an API, or a downloaded
+  file) without having been modified in any way. Name the files using the
+  convention: `raw/<data-source>/<timestamp>.csv` (or whatever format your data
+  is in).
+- `staging/`: The folder where processed data files are stored after they've
+  been tidied from `raw/` but before they've been converted into a resource in
+  `resources/`. The files in this folder can be used to actually create the
+  resource properties, as they will all be in a tidy format with their data
+  types and values more or less in their final form. Name the files using the
+  convention:
+  `staging/(data|metadata)/<data-source>/<data-resource>/<timestamp>.parquet`
+  (Sprout requires Parquet).
+- `resources/`: The folder with your data resources. Each resource has its own
+  Parquet file (or files) containing all resource data contained within.
+
+### Layout of `src/`
+
+Similar to how `raw/` and `staging/` are organized, the Python files within
+`src/` are organized at the top level by `data` and `metadata`, then by source
+of the original data, and finally by the eventual resource name. The structure
+under `src/feasibility_data/` is:
+
+- `metadata/<source>/<resource>.py`: Python files within this directory contain
+  functions that are used to convert the raw dictionaries into the final
+  `datapackage.json` metadata file. Functions within these modules can be named
+  without needing to state the source or resource (as the module path already
+  contains that information). For example, `metadata/redcap/vas.py` would
+  contain the functions for processing the metadata for the VAS resource from
+  the REDCap source.
+- `data/<source>/<resource>.py`: Same with the metadata files, but these contain
+  functions for taking the original raw data and converting them into the
+  `staging/` folder. Unlike the metadata above, raw data goes into `staging/`
+  first before being processed into the final data resource as Sprout needs to
+  run checks against the metadata before converting it into the final data
+  resource.
+- In either the `data/` or `metadata/` directories, files named `*/core.py`
+  contain functions that do general processing tasks related to the parent
+  folder name. For example, `metadata/core.py` contains functions for top-level
+  metadata processing that is for general metadata, but not strictly tied to any
+  given source or resource, such as data package-level metadata. Meanwhile,
+  `data/redcap/core.py` contains functions for processing REDCap data that is
+  *not* specific to any resource. This `core.py` file can be treated like the
+  `__init__.py` file. We don't use `__init__.py` files to store functions as the
+  semantic meaning of `__init__.py` is to initialise the folder as part of the
+  package. The semantic meaning of `core.py` is to be a collection of functions
+  that are used in its parent source/resource folder.
+- `common/`: Contains functions that are used across *all* (or many) Python
+  files, between metadata and data or between sources/resources. This is not the
+  same as the `**/core.py` files that are *specific* to the particular source or
+  resource. The names of the Python files within are not standardized, but they
+  should be descriptive of the overall functionality they provide within. An
+  advantage of keeping common functions in one location is that it makes it
+  easier for us to identify if any of these functions belong in their own
+  package.
+- `build.py`: This file lists all the functions (as
+  [pytask](https://pytask-dev.readthedocs.io/en/stable/) tasks) that are needed
+  to take the raw data and raw dictionaries and turn it all into a final data
+  package. We keep all tasks in this file to make it easier to track, review,
+  and update the full build process in one location.
+
+Similar to a Python package, all Python files must only contain functions and/or
+classes and not be called directly. Functions are kept small and focused, with a
+narrow scope and clear input and output (with type hints, ideally using custom
+types). The only exception is the `build.py` file that has the pytask tasks.
+This file is used to build up all the smaller functions into specific tasks.
+These tasks have input/output that matches the style of pytask and can be larger
+and more complex than the non-build functions.
+
+### Configuration and other content
+
+- `.copier-answers.yml`: Contains the answers you gave when copying the project
+  from the template. **You should not modify this file directly.**
+- `.github/`: Contains GitHub-specific files, such as issue and pull request
+  templates, workflows,
+  [dependabot](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide)
+  configuration, pull request templates, and a
+  [CODEOWNERS](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)
+  file.
+- `_quarto.yml`: Quarto configuration file for the website, including settings
+  for the website, such as the theme, navigation, and other options.
+- `_metadata.yml`: Quarto metadata file for the website, including information
+  about the project, such as the titles and GitHub names.
+- `.gitignore`: This ignore file tells Git which files to not track. Unless you
+  know what you are doing, it's best to not touch this file.
+- `.pre-commit-config.yaml`: [Pre-commit](https://pre-commit.com/) configuration
+  file for managing and running checks before each commit.
+- `.config/`: Contains configuration files for various tools used in the
+  project, such as:
+  - `typos.toml`: [typos](https://github.com/crate-ci/typos) spell checker
+    configuration file.
+  - `rumdl.toml`: [rumdl](https://rumdl.dev) configuration file for formatting
+    Markdown files in the project.
+  - `cog.toml`: [Cocogitto](https://docs.cocogitto.io) configuration file for
+    managing versions.
+  - `lychee.toml`: [Lychee](https://lychee.cli.rs) configuration file for
+    checking URLs.
+  - `cliff.toml`: [git-cliff](https://git-cliff.org) configuration file for
+    creating the changelog.
+  - `ruff.toml`: [Ruff](https://github.com/charliermarsh/ruff) configuration
+    file for linting and formatting Python code.
+- `.editorconfig`: Editor configuration file for
+  [EditorConfig](https://editorconfig.org/) to maintain consistent coding styles
+  across different editors and IDEs.
+- `CITATION.cff`: Structured citation metadata for your project when archived on
+  [Zenodo](https://zenodo.org/) and used by GitHub to display the citation
+  information on the repository page. This is used to add the metadata to Zenodo
+  when a GitHub release has been uploaded to Zenodo.
+- `justfile`: [`just`](https://just.systems/man/en/) configuration file for
+  scripting project tasks.
+- `CHANGELOG.md`: Changelog file for tracking changes in the project.
 
 ## Build process
 
@@ -120,49 +272,6 @@ the [commits
 section](https://data-pkg-guide.seedcase-project.org/docs/release#commits) of
 the guide.
 
-## :file_folder: Explanation of files and folders
-
-This is a brief description of some of the files in this repository.
-
-- `.copier-answers.yml`: Contains the answers you gave when copying the project
-  from the template. **You should not modify this file directly.**
-- `.github/`: Contains GitHub-specific files, such as issue and pull request
-  templates, workflows,
-  [dependabot](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide)
-  configuration, pull request templates, and a
-  [CODEOWNERS](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)
-  file.
-- `_quarto.yml`: Quarto configuration file for the website, including settings
-  for the website, such as the theme, navigation, and other options.
-- `_metadata.yml`: Quarto metadata file for the website, including information
-  about the project, such as the titles and GitHub names.
-- `.gitignore`: This ignore file tells Git which files to not track. Unless you
-  know what you are doing, it's best to not touch this file.
-- `.pre-commit-config.yaml`: [Pre-commit](https://pre-commit.com/) configuration
-  file for managing and running checks before each commit.
-- `.config/`: Contains configuration files for various tools used in the
-  project, such as:
-  - `typos.toml`: [typos](https://github.com/crate-ci/typos) spell checker
-    configuration file.
-  - `rumdl.toml`: [rumdl](https://rumdl.dev) configuration file for formatting
-    Markdown files in the project.
-  - `cog.toml`: [Cocogitto](https://docs.cocogitto.io) configuration file for
-    managing versions.
-  - `cliff.toml`: [git-cliff](https://git-cliff.org) configuration file for
-    creating the changelog.
-  - `ruff.toml`: [Ruff](https://github.com/charliermarsh/ruff) configuration
-    file for linting and formatting Python code.
-- `.editorconfig`: Editor configuration file for
-  [EditorConfig](https://editorconfig.org/) to maintain consistent coding styles
-  across different editors and IDEs.
-- `CITATION.cff`: Structured citation metadata for your project when archived on
-  [Zenodo](https://zenodo.org/) and used by GitHub to display the citation
-  information on the repository page. This is used to add the metadata to Zenodo
-  when a GitHub release has been uploaded to Zenodo.
-- `justfile`: [`just`](https://just.systems/man/en/) configuration file for
-  scripting project tasks.
-- `CHANGELOG.md`: Changelog file for tracking changes in the project.
-
 ## Flow of data
 
 ### REDCap
@@ -231,59 +340,6 @@ use the following metadata files downloaded from REDCap:
   point.
 
 See the [Glossary](#glossary) for a definition of terms.
-
-## Layout of `src/`
-
-Similar to how `raw/` and `staging/` are organized, the Python files within
-`src/` are organized at the top level by `data` and `metadata`, then by source
-of the original data, and finally by the eventual resource name. The structure
-under `src/feasibility_data/` is:
-
-- `metadata/<source>/<resource>.py`: Python files within this directory contain
-  functions that are used to convert the raw dictionaries into the final
-  `datapackage.json` metadata file. Functions within these modules can be named
-  without needing to state the source or resource (as the module path already
-  contains that information). For example, `metadata/redcap/vas.py` would
-  contain the functions for processing the metadata for the VAS resource from
-  the REDCap source.
-- `data/<source>/<resource>.py`: Same with the metadata files, but these contain
-  functions for taking the original raw data and converting them into the
-  `staging/` folder. Unlike the metadata above, raw data goes into `staging/`
-  first before being processed into the final data resource as Sprout needs to
-  run checks against the metadata before converting it into the final data
-  resource.
-- In either the `data/` or `metadata/` directories, files named `*/core.py`
-  contain functions that do general processing tasks related to the parent
-  folder name. For example, `metadata/core.py` contains functions for top-level
-  metadata processing that is for general metadata, but not strictly tied to any
-  given source or resource, such as data package-level metadata. Meanwhile,
-  `data/redcap/core.py` contains functions for processing REDCap data that is
-  *not* specific to any resource. This `core.py` file can be treated like the
-  `__init__.py` file. We don't use `__init__.py` files to store functions as the
-  semantic meaning of `__init__.py` is to initialise the folder as part of the
-  package. The semantic meaning of `core.py` is to be a collection of functions
-  that are used in its parent source/resource folder.
-- `common/`: Contains functions that are used across *all* (or many) Python
-  files, between metadata and data or between sources/resources. This is not the
-  same as the `**/core.py` files that are *specific* to the particular source or
-  resource. The names of the Python files within are not standardized, but they
-  should be descriptive of the overall functionality they provide within. An
-  advantage of keeping common functions in one location is that it makes it
-  easier for us to identify if any of these functions belong in their own
-  package.
-- `build.py`: This file lists all the functions (as
-  [pytask](https://pytask-dev.readthedocs.io/en/stable/) tasks) that are needed
-  to take the raw data and raw dictionaries and turn it all into a final data
-  package. We keep all tasks in this file to make it easier to track, review,
-  and update the full build process in one location.
-
-Similar to a Python package, all Python files must only contain functions and/or
-classes and not be called directly. Functions are kept small and focused, with a
-narrow scope and clear input and output (with type hints, ideally using custom
-types). The only exception is the `build.py` file that has the pytask tasks.
-This file is used to build up all the smaller functions into specific tasks.
-These tasks have input/output that matches the style of pytask and can be larger
-and more complex than the non-build functions.
 
 ## Writing Python code
 
