@@ -536,188 +536,166 @@
   {
     "objectID": "CHANGELOG.html",
     "href": "CHANGELOG.html",
-    "title": "Feasibility Data Package",
+    "title": "Changelog",
     "section": "",
-    "text": "✨ update data and metadata from REDCap (#113)",
+    "text": "✨ update data and metadata from REDCap (#113)\n\n\n\n\n\n\n\n\n♻️ join SEFNC weeks resources (#90)\n\n\n\n\n\n\n\n\n\n\n\n♻️ convert column time suffixes to its own variable in VAS (#89)\n\n\n\n\n\n\n\n\n✨ add raw data to Git LFS (#80)\n\n\n\n\n\n\n\n\n🔧 add Joel as author (#76)\n\n\n\n\n\n\n\n\n✨ download raw data (#66)\n\n\n\n\n\n\n\n\n✨ add website (#70)\n\n\n\n\n\n\n\n\n✨ add git lfs config (#68)\n\n\n\n\n\n\n\n\n🐛 fix Sprout properties name (#69)\n\n\n\n\n\n\n\n\n\n\n\n✨ remove action tags from description (#43)\n\n\n\n\n\n\n\n\n✨ convert REDCap dictionary to resource properties (#35)\n\n\n\n\n\n\n\n\n✨ download REDCap data dictionary script (#33)\n\n\n\n\n\n\n\n\n✨ update package properties (#13)\n\n\n\n\n\n\n\n\n✨ action TODOs (#4)\n✨ initial commit",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section",
     "href": "CHANGELOG.html#section",
-    "title": "Feasibility Data Package",
+    "title": "Changelog",
     "section": "",
     "text": "✨ update data and metadata from REDCap (#113)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-1",
     "href": "CHANGELOG.html#section-1",
-    "title": "Feasibility Data Package",
-    "section": "0.11.1 (2026-06-10)",
-    "text": "0.11.1 (2026-06-10)\n\nRefactor\n\n♻️ join SEFNC weeks resources (#90)",
+    "title": "Changelog",
+    "section": "",
+    "text": "♻️ join SEFNC weeks resources (#90)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
-    ]
-  },
-  {
-    "objectID": "CHANGELOG.html#section-2",
-    "href": "CHANGELOG.html#section-2",
-    "title": "Feasibility Data Package",
-    "section": "0.11.0 (2026-06-03)",
-    "text": "0.11.0 (2026-06-03)",
-    "crumbs": [
-      "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-3",
     "href": "CHANGELOG.html#section-3",
-    "title": "Feasibility Data Package",
-    "section": "0.10.1 (2026-06-02)",
-    "text": "0.10.1 (2026-06-02)\n\nRefactor\n\n♻️ convert column time suffixes to its own variable in VAS (#89)",
+    "title": "Changelog",
+    "section": "",
+    "text": "♻️ convert column time suffixes to its own variable in VAS (#89)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-4",
     "href": "CHANGELOG.html#section-4",
-    "title": "Feasibility Data Package",
-    "section": "0.10.0 (2026-05-20)",
-    "text": "0.10.0 (2026-05-20)\n\nFeat\n\n✨ add raw data to Git LFS (#80)",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ add raw data to Git LFS (#80)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-5",
     "href": "CHANGELOG.html#section-5",
-    "title": "Feasibility Data Package",
-    "section": "0.9.1 (2026-05-20)",
-    "text": "0.9.1 (2026-05-20)\n\nRefactor\n\n🔧 add Joel as author (#76)",
+    "title": "Changelog",
+    "section": "",
+    "text": "🔧 add Joel as author (#76)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-6",
     "href": "CHANGELOG.html#section-6",
-    "title": "Feasibility Data Package",
-    "section": "0.9.0 (2026-05-20)",
-    "text": "0.9.0 (2026-05-20)\n\nFeat\n\n✨ download raw data (#66)",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ download raw data (#66)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-7",
     "href": "CHANGELOG.html#section-7",
-    "title": "Feasibility Data Package",
-    "section": "0.8.0 (2026-05-20)",
-    "text": "0.8.0 (2026-05-20)\n\nFeat\n\n✨ add website (#70)",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ add website (#70)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-8",
     "href": "CHANGELOG.html#section-8",
-    "title": "Feasibility Data Package",
-    "section": "0.7.0 (2026-05-09)",
-    "text": "0.7.0 (2026-05-09)\n\nFeat\n\n✨ add git lfs config (#68)",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ add git lfs config (#68)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-9",
     "href": "CHANGELOG.html#section-9",
-    "title": "Feasibility Data Package",
-    "section": "0.6.2 (2026-05-08)",
-    "text": "0.6.2 (2026-05-08)\n\nFix\n\n🐛 fix Sprout properties name (#69)",
+    "title": "Changelog",
+    "section": "",
+    "text": "🐛 fix Sprout properties name (#69)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
-    ]
-  },
-  {
-    "objectID": "CHANGELOG.html#section-10",
-    "href": "CHANGELOG.html#section-10",
-    "title": "Feasibility Data Package",
-    "section": "0.6.1 (2026-05-04)",
-    "text": "0.6.1 (2026-05-04)",
-    "crumbs": [
-      "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-11",
     "href": "CHANGELOG.html#section-11",
-    "title": "Feasibility Data Package",
-    "section": "0.6.0 (2026-04-08)",
-    "text": "0.6.0 (2026-04-08)\n\nFeat\n\n✨ remove action tags from description (#43)",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ remove action tags from description (#43)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-12",
     "href": "CHANGELOG.html#section-12",
-    "title": "Feasibility Data Package",
-    "section": "0.5.0 (2026-04-07)",
-    "text": "0.5.0 (2026-04-07)\n\nFeat\n\n✨ convert REDCap dictionary to resource properties (#35)",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ convert REDCap dictionary to resource properties (#35)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-13",
     "href": "CHANGELOG.html#section-13",
-    "title": "Feasibility Data Package",
-    "section": "0.4.0 (2026-04-07)",
-    "text": "0.4.0 (2026-04-07)\n\nFeat\n\n✨ download REDCap data dictionary script (#33)",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ download REDCap data dictionary script (#33)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-14",
     "href": "CHANGELOG.html#section-14",
-    "title": "Feasibility Data Package",
-    "section": "0.3.0 (2026-01-19)",
-    "text": "0.3.0 (2026-01-19)\n\nFeat\n\n✨ update package properties (#13)",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ update package properties (#13)",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
     "objectID": "CHANGELOG.html#section-15",
     "href": "CHANGELOG.html#section-15",
-    "title": "Feasibility Data Package",
-    "section": "0.2.0 (2025-12-15)",
-    "text": "0.2.0 (2025-12-15)\n\nFeat\n\n✨ action TODOs (#4)\n✨ initial commit",
+    "title": "Changelog",
+    "section": "",
+    "text": "✨ action TODOs (#4)\n✨ initial commit",
     "crumbs": [
       "Overview",
-      "0.12.0 (2026-06-22)"
+      "Changelog"
     ]
   },
   {
