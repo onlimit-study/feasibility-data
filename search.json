@@ -659,7 +659,7 @@
     "href": "index.html",
     "title": "ON LiMiT Feasibility Data Package",
     "section": "",
-    "text": "A Data Package for the ON LiMiT feasibility study. The data itself is connected to this Data Package via storage on GenomeDK at Aarhus University, Denmark but is not publicly accessible. The publicly accessible content of this Data Package is the documentation and metadata associated with the data.\nYou can browse the metadata on the Data Package page.",
+    "text": "A Data Package for the ON LiMiT feasibility study. The data package includes both the metadata and the data. The metadata is publicly accessible from the repository while the data is stored on the GenomeDK server at Aarhus University, Denmark. The publicly accessible content of this Data Package is the documentation and metadata associated with the data.\nYou can browse the metadata on the Data Package page.",
     "crumbs": [
       "Overview",
       "ON LiMiT Feasibility Data Package"
