@@ -55,9 +55,9 @@ The following people have contributed to this project by submitting pull
 requests :tada:
 
 [@K-Beicher](https://github.com/K-Beicher),
+[@fruvago](https://github.com/fruvago),
 [@joelostblom](https://github.com/joelostblom),
 [@lwjohnst86](https://github.com/lwjohnst86),
-[@martonvago](https://github.com/martonvago),
 [@signekb](https://github.com/signekb)
 
 ## Licensing
@@ -77,14 +77,14 @@ For a list of changes, see our [changelog](CHANGELOG.md) page.
 
 If you use this package in your work, please cite it as follows:
 
-Beicher K., Ibsen D., Johnston L.W., Brødbæk S.K., Vago M., Ostblom J.
+Beicher K., Ibsen D., Johnston L.W., Brødbæk S.K., Vago F., Ostblom J.
 ON LiMiT Feasibility Study Data Package URL:
 https://github.com/onlimit-study/feasibility-data
 
 Or as a BibTeX entry:
 
     @misc{YourReferenceHere,
-    author = {Beicher, Kristiane and Ibsen, Daniel and Johnston, Luke William and Brødbæk, Signe Kirk and Vago, Marton and Ostblom, Joel},
+    author = {Beicher, Kristiane and Ibsen, Daniel and Johnston, Luke William and Brødbæk, Signe Kirk and Vago, Fruzsina and Ostblom, Joel},
     title = {ON LiMiT Feasibility Study Data Package},
     url = {https://github.com/onlimit-study/feasibility-data}
     }

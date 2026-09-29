@@ -54,11 +54,11 @@ package_properties = sp.SproutProperties(
         ),
         sp.ContributorProperties(
             ## Required:
-            title="Marton Vago",
+            title="Fruzsina Vago",
             ## Optional:
             # path="",
-            email="mvago@clin.au.dk",
-            given_name="Marton",
+            email="vago@clin.au.dk",
+            given_name="Fruzsina",
             family_name="Vago",
             organization="Steno Diabetes Centre Aarhus",
             roles=["DataManager", "DataCurator"],
