@@ -341,6 +341,28 @@ use the following metadata files downloaded from REDCap:
 
 See the [Glossary](#glossary) for a definition of terms.
 
+## API keys
+
+The API keys required to download data and metadata from the various data
+sources are stored as environment variables. If these are not available when the
+pipeline runs, tasks that fetch data or metadata from the APIs will return an
+error. For reference, the `.env.example` file lists the names of all environment
+variables.
+
+When working on GenomeDK, these environment variables are loaded from the shared
+`/faststorage/project/sdca-onlimit-study/env/.feasibility-env` file. This should
+happen automatically both when working in the shared project folder and in your
+own user space. If you want to override a value from the shared file for testing
+or development purposes in your personal repository clone, you can add it as an
+environment variable in a `.env` file in the project root.
+
+When working locally, the shared environment variables file is not available. If
+you are developing against a test API or working with an API that only provides
+metadata, you can add the relevant API keys to a `.env` file in the project
+root. In general, to prevent accidentally downloading participant data locally,
+API keys for live data sources containing real participant data should not be
+used outside GenomeDK.
+
 ## Writing Python code
 
 - Each "public" function should be at the top of the module file, with "private"
