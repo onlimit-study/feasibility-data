@@ -59,6 +59,17 @@
       "roles": [
         "DataCurator"
       ]
+    },
+    {
+      "title": "Signe Kirk Brødbæk",
+      "email": "signekb@clin.au.dk",
+      "givenName": "Signe Kirk",
+      "familyName": "Brødbæk",
+      "organization": "Steno Diabetes Centre Aarhus",
+      "roles": [
+        "DataManager",
+        "DataCurator"
+      ]
     }
   ],
   "licenses": [

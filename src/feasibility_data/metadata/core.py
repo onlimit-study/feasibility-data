@@ -73,6 +73,16 @@ package_properties = sp.SproutProperties(
             family_name="Ostblom",
             roles=["DataCurator"],
         ),
+        sp.ContributorProperties(
+            ## Required:
+            title="Signe Kirk Brødbæk",
+            ## Optional:
+            # path="",
+            email="signekb@clin.au.dk",
+            given_name="Signe Kirk",
+            family_name="Brødbæk",
+            roles=["DataManager", "DataCurator"],
+        ),
     ],
     # keywords=[""],
     # image="",
