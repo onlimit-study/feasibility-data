@@ -103,7 +103,7 @@
     "href": "docs/metadata/index.html",
     "title": "feasibility-data: ON LiMiT Feasibility Study Data",
     "section": "",
-    "text": "Licenses:\n\nCC0 1.0 Universal\n\nVersion: 0.12.0\nFull data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.\n\n\n\nKristiane Beicher (kris.beicher@clin.au.dk): DataManager, DataCurator, ContactPerson\nDaniel Borch Ibsen (dbi@ph.au.dk): ContactPerson\nLuke W Johnston (lwjohnst@clin.au.dk): DataManager, DataCurator\nMarton Vago (mvago@clin.au.dk): DataManager, DataCurator\nJoel Ostblom (joel@joelostblom.com): DataCurator",
+    "text": "Licenses:\n\nCC0 1.0 Universal\n\nVersion: 0.12.0\nFull data set on 24 participants in the feasibility arm of the ON LiMiT study. ON LiMiT is looking at remission of type 2 diabetes using diet and exercise.\n\n\n\nKristiane Beicher (kris.beicher@clin.au.dk): DataManager, DataCurator, ContactPerson\nDaniel Borch Ibsen (dbi@ph.au.dk): ContactPerson\nLuke W Johnston (lwjohnst@clin.au.dk): DataManager, DataCurator\nFruzsina Vago (fruzsi.vago@gmail.com): DataManager, DataCurator\nJoel Ostblom (joel@joelostblom.com): DataCurator\nSigne Kirk Brødbæk (signekb@clin.au.dk): DataManager, DataCurator",
     "crumbs": [
       "Data Package",
       "Package"
@@ -114,7 +114,7 @@
     "href": "docs/metadata/index.html#contributors",
     "title": "feasibility-data: ON LiMiT Feasibility Study Data",
     "section": "",
-    "text": "Kristiane Beicher (kris.beicher@clin.au.dk): DataManager, DataCurator, ContactPerson\nDaniel Borch Ibsen (dbi@ph.au.dk): ContactPerson\nLuke W Johnston (lwjohnst@clin.au.dk): DataManager, DataCurator\nMarton Vago (mvago@clin.au.dk): DataManager, DataCurator\nJoel Ostblom (joel@joelostblom.com): DataCurator",
+    "text": "Kristiane Beicher (kris.beicher@clin.au.dk): DataManager, DataCurator, ContactPerson\nDaniel Borch Ibsen (dbi@ph.au.dk): ContactPerson\nLuke W Johnston (lwjohnst@clin.au.dk): DataManager, DataCurator\nFruzsina Vago (fruzsi.vago@gmail.com): DataManager, DataCurator\nJoel Ostblom (joel@joelostblom.com): DataCurator\nSigne Kirk Brødbæk (signekb@clin.au.dk): DataManager, DataCurator",
     "crumbs": [
       "Data Package",
       "Package"
