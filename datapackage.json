@@ -41,9 +41,9 @@
       ]
     },
     {
-      "title": "Marton Vago",
-      "email": "mvago@clin.au.dk",
-      "givenName": "Marton",
+      "title": "Fruzsina Vago",
+      "email": "fruzsi.vago@gmail.com",
+      "givenName": "Fruzsina",
       "familyName": "Vago",
       "organization": "Steno Diabetes Centre Aarhus",
       "roles": [
@@ -57,6 +57,17 @@
       "givenName": "Joel",
       "familyName": "Ostblom",
       "roles": [
+        "DataCurator"
+      ]
+    },
+    {
+      "title": "Signe Kirk Brødbæk",
+      "email": "signekb@clin.au.dk",
+      "givenName": "Signe Kirk",
+      "familyName": "Brødbæk",
+      "organization": "Steno Diabetes Centre Aarhus",
+      "roles": [
+        "DataManager",
         "DataCurator"
       ]
     }
